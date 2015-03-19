@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/W32TeX) (preloaded format=pdflatex 2015.3.11)  19 MAR 2015 17:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/W32TeX) (preloaded format=pdflatex 2015.3.11)  19 MAR 2015 18:46
 entering extended mode
  restricted \write18 enabled.
  Source specials enabled.
@@ -1027,11 +1027,10 @@ Package biblatex Info: ... file 'italian.lbx' found.
  (c:/texlive/2014/texmf-dist/tex/latex/biblatex/lbx/italian.lbx
 File: italian.lbx 2014/06/25 v2.9a biblatex localization (PK/JW/AB)
 )
-(./main.aux (./Capitoli/frontespizio.aux)
+(./main.aux
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
-
-(c:/texlive/2014/texmf-dist/tex/latex/biblatex/lbx/english.lbx
+ (c:/texlive/2014/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 File: english.lbx 2014/06/25 v2.9a biblatex localization (PK/JW/AB)
 ))
 \openout1 = `main.aux'.
@@ -1179,8 +1178,6 @@ LaTeX Info: Redefining \nameref on input line 82.
 Package pgfplots notification 'compat/show suggested version=true': document ha
 s been generated with the most recent feature set (\pgfplotsset{compat=1.12}).
 
-\openout2 = `Capitoli/frontespizio.aux'.
-
 (./Capitoli/frontespizio.tex
 <immagini/logo.png, id=179, 893.3375pt x 605.26125pt>
 File: immagini/logo.png Graphic file (type png)
@@ -1190,11 +1187,9 @@ Package pdftex.def Info: immagini/logo.png used on input line 6.
 
 [1
 
-
 {c:/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./immagini/logo
 .png>] [2]) (./MaterialeInizialeFinale/Dedica.tex)
 (./MaterialeInizialeFinale/Indici.tex [3
-
 
 ] [4
 
@@ -1423,8 +1418,7 @@ Capitolo 6.
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 130.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 130.
- (./main.aux
-(./Capitoli/frontespizio.aux))
+ (./main.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 130.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 130.
 Package rerunfilecheck Info: File `main.out' has not changed.
@@ -1438,10 +1432,10 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 34955 strings out of 493109
- 757203 string characters out of 6138587
- 1383789 words of memory out of 5000000
- 37624 multiletter control sequences out of 15000+600000
+ 34949 strings out of 493109
+ 757068 string characters out of 6138587
+ 1382282 words of memory out of 5000000
+ 37622 multiletter control sequences out of 15000+600000
  23766 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,10n,84p,769b,2706s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1467,10 +1461,10 @@ fonts/type1/public/cm-super/sfti1200.pfb><c:/texlive/2014/texmf-dist/fonts/type
 m-super/sfti1728.pfb><c:/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sf
 tt0800.pfb><c:/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfxc2488.pfb
 >
-Output written on main.pdf (44 pages, 1249331 bytes).
+Output written on main.pdf (44 pages, 1249358 bytes).
 PDF statistics:
- 630 PDF objects out of 1000 (max. 8388607)
- 535 compressed objects within 6 object streams
+ 629 PDF objects out of 1000 (max. 8388607)
+ 534 compressed objects within 6 object streams
  143 named destinations out of 1000 (max. 500000)
  422 words of extra memory for PDF output out of 10000 (max. 10000000)
 

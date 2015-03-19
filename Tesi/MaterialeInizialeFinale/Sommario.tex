@@ -1,0 +1,50 @@
+% !TEX encoding = UTF-8
+% !TEX TS-program = pdflatex
+% !TEX root = ../Tesi.tex
+% !TEX spellcheck = it-IT
+
+%*******************************************************
+% Sommario+Abstract
+%*******************************************************
+\cleardoublepage
+\phantomsection
+\pdfbookmark{Sommario}{Sommario}
+\begingroup
+\let\clearpage\relax
+\let\cleardoublepage\relax
+\let\cleardoublepage\relax
+
+\chapter*{Sommario}
+
+
+\selectlanguage{italian}
+
+In questo lavoro di tesi ho progettato e implementato una versione parallela della libreria per automi cellulari OpenCAL.\\
+OpenCAL, si propone di facilitare l'implementazione di sistemi complessi basati su automi cellulari, offrendo funzionalit\`a complete per progettare un modello e simulare la sua evoluzione nel tempo. \\
+Il mio lavoro \`e consistito nella progettazione, e successiva implementazione, della parallelizzazione di OpenCAL utilizzando le schede grafiche per il calcolo general-purpose (General Purpose Computation with Graphics Processing Units - GPGPU), adottando il Compute Unified Device Architecture (CUDA) framework
+di NVIDIA con lo scopo di migliorare le performance.\\
+
+\textbf {TODO}
+\begin{itemize}
+\item Risultati ottenuti
+\item validità della gpgpu programming
+\end{itemize}
+
+
+
+\hfill \\
+\begin{center}
+\line(1,0){350} 
+%\hfill \\
+\end{center}
+
+\selectlanguage{english}
+\pdfbookmark{Abstract}{Abstract}
+\chapter*{Abstract}
+
+In this work I have design and implemented a parallel version of the library for cellular automata OpenCAL. OpenCAL achievement is the facilitation of the implementation for complex systems cellular automata based. This library offer different complete functionality for design a model and simulate the evolution during the time. My work was based to design and implement.. (to be continued)
+
+\endgroup			
+
+
+

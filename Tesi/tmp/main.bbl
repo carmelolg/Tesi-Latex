@@ -1,0 +1,95 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.4 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \sortlist{nty}{nty}
+    \entry{SCIARA:2001}{article}{}
+      \name{labelname}{4}{}{%
+        {{hash=107449e76d00693725d0bafd73b726ca}{Barca}{B\bibinitperiod}{D.}{D\bibinitperiod}{}{}{}{}}%
+        {{hash=f9588a822fd9e52d13f1817035119320}{Crisci}{C\bibinitperiod}{G.\bibnamedelimi M.}{G\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{hash=afb86e65d1600291818e4f2a62987f53}{Gregorio}{G\bibinitperiod}{S.\bibnamedelimi Di}{S\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
+        {{hash=eae2fe8fd9b08ec45380a8e96d1caf3b}{Nicoletta}{N\bibinitperiod}{F.}{F\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{4}{}{%
+        {{hash=107449e76d00693725d0bafd73b726ca}{Barca}{B\bibinitperiod}{D.}{D\bibinitperiod}{}{}{}{}}%
+        {{hash=f9588a822fd9e52d13f1817035119320}{Crisci}{C\bibinitperiod}{G.\bibnamedelimi M.}{G\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{hash=afb86e65d1600291818e4f2a62987f53}{Gregorio}{G\bibinitperiod}{S.\bibnamedelimi Di}{S\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
+        {{hash=eae2fe8fd9b08ec45380a8e96d1caf3b}{Nicoletta}{N\bibinitperiod}{F.}{F\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{5820a8c4d230ed8a73c28a438c3ac85c}
+      \strng{fullhash}{b6b21fc4c68fd3c7c74b77cbbf49e481}
+      \field{sortinit}{B}
+      \field{sortinithash}{1a3a21dbed09540af12d49a0b14f4751}
+      \field{labeltitle}{Cellular automata for simulating lava flows: A method and examples of the Etnean eruptions}
+      \field{journaltitle}{Transport Theory and Statistical Physics}
+      \field{number}{1-3}
+      \field{title}{Cellular automata for simulating lava flows: A method and examples of the Etnean eruptions}
+      \field{volume}{23}
+      \field{year}{1994}
+      \field{pages}{195\bibrangedash 232}
+    \endentry
+    \entry{CUDA:2007}{manual}{}
+      \field{sortinit}{N}
+      \field{sortinithash}{a52ecf374d1aa02cdea5f29be4dad56c}
+      \field{labeltitle}{NVIDIA CUDA Compute Unified Device Architecture Programming Guide}
+      \field{title}{NVIDIA CUDA Compute Unified Device Architecture Programming Guide}
+    \endentry
+    \entry{Kartashev}{misc}{}
+      \name{labelname}{2}{}{%
+        {{hash=4827598ba715a0b39a450c46dfbd4397}{P.}{P\bibinitperiod}{Kartashev}{K\bibinitperiod}{}{}{}{}}%
+        {{hash=1489b2babfaac7379e28b8704fd69dd3}{V.}{V\bibinitperiod}{Nazaruk}{N\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{hash=4827598ba715a0b39a450c46dfbd4397}{P.}{P\bibinitperiod}{Kartashev}{K\bibinitperiod}{}{}{}{}}%
+        {{hash=1489b2babfaac7379e28b8704fd69dd3}{V.}{V\bibinitperiod}{Nazaruk}{N\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{bf33c4d725e1571e3ef2d8942db9bdf8}
+      \strng{fullhash}{bf33c4d725e1571e3ef2d8942db9bdf8}
+      \field{sortinit}{P}
+      \field{sortinithash}{b8af9282ac256b81613dc9012a0ac921}
+      \field{labeltitle}{Analysis of GPGPU Platforms Efficiency in General-Purpose Computations}
+      \field{title}{Analysis of GPGPU Platforms Efficiency in General-Purpose Computations}
+    \endentry
+    \entry{OpenGL:2004}{book}{}
+      \name{labelname}{2}{}{%
+        {{hash=2d098235b225b656a218b3f06b99c8ce}{Richard\bibnamedelima S.}{R\bibinitperiod\bibinitdelim S\bibinitperiod}{Wright}{W\bibinitperiod}{}{}{}{}}%
+        {{hash=3d93fb079c56a91be2b8b9b10fe0a111}{Benjamin}{B\bibinitperiod}{Lipchak}{L\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{hash=2d098235b225b656a218b3f06b99c8ce}{Richard\bibnamedelima S.}{R\bibinitperiod\bibinitdelim S\bibinitperiod}{Wright}{W\bibinitperiod}{}{}{}{}}%
+        {{hash=3d93fb079c56a91be2b8b9b10fe0a111}{Benjamin}{B\bibinitperiod}{Lipchak}{L\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Sams Publishing}%
+      }
+      \strng{namehash}{5511dc16a4c85850b86a719ec90e84ca}
+      \strng{fullhash}{5511dc16a4c85850b86a719ec90e84ca}
+      \field{sortinit}{R}
+      \field{sortinithash}{ff5a3533ecf9d5a03ff60b1e1389b63d}
+      \field{labeltitle}{OpenGL SuperBible, Third Edition}
+      \field{title}{OpenGL SuperBible, Third Edition}
+      \field{year}{2004}
+    \endentry
+  \endsortlist
+  \missing{Michael J. Flynn}
+  \missing{IBM}
+  \missing{NVIDIA Corporation}
+\endrefsection
+\endinput
+

@@ -1,0 +1,130 @@
+\documentclass[a4paper,titlepage,12 pt,twoside]{report}
+\usepackage[bindingoffset=1cm,centering,includeheadfoot,margin=3cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage[english,italian]{babel}
+
+
+\usepackage{lipsum}                        % testo fittizio
+%immagini
+\usepackage{graphicx}
+%gruppi di immagini
+\usepackage{subfig}
+%formule matematiche display
+\usepackage{amsmath}
+\usepackage{amssymb}
+%linee tabelle
+\usepackage{booktabs}
+%bibliografia
+\usepackage[autostyle,italian=guillemets]{csquotes}
+\usepackage[style=numeric-comp, backend=biber]{biblatex}
+\addbibresource{bibliografia.bib}
+%codice sorgente
+\usepackage{listings}
+\usepackage{xcolor}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstdefinestyle{signature}{
+basicstyle=\small\ttfamily,
+language=C,
+numbers=none,
+numberstyle=\tiny,
+breaklines=true,
+literate = {\\-}{}{0\discretionary{-}{}{}},
+showstringspaces = false
+}
+
+\lstdefinestyle{input}{
+frame = single,
+basicstyle=\ttfamily\scriptsize,
+language=C,
+numbers=left,
+numberstyle=\tiny,
+breaklines=true,
+captionpos=b,
+commentstyle=\color{mygreen},
+keywordstyle=\color{blue},   
+stringstyle=\color{mymauve},
+showstringspaces = false
+}
+
+\lstset{
+basicstyle=\small\ttfamily,
+language=C,
+numbers=left,
+numberstyle=\tiny,
+breaklines=true,
+captionpos=b,
+commentstyle=\color{mygreen},
+keywordstyle=\color{blue},   
+stringstyle=\color{mymauve},
+literate = {\\-}{}{0\discretionary{-}{}{}},
+showstringspaces = false}
+\addto\captionsitalian{
+\renewcommand{\lstlistingname}{Codice}}
+\addto\captionsitalian{
+\renewcommand{\lstlistlistingname}{Elenco dei codici}}
+%collegamenti ipertestuali
+\usepackage{hyperref}
+\hypersetup{hidelinks}
+%testatine
+\pagestyle{headings}
+%commenti
+\usepackage{comment}
+%grafici
+\usepackage{pgfplots}
+\usepackage{tikz}
+\pgfplotsset{/pgf/number format/use comma,compat=newest}
+
+
+\begin{document}
+
+\include{Capitoli/frontespizio}
+
+
+%******************************************************************
+% Materiale iniziale
+%******************************************************************
+\input{MaterialeInizialeFinale/Dedica}
+\input{MaterialeInizialeFinale/Indici}
+\input{MaterialeInizialeFinale/Sommario}
+\input{MaterialeInizialeFinale/Introduzione}
+\cleardoublepage
+
+
+%******************************************************************
+% Materiale principale
+%******************************************************************
+\tableofcontents
+\input{Capitoli/Calcolo_parallelo}
+\input{Capitoli/cuda}
+\input{Capitoli/ac}
+\input{Capitoli/opencal}
+\input{Capitoli/opencal_cuda}
+
+%\input{Capitoli/Lorem}
+%\input{Capitoli/Ipsum}
+%\appendix
+%\input{Capitoli/Dolor}
+
+
+
+% *****************************************************************
+% Materiale finale
+%******************************************************************
+
+\input{MaterialeInizialeFinale/conclusioni}
+\input{MaterialeInizialeFinale/Ringraziamenti}
+
+\listoffigures
+\addcontentsline{toc}{chapter}{Lista delle figure}
+
+\listoftables
+\addcontentsline{toc}{chapter}{Lista delle tabelle}
+
+\printbibliography
+\addcontentsline{toc}{chapter}{\refname}
+
+\end{document}

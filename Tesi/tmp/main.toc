@@ -6,10 +6,6 @@
 \defcounter {refsection}{0}\relax 
 \select@language {italian}
 \defcounter {refsection}{0}\relax 
-\select@language {english}
-\defcounter {refsection}{0}\relax 
-\select@language {italian}
-\defcounter {refsection}{0}\relax 
 \select@language {italian}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {1}Il calcolo parallelo}{14}{chapter.1}
@@ -30,13 +26,13 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.4.1}Tecniche di decomposizione}{19}{subsection.1.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Decomposizione ricorsiva}{21}{section*.17}
+\contentsline {subsubsection}{Decomposizione ricorsiva}{21}{section*.16}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Decomposizione dei dati}{21}{section*.19}
+\contentsline {subsubsection}{Decomposizione dei dati}{21}{section*.18}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Decomposizione esplorativa}{21}{section*.20}
+\contentsline {subsubsection}{Decomposizione esplorativa}{21}{section*.19}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Decomposizione speculativa e ibrida}{22}{section*.21}
+\contentsline {subsubsection}{Decomposizione speculativa e ibrida}{22}{section*.20}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.4.2}Tecniche di mapping}{22}{subsection.1.4.2}
 \defcounter {refsection}{0}\relax 
@@ -62,30 +58,34 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2.3}Interfaccia di programmazione}{31}{section.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.1}Host e Device}{31}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.1}I kernel}{32}{subsection.2.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.2}I kernel}{31}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.2}La memoria}{34}{subsection.2.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.3}La memoria}{31}{subsection.2.3.3}
+\contentsline {subsubsection}{La shared memory}{35}{section*.28}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.4}Parallelismo dinamico}{31}{subsection.2.3.4}
+\contentsline {subsubsection}{La costant memory}{35}{section*.29}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.4}Tools di sviluppo}{31}{section.2.4}
+\contentsline {subsection}{\numberline {2.3.3}Atomicit\`a}{35}{subsection.2.3.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.4.1}Nsight}{31}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.3.4}Parallelismo dinamico}{35}{subsection.2.3.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.4.2}Visual Profiler}{31}{subsection.2.4.2}
+\contentsline {section}{\numberline {2.4}Tools di sviluppo}{35}{section.2.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {3}Automi Cellulari}{32}{chapter.3}
+\contentsline {subsection}{\numberline {2.4.1}Nsight}{35}{subsection.2.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}OpenCAL}{34}{chapter.4}
+\contentsline {subsection}{\numberline {2.4.2}Visual Profiler}{35}{subsection.2.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}OpenCAL-CUDA}{36}{chapter.5}
+\contentsline {chapter}{\numberline {3}Automi Cellulari}{36}{chapter.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}Conclusioni}{38}{chapter.6}
+\contentsline {chapter}{\numberline {4}OpenCAL}{38}{chapter.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Lista delle figure}{42}{chapter*.28}
+\contentsline {chapter}{\numberline {5}OpenCAL-CUDA}{40}{chapter.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Lista delle tabelle}{43}{chapter*.29}
+\contentsline {chapter}{\numberline {6}Conclusioni}{42}{chapter.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Riferimenti bibliografici}{44}{chapter*.30}
+\contentsline {chapter}{Lista delle figure}{46}{chapter*.32}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Lista delle tabelle}{47}{chapter*.33}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Riferimenti bibliografici}{48}{chapter*.34}

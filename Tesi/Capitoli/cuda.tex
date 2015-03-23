@@ -67,14 +67,14 @@ tramite le API fornite appunto da NVIDIA.
 \subsection{Architettura Kepler}
 L'architettura Kepler è stata progettata e successivamente lanciata nel 2010
 insieme all'architettura Fermi. La prima GPU basata sull'architettura Kepler si
-chiamava "GK104" in cui ogni unità  interna è stata progettata ai fini di
+chiamava ``GK104" in cui ogni unità  interna è stata progettata ai fini di
 avere la miglior performance per watt (perf/watt). Alcuni esperti hanno
 affermato che la GK104 Kepler è la GPU più potente per la computazione e il
 rendering grafico dei videogames.
 
 Inizialmente la GPU utilizzata per questo lavoro di tesi è stata la NVIDIA
 GeForce GT 750M basata anch'essa su un architettura Kepler. Il core in
-particolare è il "GK107" che offre due shader di blocchi, chiamati
+particolare è il ``GK107" che offre due shader di blocchi, chiamati
 \textbf{SMX}, ognuno dei quali ha 192 shaders per un totale di 384 shader cores
 con una velocità  di 967 MHz.
 
@@ -86,15 +86,156 @@ con una velocità  di 967 MHz.
 \end{figure} 
 
 \section{Interfaccia di programmazione}
-CUDA è un sistema progettato per elaborare codice parallelo per le 
-GPU Nvidia.
-Essa fornisce al programmatore un insieme di astrazioni facilmente
-comprensibili, consentendo così di concentrarsi sull'efficienza dell'algoritmo 
+Un programma CUDA consiste in una o più fasi che sono eseguite sia lato host
+(\textbf{CPU}) che lato device (\textbf{GPU}). Le fasi in cui l'ammontare
+computazionale non è eccessivo, e dunque non siamo in presenza di
+parallelismo dei dati, vengono implementate lato host, mentre le fasi che
+richiedono un grosso ammontare di parallelismo dei dati sono implementate lato
+device. CUDA consente di creare un unico file sorgente con codice host e device
+insieme. Il compilatore NVIDIA C (\textbf{nvcc} fig. \ref{fig:cuda_compiler})
+separa le due diverse implementazioni durante il processo di compilazione.
 
-\subsection{Host e Device}
+Il linguaggio per scrivere codice sorgente lato device è ANSI C, esteso con
+particolari \textit{keywords} per far comprendere al compilatore quali sono le
+funzioni con la presenza di parallelismo. Queste funzioni sono chiamate
+\textbf{\textit{kernels}}. Per utilizzare nvcc naturalmente dobbiamo essere in
+possesso di una GPU NVidia correttamente montata sulla propria macchina, ma se
+così non fosse si può emulare su CPU le features di CUDA per poter eseguire i
+kernels (MCUDA tool etc.).
+
+Le funzioni kernel generano un determinato di threads eseguiti in parallelo per
+raggiungere il data parallelism. Ad esempio per la somma di due matrici può
+essere implementata come un kernel dove ogni threads computa un elemento
+dell'output. Il massimo del parallelismo si ha quando ad ogni threads è
+associata una cella della matrice. Se la dimensione della matrice è 1000 x 1000
+servono 1 milione di threads per raggiungere il nostro scopo. Lato CPU per
+generare e eseguire lo scheduling di un enorme numero di threads è
+particolarmente oneroso, mentre in CUDA c'è un ottimo supporto hardware da
+questo punto di vista, dunque il programmatore può sorvolare su questo tipo di
+problema.
+
+\begin{figure}[h] 
+\centering 
+\includegraphics[width=0.5\columnwidth]{Immagini/cuda_program} 
+\caption[GT 750M]{Esecuzione di un programma CUDA.\\}
+\label{fig:cuda_program} 
+\end{figure} 
+
+Una tipica esecuzione di un programma CUDA è mostrata nella Fig.
+\ref{fig:cuda_program}.
+L'esecuzione viene eseguita a strati, la prima ad essere eseguita è la parte
+host (CPU) per poi susseguirsi un insieme di strati che possono comportare anche
+il lancio dei kernels nel caso ci siano parti parallelizzate. I threads sono
+inglobati all'interno di \textbf{blocchi} che a loro volta sono parte di una
+griglia di blocchi chiamata \textbf{grid}. Quando un kernel termina, il
+programma continua con l'esecuzione lato host fino a che un nuovo kernel viene
+lanciato.
+
 \subsection{I kernel}
+
+Come detto in precedenza, la funzione \textit{kernel} specifica il codice che
+deve essere eseguito da tutti i threads lanciati nella fase parallela di un
+programma CUDA. Tutti i threads lanciati in parallelo eseguono lo stesso
+codice, infatti un programma CUDA non è nient'altro che l'applicazione pratica
+del modello Single-Program Multiple-Data (Tassonomia di Flynn \ref{par:flynn}).
+Questa tecnica è molto utilizzata nei sistemi paralleli. 
+
+Per poter dichiarare un kernel c'è una specifica keyword di CUDA da utilizzare:
+``\textbf{\_\_global\_\_}''. Questa keyword indica che la funzione è un kernel e
+questa funzione richiamata dall'host genererà una griglia di threads sul device,
+in particolare può solamente essere richiamata lato host (a
+meno che non ci sia un ambiente addatto per potere utilizzare il parallelismo dinamico
+\ref{par:Parallelismo_dinamico}).
+CUDA genera threads suddivisi in blocchi, ed ogni blocco appartiene ad una
+griglia. Lo schema è mostrato in figura \ref{fig:grid_block}.
+
+\begin{figure}[h] 
+\centering 
+\includegraphics[width=0.5\columnwidth]{Immagini/grid_block} 
+\caption[Griglie e blocchi cuda]{Esempio generico di griglie e blocchi in un
+programma CUDA.\\}
+\label{fig:grid_block}
+\end{figure} 
+
+In realtà, la dimensione della griglia e dei blocchi la decide il programmatore,
+che organizza le diverse dimensioni in base al problema e al suo effettivo
+utilizzo. Si può avere fino a tre dimensioni diverse (x,y,z) sia per
+la griglia che per i blocchi. 
+Ad ogni blocco, come per ogni threads, è assegnato un indice che può essere
+ottenuto tramite altre keywords.   
+Le keywords \textsf{threadIdx.x} e \textsf{threadIdx.y} (e in caso anche
+\textsf{threadIdx.z}) si riferiscono all'indice dei threads all'interno di un
+blocco. Tutti i threads eseguono lo stesso codice presente all'interno di un
+kernel, quindi abbiamo bisogno di un meccanismo per distinguerli in modo da
+potergli dare direttive diverse o gestire il loro comportamento.
+Come per i threads anche i blocchi hanno delle specifiche keywords per risalire
+alle loro coordinate. \textsf{blockIdx.x} e \textsf{blockIdx.y} hanno il compito
+di ritornare il valore delle coordinate per ogni blocco. Ogni blocco deve avere
+lo stesso numero di threads.
+
+Spesso i programmatori CUDA utilizzano la \textsf{struct} \textsf{dim3} per
+dichiarare la dimensione di griglie e blocchi. E' una struttura che contiene tre
+diversi interi (le tre dimensioni). Ad esempio se dichiarassimo
+\textsf{dim3 dimGrid(3,2,2)} vogliamo far intendere al compilatore che la
+dimensione della griglia sarà tridimensionale, dove in particolare la
+\textsf{x} avrà valore 3, la \textsf{y} 2 e la \textsf{z} 2. Nel caso in cui
+invece dichiarassimo \textsf{dim3 dimGrid(3)} il compilatore comprende che
+vogliamo solamente utilizzare una dimensione e imposterà la \textsf{y} e la
+\textsf{z} ad 1 automaticamente.
+
+Non dimentichiamo perà che le dimensioni di griglie e blocchi vengono definite
+lato host e non all'interno dei kernels.
+
+\begin{figure}[tb] 
+\centering 
+\includegraphics[width=0.5\columnwidth]{Immagini/cuda_grid} 
+\caption[Griglie e blocchi cuda]{Un esempio di configurazione di griglie e
+blocchi tridimensionale in CUDA.\\}
+\label{fig:cuda_grid}
+\end{figure} 
+
+In ultimo è bene fare la distinzione tra i tre tipi di funzione che possono
+essere dichiarate in un programma CUDA. Il primo tipo sono i kernel accompagnati
+dalla keyword \textsf{``\_\_global\_\_''}, descritti in questo paragrafo, gli
+altri due tipi sono \textsf{``\_\_device\_\_''} e \textsf{``\_\_host\_\_''}.
+Come si può intuire una funzione di tipo \textsf{``\_\_device\_\_''} può essere
+richiamata dai kernels e dunque verrà lanciata lato device, mentre
+\textsf{``\_\_host\_\_''} sarà una funzione che verrà richiamata lato host, in
+cui non avviene nessun parallelismo.
+Nel caso in cui una funzione viene accompagnata da \textsf{``\_\_host\_\_''} e
+\textsf{``\_\_device\_\_''} insieme, il compilatore genera due versioni della
+funzione diverse: una per il device e un'altra per l'host.
+Se una funzione invece non possiede nessuna keyword, implicitamente verrà
+compilata come una funzione host.
+
+Per lanciare un kernel, bisogna aggiungere alla chiamata a funzione la sua
+configurazione definita all'interno di $ \langle\langle\langle $ e
+$ \rangle\rangle\rangle $.
+Al loro interno vanno definiti i parametri relativi alla dimensione di griglie
+e blocchi. Un esempio lo troviamo in \ref{lst:esempio_kernel}.
+
+Naturalmente la dimensioni di griglie e blocchi sono limitate in base alla
+scheda grafica presente sulla macchina. Ad esempio sulla scheda GTX 680 il
+massimo numero di threads per blocchi è 1024 e la dimensione massima di un
+blocco è  \begin{math}1024 \times 1024 \times 64\end{math}.
+
+\medskip
+\lstinputlisting[caption={Esempio del lancio di un kernel con griglie e
+blocchi definiti con la struct dim3.}, label=lst:esempio_kernel,
+style=input]{code/esempio_kernel.c}
+
 \subsection{La memoria}
+
+In CUDA, host e device hanno spazi di memoria separati. L'hardware dei devices
+sono dotati di random memory access propri (DRAM). Quindi per eseguire un kernel
+sul device, il programmatore ha bisogno di allocare la memoria sul device e
+trasferire le informazioni pertinenti ai dati sui cui si vuole agire
+parallelamente dalla memoria sull'host verso la memoria allocata sul device.
+\subsubsection{La shared memory}
+\subsubsection{La costant memory}
+\subsection{Atomicità}
 \subsection{Parallelismo dinamico}
+\label{par:Parallelismo_dinamico}
 
 \section{Tools di sviluppo}
 \subsection{Nsight}

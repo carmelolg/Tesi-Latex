@@ -230,10 +230,114 @@ In CUDA, host e device hanno spazi di memoria separati. L'hardware dei devices
 sono dotati di random memory access propri (DRAM). Quindi per eseguire un kernel
 sul device, il programmatore ha bisogno di allocare la memoria sul device e
 trasferire le informazioni pertinenti ai dati sui cui si vuole agire
-parallelamente dalla memoria sull'host verso la memoria allocata sul device.
+parallelamente dalla memoria sull'host verso la memoria allocata sul device. Il
+sistema CUDA fornisce al programmatore, tramite le sue API, le funzioni per
+gestire le allocazioni e i trasferimenti tra le memorie sull'host e sul device.
+
+Le funzioni C \textsf{malloc( \dots)} e \textsf{memcpy( \dots)} sono riproposte
+da CUDA C con la versione \textsf{cudaMalloc( \dots)} e \textsf{cudaMemcpy(
+\dots)} che eseguono rispettivamente un'allocazione sulla memoria device e una
+trasferimento di dati tra la memoria sull'host e la memoria sul device. In
+particolare \textsf{cudaMemcpy( \dots)} ha bisogno di ricevere in input anche la
+direzione del trasferimento dei dati (da host a device e viceversa). 
+Ecco alcuni esempi delle due funzioni citate:
+
+\medskip
+\lstinputlisting[caption={Allocazione e trasferimenti dei dati tra CPU e GPU
+utilizzando CUDA C.}, label=lst:esempio_mem,
+style=input]{code/esempio_mem.c}
+
+Questa è la prima teoria da conoscere ma, come vedremo, ci sono diversi tipi di
+memoria a cui un thread può accedere all'interno del device. I tipi di memoria
+possono essere classificate per grado di privacy oppure sulla loro velocità.
+Tutti i threads possono accedere liberamente alla \textbf{global memory}
+chiamata anche comunemente \textit{device memory}. I threads all'interno dello
+stesso blocco possono accedere ad una memoria condivisa, chiamata \textbf{shared
+memory}, utilizzata per la loro cooperazione, ed infine tutti possiedono una
+memoria locale chiamata \textbf{registro}.
+
+
+\begin{figure}[h] 
+\centering 
+\includegraphics[width=0.8\columnwidth]{Immagini/memory_model} 
+\caption[Memoria in CUDA]{La struttura della memoria gestita dal sistema
+CUDA.\\}
+\label{fig:memory_model}
+\end{figure} 
+
+
+Ci sono anche due diversi tipi di spazi di memoria che possono essere utilizzati
+dai threads: la memoria costante e la texture memories. Ognuna di loro ha un uso
+particolare, ad esempio la constant memory viene utilizzata per salvare i dati
+che non cambieranno in tutto il ciclo di vita del kernel.
+
+\subsubsection{La global memory}
+Lo spazio di memoria più utilizzato per la lettura e la scrittura dei dati è la
+global memory, allocata e completamente gestita lato host.
+In particolare, in modo da ottimizzare l'accesso alla DRAM non c'è nessun
+controllo di consistenza e più threads possono scrivere e leggere allo stesso
+tempo senza nessun meccanismo di esclusività. Per questo le varie incoerenze
+devono essere completamente gestite dal programmatore.
+
 \subsubsection{La shared memory}
-\subsubsection{La costant memory}
+La shared memory è una parte di memoria utilizzata per condividere dati tra
+threads all'interno dello stesso blocco. Ogni thread dunque può leggere,
+scrivere e modificare dati presenti sulla shared memory ma non può eseguire le
+stesse operazioni sulla shared memory di un altro blocco. CUDA offre un ottimo
+meccanismo per consentire una comunicazione e cooperazione dei threads
+ottimizzata. In particolare una motivazione per cui utilizzare la memoria
+condivisa è la differenza di velocità rispetto alla global memory, già con
+semplici esempi come la moltiplicazione tra matrici si può notare come
+l'utilizzo della shared memory rispetto alla global memory, comporta un
+ottimizzazione dell'algoritmo. Un altra differenza rispetto alla global memory è
+che la durata di vita della shared memory è uguale al ciclo di un kernel, cioè
+al termine del kernel anche la shared memory terminerà il suo lavoro
+rilasciando i dati salvati in precedenza.
+
+In particolare la shared memory è suddivisa in banks, in cui ogni bank può
+eseguire solo una richiesta per volta. 
+
+\begin{figure}[h] 
+\centering 
+\includegraphics[width=0.5\columnwidth]{Immagini/banks} 
+\caption[Memoria in CUDA]{Shared memory divisa in banks.\\}
+\label{fig:banks}
+\end{figure}
+
+\subsubsection{La constant memory}
+Una parte della memoria sul device è la costant memory, che consente di salvare
+un limitato numero di simboli, precisamente 64KB. Si può accedere a questo tipo
+di memoria solo in modalità lettura. In particolare può essere
+utilizzata per aumentare le performance di accesso ai dati che devono essere
+condivisi da tutti i threads. La keyword utilizzata per salvare determinati dati
+sulla memoria costante è: \textsf{``\_\_constant\_\_''}.
+
 \subsection{Atomicità}
+Come scritto in precedenza, la global memory non gestisce nessun tipo di
+inconsistenza dei dati. Per questo è il programmatore che deve gestire la
+scrittura e la lettura concorrente. Per fare ciò, le API di CUDA, forniscono
+diverse funzioni che favoriscono la mutua esclusione per i dati a cui i threads
+accedono. In particolare vengono fornite diverse funzioni, tra cui le più note
+sono quelle relative alle operazioni aritmetiche. Facciamo un breve elenco delle
+funzioni atomiche fornite dalle API di CUDA:
+
+\begin{description}
+  \item [atomicAdd()] gestisce l'esclusività per l'operazione somma.
+  \item [atomicSub()] gestisce l'esclusività per l'operazione sottrazione.
+  \item [atomicMin()] gestisce l'esclusività per il calcolo del minimo.
+  \item [atomicMax()] gestisce l'esclusività per il calcolo del massimo.
+  \item [atomicInc()] gestisce l'esclusività per l'operazione di incremento.
+  \item [atomicDec()] gestisce l'esclusività per l'operazione di decremento.
+  \item [atomicAnd()] gestisce l'esclusività per l'operazione \textit{AND}.
+  \item [atomicOr()] gestisce l'esclusività per l'operazione \textit{OR}.
+  \item [atomicXor()] gestisce l'esclusività per l'operazione \textit{XOR}.
+  \item [atomicCAS()] gestisce l'esclusività per l'operazione di
+  \textit{compare and swap}.
+\end{description}
+
+Grazie a queste funzioni, un programmatore CUDA può gestire le concorrenze
+quando c'è strettamente bisogno della mutua esclusione.
+
 \subsection{Parallelismo dinamico}
 \label{par:Parallelismo_dinamico}
 

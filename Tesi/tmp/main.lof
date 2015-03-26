@@ -10,43 +10,51 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Tassonomia di Flynn}}{16}{figure.caption.10}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Tassonomia di Flynn}}{13}{figure.caption.10}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {1.2}{\ignorespaces UMA e NUMA}}{17}{figure.caption.11}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces UMA e NUMA}}{14}{figure.caption.11}
 \defcounter {refsection}{0}\relax 
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {UMA.}}}{17}{subfigure.2.1}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {UMA.}}}{14}{subfigure.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {NUMA.}}}{17}{subfigure.2.2}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {NUMA.}}}{14}{subfigure.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {1.3}{\ignorespaces Sistema Ibrido}}{18}{figure.caption.12}
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Sistema Ibrido}}{15}{figure.caption.12}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {1.4}{\ignorespaces Decomposition example}}{20}{figure.caption.13}
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Decomposition example}}{17}{figure.caption.13}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {1.5}{\ignorespaces Task-interaction graph}}{20}{figure.caption.14}
+\contentsline {figure}{\numberline {1.5}{\ignorespaces Task-interaction graph}}{17}{figure.caption.14}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {1.6}{\ignorespaces Decomposizione ricorsiva}}{20}{figure.caption.15}
+\contentsline {figure}{\numberline {1.6}{\ignorespaces Decomposizione ricorsiva}}{17}{figure.caption.15}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {1.7}{\ignorespaces Decomposizione dei dati}}{21}{figure.caption.17}
+\contentsline {figure}{\numberline {1.7}{\ignorespaces Decomposizione dei dati}}{18}{figure.caption.17}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {1.8}{\ignorespaces Modello Master-Slave}}{23}{figure.caption.21}
+\contentsline {figure}{\numberline {1.8}{\ignorespaces Modello Master-Slave}}{20}{figure.caption.21}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {1.9}{\ignorespaces Architettura Kepler}}{28}{figure.caption.22}
+\contentsline {figure}{\numberline {1.9}{\ignorespaces Architettura Kepler}}{25}{figure.caption.22}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {1.10}{\ignorespaces Architettura Kepler}}{26}{figure.caption.23}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Compilatore NVCC}}{29}{figure.caption.23}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Compilatore NVCC}}{27}{figure.caption.24}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.2}{\ignorespaces GT 750M}}{31}{figure.caption.24}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces GT 750M}}{29}{figure.caption.25}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.3}{\ignorespaces GT 750M}}{32}{figure.caption.25}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Esecuzione di un programma CUDA}}{30}{figure.caption.26}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Griglie e blocchi cuda}}{33}{figure.caption.26}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Griglie e blocchi cuda}}{31}{figure.caption.27}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Griglie e blocchi cuda}}{34}{figure.caption.27}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Griglie e blocchi tridimensionali in CUDA}}{32}{figure.caption.28}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Memoria in CUDA}}{36}{figure.caption.28}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces CUDA Memory}}{34}{figure.caption.29}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Memoria in CUDA}}{37}{figure.caption.31}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Shared memory}}{35}{figure.caption.32}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Dynamic Parallelism}}{37}{figure.caption.34}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2.9}{\ignorespaces CUDA su Visual Project}}{39}{figure.caption.35}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Visual Profiler}}{40}{figure.caption.36}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 

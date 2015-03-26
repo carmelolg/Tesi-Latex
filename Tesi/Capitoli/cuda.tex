@@ -117,7 +117,7 @@ problema.
 \begin{figure}[h] 
 \centering 
 \includegraphics[width=0.5\columnwidth]{Immagini/cuda_program} 
-\caption[GT 750M]{Esecuzione di un programma CUDA.\\}
+\caption[Esecuzione di un programma CUDA]{Esecuzione di un programma CUDA.\\}
 \label{fig:cuda_program} 
 \end{figure} 
 
@@ -189,8 +189,8 @@ lato host e non all'interno dei kernels.
 \begin{figure}[tb] 
 \centering 
 \includegraphics[width=0.5\columnwidth]{Immagini/cuda_grid} 
-\caption[Griglie e blocchi cuda]{Un esempio di configurazione di griglie e
-blocchi tridimensionale in CUDA.\\}
+\caption[Griglie e blocchi tridimensionali in CUDA]{Un esempio di configurazione
+di griglie e blocchi tridimensionale in CUDA.\\}
 \label{fig:cuda_grid}
 \end{figure} 
 
@@ -260,7 +260,7 @@ memoria locale chiamata \textbf{registro}.
 \begin{figure}[h] 
 \centering 
 \includegraphics[width=0.8\columnwidth]{Immagini/memory_model} 
-\caption[Memoria in CUDA]{La struttura della memoria gestita dal sistema
+\caption[CUDA Memory]{La struttura della memoria gestita dal sistema
 CUDA.\\}
 \label{fig:memory_model}
 \end{figure} 
@@ -272,6 +272,7 @@ particolare, ad esempio la constant memory viene utilizzata per salvare i dati
 che non cambieranno in tutto il ciclo di vita del kernel.
 
 \subsubsection{La global memory}
+\label{par:global_memory}
 Lo spazio di memoria più utilizzato per la lettura e la scrittura dei dati è la
 global memory, allocata e completamente gestita lato host.
 In particolare, in modo da ottimizzare l'accesso alla DRAM non c'è nessun
@@ -280,6 +281,7 @@ tempo senza nessun meccanismo di esclusività. Per questo le varie incoerenze
 devono essere completamente gestite dal programmatore.
 
 \subsubsection{La shared memory}
+\label{par:shared_memory}
 La shared memory è una parte di memoria utilizzata per condividere dati tra
 threads all'interno dello stesso blocco. Ogni thread dunque può leggere,
 scrivere e modificare dati presenti sulla shared memory ma non può eseguire le
@@ -300,11 +302,12 @@ eseguire solo una richiesta per volta.
 \begin{figure}[h] 
 \centering 
 \includegraphics[width=0.5\columnwidth]{Immagini/banks} 
-\caption[Memoria in CUDA]{Shared memory divisa in banks.\\}
+\caption[Shared memory]{Shared memory divisa in banks.\\}
 \label{fig:banks}
 \end{figure}
 
 \subsubsection{La constant memory}
+\label{par:costant_memory}
 Una parte della memoria sul device è la costant memory, che consente di salvare
 un limitato numero di simboli, precisamente 64KB. Si può accedere a questo tipo
 di memoria solo in modalità lettura. In particolare può essere
@@ -340,7 +343,155 @@ quando c'è strettamente bisogno della mutua esclusione.
 
 \subsection{Parallelismo dinamico}
 \label{par:Parallelismo_dinamico}
+Il parallelismo dinamico è un estensione di CUDA, introdotta con CUDA 5.0, che
+consente la creazione e la sincronizzazione di un kernel direttamente dal
+device. Sfruttare questa opportunità comporta diversi vantaggi in termini di
+performance, infatti creare \textit{lavoro} direttamente da GPU può ridurre il
+bisogno di trasferire dati tra host e device come il controllo dell'esecuzione e
+sincronizzazione. In particolare questa nuova feature consente al programmatore
+di gestire la configurazione dei threads anche a runtime direttamente dal
+device. Stessa opportunità si ha per il parallelismo dei dati che può essere
+generato direttamente all'interno di un kernel prendendo i vantaggi che
+l'hardware della GPU offre come lo scheduling e il load balancing.
+
+Il parallelismo dinamico è supportato dai device con una compute capability pari
+a 3.5 o superiore. \cite{CUDA:2012}
+
+All'interno di un kernel, un thread può configurare e lanciare una nuova griglia
+di blocchi chiamata ``child grid'' mentre la griglia a cui appartiene il
+thread si chiamerà ``parent grid''. La sincronizzazione tra parent e grid è
+implicita nel caso in cui non viene espressamente definita.
+L'immagine \ref{fig:dynamic} è un chiaro esempio di approccio al parallelismo
+dinamico.
+
+\begin{figure}[H] 
+\centering 
+\includegraphics[width=0.6\columnwidth]{Immagini/dynamic} 
+\caption[Dynamic Parallelism]{Dynamic Parallelism.\\}
+\label{fig:dynamic}
+\end{figure}
+
+Le griglie parent and grid condividono la stessa memoria globale e la stessa
+memoria costante  ma non la shared memory e la memoria locale
+(\ref{par:costant_memory}). La coerenza e la consistenza possono diventare un
+problema nell'utilizzo del parallelismo dinamico, ragione per cui a volte è
+espressamente indicato l'utilizzo di una sincronizzazione esplicita. In generale
+ci sono due punti di esecuzione in cui c'è la sicurezza di avere dei dati
+consistenti: quando un thread invoca una nuova child grid e quando la child grid
+ha completato la sua esecuzione. Comunque sia, la sincronizzazione può avvenire
+in qualsiasi momento tramite due funzioni appartenenti alle API di CUDA:
+\textsf{cudaDeviceSynchronize()} e \textsf{\_\_syncthreads()}.
+
+\medskip
+\lstinputlisting[caption={Esempio di un programma CUDA utilizzando il Dynamic
+parallelism.}, label=lst:dynamic, style=input]{code/dynamic.c}
 
 \section{Tools di sviluppo}
-\subsection{Nsight}
+Nsight Visual Studio e Nsight Eclipse Edition sono due ottime soluzioni per
+implementare un programma CUDA. La distinzione tra i due fondamentale è il
+sistema operativo in cui operano: il primo sul sistema Windows e il secondo sui
+sistemi Linux e MacOS. 
+
+Spesso, durante le fasi implementative di un programma parallelo, il
+programmatore ha bisogno di funzionalità per ottimizzare i tempi e le
+performance di un programma. Anche nelle applicazioni sequenziali ormai il Debug
+è diventato fondamentale per la corretta implementazione di un programma. In
+CUDA, come nel resto dei paradigmi per il parallelismo, non è scontato avere
+queste utilità nei software per lo sviluppo. 
+
+Fortunatamente, le soluzioni implementate per CUDA offrono al programmatore
+diverse features e tools per ottimizzare il codice e favorire la riuscita di una
+buona implementazione. 
+Nei sistemi Linux e MAC troviamo \textbf{CUDA-GDB}), tool
+di NVIDIA, che consente il debugging delle applicazioni CUDA. 
+Un altro tool degno di menzione è \textbf{CUDA-MEMCHECK}, incluso in
+CUDA Toolkit, che controlla l'accesso alla memoria e i vari errori che possono
+essere incontrati in corso di esecuzione (es. out of bounds, errori di accesso
+alla memoria etc.).
+
+Gli ambienti Nsight per lo sviluppo di applicazioni offrono un sistema user
+friendly che facilità la compilazione dellle applicazioni CUDA. Visual Profiler
+invece risulta essere di vitale importanza ai fini della performance consentendo ai
+programmatori di comprendere e ottimizzare le applicazioni CUDA. La potenza del
+profiler è la facile comprensione del risultato, molto simile ad un diagramma di
+Gantt, che mostra a video le attività della CPU e della GPU includendo analisi
+automatiche sull'applicazione identificando opportunità di miglioramento della
+performance.
+
+\subsection{Nsight Visual Studio}
+Visual Studio è un ambiente di sviluppo molto conosciuto dai programmatori.
+E' sviluppato da Microsoft e supporta diversi linguaggi di programmazione quali
+C, C++, C\#, ASP .Net. Inoltre è un ambiente di sviluppo multipiattaforma con
+cui poter realizzare applicazioni per PC, Server ma anche web applications e
+applicazioni per smartphone.
+
+Nel suo più comune utilizzo offre in dotazione un debugger e un compilatore per
+il linguaggi citati.
+
+La versione Nsight è utilizzata dagli sviluppatori CUDA e fornisce diversi
+strumenti per il Debug, il Profiler e la computazione eterogenea per
+applicazioni CUDA C/C++.
+
+La sua installazione è semplice e la creazione di progetti è guidata per ogni
+tipo di esigenze. In ambiente Windows è veramente immediata l'installazione del
+toolkit fornito da NVIDIA, che consente di creare progetti NVIDIA CUDA
+direttamente da Visual Studio.
+
+\begin{figure}[H] 
+\centering 
+\includegraphics[width=1.0\columnwidth]{Immagini/newprojVS} 
+\caption[CUDA su Visual Project]{Creazione di un progetto CUDA 6.5 su Visual
+Studio.\\}
+\label{fig:newprojVS}
+\end{figure}
+
+%\subsection{Nsight Eclipse Edition}
+
+
 \subsection{Visual Profiler}
+Il Visual Profiler è un software secondario fornito da NVIDIA utile per
+un'analisi approfondita dell'utilizzo della memoria e delle performance in
+generale della GPU. E' un ambiente ricco di funzionalità e informazioni utili
+che il programmatore può utilizzare ai fini di migliorare il programma CUDA e
+migliorarne le prestazioni.
+
+Il software si presenta come in figura \ref{fig:profiler}.
+
+\begin{figure}[H] 
+\centering 
+\includegraphics[width=1.0\columnwidth]{Immagini/profiler} 
+\caption[Visual Profiler]{Esempio di progetto analizzato su VIsual Profiler.\\}
+\label{fig:profiler}
+\end{figure}
+
+Tra le tante analisi effettuate dal software, quelle che risultano più
+interessanti sono sicuramente le informazioni relative al trasferimento di dati
+tra GPU e CPU e le informazioni sui tempi impiegati dai kernel e dal loro
+effettivo utilizzo.
+
+Sul trasferimento dei dati tra memoria è interessante conoscere anche la
+velocità di trasferimento che naturalmente cambia da scheda a scheda e da tipo
+di trasferimento. Il trasferimento dei dati più veloce avviene all'interno del
+device. Infatti una copia di memoria da device a device, su una scheda video
+NVIDIA GT-750M, può arrivare fino a 4,5 TB/s, con trasferimenti che impiegano
+nanosecondi. 
+
+Il profiler risulta molto utile in fase di programmazione poiché rende facile
+l'individuazione dei kernel ``lenti''. Spesso si abusa di chiamate ai kernel
+senza accorgersene e senza profiler è sicuramente più difficile individuare i
+punti critici del programma.
+
+Nel lavoro di tesi è stato utilizzato il profiler parecchie volte in fase di
+programmazione proprio per implementare la versione più performante della
+libreria OpenCAL.
+Per poter utilizzare Visual Profiler bisogna creare un nuovo progetto che prende
+in input l'eseguibile del progetto CUDA compilato e la cartella dei dati che
+vengono utilizzati dal programma. E' anche possibile utilizzare altre
+funzionalità valide per le analisi ma possono essere attivate in fase di
+profiling. Naturalmente il programmatore potrebbe anche desiderare di analizzare
+solo parte del programma, per questo il profiler prende in considerazione
+solamente il codice racchiuso tra le chiamate a funzione
+\textsf{cudaStartProfiler()} e \textsf{cudaStopProfiler()}. 
+
+Il Visual Profiler è scaricabile facilemente dal sito di NVIDIA, e può essere
+utilizzato sia in ambienti Linux/Unix e MacOS che su ambienti Windows.

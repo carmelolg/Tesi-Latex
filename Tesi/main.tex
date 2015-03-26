@@ -4,7 +4,7 @@
 \usepackage[latin1]{inputenc}
 \usepackage[english,italian]{babel}
 
-
+\usepackage{float}
 \usepackage{lipsum}                        % testo fittizio
 %immagini
 \usepackage{graphicx}
@@ -70,7 +70,7 @@ showstringspaces = false}
 \usepackage{hyperref}
 \hypersetup{hidelinks}
 %testatine
-\pagestyle{headings}
+%\pagestyle{headings}
 %commenti
 \usepackage{comment}
 %grafici
@@ -91,13 +91,13 @@ showstringspaces = false}
 \input{MaterialeInizialeFinale/Indici}
 \input{MaterialeInizialeFinale/Sommario}
 \input{MaterialeInizialeFinale/Introduzione}
-\cleardoublepage
 
 
 %******************************************************************
 % Materiale principale
 %******************************************************************
-\tableofcontents
+%\tableofcontents
+
 \input{Capitoli/Calcolo_parallelo}
 \input{Capitoli/cuda}
 \input{Capitoli/ac}
@@ -118,11 +118,6 @@ showstringspaces = false}
 \input{MaterialeInizialeFinale/conclusioni}
 \input{MaterialeInizialeFinale/Ringraziamenti}
 
-\listoffigures
-\addcontentsline{toc}{chapter}{Lista delle figure}
-
-\listoftables
-\addcontentsline{toc}{chapter}{Lista delle tabelle}
 
 \printbibliography
 \addcontentsline{toc}{chapter}{\refname}

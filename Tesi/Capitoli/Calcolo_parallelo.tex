@@ -16,31 +16,45 @@
 
 \section{Introduzione}
 
-Sin dalla nascita dei primi calcolatori, la velocità di calcolo è stata sempre oggetto di ricerche e studi ai fini di migliorare le performance.
-La central processing unit, più comunemente conosciuta come \textbf{CPU}, nel corso degli anni è stata migliorata notevolmente,
-aumentando il potere di calcolo e nello stesso tempo riducendo sempre di più i costi.
+Sin dalla nascita dei primi calcolatori, la velocità di calcolo è stata sempre
+oggetto di ricerche e studi ai fini di migliorare le performance.
+La central processing unit, più comunemente conosciuta come \textbf{CPU}, nel
+corso degli anni è stata migliorata notevolmente, aumentando il potere di
+calcolo e nello stesso tempo riducendo sempre di più i costi.
 
-L'obiettivo primario dei produttori di CPU è stato quello di aumentare il tasso di esecuzione di FLOPS (floating point operations per second),
-in modo da poter sviluppare applicazioni in grado di produrre risultati soddisfacenti in tempi brevi.
-Tuttavia, l'aumento della potenza di calcolo e la velocità hanno incrementato i costi relativi all'energia spesa e la dissipazione di calore
-dei processori basati su singola CPU. Per questo si è pensata una nuova architettura hardware basata sull'aggiunta di più unità di calcolo (cores),
-definendo dunque i processori di ultima generazione \textbf{multicores}.
+L'obiettivo primario dei produttori di CPU è stato quello di aumentare il tasso
+di esecuzione di FLOPS (floating point operations per second), in modo da poter
+sviluppare applicazioni in grado di produrre risultati soddisfacenti in tempi brevi.
+Tuttavia, l'aumento della potenza di calcolo e la velocità hanno incrementato i
+costi relativi all'energia spesa e la dissipazione di calore dei processori
+basati su singola CPU. Per questo si è pensata una nuova architettura hardware
+basata sull'aggiunta di più unità di calcolo (cores), definendo dunque i
+processori di ultima generazione \textbf{multicores}.
 
-Oggi alle comuni CPU si sono affiancate con prepotenza le GPU (graphics processing unit).
-Inizialmente le GPU erano solamente utilizzate per il rendering grafico, campo che tuttora occupano con ottimi risultati.
-Si pensi infatti che tutto il mondo dei videogames ad alta definizione è basato sulla potenza di calcolo delle nuove generazioni
-di GPU sempre più performanti e veloci.
-Nel corso del tempo però si è pensato di sfruttare la loro potenza di calcolo anche nel mondo del parallel computing e in altri campi quali il clustering, 
+Oggi alle comuni CPU si sono affiancate con prepotenza le GPU (graphics
+processing unit). Inizialmente le GPU erano solamente utilizzate per il
+rendering grafico, campo che tuttora occupano con ottimi risultati.
+Si pensi infatti che tutto il mondo dei videogames ad alta definizione è basato
+sulla potenza di calcolo delle nuove generazioni di GPU sempre più performanti e
+veloci.
+Nel corso del tempo però si è pensato di sfruttare la loro potenza di calcolo
+anche nel mondo del parallel computing e in altri campi quali il clustering,
 l'audio signal processing e la bioinformatica.
 
-Un altro dato importante da cui dipende la velocità di un calcolatore è la velocità con cui si accede alla memoria.
-Il gap presente tra la velocità di calcolo e la velocità di accesso alla memoria può influire negativamente sulla performance generale del calcolatore.
-Dopo diversi studi si è risolto questo problema grazie ad un dispositivo di memoria presente nelle architetture hardware moderne,
-la \textbf{cache}. La cache è una memoria gestita dall'hardware che mantiene i dati utilizzati di recente della memoria principale,
-grazie a questo suo funzionamento il gap tra la velocità di calcolo e quella di accesso alla memoria si riduce migliorando le performance del sistema.
+Un altro dato importante da cui dipende la velocità di un calcolatore è la
+velocità con cui si accede alla memoria.
+Il gap presente tra la velocità di calcolo e la velocità di accesso alla memoria
+può influire negativamente sulla performance generale del calcolatore.
+Dopo diversi studi si è risolto questo problema grazie ad un dispositivo di
+memoria presente nelle architetture hardware moderne, la \textbf{cache}. La
+cache è una memoria gestita dall'hardware che mantiene i dati utilizzati di
+recente della memoria principale, grazie a questo suo funzionamento il gap tra
+la velocità di calcolo e quella di accesso alla memoria si riduce migliorando le
+performance del sistema.
 
-Sotto questo punto di vista, l'aspetto vincente dei sistemi dotati di più unità di calcolo,
-è dato dal fatto che ogni core ha in dotazione una memoria cache e dunque si può accedere con più rapidità ai dati utilizzati frequentemente.
+Sotto questo punto di vista, l'aspetto vincente dei sistemi dotati di più
+unità di calcolo, è dato dal fatto che ogni core ha in dotazione una memoria
+cache e dunque si può accedere con più rapidità ai dati utilizzati frequentemente.
   
 %**********************************************
 %												-	
@@ -59,14 +73,18 @@ La tassonomia di Flynn è una classificazione delle architetture dei
 calcolatori, prevedendo 4 diverse tipologie di architetture:
 
 \begin{description}
-\item[SISD] (Single Instruction stream Single Data stream): è un sistema monoprocessore (architettura di Von Neumann) 
-con un flusso di istruzioni singolo e un flusso di dati singolo
-\item[SIMD] (Single Instruction stream Multiple Data stream): è un architettura in cui tante unità di elaborazione 
-eseguono contemporaneamente la stessa istruzione lavorando però su insiemi di dati differenti.
-\item[MISD] (Multiple Instruction stream Single Data stream): è un architettura in cui tante unità di elaborazione 
-eseguono contemporaneamente diverse istruzioni operando però su un insieme di dati singolo.
-\item[MIMD] (Multiple instruction stream Multiple Data stream): è un architettura in cui tante unità di elaborazione 
-eseguono contemporaneamente diverse istruzioni operando su più insiemi di dati.
+\item[SISD] (Single Instruction stream Single Data stream): è un sistema
+monoprocessore (architettura di Von Neumann) con un flusso di istruzioni singolo
+e un flusso di dati singolo
+\item[SIMD] (Single Instruction stream Multiple Data stream): è un architettura
+in cui tante unità di elaborazione eseguono contemporaneamente la stessa
+istruzione lavorando però su insiemi di dati differenti.
+\item[MISD] (Multiple Instruction stream Single Data stream): è un architettura
+in cui tante unità di elaborazione eseguono contemporaneamente diverse
+istruzioni operando però su un insieme di dati singolo.
+\item[MIMD] (Multiple instruction stream Multiple Data stream): è un
+architettura in cui tante unità di elaborazione eseguono contemporaneamente
+diverse istruzioni operando su più insiemi di dati.
 \end{description}
 
 \begin{figure}[b] 
@@ -77,15 +95,19 @@ eseguono contemporaneamente diverse istruzioni operando su più insiemi di dati.
 \end{figure}
 
 I computer attualmente in commercio sono basati sull'architettura di Von Neumann (SISD), 
-cioè un architettura in cui non è presente nessun tipo di parallelismo e le operazioni vengono eseguite sequenzialmente su un flusso di dati singolo. 
-Sia le architetture SIMD (Single Instruction stream Multiple Data stream) che le architetture MIMD (Multiple instruction stream Multiple Data stream), 
-descritte in precedenza, si basano sulla filosofia parallela.
+cioè un architettura in cui non è presente nessun tipo di parallelismo e le
+operazioni vengono eseguite sequenzialmente su un flusso di dati singolo.
+Sia le architetture SIMD (Single Instruction stream Multiple Data stream) che le
+architetture MIMD (Multiple instruction stream Multiple Data stream) descritte
+in precedenza, si basano sulla filosofia parallela.
 
-Una sottocategoria delle architetture MIMD (Multiple instruction stream Multiple Data stream) è l'architettura SPMD (Single Program Multiple Data).
-La sua tecnica è programmata per raggiungere il parallelismo. Si tratta di lanciare più istanze dello stesso programma su diversi insiemi di dati.
+Una sottocategoria delle architetture MIMD (Multiple instruction stream Multiple
+Data stream) è l'architettura SPMD (Single Program Multiple Data).
+La sua tecnica è programmata per raggiungere il parallelismo. Si tratta di
+lanciare più istanze dello stesso programma su diversi insiemi di dati.
 
-Le GPU (graphics processing units), richiamate in precedenza, sono l'esempio di architetture SIMD,
-mentre i processori più comuni sono un esempio di architettura MIMD.
+Le GPU (graphics processing units), richiamate in precedenza, sono l'esempio di
+architetture SIMD, mentre i processori più comuni sono un esempio di architettura MIMD.
 
 
 %**********************************************
@@ -96,35 +118,44 @@ mentre i processori più comuni sono un esempio di architettura MIMD.
 
 \section{Modelli di comunicazione}
 
-Tra le basi del parallelismo esiste l'opportunità di far comunicare i diversi \textit{tasks} paralleli. Esistono due forme diverse di comunicazione:
+Tra le basi del parallelismo esiste l'opportunità di far comunicare i diversi
+\textit{tasks} paralleli. Esistono due forme diverse di comunicazione:
 \begin{itemize}
 	\item accesso ad uno spazio di memoria condivisa
 	\item scambio di messaggi
 \end{itemize}
 
  \subsection{Memoria condivisa}
-Questo tipo di architetture fanno si che tutte le unità di calcolo presenti accedono allo stesso spazio di memoria.
-I cambiamenti eseguiti da una singola unità di calcolo devono essere visibili anche dalle altre unità di calcolo.
+Questo tipo di architetture fanno si che tutte le unità di calcolo presenti
+accedono allo stesso spazio di memoria.
+I cambiamenti eseguiti da una singola unità di calcolo devono essere visibili
+anche dalle altre unità di calcolo.
 Possiamo distinguere due diversi tipi di accesso alla memoria:
 
 \begin{itemize}
-	\item UMA (Uniform Memory Access): tutti i processori accedono allo spazio di memoria condivisa allo stesso tempo.
-In questo caso l'hardware deve assicurare la coerenza della cache in modo tale che tutte le unità di calcolo possano vedere le modifiche
-eseguite dagli altri processori, così da evitare accessi ai dati non
-aggiornati.
-Questo meccanismo è chiamato \textbf{\textit{cache coherence}}. (Fig.\ref{fig:uma})
+	\item UMA (Uniform Memory Access): tutti i processori accedono allo spazio di
+	memoria condivisa allo stesso tempo.
+In questo caso l'hardware deve assicurare la coerenza della cache in modo tale
+che tutte le unità di calcolo possano vedere le modifiche eseguite dagli altri
+processori, così da evitare accessi ai dati non aggiornati.
+Questo meccanismo è chiamato \textbf{\textit{cache coherence}}.
+(Fig.\ref{fig:uma})
 	\item NUMA (Non Uniform Memory Access): tutti i processori possono accedere
-alla loro memoria locale in modo estremamente rapido, tuttavia accedono più lentamente alla memoria condivisa e alla memoria degli altri processori.
-Anche in questo caso troviamo il meccanismo di {\textit{cache coherence}} per garantire l'accesso coerente ai dati in memoria. (Fig. \ref{fig:numa})
+alla loro memoria locale in modo estremamente rapido, tuttavia accedono più
+lentamente alla memoria condivisa e alla memoria degli altri processori.
+Anche in questo caso troviamo il meccanismo di {\textit{cache coherence}} per
+garantire l'accesso coerente ai dati in memoria. (Fig. \ref{fig:numa})
 \end{itemize}
 
-Grazie alla presenza di memorie condivise, risulta molto semplice programmare algoritmi paralleli.
-\\Tuttavia ci sono dei punti critici da gestire, come ad esempio il meccanismo
-di lettura e scrittura. Per quanto riguarda il meccanismo di lettura, può avvenire in modo del tutto trasparente poiché non apporta
-inconsistenze nella memoria condivisa, ciò non accade per la scrittura, dove
-si ha bisogno di ulteriori meccanismi per l'accesso \textbf{esclusivo}.
-I paradigmi che supportano il modello di comunicazione a memoria condivisa (e.g. POSIX threads, OpenMP) forniscono strutture
-per la sincronizzazione come \textit{lock, barriere, semafori} e così via.
+Grazie alla presenza di memorie condivise, risulta molto semplice programmare
+algoritmi paralleli. Tuttavia ci sono dei punti critici da gestire, come ad
+esempio il meccanismo di lettura e scrittura. Per quanto riguarda il meccanismo
+di lettura, può avvenire in modo del tutto trasparente poiché non apporta
+inconsistenze nella memoria condivisa, ciò non accade per la scrittura, dove si
+ha bisogno di ulteriori meccanismi per l'accesso \textbf{esclusivo}.
+I paradigmi che supportano il modello di comunicazione a memoria condivisa (e.g.
+POSIX threads, OpenMP) forniscono strutture per la sincronizzazione come
+\textit{lock, barriere, semafori} e così via.
 
 
 \begin{figure}[tb]
@@ -140,31 +171,43 @@ per la sincronizzazione come \textit{lock, barriere, semafori} e così via.
 
  \subsection{Memoria distribuita}
 
-Le architetture a memoria condivisa prevedono diverse unità di calcolo, ognuno dei quali possiede un proprio spazio di memoria.
-Le unità di calcolo possono essere composte da un singolo processore o da un sistema multiprocessore con uno spazio di memoria condiviso.
+Le architetture a memoria condivisa prevedono diverse unità di calcolo, ognuno
+dei quali possiede un proprio spazio di memoria.
+Le unità di calcolo possono essere composte da un singolo processore o da un
+sistema multiprocessore con uno spazio di memoria condiviso.
 I processi in esecuzione comunicano attraverso uno scambio di messaggi.
-Grazie a questa interazione, i processi possono scambiarsi dati, assegnare task e sincronizzare i processi.
-L'architettura MIMD viene supportata da questo modello di comunicazione, ma nella maggior parte dei casi,
-le implementazioni basate sullo scambio dei messaggi sono implementati con l'approccio SPMD.
+Grazie a questa interazione, i processi possono scambiarsi dati, assegnare task
+e sincronizzare i processi.
+L'architettura MIMD viene supportata da questo modello di comunicazione, ma
+nella maggior parte dei casi, le implementazioni basate sullo scambio dei
+messaggi sono implementati con l'approccio SPMD.
 
-Le operazioni di base che un processo può eseguire sono l'invio e la ricezione dei messaggi.
+Le operazioni di base che un processo può eseguire sono l'invio e la ricezione
+dei messaggi.
 Nello scambio di messaggi è necessario anche specificare chi è il mittente e
 chi il destinatario del messaggio, per questo il sistema offre un meccanismo di
-assegnazione di un ID univoco ad ogni processo, in modo da distinguerlo da tutti gli altri.
-Altre funzionalità  presenti in questo paradigma sono il \textit{whoami} e il \textit{numProc}.
-Il primo permette ad ogni processo di conoscere il proprio ID univoco,
-mentre il secondo consente ad ogni processo di conoscere il numero di processi in esecuzione.
+assegnazione di un ID univoco ad ogni processo, in modo da distinguerlo da tutti
+gli altri. Altre funzionalità  presenti in questo paradigma sono il
+\textit{whoami} e il \textit{numProc}. Il primo permette ad ogni processo di
+conoscere il proprio ID univoco, mentre il secondo consente ad ogni processo di
+conoscere il numero di processi in esecuzione.
 
 Oggi ci sono diversi framework che consentono lo scambio di messaggi.
-Uno di questi è MPI (Message Passing Interface) che supporta tutte le operazioni citate in precedenza.
+Uno di questi è MPI (Message Passing Interface) che supporta tutte le operazioni
+citate in precedenza.
 
  \subsection{Sistemi ibridi}
 
-Le architetture basate sui sistemi ibridi non è nient'altro che un mix delle due architetture viste in precedenza.
-Immaginiamo di avere un numero \textit{N} di processi. Solo un sottoinsieme di processi avranno accesso alla memoria condivisa.
-Per accedervi possono utilizzare ad esempio un paradigma di programmazione parallela a memoria condivisa (e.g OpenMP).
-Ogni processo che ha accesso alla memoria condivisa, può comunicare i dati tramite il paradigma del Message Passing agli altri processi
-che non vi hanno accesso. In questo modo entrano in gioco le due diverse architetture sfruttando i vantaggi di entrambe. 
+Le architetture basate sui sistemi ibridi non è nient'altro che un mix delle due
+architetture viste in precedenza.
+Immaginiamo di avere un numero \textit{N} di processi. Solo un sottoinsieme di
+processi avranno accesso alla memoria condivisa.
+Per accedervi possono utilizzare ad esempio un paradigma di programmazione
+parallela a memoria condivisa (e.g OpenMP).
+Ogni processo che ha accesso alla memoria condivisa, può comunicare i dati
+tramite il paradigma del Message Passing agli altri processi che non vi hanno
+accesso. In questo modo entrano in gioco le due diverse architetture sfruttando
+i vantaggi di entrambe.
 
 \begin{figure}[b] 
 \centering 
@@ -182,40 +225,55 @@ che non vi hanno accesso. In questo modo entrano in gioco le due diverse archite
 
 \section{Progettazione di un algoritmo parallelo}
 
-Fino ad ora si è descritto in modo generico le strutture, le basi dei paradigmi e le architetture per sistemi paralleli,
-ma la progettazione di un algoritmo parallelo è la parte che interessa di più un programmatore di calcolo parallelo.
-Progettare un algoritmo parallelo implica uno studio totalmente diverso dalla progettazione di un algoritmo sequenziale.
-Come abbiamo già visto, entrano in gioco diverse operazioni per raggiungere l'output desiderato.
-Molte guide di calcolo parallelo evidenziano le seguenti problematiche per la progettazione di un algoritmo parallelo \textit{nontrivial}:
+Fino ad ora si è descritto in modo generico le strutture, le basi dei paradigmi
+e le architetture per sistemi paralleli ma la progettazione di un algoritmo
+parallelo è la parte che interessa di più un programmatore.
+Progettare un algoritmo parallelo implica uno studio totalmente diverso dalla
+progettazione di un algoritmo sequenziale.
+Come abbiamo già visto, entrano in gioco diverse operazioni per raggiungere
+l'output desiderato.
+Molte guide di calcolo parallelo evidenziano le seguenti problematiche per la
+progettazione di un algoritmo parallelo \textit{nontrivial}:
 
 \begin{itemize}
-	\item Identificazione della porzione di lavoro che può essere eseguita concorrentemente.
+	\item Identificazione della porzione di lavoro che può essere eseguita
+	concorrentemente.
 	\item Mapping dei task su più processi in parallelo
 	\item Assegnare i dati relativi al programma.
 	\item Gestire gli accessi alla memoria condivisa
 	\item Sincronizzare le unità di calcolo durante l'esecuzione.
 \end{itemize}
  
-Di solito ci sono diverse scelte da fare durante la progettazione, ma spesso si possono prendere decisioni progettuali
-anche basandosi sull'architettura a disposizione o in base al paradigma di programmazione utilizzato.
+Di solito ci sono diverse scelte da fare durante la progettazione, ma spesso si
+possono prendere decisioni progettuali anche basandosi sull'architettura a
+disposizione o in base al paradigma di programmazione utilizzato.
 
 \subsection{Tecniche di decomposizione}
 
-La decomposizione è il processo di dividere la computazione in piccole parti che potenzialmente possono essere eseguite in parallelo.
-I task sono unità di computazione nei quale la computazione principale viene suddivisa.
+La decomposizione è il processo di dividere la computazione in piccole parti che
+potenzialmente possono essere eseguite in parallelo.
+I task sono unità di computazione nei quale la computazione principale viene
+suddivisa.
 Ci sono casi in cui alcuni task per poter iniziare la propria attività hanno
 bisogno dell'output di altri task, così da formare una relazione di dipendenza.
-Questo genere di relazione di dipendenza nel parallel computing viene rappresentata dal \textbf{\textit{task-dependency graph}}.
-Il grafo delle dipendenze è un grafo diretto e aciclico nel quale ogni nodo rappresenta un task e gli archi rappresentano la dipendenza tra i nodi.
+Questo genere di relazione di dipendenza nel parallel computing viene
+rappresentata dal \textbf{\textit{task-dependency graph}}.
+Il grafo delle dipendenze è un grafo diretto e aciclico nel quale ogni nodo
+rappresenta un task e gli archi rappresentano la dipendenza tra i nodi.
 Quest'ultimo risulterà molto utile nei casi in cui si debbano prendere alcune
-scelte di progettazione dell'algoritmo, in particolare fornirà informazioni importanti sulla strategia da utilizzare per la suddivisione dei tasks.
-Un altro importante concetto per la suddivisione dei task è la \textbf{granularità}. Distinguiamo due tipi di granularità:
+scelte di progettazione dell'algoritmo, in particolare fornirà informazioni
+importanti sulla strategia da utilizzare per la suddivisione dei tasks.
+Un altro importante concetto per la suddivisione dei task è la
+\textbf{granularità}. Distinguiamo due tipi di granularità:
 \begin{description}
-	\item [Suddivisione a granularità  fine] quando la decomposizione ha prodotto un numero consistente di task ma di piccola dimensione.
-	\item [Suddivisione a granularità  grossa] quando la decomposizione ha prodotto un basso numero di task ma di grande dimensione.
+	\item [Suddivisione a granularità  fine] quando la decomposizione produce
+	un numero consistente di task ma di piccola dimensione.
+	\item [Suddivisione a granularità  grossa] quando la decomposizione produce un
+	basso numero di task ma di grande dimensione.
 \end{description}
 
-Il numero di task che possono essere eseguiti in parallelo invece è detto \textbf{grado di concorrenza}.
+Il numero di task che possono essere eseguiti in parallelo invece è detto
+\textbf{grado di concorrenza}.
 
 Gli esempi più comuni di suddivisione dei task è rappresentato dai calcoli
 eseguiti su matrici. Supponiamo di avere a disposizione 4 unità di calcolo, e il
@@ -227,7 +285,8 @@ l'algoritmo sarà 4 volte più veloce rispetto alla versione sequenziale.
 \begin{figure}[tb] 
 \centering 
 \includegraphics[width=0.5\columnwidth]{Immagini/matrix_dec} 
-\caption[Decomposition example]{Suddivisione di una moltiplicazione tra una matrice e un vettore in 4 diversi task.\\}
+\caption[Decomposition example]{Suddivisione di una moltiplicazione tra una
+matrice e un vettore in 4 diversi task.\\}
 \label{fig:matrix_dec} 
 \end{figure}
 
@@ -350,7 +409,8 @@ sconosciuta e non si possono prevedere dunque le possibilità  per un mapping ott
 
 \subsection{Modelli di un algoritmo parallelo}
 
-In questo paragrafo si mostreranno i differenti modelli utilizzati per implementare un algoritmo parallelo.
+In questo paragrafo si mostreranno i differenti modelli utilizzati per
+implementare un algoritmo parallelo.
 
 \begin{description}
 \item [Dati in parallelo] E' il più sempice dei modelli. Questo tipo di
@@ -474,46 +534,69 @@ E = \frac{S}{n}
 %												-
 %**********************************************
 \section{Linguaggi di programmazione}
-Esistono diversi linguaggi di programmazione e paradigmi di programmazione che consentono l'utilizzo del parallel computing durante l'implementazione di un algoritmo. Tra i più utilizzati troviamo sicuramente OpenMP e MPI.
+Esistono diversi linguaggi di programmazione e paradigmi di programmazione che
+consentono l'utilizzo del parallel computing durante l'implementazione di un
+algoritmo. Tra i più utilizzati troviamo sicuramente OpenMP e MPI.
 Nel prossimo paragrafo vedremo sommariamente come funziona OpenMP.
+
 \subsection{OpenMP}
-OpenMP è uno standard che offre funzionalità  per creare algoritmi paralleli in uno spazio di memoria condiviso. Supporta dunque la concorrenza, la sincronizzazione e altre funzionalità  utili per una corretta implementazione di un algoritmo parallelo su memoria condivisa.
-OpenMP per la sua semplicitè  è molto usato, e qualche volta riesce a raggiungere risultati ottimi con speedup interessanti.
+OpenMP è uno standard che offre funzionalità  per creare algoritmi paralleli in
+uno spazio di memoria condiviso. Supporta dunque la concorrenza, la
+sincronizzazione e altre funzionalità  utili per una corretta implementazione di
+un algoritmo parallelo su memoria condivisa.
+OpenMP per la sua semplicitè  è molto usato, e qualche volta riesce a
+raggiungere risultati ottimi con speedup interessanti.
 Il suo utilizzo si basa sulla dichiarazione della seguente direttiva:
 \begin{center}
 \textbf{ \#pragma omp directive [clause list] } 
 \end{center} 
-Il programma si esegue sequenzialmente finché non trova la direttiva \textbf{\textit{parallel}}. Questa direttiva è responsabile della creazione di un gruppo di \textit{threads} che devono eseguire in parallelo l'algoritmo.
+Il programma si esegue sequenzialmente finché non trova la direttiva
+\textbf{\textit{parallel}}. Questa direttiva è responsabile della creazione di
+un gruppo di \textit{threads} che devono eseguire in parallelo l'algoritmo.
 Il prototipo della direttiva parallel è il seguente:
 \begin{center}
 \textbf{ \#pragma omp parallel [clause list] } 
 \end{center}
-La lista di clausole è utile per aggiungere gradi di libertà  all'utente nell'utilizzo della concorrenza. 
-Ad esempio nel caso in cui la parallelizzazione e la conseguente creazione di più threads in parallelo debba avvenire solo in determinati casi, si può utilizzare la clausola:
+La lista di clausole è utile per aggiungere gradi di libertà all'utente
+nell'utilizzo della concorrenza.
+Ad esempio nel caso in cui la parallelizzazione e la conseguente creazione di
+più threads in parallelo debba avvenire solo in determinati casi, si può
+utilizzare la clausola:
 \begin{center} 
 \textbf{ if ( \textit{espressione} ) }
 \end{center}
-In questo caso solo se l'\textit{espressione} è vera si userà  la direttiva \textit{parallel}.
+In questo caso solo se l'\textit{espressione} è vera si userà la direttiva
+\textit{parallel}.
 Un altra clausola utilizzata è 
 \begin{center} 
 \textbf{num\_threads (int)}
 \end{center}
-Questa specifica il numero di threads che devono essere creati ed eseguiti in parallelo.
-Nel caso in cui si vogliano utilizzare delle variabili private per ogni thread si può utilizzare la clausola:
+Questa specifica il numero di threads che devono essere creati ed eseguiti in
+parallelo.
+Nel caso in cui si vogliano utilizzare delle variabili private per ogni thread
+si può utilizzare la clausola:
 \begin{center} 
 \textbf{private ( lista delle variabili )}.
 \end{center}
-che specifica la lista delle variabili locali per ogni thread, cioà ogni thread possiede una copia di ognuna di queste variabili specificate in questa clausola.
-Le clausole che mette a disposizione OpenMP sono molteplici, tra queste troviamo la causola \textbf{\textit{reduction(operazione: variabile)}} che come si può intuire applica una particolare operazione aritmetica ad una variabile.
+che specifica la lista delle variabili locali per ogni thread, cioà ogni thread
+possiede una copia di ognuna di queste variabili specificate in questa clausola.
+Le clausole che mette a disposizione OpenMP sono molteplici, tra queste troviamo
+la causola \textbf{\textit{reduction(operazione: variabile)}} che come si può
+intuire applica una particolare operazione aritmetica ad una variabile.
 
-Tra le direttive di OpenMP la più interessante è la direttiva \textbf{for}. La forma generale di questa direttiva à:
+Tra le direttive di OpenMP la più interessante è la direttiva \textbf{for}. La
+forma generale di questa direttiva à:
 \begin{center} 
 \textbf{\#pragma omp for [clause list] }. \\
  /* ciclo di for */
 \end{center}
-Questa è utilizzata per dividere lo spazio delle iterazioni parallele attraverso i threads a disposizione.
+Questa è utilizzata per dividere lo spazio delle iterazioni parallele attraverso
+i threads a disposizione.
 
-In generale OpenMP offre veramente decine di funzionalità  da poter utilizzare e l'aspetto migliore di questo paradigma è sicuramente la semplicità  della sua implementazione e l'integrazione con l'algoritmo parallelo. In ultimo, ecco un semplice esempio di parallelizzazione tramite OpenMP di un algoritmo sequenziale:
+In generale OpenMP offre veramente decine di funzionalità da poter utilizzare e
+l'aspetto migliore di questo paradigma è sicuramente la semplicità  della sua
+implementazione e l'integrazione con l'algoritmo parallelo. In ultimo, ecco un
+semplice esempio di parallelizzazione tramite OpenMP di un algoritmo sequenziale:
 
 \medskip
 \lstinputlisting[caption={Esempio di utilizzo di OpenMP.},
@@ -529,8 +612,16 @@ label=lst:openmp, style=input]{code/openmp.c}
 
 \section{Nuovi approcci al calcolo parallelo: GPGPU computing}
 
-La GPU (Graphics Processing Unit) è un processore grafico specializzato nel rendering di immagini grafiche. Viene utilizzata generalmente come coprocessore della CPU, infatti è tipicamente una componente della CPU in un circuito integrato, ma da alcuni anni la sua potenza di calcolo ha suscitato parecchio interesse nel campo scientifico. Le numerose ricerche hanno portato all'implementazione come circuito indipendente dotato di più \textit{cores}.
-Sebbene le GPU operino a frequenze più basse rispetto alle CPU sin dai primi anni del nuovo millennio esse superano le CPU nel calcolo di operazioni in floating point (FLOPS) e, ad oggi la velocità  di calcolo delle GPU è quasi dieci volte superiore quelle delle CPU. 
+La GPU (Graphics Processing Unit) è un processore grafico specializzato nel
+rendering di immagini grafiche. Viene utilizzata generalmente come coprocessore
+della CPU, infatti è tipicamente una componente della CPU in un circuito
+integrato, ma da alcuni anni la sua potenza di calcolo ha suscitato parecchio
+interesse nel campo scientifico. Le numerose ricerche hanno portato
+all'implementazione come circuito indipendente dotato di più \textit{cores}.
+Sebbene le GPU operino a frequenze più basse rispetto alle CPU sin dai primi
+anni del nuovo millennio esse superano le CPU nel calcolo di operazioni in
+floating point (FLOPS) e, ad oggi la velocità  di calcolo delle GPU è quasi
+dieci volte superiore quelle delle CPU.
 Prima del 2006, le GPU difficilmente venivano usate per scopi diversi dal
 rendering grafico poiché per accedere a questi dispositivi i programmatori
 avevano a disposizione soltanto API per la grafica (ad esempio OpenGL
@@ -542,7 +633,7 @@ programmatori di sviluppare applicazioni parallele senza utilizzare le API
 grafiche. Oltre a questo NVIDIA iniziò ad inserire nei propri dispositivi delle
 componenti hardware apposite a supporto della programmazione parallela.
 
-\begin{figure}[tb] 
+\begin{figure}[H] 
 \centering 
 \includegraphics[width=0.5\columnwidth]{Immagini/arch_kepler} 
 \caption[Architettura Kepler]{Architettura Kepler (GTX 680).\\}
@@ -569,3 +660,9 @@ aritmetici \cite{Kartashev}. Generalmente lo stesso programma viene eseguito per
 ogni dato da elaborare e la latenza dovuta agli accessi alla memoria globale
 viene ``nascosta'' dalla grande quantità  di calcoli.
 
+\begin{figure}[H] 
+\centering 
+\includegraphics[width=0.5\columnwidth]{Immagini/arch_kepler} 
+\caption[Architettura Kepler]{Architettura Kepler (GTX 680).\\}
+\label{fig:arch_kepler} 
+\end{figure}

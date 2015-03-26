@@ -7,16 +7,22 @@
 % Indici
 %*******************************************************
 \cleardoublepage
-\pdfbookmark{\contentsname}{tableofcontents}
-\setcounter{tocdepth}{2}
-\tableofcontents
-\markboth{\contentsname}{\contentsname} 
-\clearpage
+%\pdfbookmark{\contentsname}{tableofcontents}
+%\setcounter{tocdepth}{2}
+%\tableofcontents
+%\markboth{\contentsname}{\contentsname} 
+%\clearpage
 
 \begingroup 
-    \let\clearpage\relax
-    \let\cleardoublepage\relax
-    \let\cleardoublepage\relax
+    %\let\clearpage\relax
+    %\let\cleardoublepage\relax
+    %\let\cleardoublepage\relax
+	\phantomsection
+	\pdfbookmark{\contentsname}{tableofcontents}
+	\tableofcontents
+
+	\vspace*{8ex}
+
     %*******************************************************
     % Elenco delle figure
     %*******************************************************    
@@ -36,5 +42,3 @@
     \vspace*{8ex}
        
 \endgroup
-
-\cleardoublepage

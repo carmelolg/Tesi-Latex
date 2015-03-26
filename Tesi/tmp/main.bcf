@@ -1971,6 +1971,7 @@
     <bcf:citekey order="1">OpenGL:2004</bcf:citekey>
     <bcf:citekey order="2">CUDA:2007</bcf:citekey>
     <bcf:citekey order="3">Kartashev</bcf:citekey>
+    <bcf:citekey order="4">CUDA:2012</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="nty" type="entry" sortscheme="nty">
   <bcf:sorting>

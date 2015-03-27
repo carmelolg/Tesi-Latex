@@ -80,10 +80,20 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {3}Automi Cellulari}{42}{chapter.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}OpenCAL}{44}{chapter.4}
+\contentsline {section}{\numberline {3.1}Introduzione}{42}{section.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}OpenCAL-CUDA}{46}{chapter.5}
+\contentsline {section}{\numberline {3.2}Definizione informale di Automa Cellulare}{43}{section.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}Conclusioni}{48}{chapter.6}
+\contentsline {section}{\numberline {3.3}Definizione formale di Automa Cellulare}{44}{section.3.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Riferimenti bibliografici}{52}{chapter*.39}
+\contentsline {section}{\numberline {3.4}Automi cellulari unidimensionali}{45}{section.3.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.5}Automi Cellulari Complessi (CCA)}{47}{section.3.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {4}OpenCAL}{48}{chapter.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {5}OpenCAL-CUDA}{50}{chapter.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {6}Conclusioni}{52}{chapter.6}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Riferimenti bibliografici}{56}{chapter*.44}

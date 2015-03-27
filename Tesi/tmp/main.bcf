@@ -1972,6 +1972,15 @@
     <bcf:citekey order="2">CUDA:2007</bcf:citekey>
     <bcf:citekey order="3">Kartashev</bcf:citekey>
     <bcf:citekey order="4">CUDA:2012</bcf:citekey>
+    <bcf:citekey order="5">DiGregorio:1975</bcf:citekey>
+    <bcf:citekey order="6">Wolfram:1983</bcf:citekey>
+    <bcf:citekey order="7">Wolfram:2002</bcf:citekey>
+    <bcf:citekey order="8">Langton:1990</bcf:citekey>
+    <bcf:citekey order="9">Langton1:1990</bcf:citekey>
+    <bcf:citekey order="10">SCIARA:2004</bcf:citekey>
+    <bcf:citekey order="11">SCIDDICA:1999</bcf:citekey>
+    <bcf:citekey order="12">FIRE:2004</bcf:citekey>
+    <bcf:citekey order="13">TRAFFIC:1996</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="nty" type="entry" sortscheme="nty">
   <bcf:sorting>

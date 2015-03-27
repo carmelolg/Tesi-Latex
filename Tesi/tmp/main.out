@@ -33,8 +33,13 @@
 \BOOKMARK [2][-]{subsection.2.4.1}{Nsight Visual Studio}{section.2.4}% 33
 \BOOKMARK [2][-]{subsection.2.4.2}{Visual Profiler}{section.2.4}% 34
 \BOOKMARK [0][-]{chapter.3}{Automi Cellulari}{}% 35
-\BOOKMARK [0][-]{chapter.4}{OpenCAL}{}% 36
-\BOOKMARK [0][-]{chapter.5}{OpenCAL-CUDA}{}% 37
-\BOOKMARK [0][-]{chapter.6}{Conclusioni}{}% 38
-\BOOKMARK [0][-]{ringraziamenti.0}{Ringraziamenti}{}% 39
-\BOOKMARK [0][-]{chapter*.39}{Riferimenti bibliografici}{}% 40
+\BOOKMARK [1][-]{section.3.1}{Introduzione}{chapter.3}% 36
+\BOOKMARK [1][-]{section.3.2}{Definizione informale di Automa Cellulare}{chapter.3}% 37
+\BOOKMARK [1][-]{section.3.3}{Definizione formale di Automa Cellulare}{chapter.3}% 38
+\BOOKMARK [1][-]{section.3.4}{Automi cellulari unidimensionali}{chapter.3}% 39
+\BOOKMARK [1][-]{section.3.5}{Automi Cellulari Complessi \(CCA\)}{chapter.3}% 40
+\BOOKMARK [0][-]{chapter.4}{OpenCAL}{}% 41
+\BOOKMARK [0][-]{chapter.5}{OpenCAL-CUDA}{}% 42
+\BOOKMARK [0][-]{chapter.6}{Conclusioni}{}% 43
+\BOOKMARK [0][-]{ringraziamenti.0}{Ringraziamenti}{}% 44
+\BOOKMARK [0][-]{chapter*.44}{Riferimenti bibliografici}{}% 45

@@ -19,11 +19,68 @@
 
 \refsection{0}
   \sortlist{nty}{nty}
+    \entry{Langton:1990}{thesis}{}
+      \name{labelname}{1}{}{%
+        {{hash=bc4d43482841a866607678792a59a981}{C.G.}{C\bibinitperiod}{Langton}{L\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=bc4d43482841a866607678792a59a981}{C.G.}{C\bibinitperiod}{Langton}{L\bibinitperiod}{}{}{}{}}%
+      }
+      \list{institution}{1}{%
+        {University of Michigan}%
+      }
+      \strng{namehash}{bc4d43482841a866607678792a59a981}
+      \strng{fullhash}{bc4d43482841a866607678792a59a981}
+      \field{sortinit}{C}
+      \field{sortinithash}{dd0e4ddd17488a6ebf12cd6de2f2c237}
+      \field{labeltitle}{Computation at the edge of caos}
+      \field{title}{Computation at the edge of caos}
+      \field{type}{phdthesis}
+      \field{year}{1990}
+    \endentry
+    \entry{Langton1:1990}{article}{}
+      \name{labelname}{1}{}{%
+        {{hash=bc4d43482841a866607678792a59a981}{C.G.}{C\bibinitperiod}{Langton}{L\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=bc4d43482841a866607678792a59a981}{C.G.}{C\bibinitperiod}{Langton}{L\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{bc4d43482841a866607678792a59a981}
+      \strng{fullhash}{bc4d43482841a866607678792a59a981}
+      \field{sortinit}{C}
+      \field{sortinithash}{dd0e4ddd17488a6ebf12cd6de2f2c237}
+      \field{labeltitle}{Computation at the edge of caos: phase transition and emergent computation}
+      \field{journaltitle}{Physica D}
+      \field{title}{Computation at the edge of caos: phase transition and emergent computation}
+      \field{year}{1990}
+    \endentry
     \entry{CUDA:2012}{manual}{}
       \field{sortinit}{C}
       \field{sortinithash}{dd0e4ddd17488a6ebf12cd6de2f2c237}
       \field{labeltitle}{CUDA Dynamic Parallelism, Programming guide}
       \field{title}{CUDA Dynamic Parallelism, Programming guide}
+    \endentry
+    \entry{SCIARA:2004}{article}{}
+      \name{labelname}{4}{}{%
+        {{hash=f6e8d3fe0a94102133ef41b7f30e96c4}{G.M.}{G\bibinitperiod}{Crisci}{C\bibinitperiod}{}{}{}{}}%
+        {{hash=80cb5851d463df70fb9cc602f789f349}{S.}{S\bibinitperiod}{Di\bibnamedelima Gregorio}{D\bibinitperiod\bibinitdelim G\bibinitperiod}{}{}{}{}}%
+        {{hash=cb8b1336efcbd10a43dc6dce430e7406}{R.}{R\bibinitperiod}{Rongo}{R\bibinitperiod}{}{}{}{}}%
+        {{hash=cc9db86fddf478d630e9b14276ebba14}{W.}{W\bibinitperiod}{Spataro}{S\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{4}{}{%
+        {{hash=f6e8d3fe0a94102133ef41b7f30e96c4}{G.M.}{G\bibinitperiod}{Crisci}{C\bibinitperiod}{}{}{}{}}%
+        {{hash=80cb5851d463df70fb9cc602f789f349}{S.}{S\bibinitperiod}{Di\bibnamedelima Gregorio}{D\bibinitperiod\bibinitdelim G\bibinitperiod}{}{}{}{}}%
+        {{hash=cb8b1336efcbd10a43dc6dce430e7406}{R.}{R\bibinitperiod}{Rongo}{R\bibinitperiod}{}{}{}{}}%
+        {{hash=cc9db86fddf478d630e9b14276ebba14}{W.}{W\bibinitperiod}{Spataro}{S\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{07f8e454d7bd383b8a1945f9132859c6}
+      \strng{fullhash}{026b96a34d96c6af0563d13c42437f9c}
+      \field{sortinit}{G}
+      \field{sortinithash}{480ee01f9ffd559b3258d822f54a8ac2}
+      \field{labeltitle}{The simulation model SCIARA: the 1991 and 2001 at Mount Etna}
+      \field{journaltitle}{Journal of Vulcanogy and Geothermal Research}
+      \field{title}{The simulation model SCIARA: the 1991 and 2001 at Mount Etna}
+      \field{year}{2004}
     \endentry
     \entry{CUDA:2007}{manual}{}
       \field{sortinit}{N}
@@ -66,6 +123,128 @@
       \field{labeltitle}{OpenGL SuperBible, Third Edition}
       \field{title}{OpenGL SuperBible, Third Edition}
       \field{year}{2004}
+    \endentry
+    \entry{DiGregorio:1975}{article}{}
+      \name{labelname}{2}{}{%
+        {{hash=80cb5851d463df70fb9cc602f789f349}{S.}{S\bibinitperiod}{Di\bibnamedelima Gregorio}{D\bibinitperiod\bibinitdelim G\bibinitperiod}{}{}{}{}}%
+        {{hash=9109a6a661d80ec380c9166fe38e660c}{G.}{G\bibinitperiod}{Trautteur.}{T\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{hash=80cb5851d463df70fb9cc602f789f349}{S.}{S\bibinitperiod}{Di\bibnamedelima Gregorio}{D\bibinitperiod\bibinitdelim G\bibinitperiod}{}{}{}{}}%
+        {{hash=9109a6a661d80ec380c9166fe38e660c}{G.}{G\bibinitperiod}{Trautteur.}{T\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{686d463f6a626d6c8df98b1b10d4746a}
+      \strng{fullhash}{686d463f6a626d6c8df98b1b10d4746a}
+      \field{sortinit}{S}
+      \field{sortinithash}{4125bb4c3a0eb3eaee3ea6da32eb70c8}
+      \field{labeltitle}{On reversibility in Cellular Automata}
+      \field{journaltitle}{Journal of Computer and System Science}
+      \field{title}{On reversibility in Cellular Automata}
+      \field{year}{1975}
+    \endentry
+    \entry{TRAFFIC:1996}{article}{}
+      \name{labelname}{6}{}{%
+        {{hash=80cb5851d463df70fb9cc602f789f349}{S.}{S\bibinitperiod}{Di\bibnamedelima Gregorio}{D\bibinitperiod\bibinitdelim G\bibinitperiod}{}{}{}{}}%
+        {{hash=6baea4e45ff62e988be1754ab8bd8994}{D.C.}{D\bibinitperiod}{Festa}{F\bibinitperiod}{}{}{}{}}%
+        {{hash=cb8b1336efcbd10a43dc6dce430e7406}{R.}{R\bibinitperiod}{Rongo}{R\bibinitperiod}{}{}{}{}}%
+        {{hash=cc9db86fddf478d630e9b14276ebba14}{W.}{W\bibinitperiod}{Spataro}{S\bibinitperiod}{}{}{}{}}%
+        {{hash=79601deb59bc53271f4f59df574d562a}{G.}{G\bibinitperiod}{Spezzano}{S\bibinitperiod}{}{}{}{}}%
+        {{hash=bb8de9d1c71beead9cde663d6feff230}{Talia}{T\bibinitperiod}{D.}{D\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{6}{}{%
+        {{hash=80cb5851d463df70fb9cc602f789f349}{S.}{S\bibinitperiod}{Di\bibnamedelima Gregorio}{D\bibinitperiod\bibinitdelim G\bibinitperiod}{}{}{}{}}%
+        {{hash=6baea4e45ff62e988be1754ab8bd8994}{D.C.}{D\bibinitperiod}{Festa}{F\bibinitperiod}{}{}{}{}}%
+        {{hash=cb8b1336efcbd10a43dc6dce430e7406}{R.}{R\bibinitperiod}{Rongo}{R\bibinitperiod}{}{}{}{}}%
+        {{hash=cc9db86fddf478d630e9b14276ebba14}{W.}{W\bibinitperiod}{Spataro}{S\bibinitperiod}{}{}{}{}}%
+        {{hash=79601deb59bc53271f4f59df574d562a}{G.}{G\bibinitperiod}{Spezzano}{S\bibinitperiod}{}{}{}{}}%
+        {{hash=bb8de9d1c71beead9cde663d6feff230}{Talia}{T\bibinitperiod}{D.}{D\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{c2109ee5e64f0100b99649faa0740123}
+      \strng{fullhash}{70b0373f86667187931718d46d362f4a}
+      \field{sortinit}{S}
+      \field{sortinithash}{4125bb4c3a0eb3eaee3ea6da32eb70c8}
+      \field{labeltitle}{A microscopic freeway traffic simulator on a highly parallel system}
+      \field{journaltitle}{Parallel Computing: State-of-the-Art and Perspectives}
+      \field{title}{A microscopic freeway traffic simulator on a highly parallel system}
+      \field{year}{1996}
+    \endentry
+    \entry{SCIDDICA:1999}{article}{}
+      \name{labelname}{5}{}{%
+        {{hash=80cb5851d463df70fb9cc602f789f349}{S.}{S\bibinitperiod}{Di\bibnamedelima Gregorio}{D\bibinitperiod\bibinitdelim G\bibinitperiod}{}{}{}{}}%
+        {{hash=cb8b1336efcbd10a43dc6dce430e7406}{R.}{R\bibinitperiod}{Rongo}{R\bibinitperiod}{}{}{}{}}%
+        {{hash=6f9c50ea6c2fa4398d8f4e82a73cef25}{C.}{C\bibinitperiod}{Siciliano}{S\bibinitperiod}{}{}{}{}}%
+        {{hash=58c205551b9688320e674b92e2c3a886}{M.}{M\bibinitperiod}{Sorriso-Valvo}{S\bibinithyphendelim V\bibinitperiod}{}{}{}{}}%
+        {{hash=cc9db86fddf478d630e9b14276ebba14}{W.}{W\bibinitperiod}{Spataro}{S\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{5}{}{%
+        {{hash=80cb5851d463df70fb9cc602f789f349}{S.}{S\bibinitperiod}{Di\bibnamedelima Gregorio}{D\bibinitperiod\bibinitdelim G\bibinitperiod}{}{}{}{}}%
+        {{hash=cb8b1336efcbd10a43dc6dce430e7406}{R.}{R\bibinitperiod}{Rongo}{R\bibinitperiod}{}{}{}{}}%
+        {{hash=6f9c50ea6c2fa4398d8f4e82a73cef25}{C.}{C\bibinitperiod}{Siciliano}{S\bibinitperiod}{}{}{}{}}%
+        {{hash=58c205551b9688320e674b92e2c3a886}{M.}{M\bibinitperiod}{Sorriso-Valvo}{S\bibinithyphendelim V\bibinitperiod}{}{}{}{}}%
+        {{hash=cc9db86fddf478d630e9b14276ebba14}{W.}{W\bibinitperiod}{Spataro}{S\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{c2109ee5e64f0100b99649faa0740123}
+      \strng{fullhash}{f0dede5f35476606111bea283eeab917}
+      \field{sortinit}{S}
+      \field{sortinithash}{4125bb4c3a0eb3eaee3ea6da32eb70c8}
+      \field{labeltitle}{Mount Ontake landslide simulation by the cellular automata model SCIDDICA-3}
+      \field{journaltitle}{Physics and Chemistry of the Earth}
+      \field{title}{Mount Ontake landslide simulation by the cellular automata model SCIDDICA-3}
+      \field{year}{1999,}
+    \endentry
+    \entry{Wolfram:2002}{book}{}
+      \name{labelname}{1}{}{%
+        {{hash=0027a4b877692c5a2fc5242a5929f68e}{S.}{S\bibinitperiod}{Wolfram}{W\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=0027a4b877692c5a2fc5242a5929f68e}{S.}{S\bibinitperiod}{Wolfram}{W\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Wolfram Media Inc}%
+      }
+      \strng{namehash}{0027a4b877692c5a2fc5242a5929f68e}
+      \strng{fullhash}{0027a4b877692c5a2fc5242a5929f68e}
+      \field{sortinit}{S}
+      \field{sortinithash}{4125bb4c3a0eb3eaee3ea6da32eb70c8}
+      \field{labeltitle}{A new kind of Science}
+      \field{title}{A new kind of Science}
+      \field{year}{2002}
+    \endentry
+    \entry{Wolfram:1983}{article}{}
+      \name{labelname}{1}{}{%
+        {{hash=0027a4b877692c5a2fc5242a5929f68e}{S.}{S\bibinitperiod}{Wolfram}{W\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=0027a4b877692c5a2fc5242a5929f68e}{S.}{S\bibinitperiod}{Wolfram}{W\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{0027a4b877692c5a2fc5242a5929f68e}
+      \strng{fullhash}{0027a4b877692c5a2fc5242a5929f68e}
+      \field{sortinit}{S}
+      \field{sortinithash}{4125bb4c3a0eb3eaee3ea6da32eb70c8}
+      \field{labeltitle}{Statistical mechanics of cellular automata}
+      \field{journaltitle}{Reviews of Modern Physics}
+      \field{title}{Statistical mechanics of cellular automata}
+      \field{year}{1983}
+    \endentry
+    \entry{FIRE:2004}{incollection}{}
+      \name{labelname}{1}{}{%
+        {{hash=7b86bba56da877e581df6d214f45662b}{Trunfio}{T\bibinitperiod}{Giuseppe\bibnamedelima A}{G\bibinitperiod\bibinitdelim A\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=7b86bba56da877e581df6d214f45662b}{Trunfio}{T\bibinitperiod}{Giuseppe\bibnamedelima A}{G\bibinitperiod\bibinitdelim A\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{7b86bba56da877e581df6d214f45662b}
+      \strng{fullhash}{7b86bba56da877e581df6d214f45662b}
+      \field{sortinit}{T}
+      \field{sortinithash}{9378dd666f3c24d81538df53aa99e23d}
+      \field{labeltitle}{Predicting wildfire spreading through a hexagonal cellular automata model}
+      \field{booktitle}{Cellular Automata}
+      \field{title}{Predicting wildfire spreading through a hexagonal cellular automata model}
+      \field{year}{2004}
+      \field{pages}{385\bibrangedash 394}
     \endentry
   \endsortlist
 \endrefsection

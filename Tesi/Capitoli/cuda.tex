@@ -10,13 +10,13 @@
 
 \section{Introduzione}
 Quasi nove anni fa, nel Novembre 2006  la \textbf{NVIDIA Corporation} ha
-rilasciato CUDA, una piattaforma (hardware e software insieme) che permettono di
+rilasciato CUDA, una piattaforma (hardware e software insieme) che permette di
 utilizzare linguaggi di programmazione ad alto livello (Ad es. \textbf{C},
 \textbf{C++}, \textbf{Java}) per implementare codice parallelo per risolvere
 problemi molto complessi a livello computazionale in una maniera efficiente
 rispetto alle normali CPU.
 
-\begin{figure}[h] 
+\begin{figure}[H] 
 \centering 
 \includegraphics[width=0.5\columnwidth]{Immagini/cuda_compiler} 
 \caption[Compilatore NVCC]{Struttura di Nvidia C Compiler.\\}
@@ -29,16 +29,18 @@ rilevanza, dato che attualmente le alternative a CUDA, come OpenCL, risultano
 essere molto più complesse a livello implementativo e di leggibilità  del
 codice.
 Come illustrato in figura \ref{fig:cuda_compiler}, NVIDIA fornisce un
-compilatore capace di riconoscere le istruzioni CUDAma l'implementazione di un
-programma parallelo avviene utilizzando codice sorgente sia per CPU che per GPU.
-Il compilatore NVIDIA C (\textit{nvcc}) dunque, identifica il tipo di istruzione
-richiamando i compilatori di riferimento gestendo così questa convivenza.
+compilatore capace di riconoscere le istruzioni CUDA. L'implementazione
+di un programma parallelo avviene utilizzando codice sorgente sia per CPU che
+per GPU. Il compilatore NVIDIA C (\textit{nvcc}) identificando il tipo di
+istruzione richiama i compilatori di riferimento, così da gestire nel miglior
+modo possibile la presenza di istruzioni per le differenti architetture (CPU e
+GPU).
   
 \section{Architettura hardware}
 
 Oggi sul mercato delle schede video possiamo trovare innumerevoli tipi di
-device, e i computer moderni referibilmente posseggono una scheda video
-dedicata. In particolare la \textbf{Nvidia Corporation} ha creato anche diverse
+device e i computer di ultima generazione posseggono quasi sempre una scheda
+video dedicata. In particolare la \textbf{Nvidia Corporation} ha creato diverse
 architetture hardware per soddisfare ogni tipo di richiesta. Quelle conosciute
 sono le architetture \textbf{Kepler}, \textbf{Fermi} e \textbf{Tesla}.
 L'architettura Kepler è quella più utilizzata nei computer in commercio con
@@ -56,18 +58,18 @@ Ogni device possiede un \textit{revision number} che possiamo definire come la
 \textbf{compute capability} del device, e determina l'insieme di funzionalità 
 che possono essere usate nell'implementazione di codice parallelo in CUDA.
 La compute capability è definita dal più alto numero di revision number e il
-minor numero di revision number. Nel caso in cui devices diversi abbiano il più
-alto revision number posseggono la stessa architettura. Il più alto numero di
-revision number per le architetture Kepler è 3, per i devices basati su
-un'architettura Fermi è 2, mentre per i device con architettura Tesla 1. Il
-numero minore di revision number invece, corrisponde al miglioramento del core
-dell'architettura che spesso porta a nuove funzionalità  da poter utilizzare
-tramite le API fornite appunto da NVIDIA.
+minor numero di revision number. Se devices diversi hanno il più
+alto revision number uguale sta a significare che posseggono la stessa
+architettura. Il più alto numero di revision number per le architetture Kepler è
+3, per i devices basati su un'architettura Fermi è 2, mentre per i device con
+architettura Tesla 1. Il numero minore di revision number invece, corrisponde ad
+un miglioramento incrementale dell'architettura di base che spesso può
+comportare nuove funzionalità.
 
 \subsection{Architettura Kepler}
 L'architettura Kepler è stata progettata e successivamente lanciata nel 2010
 insieme all'architettura Fermi. La prima GPU basata sull'architettura Kepler si
-chiamava ``GK104" in cui ogni unità  interna è stata progettata ai fini di
+chiamava ``GK104" in cui ogni unità  interna fu progettata ai fini di
 avere la miglior performance per watt (perf/watt). Alcuni esperti hanno
 affermato che la GK104 Kepler è la GPU più potente per la computazione e il
 rendering grafico dei videogames.
@@ -78,7 +80,7 @@ particolare è il ``GK107" che offre due shader di blocchi, chiamati
 \textbf{SMX}, ognuno dei quali ha 192 shaders per un totale di 384 shader cores
 con una velocità  di 967 MHz.
 
-\begin{figure}[h] 
+\begin{figure}[H] 
 \centering 
 \includegraphics[width=0.5\columnwidth]{Immagini/gt750m} 
 \caption[GT 750M]{La scheda video NVIDIA GT 750-M.\\}
@@ -103,18 +105,18 @@ possesso di una GPU NVidia correttamente montata sulla propria macchina, ma se
 così non fosse si può emulare su CPU le features di CUDA per poter eseguire i
 kernels (MCUDA tool etc.).
 
-Le funzioni kernel generano un determinato di threads eseguiti in parallelo per
-raggiungere il data parallelism. Ad esempio per la somma di due matrici può
-essere implementata come un kernel dove ogni threads computa un elemento
-dell'output. Il massimo del parallelismo si ha quando ad ogni threads è
+Le funzioni kernel generano un determinato numero di threads eseguiti in
+parallelo per raggiungere il data parallelism. Ad esempio per la somma di due
+matrici può essere implementata in un kernel dove ogni threads computa un
+elemento dell'output. Il massimo del parallelismo si ha quando ad ogni threads è
 associata una cella della matrice. Se la dimensione della matrice è 1000 x 1000
 servono 1 milione di threads per raggiungere il nostro scopo. Lato CPU per
 generare e eseguire lo scheduling di un enorme numero di threads è
 particolarmente oneroso, mentre in CUDA c'è un ottimo supporto hardware da
-questo punto di vista, dunque il programmatore può sorvolare su questo tipo di
+questo punto di vista, dunque il programmatore può tralasciare questo tipo di
 problema.
 
-\begin{figure}[h] 
+\begin{figure}[H] 
 \centering 
 \includegraphics[width=0.5\columnwidth]{Immagini/cuda_program} 
 \caption[Esecuzione di un programma CUDA]{Esecuzione di un programma CUDA.\\}
@@ -125,11 +127,11 @@ Una tipica esecuzione di un programma CUDA è mostrata nella Fig.
 \ref{fig:cuda_program}.
 L'esecuzione viene eseguita a strati, la prima ad essere eseguita è la parte
 host (CPU) per poi susseguirsi un insieme di strati che possono comportare anche
-il lancio dei kernels nel caso ci siano parti parallelizzate. I threads sono
-inglobati all'interno di \textbf{blocchi} che a loro volta sono parte di una
-griglia di blocchi chiamata \textbf{grid}. Quando un kernel termina, il
-programma continua con l'esecuzione lato host fino a che un nuovo kernel viene
-lanciato.
+il lancio dei kernels nel caso ci siano sezioni da eseguire in parallelo. I
+threads sono inglobati all'interno di \textbf{blocchi} che a loro volta sono
+parte di una griglia di blocchi chiamata \textbf{grid}. Quando un kernel
+termina, il programma continua con l'esecuzione lato host fino a che un nuovo
+kernel viene lanciato.
 
 \subsection{I kernel}
 
@@ -141,15 +143,14 @@ del modello Single-Program Multiple-Data (Tassonomia di Flynn \ref{par:flynn}).
 Questa tecnica è molto utilizzata nei sistemi paralleli. 
 
 Per poter dichiarare un kernel c'è una specifica keyword di CUDA da utilizzare:
-``\textbf{\_\_global\_\_}''. Questa keyword indica che la funzione è un kernel e
-questa funzione richiamata dall'host genererà una griglia di threads sul device,
-in particolare può solamente essere richiamata lato host (a
-meno che non ci sia un ambiente addatto per potere utilizzare il parallelismo dinamico
-\ref{par:Parallelismo_dinamico}).
-CUDA genera threads suddivisi in blocchi, ed ogni blocco appartiene ad una
-griglia. Lo schema è mostrato in figura \ref{fig:grid_block}.
+``\textbf{\_\_global\_\_}''. La chiamata ad un kernel, obbligatoriamente
+richiamata lato host (a meno che non ci sia un ambiente addatto per potere
+utilizzare il parallelismo dinamico \ref{par:Parallelismo_dinamico}), genererà
+una griglia di threads sul device. CUDA genera threads suddivisi in blocchi, ed
+ogni blocco appartiene ad una griglia. Lo schema è mostrato in figura
+\ref{fig:grid_block}.
 
-\begin{figure}[h] 
+\begin{figure}[H] 
 \centering 
 \includegraphics[width=0.5\columnwidth]{Immagini/grid_block} 
 \caption[Griglie e blocchi cuda]{Esempio generico di griglie e blocchi in un
@@ -165,12 +166,12 @@ Ad ogni blocco, come per ogni threads, è assegnato un indice che può essere
 ottenuto tramite altre keywords.   
 Le keywords \textsf{threadIdx.x} e \textsf{threadIdx.y} (e in caso anche
 \textsf{threadIdx.z}) si riferiscono all'indice dei threads all'interno di un
-blocco. Tutti i threads eseguono lo stesso codice presente all'interno di un
-kernel, quindi abbiamo bisogno di un meccanismo per distinguerli in modo da
-potergli dare direttive diverse o gestire il loro comportamento.
+blocco. L'identificazione di un thread è strettamente necessario nel calcolo
+parallelo, per questo c'è bisogno di un meccanismo per distinguere diversi
+threads in modo da poter dare direttive precise e diverse ad ognuno di loro.
 Come per i threads anche i blocchi hanno delle specifiche keywords per risalire
 alle loro coordinate. \textsf{blockIdx.x} e \textsf{blockIdx.y} hanno il compito
-di ritornare il valore delle coordinate per ogni blocco. Ogni blocco deve avere
+di restituire il valore delle coordinate per ogni blocco. Ogni blocco ha
 lo stesso numero di threads.
 
 Spesso i programmatori CUDA utilizzano la \textsf{struct} \textsf{dim3} per
@@ -183,7 +184,7 @@ invece dichiarassimo \textsf{dim3 dimGrid(3)} il compilatore comprende che
 vogliamo solamente utilizzare una dimensione e imposterà la \textsf{y} e la
 \textsf{z} ad 1 automaticamente.
 
-Non dimentichiamo perà che le dimensioni di griglie e blocchi vengono definite
+Non dimentichiamo però che le dimensioni di griglie e blocchi vengono definite
 lato host e non all'interno dei kernels.
 
 \begin{figure}[tb] 
@@ -257,7 +258,7 @@ memory}, utilizzata per la loro cooperazione, ed infine tutti possiedono una
 memoria locale chiamata \textbf{registro}.
 
 
-\begin{figure}[h] 
+\begin{figure}[H] 
 \centering 
 \includegraphics[width=0.8\columnwidth]{Immagini/memory_model} 
 \caption[CUDA Memory]{La struttura della memoria gestita dal sistema
@@ -284,19 +285,21 @@ devono essere completamente gestite dal programmatore.
 \label{par:shared_memory}
 La shared memory è una parte di memoria utilizzata per condividere dati tra
 threads all'interno dello stesso blocco. Ogni thread dunque può leggere,
-scrivere e modificare dati presenti sulla shared memory ma non può eseguire le
-stesse operazioni sulla shared memory di un altro blocco. CUDA offre un ottimo
-meccanismo per consentire una comunicazione e cooperazione dei threads
-ottimizzata. In particolare una motivazione per cui utilizzare la memoria
-condivisa è la differenza di velocità rispetto alla global memory, già con
-semplici esempi come la moltiplicazione tra matrici si può notare come
-l'utilizzo della shared memory rispetto alla global memory, comporta un
-ottimizzazione dell'algoritmo. Un altra differenza rispetto alla global memory è
-che la durata di vita della shared memory è uguale al ciclo di un kernel, cioè
-al termine del kernel anche la shared memory terminerà il suo lavoro
-rilasciando i dati salvati in precedenza.
+scrivere e modificare dati presenti sulla shared memory ma non può eseguire
+alcuna operazione sulla shared memory di un altro blocco. CUDA offre un
+ottimo meccanismo per consentire una comunicazione e cooperazione dei threads
+veloce. 
 
-In particolare la shared memory è suddivisa in banks, in cui ogni bank può
+Una motivazione per cui utilizzare la memoria condivisa è la differenza di
+velocità rispetto alla global memory. Già con semplici esempi come la
+moltiplicazione tra matrici, si può notare come l'utilizzo della shared memory
+rispetto alla global memory, comporta un miglioramento di performance.
+Un altra differenza rispetto alla global memory è che al termine delle
+operazioni del kernel la shared memory terminerà il suo lavoro rilasciando i
+dati salvati in precedenza mentre la global memory mantiene le informazioni
+fino alla fine di tutto il programma.
+
+La shared memory è suddivisa in banks, in cui ogni bank può
 eseguire solo una richiesta per volta. 
 
 \begin{figure}[h] 
@@ -318,11 +321,13 @@ sulla memoria costante è: \textsf{``\_\_constant\_\_''}.
 \subsection{Atomicità}
 Come scritto in precedenza, la global memory non gestisce nessun tipo di
 inconsistenza dei dati. Per questo è il programmatore che deve gestire la
-scrittura e la lettura concorrente. Per fare ciò, le API di CUDA, forniscono
-diverse funzioni che favoriscono la mutua esclusione per i dati a cui i threads
-accedono. In particolare vengono fornite diverse funzioni, tra cui le più note
-sono quelle relative alle operazioni aritmetiche. Facciamo un breve elenco delle
-funzioni atomiche fornite dalle API di CUDA:
+scrittura e la lettura concorrente. Proprio per questa causa le API di CUDA
+forniscono diverse funzioni che favoriscono la mutua esclusione per l'accesso
+dei threads ai dati. 
+
+Le più note operazioni implementate dalle API di CUDA sono quelle relative alle
+operazioni aritmetiche.
+Facciamo un breve elenco delle funzioni più conosciute:
 
 \begin{description}
   \item [atomicAdd()] gestisce l'esclusività per l'operazione somma.
@@ -346,13 +351,16 @@ quando c'è strettamente bisogno della mutua esclusione.
 Il parallelismo dinamico è un estensione di CUDA, introdotta con CUDA 5.0, che
 consente la creazione e la sincronizzazione di un kernel direttamente dal
 device. Sfruttare questa opportunità comporta diversi vantaggi in termini di
-performance, infatti creare \textit{lavoro} direttamente da GPU può ridurre il
-bisogno di trasferire dati tra host e device come il controllo dell'esecuzione e
-sincronizzazione. In particolare questa nuova feature consente al programmatore
-di gestire la configurazione dei threads anche a runtime direttamente dal
-device. Stessa opportunità si ha per il parallelismo dei dati che può essere
-generato direttamente all'interno di un kernel prendendo i vantaggi che
-l'hardware della GPU offre come lo scheduling e il load balancing.
+performance. 
+
+Creare un kernel direttamente da GPU può ridurre il bisogno di trasferire dati
+tra host e device così come riduce il controllo dell'esecuzione e
+della sincronizzazione dei threads. In particolare questa nuova feature consente
+al programmatore di gestire la configurazione dei threads anche a runtime
+direttamente dal device. La stessa opportunità si ha per il parallelismo dei
+dati che può essere generato direttamente all'interno di un kernel, così da
+trarre beneficio dei vantaggi che l'hardware della GPU offre (scheduling, load
+balancing etc.).
 
 Il parallelismo dinamico è supportato dai device con una compute capability pari
 a 3.5 o superiore. \cite{CUDA:2012}
@@ -388,7 +396,7 @@ parallelism.}, label=lst:dynamic, style=input]{code/dynamic.c}
 
 \section{Tools di sviluppo}
 Nsight Visual Studio e Nsight Eclipse Edition sono due ottime soluzioni per
-implementare un programma CUDA. La distinzione tra i due fondamentale è il
+implementare un programma CUDA. La distinzione fondamentale tra i due è il
 sistema operativo in cui operano: il primo sul sistema Windows e il secondo sui
 sistemi Linux e MacOS. 
 
@@ -402,9 +410,9 @@ queste utilità nei software per lo sviluppo.
 Fortunatamente, le soluzioni implementate per CUDA offrono al programmatore
 diverse features e tools per ottimizzare il codice e favorire la riuscita di una
 buona implementazione. 
-Nei sistemi Linux e MAC troviamo \textbf{CUDA-GDB}), tool
+Nei sistemi Linux e MAC troviamo \textbf{CUDA-GDB}) \cite{CTD}, tool
 di NVIDIA, che consente il debugging delle applicazioni CUDA. 
-Un altro tool degno di menzione è \textbf{CUDA-MEMCHECK}, incluso in
+Un altro tool degno di menzione è \textbf{CUDA-MEMCHECK} \cite{CTD}, incluso in
 CUDA Toolkit, che controlla l'accesso alla memoria e i vari errori che possono
 essere incontrati in corso di esecuzione (es. out of bounds, errori di accesso
 alla memoria etc.).
@@ -449,6 +457,7 @@ Studio.\\}
 
 
 \subsection{Visual Profiler}
+\label{par:visualprofiler}
 Il Visual Profiler è un software secondario fornito da NVIDIA utile per
 un'analisi approfondita dell'utilizzo della memoria e delle performance in
 generale della GPU. E' un ambiente ricco di funzionalità e informazioni utili

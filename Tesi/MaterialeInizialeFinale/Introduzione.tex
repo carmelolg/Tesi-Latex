@@ -11,15 +11,149 @@
 
 \chapter*{Introduzione}
 
-\lipsum[1]
+In un epoca in cui le alte prestazioni sono drasticamente
+essenziali nei più disparati campi scientifici, ci troviamo spesso a dover
+fronteggiare problematiche di inefficienza o esigenze di miglioramento con
+molteplici mezzi e soluzioni presenti nelle teorie informatiche moderne. Il
+termine \textbf{velocità} è diventato sinonimo di successo in diversi contesti
+ed è il protagonista principale di molti obiettivi progettuali dei nostri tempi.
+Tra i tanti fattori che comportano il successo di un calcolatore, di un software
+o di un'applicazione per dispositivi mobili possiamo distinguere naturalmente
+anche la velocità di risposta.  
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+Sin dai primi calcolatori, le migliorie apportate alle macchine furono
+progettate e implementate quasi sempre con lo scopo di incrementare la
+la velocità. Negli ultimi vent'anni in particolar modo l'aumento
+prestazionale è stato e continua ad essere un esigenza. 
+Dal punto di vista hardware c'è stata una vera rivoluzione
+che nel corso degli anni ha portato ad avere le più innovative tecnologie
+apportate ai processori che oggi popolano i nostri calcolatori. La richiesta
+prestazionale ha inciso in maniera dirompente nel mercato dello sviluppo
+del software portando così alla progettazione di tecniche innovative
+per migliorare sempre di più l'esperienza utente e le performance.
+Proprio i miglioramenti apportati hanno stravolto l'esperienza di utilizzo
+giornaliero integrando sempre di più l'utilizzo dei computer e altri dispositivi
+nella vita di tutti i giorni. Un esempio banale potrebbe essere un'applicazione
+mobile che ha il compito di fornire informazioni ai cittadini relative ai mezzi
+pubblici di trasporto. Se l'applicazione ha un tempo di risposta molto lenta,
+dovuta per esempio alla mole di dati da dover processare, potrebbe risultare
+inutilizzabile. 
+
+Ecco perché oggi il calcolo parallelo è molto utilizzato nello
+sviluppo del software. I notevoli miglioramenti lato hardware, che hanno
+dato i natali ai processori di ultima generazione dotati di più core
+(i cosìdetti \textit{multicore}), hanno comportato lo sviluppo di tecniche
+innovative proprio per poter utilizzare a pieno questa nuova tipologia di
+processori. Il calcolo parallelo oggi ha un grosso impatto in diverse aree
+informatiche, dalla ricerca scientifica fino allo sviluppo di software
+commerciale. Grazie a questa branca	informatica oggi è possibile sfruttare a
+pieno le nuove tecnologie e tutti i vantaggi dei nuovi dispositivi ultraveloci.
+Nel corso degli anni sono stati sviluppati e migliorati anche diverse
+metodologie e modelli paralleli, a partire dal miglioramento delle architetture
+all'arrivo dei nuovi framework. I due modelli di architettura più utilizzati
+oggi si dividono in modelli basati su memoria condivisa e modelli basati sul
+paradigma dello scambio di messaggi.
+
+La GPU (Graphics Processing Unit), inizialmente utilizzata solamente per il
+rendering grafico delle immagini, negli ultimi anni è stata scoperta come
+potenza di calcolo con velocità teoriche quasi dieci volte superiori alle
+normali CPU. Questo ha rivoluzionato le teorie sul calcolo parallelo che in
+particolare ha tratto vantaggi anche in termini di costi. Dato l'iniziale
+successo delle GPU si è introdotto nel parallel computing il termine GPGPU
+programming, che rappresenta tutti gli utilizzi delle GPU che non comprendano il
+rendering grafico. Oggi la GPGPU programming è utilizzata in decine di campi
+scientifici, dalla bio-informatica all'analisi finanziaria, coprendo anche campi
+come la fluidodinamica computazionale, l'apprendimento automatico e la scienza
+dei dati \cite{CUDA_APP:2015}. 
+
+Nvidia Corporation, società che opera nello sviluppo delle GPU ormai da
+tantissimi anni, ha puntato molto sul calcolo parallelo producendo device sempre
+più adatti per uno scopo computazionale. \textbf{CUDA} è un architettura
+completa (hardware e software) creata proprio da Nvidia che abilita alla GPGPU
+programming sfruttando proprio le schede grafiche Nvidia oramai molto diffuse.
+In particolare sin dal 2007, anno del suo lancio, CUDA ha subito numerosi
+aggiornamenti in cui ognuno di loro ha portato diverse features innovative che
+rendono la GPGPU programming sempre più semplice ed estremamente comoda. L'unico
+neo di questa potentissima architettura è la portabilità. Non è infatti
+possibile eseguire programmi scritti in CUDA su schede video diverse dalla
+Nvidia. Per questo è stato creato nel 2008 OpenCL che risulta però
+leggermente diverso sia nel suo utilizzo che nella sua architettura.
+
+Tra i sistemi complessi maggiormente noti in campo scientifico possiamo trovare
+gli \textbf{automi cellulari}. Gli automi cellulari sono insiemi di regole
+logico-matematiche capaci di descrivere sistemi complessi e rappresentarne la
+loro evoluzione nel tempo. Un AC può essere descritto come uno spazio suddiviso
+in celle regolari ognuna delle quali può trovarsi in un numero finito di stati.
+La legge che detta la sua evoluzione nel tempo è chiamata funzione di
+transizione comune per tutte le celle. Uno degli input per ogni cella è
+l'insieme dei suoi vicini configurati da una relazione di vicinanza che non
+varia nel tempo e nello spazio \cite{Dambrosio:2003}. 
+
+L'applicazione degli automi cellulari trova spazio in diversi campi di ricerca
+come la simulazione del comportamento dei pedoni nei centri
+commerciali \cite{Jarek:2014}, fino alla simulazioni di fenomeni naturali come
+frane \cite{SCIDDICA:1999} e colate laviche \cite{SCIARA:2004}.
+
+OpenCAL (Open Cellular Automata Library) è una libreria open source per la
+modellazione e la simulazione di modelli basati su automi cellulari, in
+particolare su automi cellulari complessi (CCA). La libreria nasce per rendere
+l'implementazione degli automi cellulari più semplice e immediata. Infatti
+grazie al suo utilizzo, l'utente potrà concentrarsi completamente sulla
+progettazione del modello senza dover dare particolari attenzioni ai dettagli
+implementativi. Nel corso del tempo sono state sviluppate diverse versioni della
+libreria utilizzando il calcolo parallelo, dalla versione in OpenMP alle
+versioni OpenCL e CUDA. Grazie alla sua comodità e le sue performance può
+essere considerata una valida alternativa a software per la creazione di
+modelli basati su automi cellulari come Camelot.
+
+Questo lavoro di tesi ha comportato la progettazione e la successiva
+implementazione di \textbf{OpenCAL-CUDA}. E' stata utilizzata
+l'architettura CUDA per la progettazione di un ulteriore versione parallela
+della libreria sfruttando la GPGPU programming.
+
+La tesi è suddivisa come segue:
+\ref{cap:O}
 \begin{description}
-\item[{\hyperref[cap:lorem]{Il primo capitolo}}]
-offre una visione d'insieme della storia di \LaTeX{} e ne vengono presentate le idee di fondo.
-\item[{\hyperref[cap:ipsum]{Il secondo capitolo}}]
-spiega le operazioni, veramente semplici, per installare \LaTeX{} sul proprio calcolatore.
-\item[{\hyperref[cap:dolor]{L'appendice A}}] descrive  sinteticamente le principali norme tipografiche della lingua italiana, utili nella composizione di articoli, tesi o libri.
+\item[{\hyperref[cap:Il calcolo parallelo]{Il primo capitolo}}]
+offre una visione generale sul parallel computing. Approfondiremo l'argomento
+con la descrizione delle più famose tecniche e metodologie attualmente
+utilizzate, compresi i modelli di comunicazione e un esempio di progettazione
+di un algoritmo parallelo. Ci sarà un breve cenno sul paradigma
+di programmazione OpenMP seguito da una parte introduttiva della GPGPU
+programming.
+
+\item[{\hyperref[cap:CUDA]{Il secondo capitolo}}]
+descrive l'architettura CUDA, utilizzata nel lavoro di tesi. In particolare,
+dopo una breve introduzione, verrà descritta l'architettura hardware e la sua
+interfaccia di programmazione. Nello stesso capitolo verranno introdotti i tools
+di sviluppo messi a disposizione per operare con questo tipo di archietettura.
+
+\item[{\hyperref[cap:Automi Cellulari]{Il terzo capitolo}}]
+introduce la teoria basata sugli automi cellulari e in particolare nel paragrafo
+\ref{par:CCA} si introdurranno gli automi cellulari complessi.
+
+\item[{\hyperref[cap:OpenCAL]{Il quarto capitolo}}]
+introduce la libreria OpenCAL descrivendo in dettaglio la definizione di un
+modello e di una simulazione, in particolare verranno proposti degli esempi di
+utilizzo.
+
+Infine,
+\item[{\hyperref[cap:OpenCAL-CUDA]{Il quinto capitolo}}]
+dopo una breve introduzione, descrive le scelte progettuali intraprese
+nella parallelizzazione della versione CUDA di OpenCAL. Nei paragrafi
+successivi, si descriverà la nuova forma strutturale che rappresenta questa
+nuova implementazione e infine, come per il quarto capitolo, ci saranno degli
+esempi di utilizzo abbinati ad alcuni test effettuati per validare il progetto
+svolto e gli obiettivi di tesi.
+
 \end{description}
 
-\lipsum[2]
+
+
+\newpage
+
+\null 
+
+\thispagestyle{empty} 
+
+\newpage

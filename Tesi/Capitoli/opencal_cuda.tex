@@ -8,4 +8,513 @@
 \label{cap:OpenCAL-CUDA}
 %************************************************
 
-\lipsum[1-3]
+\section{Introduzione}
+OpenCAL si è rivelata completa e efficace per l'implementazione di automi
+cellulari.
+L'evoluzione nel tempo della libreria ha comportato anche diverse versioni e
+miglioramenti dal lato della performance.
+Proprio per questo si è pensato di sfruttare i vantaggi del calcolo parallelo
+(cap. \ref{cap:Il calcolo parallelo}) come ricerca e sviluppo di OpenCAL.
+Attualmente esistono diverse versioni della libreria, a partire da quella
+sequenziale alla versione parallela OpenCAL-OMP (implementazione in OpenMP),
+OpenCAL-CL (implementazione in OpenCL) e OpenCAL-CUDA. Proprio quest'ultima
+verrà introdotta nei dettagli progettuali e implementativi.
+
+Progettare una versione parallela della libreria comporta non solo una fase di
+studio approfondito della tecnologia da utilizzare, ma anche una buona analisi
+del codice sequenziale. 
+Lo studio della tecnologia utilizzata possiamo dividerlo in due
+momenti differenti:
+\begin{itemize}
+  \item Scelta del linguaggio e dell'architettura da utilizzare
+  \item Studio pratico della tecnologia scelta
+\end{itemize}
+Oggi ci sono decine di modi per parallelizzare un programma, ragion per cui a
+volte la scelta tra le diverse opportunità può essere decisiva ai fini della
+riuscita del progetto. Nel caso di OpenCAL-CUDA, la scelta dell'utilizzo
+dell'architettura CUDA ha trovato riscontro sui buoni risultati ottenuti da
+passate parallelizzazioni di Automi Cellulari su schede video NVIDIA. Anche la
+semplicità di CUDA C e della sua elasticità (in continuo aggiornamento) ha
+mostrato le potenzialità per un progetto a lungo termine e facilmente
+mantenibile. E' anche vero però, che a volte la scelta della tecnologia dipende
+anche strettamente dal progetto e dall'utilizzo futuro.
+
+Lo studio del linguaggio CUDA C ha occupato circa un mese del tempo totale
+utilizzato per la riuscita del progetto. La parallelizzazione in GPU richiede
+anche tempo di comprensione delle diverse architetture spesso poco
+conosciute. Oggi, fortunatamente, le stesse case produttrici delle schede video
+offrono materiale in abbondanza per studiare approfonditamente architetture e
+linguaggi da utilizzare.
+
+Tornando alla fase di progettazione l'evidenziazione delle sezioni
+\textit{critiche} del codice, cioé le parti parallelizzabili, e la ricerca di
+una soluzione ottima è stata senza ombra di dubbio
+la parte più interessante del progetto.
+
+OpenCAL è una soluzione generica, progettata per essere compatibile con
+svariati problemi matematici e diversi tipi di automi cellulari. A volte
+l'utilizzo del parallelismo complica alcuni aspetti implementativi e può
+comportare diversi cambiamenti progettuali. Per quanto riguarda
+questo lavoro di tesi, si è pensato di applicare il parallelismo nella completa
+trasparenza dell'utente ma con l'aggiunta di piccole limitazioni, dovuti alla
+filosofia del parallelismo in CUDA che non si sposavano a pieno con la versione
+sequenziale.
+
+Nel resto di questo capitolo si affronteranno passo dopo passo le scelte
+progettuali che hanno condizionato la parallelizzazione in CUDA della libreria
+OpenCAL.
+
+\begin{figure}[h] 
+\centering 
+\includegraphics[width=1.0\columnwidth]{Immagini/opencalcudadiagram} 
+\caption[Ciclo di vita del software OpenCAL-CUDA]{Diagramma del ciclo di vita
+del software OpenCAL-CUDA}
+\label{fig:opencalcudadiagram} 
+\end{figure}
+
+\section{Scelte progettuali}
+
+In questo paragrafo si mostreranno le scelte progettuali e le più importanti
+differenze implementative della versione sequenziale della libreria e della
+versione parallelizzata in CUDA.
+
+\subsection{\textsf{CALModel2D} e \textsf{CudaCALModel2D}}
+Per poter utilizzare la potenza delle GPU, come descritto nei capitoli
+\ref{cap:CUDA} e \ref{cap:Il calcolo parallelo}, è essenziale trasportare i dati
+del programma sulla memoria del device. Il primo passo è stato appunto capire
+come poter trasportare (\ref{par:datatrasfer}) la struct \textsf{CALModel2D} sul device.
+All'inizio poteva sembrare semplice grazie alla funzione \textsf{cudaMemcpy\{
+\ldots \}}, ma come vedremo non è stato possibile utilizzarla in questo caso, o
+meglio, non è stato possibile lasciare l'incarico della copia
+dell'oggetto al motore di CUDA. La presenza infatti di puntatori (e puntatori
+di puntatori) all'interno di \textsf{CALModel2D} è stata la causa di tutto ciò.
+Infatti, come ben sappiamo, la copia di un puntatore non è nient'altro che la
+copia dell'indirizzo di memoria dove è allocato il puntatore, ed un oggetto sul
+device non può avere all'interno puntatori allocati sulla memoria dell'host.
+Dunque il primo passo è stato rendere più dettagliata
+possibile la struct \textsf{CALModel2D}.
+L'opzione adottata è stata scorporare le struct (e i puntatori a struct)
+interne, come \textsf{CALCell2D} e \textsf{CALSubstate2D(b|i|r)}, rendendo il
+loro contenuto parte della struct principale \textsf{CALModel2D}, in questo modo
+si è perso un grado di astrazione ma rendendo vantaggioso il trasferimento dei
+dati da device a host e viceversa.
+Come si può notare nei codici \ref{lst:definitionModel2} e
+\ref{lst:definitionModelCuda}, che mostrano le strutture \textsf{CALModel2D} e
+\textsf{CudaCALModel2D}, si notano implementazioni in genere molto diverse ma
+rappresentano un modello nella medesima maniera. Infatti l'utente non si renderà
+mai conto della differenza tra i due tipi di struttura.
+
+\medskip
+\lstinputlisting[caption={La rappresentazione del modello in OpenCAL.},
+label=lst:definitionModel2, style=input]{code/CALModel2D.c}
+
+Un esempio lampante è la rappresentazione dei sottostati.
+\textsf{CALSubstate2D(b|i|r)} mentre in \textsf{CALModel2D} è rappresentato da
+un puntatore a struct, in \textsf{CudaCALModel2D} è rappresentato da una coppia
+di puntatori \textit{next} e \textit{current} per ogni tipo di sottostato.
+
+
+\medskip
+\lstinputlisting[caption={La rappresentazione del modello in OpenCAL-CUDA.},
+label=lst:definitionModelCuda, style=input]{code/CudaCALModel2D.c}
+
+Per il caso delle variabili scalari e per i processi elementari invece, il
+codice è rimasto sostanzialmente uguale. 
+
+Questa prima parte di studio ha evidenziato come la differenza di architettura e
+il passaggio di dati tra la memoria device e host possano essere determinanti
+sia in termini di performance che di sviluppo del progetto. Non è l'unico caso in
+cui si è dovuto ricorrere ad un codice adattato per tradurre il codice
+sequenziale in parallelo.
+
+\subsection{\textsf{CALRun2D} e \textsf{CudaCALRun2D}}
+
+Rispetto a \textsf{CALModel2D}, la struct \textsf{CALRun2D} ha subito meno
+cambiamenti nella versione parallela della libreria, sia perché c'erano meno
+punti critici sia perché la maggior parte dei cambiamenti sono dovuti ad
+aggiunte di strutture dati. La loro implementazione è rappresentata dai codici
+\ref{lst:definitionSimulation} e \ref{lst:definitionSimulationCuda}
+rispettivamente per \textsf{CALRun2D} e \textsf{CudaCALRun2D}. 
+
+Naturalmente nella versione parallela il modello è presente all'interno della
+simulazione, così come accade per \textsf{CALRun2D}, e in particolare
+troviamo tre diversi modelli.
+
+Da premettere che, come descritto nel diagramma in fig.
+\ref{fig:opencalcudadiagram} tutta la parte di simulazione avviene lato device.
+Questo comporta dunque la presenza dei dati del modello sul device che
+spiega la presenza dunque di un modello in più (\textsf{device\_ca2D}).
+La presenza di \textsf{h\_device\_ca2D} invece è richiesta per le operazioni di
+trasferimento dati tra l'host e il device. I dettagli implementativi relativi a
+questa scelta progettuale verranno spiegati nel paragrafo successivo
+(\ref{par:datatrasfer}).
+Naturalmente \textsf{h\_device\_ca2D} non incide assolutamente sull'utilizzo di
+OpenCAL, infatti l'utente non verrà mai a conoscenza della sua presenza poiché è
+utilizzata solo nel core della libreria. Invece \textsf{device\_ca2D} comporta
+una piccola modifica di utilizzo di OpenCAL ed è l'utente stesso che deve
+dichiararla nel main principale e lasciare il compito della definizione alla
+libreria aggiungendola come parametro alla funzione \textsf{calCudaRunDef2D}.
+
+Vediamo insieme ora le due diverse implementazioni della struct dedicata alla
+simulazione:
+
+\medskip
+\lstinputlisting[caption={La rappresentazione del modello in OpenCAL.},
+label=lst:definitionSimulation, style=input]{code/CALRun2D.c}
+
+\medskip
+\lstinputlisting[caption={La rappresentazione del modello in OpenCAL-CUDA.},
+label=lst:definitionSimulationCuda, style=input]{code/CudaCALRun2D.c}
+
+
+\subsection{Trasferimento dei dati tra Host e Device}
+\label{par:datatrasfer}
+Il trasferimento dei dati utili alla computazione tra GPU e CPU è sempre stato
+uno dei punti critici del parallelismo su dispositivi grafici. Perciò negli anni
+le architetture hanno sviluppato diverse tecniche performanti per migliorare
+questo aspetto. In CUDA C utilizzare le funzioni fornite dall'API è
+molto conveniente perché sono ottimizzate. La conferma la si può benissimo
+trovare nel Visual Profiler (\ref{par:visualprofiler}) con dei semplici
+toy-problems.
+
+Nel caso di OpenCAL-CUDA il trasferimento dei dati è stato più complesso del
+previsto. Come accennato in precedenza, le sole API di CUDA non sono bastate per
+trasferire un modello tra la GPU e la CPU. Per questo è stato utilizzata una
+procedura ad hoc per questo tipo di trasferimento.
+
+Il problema principale del trasferimento dei dati da host a device è stato il
+passaggio di strutture dati dichiarate tramite puntatori. In generale lato host
+non si può accedere a blocchi di memoria su device e viceversa. Dunque copiare
+l'indirizzo di un puntatore non era la scelta corretta. 
+
+Per copiare un puntatore da host a device in CUDA bisogna copiare il
+contenuto della struttura dati puntata, all'interno di una nuova struttura dati
+allocata correttamente sul device. Il modello
+\textsf{h\_device\_ca2D} dichiarato all'interno di \textsf{CudaCALRun2D} ha il
+compito di fare da intermediario tra l'host e il device. Cioè, è un
+\textit{oggetto} allocato sulla CPU ma con i puntatori a strutture
+dati (vicinato, sottostati etc.) allocati sul device. Se vogliamo
+copiare un modello di automa cellulare da host a device eseguiamo i seguenti passi:
+\begin{enumerate}
+  \item Allocare e definire (popolare) sull'host un oggetto
+  \textsf{CudaCALModel2D} (chiamiamolo \textbf{host\_model})
+  \item Allocare su device un oggetto \textsf{CudaCALModel2D} (chiamiamolo
+  \textbf{device\_model})
+  \item Allocare su host un oggetto \textsf{CudaCALModel2D} con i puntatori alle
+  strutture dati allocati sul device (chiamiamolo \textbf{ibrid\_model})
+  \item Copiare con una semplice \textsf{memcpy} le variabili scalari di
+  host\_model su ibrid\_model.
+  \item Copiare, utilizzando la funzione fornita dalle API di Cuda
+  \textsf{cudaMemCpy}, il contenuto delle strutture dati (gestite tramite
+  puntatori) di host\_model su ibrid\_model
+  \item Copiare, utilizzando la funzione fornita dalle API di Cuda
+  \textsf{cudaMemCpy}, tutto l'oggetto ibrid\_model su device\_model
+\end{enumerate}
+
+Il processo sembra senza dubbio tortuoso ma in realtà è un passo obbligato se si
+vogliono utilizzare struct di questo genere. Il perché del suo funzionamento è
+semplice e lo insegnano gli errori di compilazione incontrati durante la fase
+implementativa. 
+
+Ad esempio se provassimo a copiare l'indice $i$ del
+vicinato presente in \textsf{CudaCALModel2D} direttamente da host\_model a
+device\_model ci si troverebbe davanti il seguente codice:
+
+\medskip
+\lstinputlisting[caption={},
+label=lst:ipointercopy, style=input]{code/host_device.c}
+
+Questo codice tuttavia risulta sbagliato poiché da host stiamo cercando di
+accedere direttamente alla memoria sul device (\textsf{device\_model->i}) poiché
+device\_model è allocato interamente su device. E' per questo che torna utile l'utilizzo
+di una struttura intermedia accennata in precedenza (ibrid\_model).
+Una copia corretta del codice \ref{lst:ipointercopy} potrebbe essere:
+
+\medskip
+\lstinputlisting[caption={},
+label=lst:ipointercopy, style=input]{code/host_h_device.c}
+
+In questo modo c'è la certezza che non si tenta di accedere sul device dal
+codice compilato lato host e la copia va a buon fine. In particolare la seconda
+copia va a buon fine poiché quando \textsf{cudaMemcpy} andrà a copiare l'intero
+oggetto adesso può benissimo copiare l'indirizzo dei puntatori tra le due struct
+poiché entrambi gli indirizzi sono allocati sul device.
+
+Un esempio completo della copia del modello da host a device è mostrato nel
+codice \ref{lst:copyhd}
+
+\medskip
+\lstinputlisting[caption={},
+label=lst:copyhd, style=input]{code/copyhd.c}
+
+Si può notare che il processo inverso (da device a host) è del tutto simile e
+applica la seguente procedura al contrario:
+
+\medskip
+\lstinputlisting[caption={},
+label=lst:copydh, style=input]{code/copydh.c}
+
+L'oggetto \textit{copy\_model} presente nel codice sarebbe il nostro
+ibrid\_model dichiarato nello stesso file. In particolare il metodo
+\textsf{calCudaAllocatorModel} (cod. \ref{lst:copyhd})prende in input il modello
+e ne copia gli scalari in copy\_model, allocando in seguito tutti i puntatori all'interno sul device in
+modo da avere l'oggetto pronto alla nostra copia tra host e device.
+
+In seguito si mostra il contenuto della funzione \textsf{calCudaAllocatorModel}:
+\medskip
+\lstinputlisting[caption={},
+label=lst:allocatormodel, style=input]{code/allocatormodel.c}
+
+
+\subsection{L'ottimizzazione delle celle attive}
+\label{par:streamcompaction}
+L'ottimizzazione è una keyword che si utilizza spesso quando si parla di
+parallelismo e tecniche di performance. Gli automi cellulari hanno diverse
+tecniche di ottimizzazione. 
+Come ben sappiamo infatti alcuni di loro richiedono un tempo
+computazionale elevato, ragion per cui, nel tempo, sono state ideate delle
+tecniche di minimizzazione della complessità. 
+
+Una tecnica molto utilizzata e perfomante è la tecnica delle celle attive.
+Una cella si dice attiva quando non si trova in uno stato ``quiescente" cioè ad
+un determinato tempo $t$ la funzione di transizione cambia uno o più stati
+della cella.
+
+Un esempio banale potrebbe essere una colata lavica rappresentata da un automa cellulare. 
+Uno degli stati di una cella potrebbe essere la quantità di lava che deve ancora
+\textit{colare}. 
+Tutte le celle che contengono lava possono essere definite \textbf{celle
+attive}.
+Le funzioni di transizione spesso possono essere realmente complesse e richiedono
+un elevato tempo computazionale. Grazie a questa tecnica di ottimizzazione
+si può supporre che la funzione di transizione viene eseguita solamente
+dalle celle in cui avviene un'evoluzione al tempo $t$ e nelle loro
+vicine. 
+
+Pensate bene che nel caso di una colata lavica una morfologia può
+generare una matrice con migliaia di celle tra cui nei primi step della
+computazione solo poche celle attive. Avviando la funzione di transizione solo
+per le celle realmente attive si può guadagnare dunque tanto carico di lavoro.
+
+Quello descritto è un approccio intuitivo e se entriamo nei dettagli
+implementativi possiamo notare come questa ottimizzazione comporta l'aggiunta di
+strutture dati a supporto. Una di queste, la più importante, è sicuramente la
+matrice di \textsf{FLAGS}. Quest'ultima possiamo rappresentarla come una
+matrice booleana in cui il valore \textsf{TRUE} nella posizione
+\textit{i-esima} sta a significare che la cella è attiva, \textsf{FALSE}
+altrimenti. Per poter accedere in scrittura alla matrice di flags in un
+programma parallelo bisogna considerare l'utilizzo dell'esclusività in quanto
+bisogna mantenere la lista di celle attive in uno stato coerente. In CUDA
+l'esclusività è gestita dalle funzioni atomiche descritte nel capitolo
+\ref{cap:CUDA}.
+
+Capiamo bene che per stilare una lista delle celle in cui deve avvenire la
+computazione allo step successivo bisogna obbligatoriamente scorrere la matrice
+di flags e vedere quali sono attive e quali no. Scorrere tutta la matrice di
+flags però può diventare oneroso in termini di performance. Per questo esiste
+un'altra tecnica subordinata chiamata \textbf{stream
+compaction}\cite{STREAM:2009}.
+
+\begin{figure}[H] 
+\centering 
+\includegraphics[width=0.75\columnwidth]{Immagini/streamc2} 
+\caption[Esempio di stream compaction]{Esempio di stream compaction}
+\label{fig:streamc} 
+\end{figure}
+
+Gli algoritmi di stream compaction attraverso semplici passaggi rimuovono
+gli elementi non utili da un insieme di dati sparsi. Nel nostro caso, questo
+genere di algoritmi, prendono in input la matrice di flags e restituiscono in
+output un array con in testa le celle in cui il flag è ``true''. In
+particolare, l'algoritmo si porta dietro l'indice delle celle attive poiché
+identifica la posizione in cui andare a lanciare la funzione di transizione al
+passo successivo.
+
+In OpenCAL-CUDA è stata implementata tramite l'utilizzo della libreria
+\textsf{chag} creata appunto dagli autori dell'articolo scientifico
+``Efficient Stream Compaction" citato in precedenza \cite{STREAM:2009}
+\cite{CHAG:2009}.
+
+Inizialmente si era utilizzata la libreria \textbf{thrust} \cite{THR} ma dopo
+una serie di test risultava inefficiente per il nostro tipo di problema e dunque è stata
+scartata a favore della libreria chag::pp.
+
+Mostriamo ora l'utilizzo dell'algoritmo di stream compaction all'interno della
+libreria:
+
+\medskip
+\lstinputlisting[caption={Stream compaction in OpenCAL-CUDA},
+label=lst:streamcompactioncuda, style=input]{code/streamc.c}
+
+Seguendo step by step il codice si mostra come l'algoritmo viene utilizzato
+solamente nel caso in cui l'utente abbia scelto di ottimizzare la simulazione
+tramite la tecnica delle celle attive. Nel caso in cui le celle attive si
+aggiornano viene avviato un kernel che ha il compito di aggiornare la lista di
+flags trasformandoli in indici. Questo perché all'algoritmo interessa quali sono
+gli indici (in matrici lineari) delle celle attive in modo da sapere su quali
+celle deve essere lanciata la funzione di transizione allo step successivo. La
+funzione cruciale è \textsf{pp::compact\{\ldots\}} che prende in input:
+\begin{enumerate}
+  \item Il range di celle dell'array di indici sparsi (aggiornato dal kernel
+ descritto in precedenza)
+  \item L'array di output utile per ricavare le informazioni finali
+  \item La dimensione dell'array
+  \item Una funzione predicato
+\end{enumerate}
+La funzione predicato è definita da una struct eseguendo un
+override dell'operatore (). Il predicato definisce la regola secondo cui
+l'algoritmo deve compattare la matrice. Nel nostro caso se trova nell'array un
+valore diverso da -1 lo inserisce al primo posto disponibile in testa,
+altrimenti va avanti.
+
+L'utilizzo di questa tecnica ha portato ad un guadagno del 30\% delle
+performance.
+
+\section{Struttura di OpenCAL-CUDA}
+In questa sezione vedremo insieme come si utilizza in maniera completa la
+libreria OpenCAL-CUDA.
+
+\subsection{Il \textit{main}}
+L'obiettivo principale di OpenCAL-CUDA era quello di fornire una versione di
+OpenCAL completamente parallela mantenendo la stessa struttura, in modo da
+rendere il parallelismo completamente trasparente all'utente. Nonostante ciò,
+date alcune circostanze e la differenza di architetture, l'utilizzo della
+libreria è leggermente cambiato in base all'esigenze dell'architettura CUDA.
+
+Per poter utilizzare la libreria OpenCAL-CUDA possiamo stabilire i seguenti
+passi:
+
+\begin{itemize}
+  \item Definizione e allocazione del modello e della simulazione
+  \item Definizione e allocazione dei kernel e dei sottostati
+  \item Trasferimento dei dati dall'host al device
+  \item Definizione del ciclo di esecuzione
+  \item Trasferimento dei dati dal device all'host
+  \item Operazioni di finalizzazione
+\end{itemize}
+
+Come si può notare è presente qualche passo in più rispetto all'utilizzo della
+versione sequenziale della libreria. Questo per consentire il passaggio di dati
+tra le memorie poiché la simulazione avviene totalmente su GPU.
+
+Come ricordato in precedenza, date alcune limitazioni nel passaggio di memoria
+(\ref{par:datatrasfer}), si è perso un livello di astrazione rispetto ad
+OpenCAL. Questo ha comportato dei leggeri cambiamenti anche in alcune funzioni
+utilizzate nella libreria. Possiamo portare un esempio:
+
+\textsf{calAddSubstate(b|i|r)} come mostrato nel capitolo \ref{cap:OpenCAL}
+si implementava nel seguente modo:
+
+\medskip
+\lstinputlisting[caption={},
+label=lst:addsubstates, style=input]{code/addsubstates.c}
+
+In OpenCAL-CUDA l'implementazione cambia leggermente. Poiché i sottostati sono
+rappresentati da matrici lineari (una per ogni tipo supportato, \textit{byte,
+integer, real\ldots}), \textsf{calCudaAddSubstate} risulta leggermente diverso
+rispetto alla sua versione sequenziale. Vediamone un esempio:
+
+\medskip
+\lstinputlisting[caption={},
+label=lst:addsubstatescuda, style=input]{code/addsubstatescuda.c}
+
+Con questa nuova versione la chiamata alla funzione è unica per ogni tipo di
+dato. Dunque l'allocazione in memoria viene effettuata una sola volta per tutti
+i sottostati di tipo uguale. La prima differenza sta nel fatto che l'utente deve
+stabilire a priori il numero di sottostati per ogni tipo che desidera. Questo
+non dovrebbe essere un grosso problema poiché si suppone che l'utente che decide
+di utilizzare OpenCAL ha già bene in mente quale sia il suo modello e già
+possiede queste informazioni. Nonostante ciò rimane libero di cambiare le sue
+informazioni in qualsiasi momento. Una seconda differenza sta nelle funzioni di
+\textit{load}. Siccome la nostra struttura dati è ora una matrice lineare, ogni
+sottostato possiede un indice in modo tale da conoscere qual è il range di
+memoria che occupa. Questo per facilità può essere
+rappresentato da un enumerativo che rende il codice abbastanza chiaro e lineare.
+
+Per quanto riguarda invece le operazioni di trasferimento dei dati, sono gestite
+automaticamente dalla libreria grazie a due funzioni:
+\textsf{calInitializeInGPU2D} e \textsf{calSendDataGPUtoCPU}. Queste due
+funzioni prendono in input il modello allocato sull'host e il modello allocato
+sul device e rispettivamente trasferiscono i dati da CPU a GPU e viceversa.
+
+Un'altra aggiunta naturalmente riguarda le funzioni relative alla simulazione
+dell'automa cellulare. Mentre la definizione delle funzioni di inizializzazione
+e supporto rimangono sostanzialmente uguali alla versione sequenziale, la
+funzione \textsf{calRun2D} ha subito un leggero cambiamento. Come ben sappiamo
+CUDA utilizza una serie di threads suddivisi in griglie e blocchi. In
+OpenCAL-CUDA lasciamo al libertà all'utente di gestire questa configurazione a
+patto che il core della libreria venga informata della scelta. Per questo due
+valori di tipo \textsf{dim3} devono essere incluse tra gli input della funzione
+\textsf{calCudaRun2D}.
+
+Ecco un confronto tra la versione sequenziale e quella parallela:
+
+\medskip
+\lstinputlisting[caption={},
+label=lst:calruncuda, style=input]{code/calruncuda.c}
+
+
+\subsection{La dichiarazione dei \textit{kernel}}
+I kernel per OpenCAL-CUDA sono tutte le funzioni che devono eseguire codice
+parallelo. La libreria richiede che la funzione di inizializzazione,
+la funzione di steering, la funzione di stop e i processi elementari devono
+essere definite come kernel. Questo perché sono le funzioni che verranno avviate
+in parallelo dalla libreria attraverso l'architettura CUDA. 
+
+Questa tipologia di funzioni sono dichiarate in maniera del tutto simile alla
+versione sequenziale ma con l'aggiunta della keyword \textsf{\_\_global\_\_} che
+identifica un kernel. All'interno di queste funzioni l'utente deve progettare
+l'algoritmo parallelo a suo piacimento mettendo in pratica i concetti base di
+CUDA. OpenCAL-CUDA fornisce delle comode funzioni per ricevere delle
+informazioni molto utilizzate nei programmi scritti in CUDA C.
+Ad esempio, capita spesso che un programmatore debba ricavarsi le informazioni
+riguardo l'ID univoco dei threads. Questo comporta piccoli calcoli matematici
+che a lungo andare possono diventare annoianti e ripetitivi,
+inoltre ci si può imbattere in piccoli errori di calcolo. Per questo la libreria
+OpenCAL-CUDA esegue tutte queste operazioni di routine in automatico tramite
+alcune chiamate a funzione.
+
+Mostriamo un esempio di processo elementare implementato tramite la libreria
+OpenCAL-CUDA:
+
+\medskip
+\lstinputlisting[caption={},
+label=lst:kernelcuda, style=input]{code/kernelcuda.c}
+
+
+\section{Game of Life in OpenCAL-CUDA}
+Come descritto nel paragrafo \ref{par:gol} il Game of Life è il più famoso
+automa cellulare. Per questo possiamo prenderlo da esempio per la sua semplicità e la
+sua chiarezza. 
+Vediamone insieme una sua implementazione tramite la libreria OpenCAL-CUDA.
+
+\medskip
+\lstinputlisting[caption={},
+label=lst:golcuda, style=input]{code/life2Dcuda.c}
+
+Quello mostrato è il classico esempio di implementazione di un modello e una
+simulazione in OpenCAL-CUDA.
+All'inizio del programma troviamo tutte le informazioni relative alle strutture
+dati, path dei file di configurazione e stampa, librerie incluse etc.
+
+Da notare l'enumerativo \textsf{SUBSTATE\_NAME}, utile per
+accedere alla matrice linearizzata dei sottostati (in questo caso di byte).
+Prima della dichiarazione del main troviamo tutti i kernel utili ai fini della
+simulazione. Questi sono implementati come delle normali funzioni con la
+differenza che il codice viene eseguito in parallelo da migliaia di threads.
+Una delle funzioni di supporto descritte nel paragrafo precedente è
+\textsf{calCudaGetOffset} che ha il compito di restituire l'ID univoco per ogni
+thread che accede al kernel corrente.
+In questo caso sono state utilizzate altre due funzioni di supporto:
+\textsf{calCudaGetIndexRow} e \textsf{calCudaGetIndexColumn}. Queste vengono
+utilizzate per risalire ai più comuni indici $i$ e $j$ di una matrice a partire
+dalla matrice linearizzata e dall'ID univoco del thread. Sono state implementate
+poiché spesso ci si trova a dover gestire un determinato angolo di celle nella
+loro evoluzione e l'utilizzo di indici può essere molto utile.
+
+Un ultimo commento è relativo alla leggibilità del codice che nonostante
+l'utilizzo della GPGPU programming è rimasto molto chiarp e ridotto. Questo può
+essere visto come un enorme potenzialità della libreria che evita dunque la
+pesantezza di leggibilità del codice parallelo per GPU.
+
+\section{``Modello'' in OpenCAL-CUDA}

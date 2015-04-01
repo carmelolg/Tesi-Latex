@@ -1968,19 +1968,32 @@
     <bcf:datasource type="file" datatype="bibtex">bibliografia.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1">OpenGL:2004</bcf:citekey>
-    <bcf:citekey order="2">CUDA:2007</bcf:citekey>
-    <bcf:citekey order="3">Kartashev</bcf:citekey>
-    <bcf:citekey order="4">CUDA:2012</bcf:citekey>
-    <bcf:citekey order="5">DiGregorio:1975</bcf:citekey>
-    <bcf:citekey order="6">Wolfram:1983</bcf:citekey>
-    <bcf:citekey order="7">Wolfram:2002</bcf:citekey>
-    <bcf:citekey order="8">Langton:1990</bcf:citekey>
-    <bcf:citekey order="9">Langton1:1990</bcf:citekey>
-    <bcf:citekey order="10">SCIARA:2004</bcf:citekey>
-    <bcf:citekey order="11">SCIDDICA:1999</bcf:citekey>
-    <bcf:citekey order="12">FIRE:2004</bcf:citekey>
-    <bcf:citekey order="13">TRAFFIC:1996</bcf:citekey>
+    <bcf:citekey order="1">CUDA_APP:2015</bcf:citekey>
+    <bcf:citekey order="2">Dambrosio:2003</bcf:citekey>
+    <bcf:citekey order="3">Jarek:2014</bcf:citekey>
+    <bcf:citekey order="4">SCIDDICA:1999</bcf:citekey>
+    <bcf:citekey order="5">SCIARA:2004</bcf:citekey>
+    <bcf:citekey order="6">ITPC:2003</bcf:citekey>
+    <bcf:citekey order="7">ITPC:2003</bcf:citekey>
+    <bcf:citekey order="8">OpenGL:2004</bcf:citekey>
+    <bcf:citekey order="9">CUDA:2007</bcf:citekey>
+    <bcf:citekey order="10">Kartashev</bcf:citekey>
+    <bcf:citekey order="11">CUDA:2012</bcf:citekey>
+    <bcf:citekey order="12">CTD</bcf:citekey>
+    <bcf:citekey order="13">CTD</bcf:citekey>
+    <bcf:citekey order="14">DiGregorio:1975</bcf:citekey>
+    <bcf:citekey order="15">Wolfram:1983</bcf:citekey>
+    <bcf:citekey order="16">Wolfram:2002</bcf:citekey>
+    <bcf:citekey order="17">SCIARA:2004</bcf:citekey>
+    <bcf:citekey order="18">SCIDDICA:1999</bcf:citekey>
+    <bcf:citekey order="19">FIRE:2004</bcf:citekey>
+    <bcf:citekey order="20">TRAFFIC:1996</bcf:citekey>
+    <bcf:citekey order="21">CAMELOT:1996</bcf:citekey>
+    <bcf:citekey order="22">LIFE:1970</bcf:citekey>
+    <bcf:citekey order="23">STREAM:2009</bcf:citekey>
+    <bcf:citekey order="24">STREAM:2009</bcf:citekey>
+    <bcf:citekey order="25">CHAG:2009</bcf:citekey>
+    <bcf:citekey order="26">THR</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="nty" type="entry" sortscheme="nty">
   <bcf:sorting>

@@ -9,17 +9,27 @@
 %************************************************
 
 \section{Introduzione}
-Gli studi sugli Automi Cellulari furono introdotti nel 1947 da John von Neumann
-con lo scopo di ideare un sistema in grado di auto-riprodursi. Gli Automi Cellulari
-(AC) sono modelli matematici usati per la simulazione di sistemi complessi. Un AC
-è sostanzialmente uno spazio d-dimensionale suddiviso in celle regolari alle quali è
-associato uno stato facente parte di un insieme finito di stati. Il valore dello stato di
-una cella in un determinato istante è dato da una funzione di transizione uguale per
-tutte le celle. La funzione di transizione calcola lo stato di una cella in base allo stato
-del suo vicinato, ossia un insieme di celle legate da una prefissata relazione. Tutto
-ciò avviene in passi discreti e lo stato di tutte le celle è aggiornato in modo
-simultaneo. L'insieme degli stati di tutte le celle in un istante $t$ determina
-la configurazione dell' Automa Cellulare in quell' istante.
+Oggigiorno, dopo decadi di sviluppo e ricerca, la scienza ricopre un ruolo
+importante in ogni settore. Le pubbliche istituzioni e le aziende private
+sentono il bisogno di utilizzare metodi e nuove tecniche ai fini di scoprire e
+interpretare diversi casi di studio, a partire dai fenomeni naturali fino alla
+statistica e all'economia. Soprattutto i fenomeni naturali, suscitano un
+particolare interesse nell'ambito della ricerca scientifica, poiché dal loro
+studio è possibile fornire informazioni significative sul loro comportamento
+futuro e le eventuali precauzioni (nei casi di fenomeni più o meno disastrosi).
+
+Nel 1947 da John von Neumann, con lo scopo di ideare un sistema in grado di
+auto-riprodursi, introdusse gli \textbf{Automi Cellulari}. Gli Automi Cellulari
+(AC) sono modelli matematici usati per la simulazione di sistemi complessi. Un AC è
+sostanzialmente uno spazio d-dimensionale suddiviso in celle regolari alle quali
+è associato uno \textbf{stato} facente parte di un insieme finito di stati. Il
+valore dello stato di una cella in un determinato istante è dato da una
+\textbf{funzione di transizione} uguale per tutte le celle. La funzione di
+transizione calcola lo stato di una cella in base allo stato del suo
+\textbf{vicinato}, ossia un insieme di celle legate da una prefissata relazione.
+Tutto ciò avviene in passi discreti e lo stato di tutte le celle è aggiornato in
+modo simultaneo. L'insieme degli stati di tutte le celle in un istante $t$
+determina la configurazione dell' Automa Cellulare in quell' istante.
 \begin{figure}
 \centering
 \subfloat[][]
@@ -31,14 +41,16 @@ la configurazione dell' Automa Cellulare in quell' istante.
 \subfloat[][]
 {\includegraphics[width=0.22\textwidth]{immagini/spazioD}}\quad
 \caption[Esempi di spazi cellulari]{Esempi di spazi cellulari (a)
-unidimensionale, (b) (c)
-bidimensionale, (d) tridimensionale.}
+unidimensionale, (b) e (c) bidimensionale, (d) tridimensionale.}
 \label{img:spaziCellulari}
 \end{figure}
-\section{Definizione informale di Automa Cellulare}
+
+\section{Definizione di Automa Cellulare}
+
+\subsection{Definizione informale di Automa Cellulare}
 \label{par:CAdefinition}
-Per dare una sommaria definizione di Automa Cellulare, le sue proprietà
-fondamentali sono elencate di seguito:
+Informalmente possiamo dare una definizione di Automa Cellulare e distinguere le
+proprietà fondamentali come di seguito: 
 \begin{itemize}
   \item lo spazio è formato da un insieme di celle regolari;
   \item l'insieme degli stati che possono essere assunti dalla cella è finito;
@@ -83,10 +95,15 @@ da uno stato a un insieme di stati allora la funzione è non deterministica. Nel
 primo caso, dato un Automa Cellulare all'istante $t=0$, la sua configurazione
 all'istante successivo è unica, mentre nel secondo caso ci possono essere
 diverse configurazioni.
-\section{Definizione formale di Automa Cellulare}
+
+
+\subsection{Definizione formale di Automa Cellulare}
 \label{par:ACdef}
 Un Automa Cellulare può essere formalizzato come una quadrupla
-$(E^d,S,X,\\\sigma)$ \cite{DiGregorio:1975}
+\cite{DiGregorio:1975}
+\begin{center}
+$ < E^d,S,X,\sigma >$
+\end{center}
 \begin{itemize}
   \item $E^d$ è l'insieme delle celle individuate da punti a coordinate intere
   nello spazio euclideo reale $d-$dimensionale, nel quale ogni cella è un automa
@@ -134,7 +151,7 @@ dimensioni $1 \times n$ dove la prima e l'ultima cella sono adiacenti, cioé la
 griglia può essere considerata come un anello. Gli stati che possono essere
 assunti dalla cella sono $k = 2$ (ovvero 0 e 1) e il raggio del vicinato è
 $r=1$. Se prendiamo in considerazione la cella $x$ il suo vicinato è formato
-dalla terna $<x-r,x,x+r>$.
+dalla terna $ < x-r,x,x+r > $.
 \begin{figure}[h]
 \centering
 \includegraphics[width=1\textwidth]{immagini/ACunidim}
@@ -170,7 +187,7 @@ dalla stringa di bit $s = 00000101$ è quindi dal numero intero $n = 5$.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.4\textwidth]{immagini/ACunidim1}
+\includegraphics[width=0.4\textwidth]{immagini/ACunidim}
 \label{img:ACunidim1}
 \caption[Evoluzione di un AC con regola di transizione 90]{Evoluzione di un
 automa cellulare unidimensionale che ha regola di transizione 90. Ogni riga rappresenta un'iterazione dell'automa cellulare. Il
@@ -192,27 +209,29 @@ strutture si ripetono ciclicamente durante l'evoluzione dell'automa cellulare.
 Inoltre è costituito da strutture semplici che interagendo tra loro creano
 strutture più complesse.
 \end{description}
-Gli studi effettuati da Langton \cite{Langton:1990} mostrano come le classi di Wolfram sono
-collocate nello spazio delle regole e quali sono le relazioni che legano le classi tra
-loro. Per parametrizzare lo spazio delle regole, Langton ha calcolato la
-percentuale di transizioni non quiescenti, ossia le transizioni che non lasciano inalterato lo
-stato di una cella da un'iterazione all'altra.
-\begin{equation}
-\label{eqn:langton}
-\lambda = 1 - \frac{n_q}{k^n}
-\end{equation}
-La \ref{eqn:langton} mostra il parametro $\lambda$ \cite{Langton1:1990} che
-rappresenta la percentuale di transizioni non quiescenti, dove $n_q$ è il numero
-di transizioni quiescenti, mentre $k^n$ le possibili configurazioni del vicinato. Langton
-studiò il comportamento di $\lambda$ nell'intervallo tra $[0, 0.75]$ e osservò
-che per valori bassi di $\lambda$ gli AC avevano un comportamento ordinato
-tipico di quello delle classi di tipo 1 e 2, mentre per valori alti di $\lambda$
-si verificava un comportamento caotico tipico degli AC appartenenti alla classe 3.
-Infine egli osservò una terza zona vicina al valore $\lambda = 0.45$ dove gli AC
-si comportavano sia in modo ordinato che caotico producendo sia strutture statiche che
-dinamiche. Quest'ultima zona fu chiamata da Langton ``Margine del caos''.
+
+% Gli studi effettuati da Langton \cite{Langton:1990} mostrano come le classi di Wolfram sono
+% collocate nello spazio delle regole e quali sono le relazioni che legano le classi tra
+% loro. Per parametrizzare lo spazio delle regole, Langton ha calcolato la
+% percentuale di transizioni non quiescenti, ossia le transizioni che non lasciano inalterato lo
+% stato di una cella da un'iterazione all'altra.
+% \begin{equation}
+% \label{eqn:langton}
+% \lambda = 1 - \frac{n_q}{k^n}
+% \end{equation}
+% La \ref{eqn:langton} mostra il parametro $\lambda$ \cite{Langton1:1990} che
+% rappresenta la percentuale di transizioni non quiescenti, dove $n_q$ è il numero
+% di transizioni quiescenti, mentre $k^n$ le possibili configurazioni del vicinato. Langton
+% studiò il comportamento di $\lambda$ nell'intervallo tra $[0, 0.75]$ e osservò
+% che per valori bassi di $\lambda$ gli AC avevano un comportamento ordinato
+% tipico di quello delle classi di tipo 1 e 2, mentre per valori alti di $\lambda$
+% si verificava un comportamento caotico tipico degli AC appartenenti alla classe 3.
+% Infine egli osservò una terza zona vicina al valore $\lambda = 0.45$ dove gli AC
+% si comportavano sia in modo ordinato che caotico producendo sia strutture statiche che
+% dinamiche. Quest'ultima zona fu chiamata da Langton ``Margine del caos''.
 
 \section{Automi Cellulari Complessi (CCA)}
+\label{par:CCA}
 Gli Automi Cellulari Complessi (CCA) sono un'estensione della classica
 definizione di Automa Cellulare. In genere questo modello numerico si adatta
 alla rappresentazione di fenomeni le cui dinamiche possono essere descritte in

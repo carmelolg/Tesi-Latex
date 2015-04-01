@@ -8,92 +8,128 @@
 \defcounter {refsection}{0}\relax 
 \select@language {italian}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {1}Il calcolo parallelo}{11}{chapter.1}
+\contentsline {chapter}{\numberline {1}Il calcolo parallelo}{15}{chapter.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.1}Introduzione}{11}{section.1.1}
+\contentsline {section}{\numberline {1.1}Introduzione}{15}{section.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.2}Tassonomia di Flynn}{12}{section.1.2}
+\contentsline {section}{\numberline {1.2}Tassonomia di Flynn}{16}{section.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.3}Modelli di comunicazione}{13}{section.1.3}
+\contentsline {section}{\numberline {1.3}Modelli di comunicazione}{17}{section.1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.3.1}Memoria condivisa}{13}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.1}Memoria condivisa}{17}{subsection.1.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.3.2}Memoria distribuita}{14}{subsection.1.3.2}
+\contentsline {subsection}{\numberline {1.3.2}Memoria distribuita}{18}{subsection.1.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.3.3}Sistemi ibridi}{15}{subsection.1.3.3}
+\contentsline {subsection}{\numberline {1.3.3}Sistemi ibridi}{18}{subsection.1.3.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.4}Progettazione di un algoritmo parallelo}{15}{section.1.4}
+\contentsline {section}{\numberline {1.4}Progettazione di un algoritmo parallelo}{18}{section.1.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.4.1}Tecniche di decomposizione}{16}{subsection.1.4.1}
+\contentsline {subsection}{\numberline {1.4.1}Tecniche di decomposizione}{19}{subsection.1.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Decomposizione ricorsiva}{18}{section*.16}
+\contentsline {subsubsection}{Decomposizione ricorsiva}{20}{section*.16}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Decomposizione dei dati}{18}{section*.18}
+\contentsline {subsubsection}{Decomposizione dei dati}{20}{section*.18}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Decomposizione esplorativa}{18}{section*.19}
+\contentsline {subsubsection}{Decomposizione esplorativa}{21}{section*.19}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Decomposizione speculativa e ibrida}{19}{section*.20}
+\contentsline {subsubsection}{Decomposizione speculativa e ibrida}{21}{section*.20}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.4.2}Tecniche di mapping}{19}{subsection.1.4.2}
+\contentsline {subsection}{\numberline {1.4.2}Tecniche di mapping}{21}{subsection.1.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.4.3}Modelli di un algoritmo parallelo}{20}{subsection.1.4.3}
+\contentsline {subsection}{\numberline {1.4.3}Modelli di un algoritmo parallelo}{22}{subsection.1.4.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.5}Misure di performance}{20}{section.1.5}
+\contentsline {section}{\numberline {1.5}Misure di performance}{23}{section.1.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.6}Linguaggi di programmazione}{22}{section.1.6}
+\contentsline {section}{\numberline {1.6}Linguaggi di programmazione}{24}{section.1.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.6.1}OpenMP}{22}{subsection.1.6.1}
+\contentsline {subsection}{\numberline {1.6.1}OpenMP}{24}{subsection.1.6.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.7}Nuovi approcci al calcolo parallelo: GPGPU computing}{24}{section.1.7}
+\contentsline {section}{\numberline {1.7}Nuovi approcci al calcolo parallelo: GPGPU computing}{25}{section.1.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {2}CUDA - Compute Unified Device Architecture}{27}{chapter.2}
+\contentsline {chapter}{\numberline {2}CUDA - Compute Unified Device Architecture}{28}{chapter.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.1}Introduzione}{27}{section.2.1}
+\contentsline {section}{\numberline {2.1}Introduzione}{28}{section.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.2}Architettura hardware}{28}{section.2.2}
+\contentsline {section}{\numberline {2.2}Architettura hardware}{29}{section.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.1}Compute capability}{28}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.1}Compute capability}{29}{subsection.2.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.2}Architettura Kepler}{28}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.2}Architettura Kepler}{29}{subsection.2.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.3}Interfaccia di programmazione}{29}{section.2.3}
+\contentsline {section}{\numberline {2.3}Interfaccia di programmazione}{30}{section.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.1}I kernel}{30}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.1}I kernel}{31}{subsection.2.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.2}La memoria}{32}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.2}La memoria}{33}{subsection.2.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{La global memory}{33}{section*.30}
+\contentsline {subsubsection}{La global memory}{34}{section*.29}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{La shared memory}{34}{section*.31}
+\contentsline {subsubsection}{La shared memory}{34}{section*.30}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{La constant memory}{34}{section*.33}
+\contentsline {subsubsection}{La constant memory}{34}{section*.32}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.3}Atomicit\`a}{35}{subsection.2.3.3}
+\contentsline {subsection}{\numberline {2.3.3}Atomicit\`a}{34}{subsection.2.3.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.4}Parallelismo dinamico}{36}{subsection.2.3.4}
+\contentsline {subsection}{\numberline {2.3.4}Parallelismo dinamico}{35}{subsection.2.3.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.4}Tools di sviluppo}{38}{section.2.4}
+\contentsline {section}{\numberline {2.4}Tools di sviluppo}{37}{section.2.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.4.1}Nsight Visual Studio}{38}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.1}Nsight Visual Studio}{37}{subsection.2.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.4.2}Visual Profiler}{39}{subsection.2.4.2}
+\contentsline {subsection}{\numberline {2.4.2}Visual Profiler}{38}{subsection.2.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {3}Automi Cellulari}{42}{chapter.3}
+\contentsline {chapter}{\numberline {3}Automi Cellulari}{40}{chapter.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.1}Introduzione}{42}{section.3.1}
+\contentsline {section}{\numberline {3.1}Introduzione}{40}{section.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.2}Definizione informale di Automa Cellulare}{43}{section.3.2}
+\contentsline {section}{\numberline {3.2}Definizione di Automa Cellulare}{41}{section.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.3}Definizione formale di Automa Cellulare}{44}{section.3.3}
+\contentsline {subsection}{\numberline {3.2.1}Definizione informale di Automa Cellulare}{41}{subsection.3.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.4}Automi cellulari unidimensionali}{45}{section.3.4}
+\contentsline {subsection}{\numberline {3.2.2}Definizione formale di Automa Cellulare}{42}{subsection.3.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.5}Automi Cellulari Complessi (CCA)}{47}{section.3.5}
+\contentsline {section}{\numberline {3.3}Automi cellulari unidimensionali}{42}{section.3.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}OpenCAL}{48}{chapter.4}
+\contentsline {section}{\numberline {3.4}Automi Cellulari Complessi (CCA)}{44}{section.3.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}OpenCAL-CUDA}{50}{chapter.5}
+\contentsline {chapter}{\numberline {4}OpenCAL}{45}{chapter.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}Conclusioni}{52}{chapter.6}
+\contentsline {section}{\numberline {4.1}Liberia per Automi Cellulari}{45}{section.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Riferimenti bibliografici}{56}{chapter*.44}
+\contentsline {section}{\numberline {4.2}Utilizzare OpenCAL}{45}{section.4.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2.1}Definizione di un modello}{45}{subsection.4.2.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2.2}Definizione del ciclo di esecuzione}{48}{subsection.4.2.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.3}Game of Life in OpenCAL}{49}{section.4.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.4}``Modello" in OpenCAL}{51}{section.4.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {5}OpenCAL-CUDA}{52}{chapter.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.1}Introduzione}{52}{section.5.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.2}Scelte progettuali}{53}{section.5.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.2.1}\textsf {CALModel2D} e \textsf {CudaCALModel2D}}{53}{subsection.5.2.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.2.2}\textsf {CALRun2D} e \textsf {CudaCALRun2D}}{56}{subsection.5.2.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.2.3}Trasferimento dei dati tra Host e Device}{57}{subsection.5.2.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.2.4}L'ottimizzazione delle celle attive}{61}{subsection.5.2.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.3}Struttura di OpenCAL-CUDA}{63}{section.5.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.3.1}Il \textit {main}}{64}{subsection.5.3.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.3.2}La dichiarazione dei \textit {kernel}}{65}{subsection.5.3.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.4}Game of Life in OpenCAL-CUDA}{66}{section.5.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.5}``Modello'' in OpenCAL-CUDA}{69}{section.5.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {6}Conclusioni}{70}{chapter.6}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Riferimenti bibliografici}{73}{chapter*.46}

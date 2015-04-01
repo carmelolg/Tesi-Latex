@@ -19,46 +19,207 @@
 
 \refsection{0}
   \sortlist{nty}{nty}
-    \entry{Langton:1990}{thesis}{}
-      \name{labelname}{1}{}{%
-        {{hash=bc4d43482841a866607678792a59a981}{C.G.}{C\bibinitperiod}{Langton}{L\bibinitperiod}{}{}{}{}}%
+    \entry{ITPC:2003}{book}{}
+      \name{labelname}{4}{}{%
+        {{hash=3b43b22552a999e767df2aa67709b0b2}{Ananth}{A\bibinitperiod}{Grama}{G\bibinitperiod}{}{}{}{}}%
+        {{hash=c8204e88a301c9806004751256ebd933}{Anshul}{A\bibinitperiod}{Gupta}{G\bibinitperiod}{}{}{}{}}%
+        {{hash=054fe76e5207955d5feceaecd970fae5}{George}{G\bibinitperiod}{Karypis}{K\bibinitperiod}{}{}{}{}}%
+        {{hash=4cb05a3dbfc56e66c0ac02780bf44774}{Vipin}{V\bibinitperiod}{Kumar}{K\bibinitperiod}{}{}{}{}}%
       }
-      \name{author}{1}{}{%
-        {{hash=bc4d43482841a866607678792a59a981}{C.G.}{C\bibinitperiod}{Langton}{L\bibinitperiod}{}{}{}{}}%
+      \name{author}{4}{}{%
+        {{hash=3b43b22552a999e767df2aa67709b0b2}{Ananth}{A\bibinitperiod}{Grama}{G\bibinitperiod}{}{}{}{}}%
+        {{hash=c8204e88a301c9806004751256ebd933}{Anshul}{A\bibinitperiod}{Gupta}{G\bibinitperiod}{}{}{}{}}%
+        {{hash=054fe76e5207955d5feceaecd970fae5}{George}{G\bibinitperiod}{Karypis}{K\bibinitperiod}{}{}{}{}}%
+        {{hash=4cb05a3dbfc56e66c0ac02780bf44774}{Vipin}{V\bibinitperiod}{Kumar}{K\bibinitperiod}{}{}{}{}}%
       }
-      \list{institution}{1}{%
-        {University of Michigan}%
+      \list{publisher}{1}{%
+        {Addison Wesley}%
       }
-      \strng{namehash}{bc4d43482841a866607678792a59a981}
-      \strng{fullhash}{bc4d43482841a866607678792a59a981}
-      \field{sortinit}{C}
-      \field{sortinithash}{dd0e4ddd17488a6ebf12cd6de2f2c237}
-      \field{labeltitle}{Computation at the edge of caos}
-      \field{title}{Computation at the edge of caos}
-      \field{type}{phdthesis}
-      \field{year}{1990}
+      \strng{namehash}{2dc23eedfe5c8baf86a7b24c843ae983}
+      \strng{fullhash}{4d7950d96feaa4edae218f855416cee4}
+      \field{sortinit}{A}
+      \field{sortinithash}{c8a29dea43e9d2645817723335a4dbe8}
+      \field{labeltitle}{Introduction to Parallel Computing, Second Edition}
+      \field{title}{Introduction to Parallel Computing, Second Edition}
+      \field{year}{2003}
     \endentry
-    \entry{Langton1:1990}{article}{}
+    \entry{CHAG:2009}{misc}{}
+      \name{labelname}{3}{}{%
+        {{hash=42e9b1d1b3c04d5f963b8a502faf0c5e}{Billeter}{B\bibinitperiod}{Markus}{M\bibinitperiod}{}{}{}{}}%
+        {{hash=23c05ee8f0cff0af3f9dc13c69f05de3}{Olsson}{O\bibinitperiod}{Ola}{O\bibinitperiod}{}{}{}{}}%
+        {{hash=78031f7fb111dd158174eb4f147dde1e}{Assarsson}{A\bibinitperiod}{Ulf}{U\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{3}{}{%
+        {{hash=42e9b1d1b3c04d5f963b8a502faf0c5e}{Billeter}{B\bibinitperiod}{Markus}{M\bibinitperiod}{}{}{}{}}%
+        {{hash=23c05ee8f0cff0af3f9dc13c69f05de3}{Olsson}{O\bibinitperiod}{Ola}{O\bibinitperiod}{}{}{}{}}%
+        {{hash=78031f7fb111dd158174eb4f147dde1e}{Assarsson}{A\bibinitperiod}{Ulf}{U\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{af3c7b205a31ac2200d8087c840d74d7}
+      \strng{fullhash}{af3c7b205a31ac2200d8087c840d74d7}
+      \field{sortinit}{B}
+      \field{sortinithash}{1a3a21dbed09540af12d49a0b14f4751}
+      \field{labeltitle}{{Chag::pp website}}
+      \field{howpublished}{\url{http://www.cse.chalmers.se/~billeter/pub/pp}}
+      \field{note}{[Online; accessed 09-April-2015]}
+      \field{title}{{Chag::pp website}}
+      \field{year}{2009}
+    \endentry
+    \entry{STREAM:2009}{inproceedings}{}
+      \name{labelname}{3}{}{%
+        {{hash=42e9b1d1b3c04d5f963b8a502faf0c5e}{Billeter}{B\bibinitperiod}{Markus}{M\bibinitperiod}{}{}{}{}}%
+        {{hash=23c05ee8f0cff0af3f9dc13c69f05de3}{Olsson}{O\bibinitperiod}{Ola}{O\bibinitperiod}{}{}{}{}}%
+        {{hash=78031f7fb111dd158174eb4f147dde1e}{Assarsson}{A\bibinitperiod}{Ulf}{U\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{3}{}{%
+        {{hash=42e9b1d1b3c04d5f963b8a502faf0c5e}{Billeter}{B\bibinitperiod}{Markus}{M\bibinitperiod}{}{}{}{}}%
+        {{hash=23c05ee8f0cff0af3f9dc13c69f05de3}{Olsson}{O\bibinitperiod}{Ola}{O\bibinitperiod}{}{}{}{}}%
+        {{hash=78031f7fb111dd158174eb4f147dde1e}{Assarsson}{A\bibinitperiod}{Ulf}{U\bibinitperiod}{}{}{}{}}%
+      }
+      \list{organization}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{af3c7b205a31ac2200d8087c840d74d7}
+      \strng{fullhash}{af3c7b205a31ac2200d8087c840d74d7}
+      \field{sortinit}{B}
+      \field{sortinithash}{1a3a21dbed09540af12d49a0b14f4751}
+      \field{labeltitle}{Efficient stream compaction on wide SIMD many-core architectures}
+      \field{booktitle}{Proceedings of the Conference on High Performance Graphics 2009}
+      \field{title}{Efficient stream compaction on wide SIMD many-core architectures}
+      \field{year}{2009}
+    \endentry
+    \entry{CTD}{misc}{}
       \name{labelname}{1}{}{%
-        {{hash=bc4d43482841a866607678792a59a981}{C.G.}{C\bibinitperiod}{Langton}{L\bibinitperiod}{}{}{}{}}%
+        {{hash=61a23953300b78e83f381e02ca45c5e4}{Corporation}{C\bibinitperiod}{NVIDIA}{N\bibinitperiod}{}{}{}{}}%
       }
       \name{author}{1}{}{%
-        {{hash=bc4d43482841a866607678792a59a981}{C.G.}{C\bibinitperiod}{Langton}{L\bibinitperiod}{}{}{}{}}%
+        {{hash=61a23953300b78e83f381e02ca45c5e4}{Corporation}{C\bibinitperiod}{NVIDIA}{N\bibinitperiod}{}{}{}{}}%
       }
-      \strng{namehash}{bc4d43482841a866607678792a59a981}
-      \strng{fullhash}{bc4d43482841a866607678792a59a981}
+      \strng{namehash}{61a23953300b78e83f381e02ca45c5e4}
+      \strng{fullhash}{61a23953300b78e83f381e02ca45c5e4}
       \field{sortinit}{C}
       \field{sortinithash}{dd0e4ddd17488a6ebf12cd6de2f2c237}
-      \field{labeltitle}{Computation at the edge of caos: phase transition and emergent computation}
-      \field{journaltitle}{Physica D}
-      \field{title}{Computation at the edge of caos: phase transition and emergent computation}
-      \field{year}{1990}
+      \field{labeltitle}{{CUDA toolkit documentation}}
+      \field{howpublished}{\url{http://docs.nvidia.com/cuda/}}
+      \field{note}{[Online; accessed 12-April-2015]}
+      \field{title}{{CUDA toolkit documentation}}
+    \endentry
+    \entry{THR}{misc}{}
+      \name{labelname}{1}{}{%
+        {{hash=61a23953300b78e83f381e02ca45c5e4}{Corporation}{C\bibinitperiod}{NVIDIA}{N\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=61a23953300b78e83f381e02ca45c5e4}{Corporation}{C\bibinitperiod}{NVIDIA}{N\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{61a23953300b78e83f381e02ca45c5e4}
+      \strng{fullhash}{61a23953300b78e83f381e02ca45c5e4}
+      \field{sortinit}{C}
+      \field{sortinithash}{dd0e4ddd17488a6ebf12cd6de2f2c237}
+      \field{labeltitle}{{Thrust documentation website}}
+      \field{howpublished}{\url{http://docs.nvidia.com/cuda/thrust/}}
+      \field{note}{[Online; accessed 12-April-2015]}
+      \field{title}{{Thrust documentation website}}
     \endentry
     \entry{CUDA:2012}{manual}{}
+      \name{labelname}{1}{}{%
+        {{hash=54d7443ab4a32f70804c06d30f2b21b4}{Corporation}{C\bibinitperiod}{Nvidia}{N\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=54d7443ab4a32f70804c06d30f2b21b4}{Corporation}{C\bibinitperiod}{Nvidia}{N\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{54d7443ab4a32f70804c06d30f2b21b4}
+      \strng{fullhash}{54d7443ab4a32f70804c06d30f2b21b4}
       \field{sortinit}{C}
       \field{sortinithash}{dd0e4ddd17488a6ebf12cd6de2f2c237}
       \field{labeltitle}{CUDA Dynamic Parallelism, Programming guide}
       \field{title}{CUDA Dynamic Parallelism, Programming guide}
+    \endentry
+    \entry{CUDA_APP:2015}{manual}{}
+      \name{labelname}{1}{}{%
+        {{hash=54d7443ab4a32f70804c06d30f2b21b4}{Corporation}{C\bibinitperiod}{Nvidia}{N\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=54d7443ab4a32f70804c06d30f2b21b4}{Corporation}{C\bibinitperiod}{Nvidia}{N\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{54d7443ab4a32f70804c06d30f2b21b4}
+      \strng{fullhash}{54d7443ab4a32f70804c06d30f2b21b4}
+      \field{sortinit}{C}
+      \field{sortinithash}{dd0e4ddd17488a6ebf12cd6de2f2c237}
+      \field{labeltitle}{GPU-Accelerated applications}
+      \field{title}{GPU-Accelerated applications}
+      \field{year}{2015}
+    \endentry
+    \entry{CUDA:2007}{manual}{}
+      \name{labelname}{1}{}{%
+        {{hash=54d7443ab4a32f70804c06d30f2b21b4}{Corporation}{C\bibinitperiod}{Nvidia}{N\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=54d7443ab4a32f70804c06d30f2b21b4}{Corporation}{C\bibinitperiod}{Nvidia}{N\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{54d7443ab4a32f70804c06d30f2b21b4}
+      \strng{fullhash}{54d7443ab4a32f70804c06d30f2b21b4}
+      \field{sortinit}{C}
+      \field{sortinithash}{dd0e4ddd17488a6ebf12cd6de2f2c237}
+      \field{labeltitle}{NVIDIA CUDA Compute Unified Device Architecture Programming Guide}
+      \field{title}{NVIDIA CUDA Compute Unified Device Architecture Programming Guide}
+    \endentry
+    \entry{Dambrosio:2003}{thesis}{}
+      \name{labelname}{1}{}{%
+        {{hash=1d16fd0243d55492df12f531ef18ff3b}{D.}{D\bibinitperiod}{D'Ambrosio}{D\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=1d16fd0243d55492df12f531ef18ff3b}{D.}{D\bibinitperiod}{D'Ambrosio}{D\bibinitperiod}{}{}{}{}}%
+      }
+      \list{institution}{1}{%
+        {Universita' della Calabria}%
+      }
+      \strng{namehash}{1d16fd0243d55492df12f531ef18ff3b}
+      \strng{fullhash}{1d16fd0243d55492df12f531ef18ff3b}
+      \field{sortinit}{D}
+      \field{sortinithash}{a01c54d1737685bc6dbf0ea0673fa44c}
+      \field{labeltitle}{Automi Cellulari nella modellizzazione di fenomeni complessi macroscopici e loro ottimizzazione con Algoritmi Genetici}
+      \field{title}{Automi Cellulari nella modellizzazione di fenomeni complessi macroscopici e loro ottimizzazione con Algoritmi Genetici}
+      \field{type}{phdthesis}
+      \field{year}{2003}
+    \endentry
+    \entry{LIFE:1970}{article}{}
+      \name{labelname}{1}{}{%
+        {{hash=3124882705abf7cca548c58eb9240b39}{Gardner}{G\bibinitperiod}{Martin}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=3124882705abf7cca548c58eb9240b39}{Gardner}{G\bibinitperiod}{Martin}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{3124882705abf7cca548c58eb9240b39}
+      \strng{fullhash}{3124882705abf7cca548c58eb9240b39}
+      \field{sortinit}{G}
+      \field{sortinithash}{480ee01f9ffd559b3258d822f54a8ac2}
+      \field{labeltitle}{Mathematical games: The fantastic combinations of John Conway's new solitaire game "life"}
+      \field{journaltitle}{Scientific American}
+      \field{title}{Mathematical games: The fantastic combinations of John Conway's new solitaire game "life"}
+      \field{year}{1970}
+    \endentry
+    \entry{CAMELOT:1996}{article}{}
+      \name{labelname}{5}{}{%
+        {{hash=a41b0aa1a357eb4c8e996624aabf2273}{Giandomenico}{G\bibinitperiod}{Spezzano}{S\bibinitperiod}{}{}{}{}}%
+        {{hash=520b3294b7b298600f0b285f176a1e83}{Domenico}{D\bibinitperiod}{Talia}{T\bibinitperiod}{}{}{}{}}%
+        {{hash=d10c14c3fe3610072ab083771adab62d}{Salvatore}{S\bibinitperiod}{Di\bibnamedelima Gregorio}{D\bibinitperiod\bibinitdelim G\bibinitperiod}{}{}{}{}}%
+        {{hash=d2b264b8c5b951dc12dc512da93c3449}{Rocco}{R\bibinitperiod}{Rongo}{R\bibinitperiod}{}{}{}{}}%
+        {{hash=f78afa3798253f14d6f4aa118312cf49}{William}{W\bibinitperiod}{Spataro}{S\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{5}{}{%
+        {{hash=a41b0aa1a357eb4c8e996624aabf2273}{Giandomenico}{G\bibinitperiod}{Spezzano}{S\bibinitperiod}{}{}{}{}}%
+        {{hash=520b3294b7b298600f0b285f176a1e83}{Domenico}{D\bibinitperiod}{Talia}{T\bibinitperiod}{}{}{}{}}%
+        {{hash=d10c14c3fe3610072ab083771adab62d}{Salvatore}{S\bibinitperiod}{Di\bibnamedelima Gregorio}{D\bibinitperiod\bibinitdelim G\bibinitperiod}{}{}{}{}}%
+        {{hash=d2b264b8c5b951dc12dc512da93c3449}{Rocco}{R\bibinitperiod}{Rongo}{R\bibinitperiod}{}{}{}{}}%
+        {{hash=f78afa3798253f14d6f4aa118312cf49}{William}{W\bibinitperiod}{Spataro}{S\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{a0c94bdb4658b917aff2c87d0d9a352b}
+      \strng{fullhash}{e8a8007deabbedefcce65db4c4016f16}
+      \field{sortinit}{G}
+      \field{sortinithash}{480ee01f9ffd559b3258d822f54a8ac2}
+      \field{labeltitle}{A parallel cellular tool for interactive modeling and simulation}
+      \field{journaltitle}{Computing in Science and Engineering}
+      \field{title}{A parallel cellular tool for interactive modeling and simulation}
+      \field{year}{1996}
     \endentry
     \entry{SCIARA:2004}{article}{}
       \name{labelname}{4}{}{%
@@ -82,12 +243,6 @@
       \field{title}{The simulation model SCIARA: the 1991 and 2001 at Mount Etna}
       \field{year}{2004}
     \endentry
-    \entry{CUDA:2007}{manual}{}
-      \field{sortinit}{N}
-      \field{sortinithash}{a52ecf374d1aa02cdea5f29be4dad56c}
-      \field{labeltitle}{NVIDIA CUDA Compute Unified Device Architecture Programming Guide}
-      \field{title}{NVIDIA CUDA Compute Unified Device Architecture Programming Guide}
-    \endentry
     \entry{Kartashev}{misc}{}
       \name{labelname}{2}{}{%
         {{hash=4827598ba715a0b39a450c46dfbd4397}{P.}{P\bibinitperiod}{Kartashev}{K\bibinitperiod}{}{}{}{}}%
@@ -103,6 +258,21 @@
       \field{sortinithash}{b8af9282ac256b81613dc9012a0ac921}
       \field{labeltitle}{Analysis of GPGPU Platforms Efficiency in General-Purpose Computations}
       \field{title}{Analysis of GPGPU Platforms Efficiency in General-Purpose Computations}
+    \endentry
+    \entry{Jarek:2014}{article}{}
+      \name{labelname}{1}{}{%
+        {{hash=a301b75d6b625377c7b4b1f069da342b}{Pawel\bibnamedelima Kleczek}{P\bibinitperiod\bibinitdelim K\bibinitperiod}{Jaroslaw\bibnamedelima Was}{J\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=a301b75d6b625377c7b4b1f069da342b}{Pawel\bibnamedelima Kleczek}{P\bibinitperiod\bibinitdelim K\bibinitperiod}{Jaroslaw\bibnamedelima Was}{J\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{a301b75d6b625377c7b4b1f069da342b}
+      \strng{fullhash}{a301b75d6b625377c7b4b1f069da342b}
+      \field{sortinit}{P}
+      \field{sortinithash}{b8af9282ac256b81613dc9012a0ac921}
+      \field{labeltitle}{Simulation of Pedestrians Behavior in a Shopping Mall}
+      \field{title}{Simulation of Pedestrians Behavior in a Shopping Mall}
+      \field{year}{2014}
     \endentry
     \entry{OpenGL:2004}{book}{}
       \name{labelname}{2}{}{%

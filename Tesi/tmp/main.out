@@ -34,12 +34,30 @@
 \BOOKMARK [2][-]{subsection.2.4.2}{Visual Profiler}{section.2.4}% 34
 \BOOKMARK [0][-]{chapter.3}{Automi Cellulari}{}% 35
 \BOOKMARK [1][-]{section.3.1}{Introduzione}{chapter.3}% 36
-\BOOKMARK [1][-]{section.3.2}{Definizione informale di Automa Cellulare}{chapter.3}% 37
-\BOOKMARK [1][-]{section.3.3}{Definizione formale di Automa Cellulare}{chapter.3}% 38
-\BOOKMARK [1][-]{section.3.4}{Automi cellulari unidimensionali}{chapter.3}% 39
-\BOOKMARK [1][-]{section.3.5}{Automi Cellulari Complessi \(CCA\)}{chapter.3}% 40
-\BOOKMARK [0][-]{chapter.4}{OpenCAL}{}% 41
-\BOOKMARK [0][-]{chapter.5}{OpenCAL-CUDA}{}% 42
-\BOOKMARK [0][-]{chapter.6}{Conclusioni}{}% 43
-\BOOKMARK [0][-]{ringraziamenti.0}{Ringraziamenti}{}% 44
-\BOOKMARK [0][-]{chapter*.44}{Riferimenti bibliografici}{}% 45
+\BOOKMARK [1][-]{section.3.2}{Definizione di Automa Cellulare}{chapter.3}% 37
+\BOOKMARK [2][-]{subsection.3.2.1}{Definizione informale di Automa Cellulare}{section.3.2}% 38
+\BOOKMARK [2][-]{subsection.3.2.2}{Definizione formale di Automa Cellulare}{section.3.2}% 39
+\BOOKMARK [1][-]{section.3.3}{Automi cellulari unidimensionali}{chapter.3}% 40
+\BOOKMARK [1][-]{section.3.4}{Automi Cellulari Complessi \(CCA\)}{chapter.3}% 41
+\BOOKMARK [0][-]{chapter.4}{OpenCAL}{}% 42
+\BOOKMARK [1][-]{section.4.1}{Liberia per Automi Cellulari}{chapter.4}% 43
+\BOOKMARK [1][-]{section.4.2}{Utilizzare OpenCAL}{chapter.4}% 44
+\BOOKMARK [2][-]{subsection.4.2.1}{Definizione di un modello}{section.4.2}% 45
+\BOOKMARK [2][-]{subsection.4.2.2}{Definizione del ciclo di esecuzione}{section.4.2}% 46
+\BOOKMARK [1][-]{section.4.3}{Game of Life in OpenCAL}{chapter.4}% 47
+\BOOKMARK [1][-]{section.4.4}{``Modello" in OpenCAL}{chapter.4}% 48
+\BOOKMARK [0][-]{chapter.5}{OpenCAL-CUDA}{}% 49
+\BOOKMARK [1][-]{section.5.1}{Introduzione}{chapter.5}% 50
+\BOOKMARK [1][-]{section.5.2}{Scelte progettuali}{chapter.5}% 51
+\BOOKMARK [2][-]{subsection.5.2.1}{CALModel2D e CudaCALModel2D}{section.5.2}% 52
+\BOOKMARK [2][-]{subsection.5.2.2}{CALRun2D e CudaCALRun2D}{section.5.2}% 53
+\BOOKMARK [2][-]{subsection.5.2.3}{Trasferimento dei dati tra Host e Device}{section.5.2}% 54
+\BOOKMARK [2][-]{subsection.5.2.4}{L'ottimizzazione delle celle attive}{section.5.2}% 55
+\BOOKMARK [1][-]{section.5.3}{Struttura di OpenCAL-CUDA}{chapter.5}% 56
+\BOOKMARK [2][-]{subsection.5.3.1}{Il main}{section.5.3}% 57
+\BOOKMARK [2][-]{subsection.5.3.2}{La dichiarazione dei kernel}{section.5.3}% 58
+\BOOKMARK [1][-]{section.5.4}{Game of Life in OpenCAL-CUDA}{chapter.5}% 59
+\BOOKMARK [1][-]{section.5.5}{``Modello'' in OpenCAL-CUDA}{chapter.5}% 60
+\BOOKMARK [0][-]{chapter.6}{Conclusioni}{}% 61
+\BOOKMARK [0][-]{ringraziamenti.0}{Ringraziamenti}{}% 62
+\BOOKMARK [0][-]{chapter*.46}{Riferimenti bibliografici}{}% 63

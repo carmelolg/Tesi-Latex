@@ -1,0 +1,7 @@
+/* ...	*/
+
+//MODEL
+CALModel2D* model = calCADef2D(ROWS, COLUMNS, CAL_VON_NEUMANN_NEIGHBORHOOD_2D,
+		CAL_SPACE_TOROIDAL, CAL_NO_OPT);
+
+/* ... */

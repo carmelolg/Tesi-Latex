@@ -8,4 +8,244 @@
 \label{cap:OpenCAL}
 %************************************************
 
-\lipsum[1-3]
+\section{Liberia per Automi Cellulari}
+Oggigiorno la modellistica è molto utilizzata negli ambienti di ricerca, tra i
+dipartimenti universitari di Geologia, Biologia, Ingegneria e Bioinformatica.
+Per questo motivo negli anni sono state sviluppate diverse metodologie per la
+realizzazione di sistemi automatici per la creazione di modelli e della loro
+simulazione come CAMELot \cite{CAMELOT:1996}.
+OpenCAL (Open Cellular Automata Library) è una libreria Open Source, capace di
+definire modelli di simulazione basati su Automi Cellulari complessi (CCA).
+
+OpenCAL nasce dalla necessità di avere una libreria open source e di facile
+utilizzo, che permetta all'utente di concentrarsi su ciò che riguarda la
+definizione dell'automa cellulare trascurando il più possibile i dettagli
+implementativi. Le funzioni, le strutture e i tipi di dato descritti nei
+prossimi paragrafi permettono di definire un modello di AC con uno spazio
+cellulare bidimensionale. Tuttavia OpenCAL supporta anche la definizione di
+modelli tridimensionali e le funzioni, le strutture e i tipi di dato usati per
+la definizione di un modello 2D hanno la loro controparte per la definizione di
+un modello 3D.
+
+
+\section{Utilizzare OpenCAL}
+Un vantaggio dell'utilizzo di OpenCAL si trova proprio sulla sua facilità di
+comprensione e di utilizzo, infatti in pochi passi è possibile definire un
+modello. La gestione del modello e della simulazione sono compito delle due
+\textsf{struct} principali: \textsf{CALModel2D} e \textsf{CALRun2D}. La libreria
+fornisce anche funzionalità per le operazioni di Input, Output e Buffer per la
+gestione dei file (ad esempio i dati sulla morfologia).
+Nelle prossime due sezioni si specificheranno la definizione di un modello e di
+una simulazione nei dettagli.
+
+\subsection{Definizione di un modello}
+In una prima fase di implementazione, il programmatore deve prendersi cura della
+definizione del modello. Come detto in precedenza, arrivati a questa fase
+l'utente ha già ben chiara la progettazione dell'automa cellulare e della sua
+evoluzione. Si tratta dunque di scrivere in codice le regole già progettate.
+Grazie ad OpenCAL questo può essere svolto in pochi e brevi passi. E' molto
+facile capire quanto possa essere oneroso impiegare del tempo per implementare
+tutte le strutture necessarie ai fini di completare un programma in C/C++ adatto
+per automi cellulari. Curarsi solamente della progettazione del
+modello, lasciando ad OpenCAL il compito di gestire il \textit{core} del
+problema, è senza dubbio il punto di forza della libreria.
+
+Come anticipato in precedenza la libreria offre una struct
+( \textsf{CALModel2D} ) per contenere le informazioni del modello. La funzione
+\textsf{calCADef2D} permette di ottenere un'istanza di \textsf{CALModel2D}
+definendone le caratteristiche. La funzione prende in input quattro diversi tipi
+di parametri:
+\begin{itemize}
+  \item le dimensioni dello spazio cellulare
+  \item la relazione di vicinanza delle celle (vicinato)
+  \item la condizione ai bordi dello spazio cellulare
+  \item la possibilità di utilizzare un tipo di ottimizzazione
+\end{itemize}
+Le dimensioni dello spazio cellulare sono semplicemente le righe e le colonne
+della matrice. La relazione di vicinanza delle celle è definita da un
+enumerativo \textsf{CALNeighborhood2D} con cui è possibile scegliere tra i
+vicinati più noti come Von Neumann, Moore ed il vicinato esagonale, questo non preclude la
+possibilità all'utente di definire una relazione di vicinato \textit{custom}
+grazie alla funzione \textsf{calAddNeighbor2D} che riceve in input le coordinate
+relative del vicino che si vuole aggiungere rispetto ad una cella centrale.
+
+
+\medskip
+\lstinputlisting[caption={Esempio della definizione di un modello con
+vicinato di Von Neumann.}, label=lst:definitionModel,
+style=input]{code/defmod.c}
+
+In questo esempio (vedi \ref{lst:definitionModel}), possiamo osservare la
+definizione di un modello con vicinato di Von Neumann, che utilizza uno spazio
+di celle toroidale e non utilizza nessuna tecnica di ottimizzazione.
+
+\medskip
+\lstinputlisting[caption={Esempio della definizione di un modello con
+vicinato custom definito dall'utente tramite la funzione calAddNeighbor2D.},
+label=lst:definitionModel2, style=input]{code/defmod2.c}
+
+L'ultima immagine invece mostra la definizione di un modello con un vicinato
+customizzato, utilizzando la funzione \textsf{calAddNeighbor2D}.
+
+Le condizioni ai bordi sono definite da un altro enumerativo
+\textsf{CALSpaceBoundaryCondition}. Le due condizioni che possono essere scelte
+sono: \textsf{CAL\_SPACE\_TOROIDAL} e \textsf{CAL\_SPACE\_FLAT}. Il primo
+permette di scegliere uno spazio toroidale il secondo invece uno spazio non toroidale.
+
+L'ultima condizione riguarda la possilità di utilizzare un'ottimizzazione ai
+fini di migliorare le performance del programma. Si può scegliere se utilizzare
+le ``celle attive'' (con l'opzione \textsf{CAL\_OPT\_ACTIVE\_CELLS} o meno.
+
+Naturalmente la nostra definizione di modello non può fermarsi a questo punto.
+Come abbiamo visto nel capitolo \ref{cap:Automi Cellulari} un modello è composto
+anche da stati. In particolare nel caso degli automi cellulari
+complessi (CCA) gli stati delle celle possono essere suddivisi in sottostati.
+Dunque, OpenCAL prevede tre tipi di sottostati:
+\begin{description}
+  \item [\textsf{CALSubstate2Dr}] sottostati di tipo reale (\textbf{floating
+  point} in C)
+  \item [\textsf{CALSubstate2Di}] sottostati di tipo intero (\textbf{int} in C)
+  \item [\textsf{CALSubstate2Db}] sottostati di tipo byte (\textbf{char}  in C)
+\end{description}
+
+Ogni sottostato ha due matrici linearizzate: matrice \textit{current} e matrice
+\textit{next}. La prima matrice è utilizzata per leggere i valori correnti dei
+sottostati mentre la seconda viene utilizzata per memorizzare i nuovi valori
+calcolati. Dopo ogni step della simulazione il contenuto della matrice
+\textit{next} viene copiato sulla matrice \textit{current} in modo da ottenere
+il parallelismo implicito cosicché i cambiamenti effettuati sui sottostati
+non modifichino lo stato corrente delle celle finché non si va al passo
+di calcolo successivo.
+
+Per allocare nuovi sottostati si utilizza la funzione
+\textsf{calAddSubstate2D(b|i|r)} che restituisce un puntatore al sottostato
+appena creato. Ci sono casi in cui un sottostato non deve obbligatoriamente
+avere la doppia matrice, per questo c'è anche la possibilità di allocare
+sottostati con un singolo layer (dunque con la sola matrice \textit{current})
+con la funzione \textsf{calAddSingleLayerSubstate2D(b|i|r)}.
+
+\medskip
+\lstinputlisting[caption={Esempio di creazione e inizializzazione di un
+sottostato.}, label=lst:addsubstate, style=input]{code/addsubstate.c}
+
+In realta quest'esempio mostra solo una parte di funzionalità che in questa fase
+si possono utilizzare. Ad esempio la libreria offre una serie di funzioni per
+facilitare l'accesso ai sottostati e inizializzare le celle a valori stabiliti.
+
+\subsection{Definizione del ciclo di esecuzione}
+
+Il ciclo di esecuzione comprende tutto il processo di definizione e successivo
+avvio della simulazione. Tramite la libreria OpenCAL è possibile infatti
+aggiungere al ciclo di esecuzione le seguenti funzioni:
+\begin{itemize}
+  \item una funzione di inizializzazione che verrà richiamata all'inizio del
+  ciclo di esecuzione.
+  \item una funzione di steering che verrà richiamata alla fine di ogni passo di
+  calcolo.
+  \item una funzione che definisce la condizione di stop e può interrompere il
+  ciclo di esecuzione.
+\end{itemize}
+Per creare un istanza della simulazione dobbiamo utilizzare la struct
+\textsf{CALRun2D}. Questa struct oltre a contenere tutte le informazioni
+relative alla simulazione, racchiude le funzioni citate in precedenza per
+avviare un ciclo di esecuzione. 
+
+Così come per il modello, anche per la simulazione esiste una funzione per
+definirla: \textsf{calRunDef2D}. Questa funzione prende in input il numero dei
+passi di calcolo da effettuare e la modalità di aggiornamento dei sottostati.
+Dal punto di vista del numero dei passi sostanzialmente troviamo due valori da
+dare in input alla funzione: il passo iniziale e il passo finale. Se il passo
+finale viene impostato al valore predefinito \textsf{CAL\_RUN\_LOOP} la
+simulazione non avrà mai termine. In questo caso in particolare, di solito è
+definita dall'utente la condizione di stop (ad esempio quando un cratere non
+emette più lava etc.). Per quanto riguarda l'aggiornamento degli stati questa
+può avvenire in due modi diversi: implicita \textsf{CAL\_UPDATE\_IMPLICIT} o
+esplicita \textsf{CAL\_UPDATE\_EXPLICIT}. 
+Nel primo caso l'aggiornamento dei sottostati viene gestito dal ciclo di
+esecuzione di OpenCAL.
+
+
+\medskip
+\lstinputlisting[caption={Esempio di definizione di una simulazione.},
+label=lst:calrun, style=input]{code/calrun.c}
+
+Ogni volta che viene eseguita una funzione appartenente al ciclo di esecuzione,
+il contenuto delle matrici \textit{next} di tutti i sottostati viene copiato
+nelle matrici current. Nel secondo caso la gestione dell'aggiornamento dei
+sottostati viene lasciata gestire all'utente. 
+
+L'utente può infatti definire il proprio ciclo di esecuzione e la politica di
+aggiornamento dei sottostati. Per fare ciò è necessario usare la funzione
+\textsf{calRunAddGlobalTransitionFunc2D} che riceve in input un puntatore alla
+funzione che definisce il ciclo di esecuzione dell'utente. 
+Per aggiornare i sottostati si possono usare le funzioni \textsf{calUpdate2D}
+(per aggiornarli tutti) e \textsf{calUpdateSubstate2D(b|i|r)} (per aggiornarne
+uno in particolare). La funzione \textsf{calRun2D} permette infine di eseguire
+una simulazione, mentre la funzione \textsf{calRunCAStep2D} permette di eseguire
+un singolo passo di calcolo.
+
+\medskip
+\lstinputlisting[caption={La gestione del ciclo di esecuzione di OpenCAL.},
+label=lst:ciclodiesecuzione, style=input]{code/cicloDiEsecuzione.c}
+
+\section{Game of Life in OpenCAL}
+\label{par:gol}
+Il Game of Life è un automa cellulare ideato dal matematico inglese Conway nel
+1970. Conway con la progettazione di questo automa cellulare voleva simulare le
+dinamiche base della vita e capirne la loro evoluzione nel tempo. Il gioco della
+vita in particolare è un automa cellulare ripetitivo, cioè dopo cinque step
+ritorna alla sua configurazione iniziale per poi riprendere la sua evoluzione.
+Lo spazio di celle del Game of Life è bidimensionale con il vicinato definito da
+Moore. Una cella può assumere due diversi stati: viva o morta. \cite{LIFE:1970}
+La funzione di transizione è costituita dalle seguenti semplici regole:
+\begin{enumerate}
+  \item Una cella viva, rimane viva se ha esattamente due o tre celle vive nel
+  suo vicinato.
+  \item Una cella viva, muore per isolamento se ha meno di due celle vive nel
+  suo vicinato.
+  \item Una cella viva, muore per sovraffollamento se ha più di tre celle vive
+  nel suo vicinato.
+  \item Una cella morta, torna in vita se ha esattamente tre celle vive nel suo
+  vicinato.
+\end{enumerate}
+
+Nella figura \ref{fig:glider} si mostra l'evoluzione del gioco della vita di
+Conway con la famosa configurazione dell'aliante (\textit{glider}).
+
+\begin{figure}[h] 
+\centering 
+\includegraphics[width=0.7\columnwidth]{Immagini/glider} 
+\caption[Gioco della vita (Glider)]{L'evoluzione del gioco della vita con
+la configurazione Glider}
+\label{fig:glider} 
+\end{figure}
+
+In seguito verrà mostrato l'esempio in C dell'implementazione del
+\textit{Game of Life} con la libreria OpenCAL.
+
+\medskip
+\lstinputlisting[caption={Il Game of Life in OpenCAL.},
+label=lst:life2D, style=input]{code/life2D.c}
+
+Nell'esempio \ref{lst:life2D} si implementa in circa 50 righe di codice sia
+il modello che la simulazione del Game of Life. L'estrema semplicità
+dell'implementazione mette in risalto dunque il punto di forza di OpenCAL.
+La libreria ``nasconde'' i dettagli implementativi
+permettendo all'utente di concentrarsi sulla definizione dell'Automa Cellulare.
+L'implementazione del programma è divisa in due fasi. Nella prima fase viene
+definito il modello su cui è basato il Gioco della Vita. Usando la funzione
+\textsf{calCADef2D}, viene creata un'istanza di \textsf{CALModel2D} con spazio
+cellulare bidimensionale toroidale e vicinato di Moore. La definizione
+del modello si conclude con l'aggiunta di un sottostato, che
+rappresenta l'insieme degli stati delle celle e
+l'aggiunta di una funzione di transizione definita con le regole
+precedentemente elencate. La seconda fase prevede la definizione del ciclo di
+esecuzione. In questo caso viene usato il ciclo di esecuzione di
+default implementato in OpenCAL e viene aggiunta una funzione di
+inizializzazione che imposta lo stato iniziale di tutte le celle del sottostato
+aggiunto precedentemente. Infine viene richiamata la funzione \textsf{calRun2D}
+per eseguire una simulazione e i risultati della computazione vengono scritti su
+file dalla funzione \textsf{calSaveSubsate2Di}.
+
+\section{``Modello" in OpenCAL}
+

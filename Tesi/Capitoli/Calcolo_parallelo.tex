@@ -25,11 +25,11 @@ calcolo e nello stesso tempo riducendo sempre di più i costi.
 L'obiettivo primario dei produttori di CPU è stato quello di aumentare il tasso
 di esecuzione di FLOPS (floating point operations per second), in modo da poter
 sviluppare applicazioni in grado di produrre risultati soddisfacenti in tempi brevi.
-Tuttavia, l'aumento della potenza di calcolo e la velocità hanno incrementato i
+Tuttavia, l'aumento della potenza di calcolo ha incrementato i
 costi relativi all'energia spesa e la dissipazione di calore dei processori
 basati su singola CPU. Per questo si è pensata una nuova architettura hardware
-basata sull'aggiunta di più unità di calcolo (cores), definendo dunque i
-processori di ultima generazione \textbf{multicores}.
+basata sull'aggiunta di più unità di calcolo (cores), dando i natali
+ai processori di ultima generazione: i processori \textbf{multicores}.
 
 Oggi alle comuni CPU si sono affiancate con prepotenza le GPU (graphics
 processing unit). Inizialmente le GPU erano solamente utilizzate per il
@@ -99,9 +99,9 @@ cioè un architettura in cui non è presente nessun tipo di parallelismo e le
 operazioni vengono eseguite sequenzialmente su un flusso di dati singolo.
 Sia le architetture SIMD (Single Instruction stream Multiple Data stream) che le
 architetture MIMD (Multiple instruction stream Multiple Data stream) descritte
-in precedenza, si basano sulla filosofia parallela.
+in precedenza, si basano sulla filosofia del parallelismo.
 
-Una sottocategoria delle architetture MIMD (Multiple instruction stream Multiple
+Una sottocategoria delle architetture MIMD (Multiple Instruction stream Multiple
 Data stream) è l'architettura SPMD (Single Program Multiple Data).
 La sua tecnica è programmata per raggiungere il parallelismo. Si tratta di
 lanciare più istanze dello stesso programma su diversi insiemi di dati.
@@ -171,7 +171,7 @@ POSIX threads, OpenMP) forniscono strutture per la sincronizzazione come
 
  \subsection{Memoria distribuita}
 
-Le architetture a memoria condivisa prevedono diverse unità di calcolo, ognuno
+Le architetture a memoria distribuita prevedono diverse unità di calcolo, ognuno
 dei quali possiede un proprio spazio di memoria.
 Le unità di calcolo possono essere composte da un singolo processore o da un
 sistema multiprocessore con uno spazio di memoria condiviso.
@@ -198,8 +198,8 @@ citate in precedenza.
 
  \subsection{Sistemi ibridi}
 
-Le architetture basate sui sistemi ibridi non è nient'altro che un mix delle due
-architetture viste in precedenza.
+Le architetture basate sui sistemi ibridi non sono nient'altro che un mix delle
+due architetture viste in precedenza.
 Immaginiamo di avere un numero \textit{N} di processi. Solo un sottoinsieme di
 processi avranno accesso alla memoria condivisa.
 Per accedervi possono utilizzare ad esempio un paradigma di programmazione
@@ -226,14 +226,14 @@ i vantaggi di entrambe.
 \section{Progettazione di un algoritmo parallelo}
 
 Fino ad ora si è descritto in modo generico le strutture, le basi dei paradigmi
-e le architetture per sistemi paralleli ma la progettazione di un algoritmo
+e le architetture per sistemi paralleli, ma la progettazione di un algoritmo
 parallelo è la parte che interessa di più un programmatore.
 Progettare un algoritmo parallelo implica uno studio totalmente diverso dalla
 progettazione di un algoritmo sequenziale.
 Come abbiamo già visto, entrano in gioco diverse operazioni per raggiungere
 l'output desiderato.
 Molte guide di calcolo parallelo evidenziano le seguenti problematiche per la
-progettazione di un algoritmo parallelo \textit{nontrivial}:
+progettazione di un algoritmo parallelo \textit{nontrivial} \cite{ITPC:2003}:
 
 \begin{itemize}
 	\item Identificazione della porzione di lavoro che può essere eseguita
@@ -405,7 +405,8 @@ più facili da progettare e implementare.
 
 La tecnica di mapping dinamico invece distriuisce il lavoro durante l'esecuzione
 del programma. Scegliamo questa tecnica quando la dimensione dei task è
-sconosciuta e non si possono prevedere dunque le possibilità  per un mapping ottimale.
+sconosciuta e non si possono prevedere dunque le possibilità  per un mapping
+ottimale \cite{ITPC:2003}.
 
 \subsection{Modelli di un algoritmo parallelo}
 
@@ -640,9 +641,9 @@ componenti hardware apposite a supporto della programmazione parallela.
 \label{fig:arch_kepler} 
 \end{figure}
 
-La figura \ref{img:GPUArchitecture} rappresenta l'architettura di una tipica GPU
+La figura \ref{fig:arch_kepler} rappresenta l'architettura di una tipica GPU
 CUDA. La struttura è composta da un insieme di \emph{streaming multiprocessor}
-(SM) divisi in blocchi (Nella figura \ref{img:GPUArchitecture} ci sono due SM
+(SM) divisi in blocchi (Nella figura \ref{fig:arch_kepler} ci sono due SM
 per ogni blocco). Ogni SM è composto da un insieme di \emph{streaming
 processors} che condividono la memoria cache. Ogni GPU ha a disposizione alcuni
 gigabytes di Graphic Double Data Rate DRAM, anche detta memoria globale. Questo
@@ -659,10 +660,3 @@ possono essere modellati con un approccio SIMD (vedi paragrafo
 aritmetici \cite{Kartashev}. Generalmente lo stesso programma viene eseguito per
 ogni dato da elaborare e la latenza dovuta agli accessi alla memoria globale
 viene ``nascosta'' dalla grande quantità  di calcoli.
-
-\begin{figure}[H] 
-\centering 
-\includegraphics[width=0.5\columnwidth]{Immagini/arch_kepler} 
-\caption[Architettura Kepler]{Architettura Kepler (GTX 680).\\}
-\label{fig:arch_kepler} 
-\end{figure}

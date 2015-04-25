@@ -1990,10 +1990,14 @@
     <bcf:citekey order="20">TRAFFIC:1996</bcf:citekey>
     <bcf:citekey order="21">CAMELOT:1996</bcf:citekey>
     <bcf:citekey order="22">LIFE:1970</bcf:citekey>
-    <bcf:citekey order="23">STREAM:2009</bcf:citekey>
-    <bcf:citekey order="24">STREAM:2009</bcf:citekey>
-    <bcf:citekey order="25">CHAG:2009</bcf:citekey>
-    <bcf:citekey order="26">THR</bcf:citekey>
+    <bcf:citekey order="23">SCIARA:2004</bcf:citekey>
+    <bcf:citekey order="24">SCIARA:2001</bcf:citekey>
+    <bcf:citekey order="25">STREAM:2009</bcf:citekey>
+    <bcf:citekey order="26">STREAM:2009</bcf:citekey>
+    <bcf:citekey order="27">CHAG:2009</bcf:citekey>
+    <bcf:citekey order="28">THR</bcf:citekey>
+    <bcf:citekey order="29">SCIARA:2001</bcf:citekey>
+    <bcf:citekey order="30">SCIARA:2004</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="nty" type="entry" sortscheme="nty">
   <bcf:sorting>

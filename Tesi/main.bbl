@@ -43,6 +43,31 @@
       \field{title}{Introduction to Parallel Computing, Second Edition}
       \field{year}{2003}
     \endentry
+    \entry{SCIARA:2001}{article}{}
+      \name{labelname}{4}{}{%
+        {{hash=107449e76d00693725d0bafd73b726ca}{Barca}{B\bibinitperiod}{D.}{D\bibinitperiod}{}{}{}{}}%
+        {{hash=f9588a822fd9e52d13f1817035119320}{Crisci}{C\bibinitperiod}{G.\bibnamedelimi M.}{G\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{hash=afb86e65d1600291818e4f2a62987f53}{Gregorio}{G\bibinitperiod}{S.\bibnamedelimi Di}{S\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
+        {{hash=eae2fe8fd9b08ec45380a8e96d1caf3b}{Nicoletta}{N\bibinitperiod}{F.}{F\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{4}{}{%
+        {{hash=107449e76d00693725d0bafd73b726ca}{Barca}{B\bibinitperiod}{D.}{D\bibinitperiod}{}{}{}{}}%
+        {{hash=f9588a822fd9e52d13f1817035119320}{Crisci}{C\bibinitperiod}{G.\bibnamedelimi M.}{G\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{hash=afb86e65d1600291818e4f2a62987f53}{Gregorio}{G\bibinitperiod}{S.\bibnamedelimi Di}{S\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
+        {{hash=eae2fe8fd9b08ec45380a8e96d1caf3b}{Nicoletta}{N\bibinitperiod}{F.}{F\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{5820a8c4d230ed8a73c28a438c3ac85c}
+      \strng{fullhash}{b6b21fc4c68fd3c7c74b77cbbf49e481}
+      \field{sortinit}{B}
+      \field{sortinithash}{1a3a21dbed09540af12d49a0b14f4751}
+      \field{labeltitle}{Cellular automata for simulating lava flows: A method and examples of the Etnean eruptions}
+      \field{journaltitle}{Transport Theory and Statistical Physics}
+      \field{number}{1-3}
+      \field{title}{Cellular automata for simulating lava flows: A method and examples of the Etnean eruptions}
+      \field{volume}{23}
+      \field{year}{1994}
+      \field{pages}{195\bibrangedash 232}
+    \endentry
     \entry{CHAG:2009}{misc}{}
       \name{labelname}{3}{}{%
         {{hash=42e9b1d1b3c04d5f963b8a502faf0c5e}{Billeter}{B\bibinitperiod}{Markus}{M\bibinitperiod}{}{}{}{}}%

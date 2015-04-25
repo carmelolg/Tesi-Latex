@@ -247,5 +247,72 @@ aggiunto precedentemente. Infine viene richiamata la funzione \textsf{calRun2D}
 per eseguire una simulazione e i risultati della computazione vengono scritti su
 file dalla funzione \textsf{calSaveSubsate2Di}.
 
-\section{``Modello" in OpenCAL}
+\section{SCIARA-fv2 in OpenCAL}
+\label{par:SCIARA}
+Il modello computazionale più conosciuto, e quasi certamente il
+più semplice a livello computazionale, è Game of life (\ref{par:gol}). La sua
+implementazione è stata utile per i primi test e per i numerosi check di
+correttezza della libreria. Uno degli obiettivi di questo lavoro di tesi è stato
+tuttavia l'implementazione di modelli computazionalmente più complessi in modo
+da verificare la validità di OpenCAL e successivamente di
+OpenCAL-CUDA. Il modello proposto e implementato è \textbf{SCIARA}.
+
+SCIARA è un modello computazionale basato su Automi Cellulari Complessi (CCA,
+\ref{par:CCA}) che simula il fenomeno naturale di una colata lavica. Già da
+qualche anno è utilizzato per numerose simulazioni di casi realmente
+accaduti, tra i più famosi l'eruzione del Monte Etna nell'area di Nicolosi del
+2001 \cite{SCIARA:2004} e nell'area di Valle del Bove nel 1991
+\cite{SCIARA:2001}. 
+Possiamo formalizzare l'automa cellulare complesso che definisce SCIARA nel
+seguente modo:
+
+\begin{equation*}
+SCIARA = <Z^d, S, X, G, P, \tau, \gamma> 
+\end{equation*}
+
+\begin{itemize}
+  \item $Z^d$ è uno spazio bi-dimensionale;
+  \item $S = S_z \times S_h \times S_t \times S^8_f$ è l'insieme finito degli
+  stati che può assumere una cella ottenuto dal prodotto cartesiano dei
+  sottostati. Il loro significato è rispettivamente: quota (altitudine) della
+  cella, spessore della lava, temperatura della lava, flussi uscenti dalla cella centrale verso
+  le celle del vicinato (Nord, Ovest, Est, Sud, Nord-Ovest, Sud-Ovest, Sud-Est,
+  Nord-Est);
+  \item $X$ è la relazione di vicinanza di Moore;
+  \item $P$ è l'insieme dei parametri globali usati per calibrare il modello. In
+  particolare questi parametri non variano nel tempo;
+  \item $\tau : S^9 \to S$ è la funzione di transizione deterministica,
+  probabilistica o mista dell'automa;
+  \item $\gamma : S_h \times  \mathbb{N} \to S_h$ è la funzione che rappresenta
+  le influenze esterne e in particolare l'emissione della lava dalle celle
+  sorgenti.
+\end{itemize}
+La funzione di transizione di SCIARA è composta da quattro processi elementari:
+\begin{itemize}
+  \item {\bfseries calcolo dei flussi uscenti}: determina la fuoriuscita di lava dalla
+  cella centrale verso le celle del vicinato applicando l'algoritmo di minimizzazione
+  delle differenze.
+  \item {\bfseries calcolo della quantità di lava}: determina la quantità di
+  lava considerando i flussi uscenti dalle celle.
+  \item {\bfseries calcolo della temperatura}: determina la temperatura della
+  lava considerando la temperatura dei flussi entranti e la perdita di energia
+  termica dalla superficie.
+  \item {\bfseries solidificazione}: determina la solidificazione della lava
+  quando la temperatura scende al di sotto di un determinato valore. 
+\end{itemize}
+
+\medskip
+\lstinputlisting[caption={Definizione del modello
+SCIARA in OpenCAL},style=input,label = lst:SCIARA]{code/sciara.cpp}
+Il codice \ref{lst:SCIARA} mostra la definizione del modello SCIARA implementato
+usando la libreria OpenCAL. Come specificato dal modello viene creato uno spazio
+cellulare bidimensionale con vicinato di Moore (riga 8). Oltre ai sottostati
+precedentemente elencati vengono aggiunti alcuni sottostati a singola matrice di
+supporto alla computazione (da riga 11 a 37). Infine, vengono definiti i
+processi elementari e il ciclo di esecuzione (da riga 40 a 50). Il codice
+\ref{lst:SCIARA_PROCESSES} mostra l'implementazione dei processi elementari.
+
+\medskip
+\lstinputlisting[caption={Definizione dei processi elementari
+del modello SCIARA in OpenCAL},style=input,label=lst:SCIARA_PROCESSES]{code/elementaryProcesses.cpp}
 

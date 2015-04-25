@@ -2,62 +2,65 @@
 \BOOKMARK [0][-]{tableofcontents.0}{Indice}{}% 2
 \BOOKMARK [0][-]{lof.0}{Elenco delle figure}{}% 3
 \BOOKMARK [0][-]{lot.0}{Elenco delle tabelle}{}% 4
-\BOOKMARK [0][-]{Sommario.0}{Sommario}{}% 5
-\BOOKMARK [0][-]{introduzione.0}{Introduzione}{}% 6
-\BOOKMARK [0][-]{chapter.1}{Il calcolo parallelo}{}% 7
-\BOOKMARK [1][-]{section.1.1}{Introduzione}{chapter.1}% 8
-\BOOKMARK [1][-]{section.1.2}{Tassonomia di Flynn}{chapter.1}% 9
-\BOOKMARK [1][-]{section.1.3}{Modelli di comunicazione}{chapter.1}% 10
-\BOOKMARK [2][-]{subsection.1.3.1}{Memoria condivisa}{section.1.3}% 11
-\BOOKMARK [2][-]{subsection.1.3.2}{Memoria distribuita}{section.1.3}% 12
-\BOOKMARK [2][-]{subsection.1.3.3}{Sistemi ibridi}{section.1.3}% 13
-\BOOKMARK [1][-]{section.1.4}{Progettazione di un algoritmo parallelo}{chapter.1}% 14
-\BOOKMARK [2][-]{subsection.1.4.1}{Tecniche di decomposizione}{section.1.4}% 15
-\BOOKMARK [2][-]{subsection.1.4.2}{Tecniche di mapping}{section.1.4}% 16
-\BOOKMARK [2][-]{subsection.1.4.3}{Modelli di un algoritmo parallelo}{section.1.4}% 17
-\BOOKMARK [1][-]{section.1.5}{Misure di performance}{chapter.1}% 18
-\BOOKMARK [1][-]{section.1.6}{Linguaggi di programmazione}{chapter.1}% 19
-\BOOKMARK [2][-]{subsection.1.6.1}{OpenMP}{section.1.6}% 20
-\BOOKMARK [1][-]{section.1.7}{Nuovi approcci al calcolo parallelo: GPGPU computing}{chapter.1}% 21
-\BOOKMARK [0][-]{chapter.2}{CUDA - Compute Unified Device Architecture}{}% 22
-\BOOKMARK [1][-]{section.2.1}{Introduzione}{chapter.2}% 23
-\BOOKMARK [1][-]{section.2.2}{Architettura hardware}{chapter.2}% 24
-\BOOKMARK [2][-]{subsection.2.2.1}{Compute capability}{section.2.2}% 25
-\BOOKMARK [2][-]{subsection.2.2.2}{Architettura Kepler}{section.2.2}% 26
-\BOOKMARK [1][-]{section.2.3}{Interfaccia di programmazione}{chapter.2}% 27
-\BOOKMARK [2][-]{subsection.2.3.1}{I kernel}{section.2.3}% 28
-\BOOKMARK [2][-]{subsection.2.3.2}{La memoria}{section.2.3}% 29
-\BOOKMARK [2][-]{subsection.2.3.3}{Atomicit\340}{section.2.3}% 30
-\BOOKMARK [2][-]{subsection.2.3.4}{Parallelismo dinamico}{section.2.3}% 31
-\BOOKMARK [1][-]{section.2.4}{Tools di sviluppo}{chapter.2}% 32
-\BOOKMARK [2][-]{subsection.2.4.1}{Nsight Visual Studio}{section.2.4}% 33
-\BOOKMARK [2][-]{subsection.2.4.2}{Visual Profiler}{section.2.4}% 34
-\BOOKMARK [0][-]{chapter.3}{Automi Cellulari}{}% 35
-\BOOKMARK [1][-]{section.3.1}{Introduzione}{chapter.3}% 36
-\BOOKMARK [1][-]{section.3.2}{Definizione di Automa Cellulare}{chapter.3}% 37
-\BOOKMARK [2][-]{subsection.3.2.1}{Definizione informale di Automa Cellulare}{section.3.2}% 38
-\BOOKMARK [2][-]{subsection.3.2.2}{Definizione formale di Automa Cellulare}{section.3.2}% 39
-\BOOKMARK [1][-]{section.3.3}{Automi cellulari unidimensionali}{chapter.3}% 40
-\BOOKMARK [1][-]{section.3.4}{Automi Cellulari Complessi \(CCA\)}{chapter.3}% 41
-\BOOKMARK [0][-]{chapter.4}{OpenCAL}{}% 42
-\BOOKMARK [1][-]{section.4.1}{Liberia per Automi Cellulari}{chapter.4}% 43
-\BOOKMARK [1][-]{section.4.2}{Utilizzare OpenCAL}{chapter.4}% 44
-\BOOKMARK [2][-]{subsection.4.2.1}{Definizione di un modello}{section.4.2}% 45
-\BOOKMARK [2][-]{subsection.4.2.2}{Definizione del ciclo di esecuzione}{section.4.2}% 46
-\BOOKMARK [1][-]{section.4.3}{Game of Life in OpenCAL}{chapter.4}% 47
-\BOOKMARK [1][-]{section.4.4}{``Modello" in OpenCAL}{chapter.4}% 48
-\BOOKMARK [0][-]{chapter.5}{OpenCAL-CUDA}{}% 49
-\BOOKMARK [1][-]{section.5.1}{Introduzione}{chapter.5}% 50
-\BOOKMARK [1][-]{section.5.2}{Scelte progettuali}{chapter.5}% 51
-\BOOKMARK [2][-]{subsection.5.2.1}{CALModel2D e CudaCALModel2D}{section.5.2}% 52
-\BOOKMARK [2][-]{subsection.5.2.2}{CALRun2D e CudaCALRun2D}{section.5.2}% 53
-\BOOKMARK [2][-]{subsection.5.2.3}{Trasferimento dei dati tra Host e Device}{section.5.2}% 54
-\BOOKMARK [2][-]{subsection.5.2.4}{L'ottimizzazione delle celle attive}{section.5.2}% 55
-\BOOKMARK [1][-]{section.5.3}{Struttura di OpenCAL-CUDA}{chapter.5}% 56
-\BOOKMARK [2][-]{subsection.5.3.1}{Il main}{section.5.3}% 57
-\BOOKMARK [2][-]{subsection.5.3.2}{La dichiarazione dei kernel}{section.5.3}% 58
-\BOOKMARK [1][-]{section.5.4}{Game of Life in OpenCAL-CUDA}{chapter.5}% 59
-\BOOKMARK [1][-]{section.5.5}{``Modello'' in OpenCAL-CUDA}{chapter.5}% 60
-\BOOKMARK [0][-]{chapter.6}{Conclusioni}{}% 61
-\BOOKMARK [0][-]{ringraziamenti.0}{Ringraziamenti}{}% 62
-\BOOKMARK [0][-]{chapter*.46}{Riferimenti bibliografici}{}% 63
+\BOOKMARK [0][-]{introduzione.0}{Introduzione}{}% 5
+\BOOKMARK [0][-]{chapter.1}{Il calcolo parallelo}{}% 6
+\BOOKMARK [1][-]{section.1.1}{Introduzione}{chapter.1}% 7
+\BOOKMARK [1][-]{section.1.2}{Tassonomia di Flynn}{chapter.1}% 8
+\BOOKMARK [1][-]{section.1.3}{Modelli di comunicazione}{chapter.1}% 9
+\BOOKMARK [2][-]{subsection.1.3.1}{Memoria condivisa}{section.1.3}% 10
+\BOOKMARK [2][-]{subsection.1.3.2}{Memoria distribuita}{section.1.3}% 11
+\BOOKMARK [2][-]{subsection.1.3.3}{Sistemi ibridi}{section.1.3}% 12
+\BOOKMARK [1][-]{section.1.4}{Progettazione di un algoritmo parallelo}{chapter.1}% 13
+\BOOKMARK [2][-]{subsection.1.4.1}{Tecniche di decomposizione}{section.1.4}% 14
+\BOOKMARK [2][-]{subsection.1.4.2}{Tecniche di mapping}{section.1.4}% 15
+\BOOKMARK [2][-]{subsection.1.4.3}{Modelli di un algoritmo parallelo}{section.1.4}% 16
+\BOOKMARK [1][-]{section.1.5}{Misure di performance}{chapter.1}% 17
+\BOOKMARK [1][-]{section.1.6}{Linguaggi di programmazione}{chapter.1}% 18
+\BOOKMARK [2][-]{subsection.1.6.1}{OpenMP}{section.1.6}% 19
+\BOOKMARK [1][-]{section.1.7}{Nuovi approcci al calcolo parallelo: GPGPU computing}{chapter.1}% 20
+\BOOKMARK [0][-]{chapter.2}{CUDA - Compute Unified Device Architecture}{}% 21
+\BOOKMARK [1][-]{section.2.1}{Introduzione}{chapter.2}% 22
+\BOOKMARK [1][-]{section.2.2}{Architettura hardware}{chapter.2}% 23
+\BOOKMARK [2][-]{subsection.2.2.1}{Compute capability}{section.2.2}% 24
+\BOOKMARK [2][-]{subsection.2.2.2}{Architettura Kepler}{section.2.2}% 25
+\BOOKMARK [1][-]{section.2.3}{Interfaccia di programmazione}{chapter.2}% 26
+\BOOKMARK [2][-]{subsection.2.3.1}{I kernel}{section.2.3}% 27
+\BOOKMARK [2][-]{subsection.2.3.2}{La memoria}{section.2.3}% 28
+\BOOKMARK [2][-]{subsection.2.3.3}{Atomicit\340}{section.2.3}% 29
+\BOOKMARK [2][-]{subsection.2.3.4}{Parallelismo dinamico}{section.2.3}% 30
+\BOOKMARK [1][-]{section.2.4}{Tools di sviluppo}{chapter.2}% 31
+\BOOKMARK [2][-]{subsection.2.4.1}{Nsight Visual Studio}{section.2.4}% 32
+\BOOKMARK [2][-]{subsection.2.4.2}{Visual Profiler}{section.2.4}% 33
+\BOOKMARK [0][-]{chapter.3}{Automi Cellulari}{}% 34
+\BOOKMARK [1][-]{section.3.1}{Introduzione}{chapter.3}% 35
+\BOOKMARK [1][-]{section.3.2}{Definizione di Automa Cellulare}{chapter.3}% 36
+\BOOKMARK [2][-]{subsection.3.2.1}{Definizione informale di Automa Cellulare}{section.3.2}% 37
+\BOOKMARK [2][-]{subsection.3.2.2}{Definizione formale di Automa Cellulare}{section.3.2}% 38
+\BOOKMARK [1][-]{section.3.3}{Automi cellulari unidimensionali}{chapter.3}% 39
+\BOOKMARK [1][-]{section.3.4}{Automi Cellulari Complessi \(CCA\)}{chapter.3}% 40
+\BOOKMARK [0][-]{chapter.4}{OpenCAL}{}% 41
+\BOOKMARK [1][-]{section.4.1}{Liberia per Automi Cellulari}{chapter.4}% 42
+\BOOKMARK [1][-]{section.4.2}{Utilizzare OpenCAL}{chapter.4}% 43
+\BOOKMARK [2][-]{subsection.4.2.1}{Definizione di un modello}{section.4.2}% 44
+\BOOKMARK [2][-]{subsection.4.2.2}{Definizione del ciclo di esecuzione}{section.4.2}% 45
+\BOOKMARK [1][-]{section.4.3}{Game of Life in OpenCAL}{chapter.4}% 46
+\BOOKMARK [1][-]{section.4.4}{SCIARA-fv2 in OpenCAL}{chapter.4}% 47
+\BOOKMARK [0][-]{chapter.5}{OpenCAL-CUDA}{}% 48
+\BOOKMARK [1][-]{section.5.1}{Introduzione}{chapter.5}% 49
+\BOOKMARK [1][-]{section.5.2}{Scelte progettuali}{chapter.5}% 50
+\BOOKMARK [2][-]{subsection.5.2.1}{CALModel2D e CudaCALModel2D}{section.5.2}% 51
+\BOOKMARK [2][-]{subsection.5.2.2}{CALRun2D e CudaCALRun2D}{section.5.2}% 52
+\BOOKMARK [2][-]{subsection.5.2.3}{Trasferimento dei dati tra Host e Device}{section.5.2}% 53
+\BOOKMARK [2][-]{subsection.5.2.4}{L'ottimizzazione delle celle attive}{section.5.2}% 54
+\BOOKMARK [1][-]{section.5.3}{Struttura di OpenCAL-CUDA}{chapter.5}% 55
+\BOOKMARK [2][-]{subsection.5.3.1}{Il main}{section.5.3}% 56
+\BOOKMARK [2][-]{subsection.5.3.2}{La dichiarazione dei kernel}{section.5.3}% 57
+\BOOKMARK [1][-]{section.5.4}{Game of Life in OpenCAL-CUDA}{chapter.5}% 58
+\BOOKMARK [1][-]{section.5.5}{``SCIARA-fv2'' in OpenCAL-CUDA}{chapter.5}% 59
+\BOOKMARK [0][-]{chapter.6}{Risultati finali}{}% 60
+\BOOKMARK [1][-]{section.6.1}{Introduzione}{chapter.6}% 61
+\BOOKMARK [1][-]{section.6.2}{Confronto dei risultati}{chapter.6}% 62
+\BOOKMARK [1][-]{section.6.3}{Grafici dei tempi di esecuzione}{chapter.6}% 63
+\BOOKMARK [0][-]{chapter.7}{Conclusioni}{}% 64
+\BOOKMARK [0][-]{ringraziamenti.0}{Ringraziamenti}{}% 65
+\BOOKMARK [0][-]{chapter*.44}{Riferimenti bibliografici}{}% 66

@@ -483,6 +483,7 @@ label=lst:kernelcuda, style=input]{code/kernelcuda.c}
 
 
 \section{Game of Life in OpenCAL-CUDA}
+\label{par:gol-cuda}
 Come descritto nel paragrafo \ref{par:gol} il Game of Life è il più famoso
 automa cellulare. Per questo possiamo prenderlo da esempio per la sua semplicità e la
 sua chiarezza. 
@@ -513,8 +514,74 @@ poiché spesso ci si trova a dover gestire un determinato angolo di celle nella
 loro evoluzione e l'utilizzo di indici può essere molto utile.
 
 Un ultimo commento è relativo alla leggibilità del codice che nonostante
-l'utilizzo della GPGPU programming è rimasto molto chiarp e ridotto. Questo può
+l'utilizzo della GPGPU programming è rimasto molto chiaro e ridotto. Questo può
 essere visto come un enorme potenzialità della libreria che evita dunque la
 pesantezza di leggibilità del codice parallelo per GPU.
 
-\section{``Modello'' in OpenCAL-CUDA}
+\section{``SCIARA-fv2'' in OpenCAL-CUDA}
+
+Come specificato nel paragrafo \ref{par:SCIARA} è stato implementato un modello
+più complesso a livello computazionale per eseguire diversi
+stressing test esaminando l'effettiva validità del lavoro di tesi.
+SCIARA è un modello basato su automi cellulari complessi (CCA, \ref{par:CCA}) che descrive il fenomeno di una colata lavica
+(Per ulteriori dettagli \cite{SCIARA:2001} \cite{SCIARA:2004} o
+par. \ref{par:SCIARA}). 
+
+Il tempo totale impiegato per implementare la versione parallelizzata in
+OpenCAL-CUDA a partire dalla versione OpenCAL è sicuramente un fattore
+determinante per la riuscita del lavoro di tesi. Se il tempo per elaborare una
+versione parallela di un automa cellulare in OpenCAL-CUDA supera il tempo
+ di implementazione dello stesso automa cellulare in CUDA C, allora utilizzare
+ la libreria non comporterebbe nessun valore aggiuntivo. Nelle
+ prove effettuate non è risultato così. In particolare è avvenuto il contrario:
+ in poche ore, sia per SCIARA che per altri modelli di test, si è implementata
+ una versione correttamente parallelizzata e performante. 
+ L'immediatezza del passaggio alla GPGPU programming tramite la libreria
+ OpenCAL-CUDA è dunque uno dei punti di forza della libreria stessa.
+
+\medskip
+\lstinputlisting[caption={},
+label=lst:define-cuda, style=input]{code/define-sciara-cuda.cu}
+
+La prima parte di codice riguarda principalmente la definizione di tutti i
+valori numerici relativi al fenomeno naturale. Tra queste definizioni troviamo
+anche la dimensione del modello, il numero e il nome dei sottostati. Da notare
+che, come per Game of Life, gli enumerativi sono utilizzati solo per la
+leggibilità e per un implementazione più semplice del modello. 
+
+\medskip
+\lstinputlisting[caption={},
+label=lst:elementaryprocesses-cuda, style=input]{code/elementary-sciara-cuda.cu}
+
+Il cuore dell'implementazione riguarda la scrittura dei kernel e delle
+funzioni device. In particolare i kernel rappresentano le funzioni elementari
+dell'automa cellulare. Rispetto alla versione sequenziale mostrata al paragrafo
+\ref{par:SCIARA} si notano molte differenze, così come accade per Game of Life
+(\ref{par:gol-cuda}). 
+
+I sottostati in OpenCAL vengono gestiti tramite la struttura
+\textsf{CALSubstate2D(r|i|b)}, come spiegato nei paragrafi precedenti tutto ciò
+in OpenCAL-CUDA non accade. Tutti i sottostati, per ogni tipo di dato, sono
+rappresentati da un'unica struttura dati lineare. L'utilizzo di enumerativi,
+che rappresentano dunque l'indice per ogni sottostato nella matrice
+linearizzata, garantisce non solo la leggibilità del codice ma favorisce la
+comprensione per un eventuale manutenzione al codice. L'enumerativo riesce a
+dare un'idea precisa del sottostato che viene chiamato in causa.
+
+\medskip
+\lstinputlisting[caption={Esempio di utilizzo degli enumerativi in
+OpenCAL-CUDA con diversi sottostati}, label=lst:main-cuda,
+style=input]{code/substate-cuda-sciara.cu}
+
+Infine il \textit{main} in cui vengono definite tutte le configurazioni e le
+proprietà dell'automa cellulare. Viene definito il modello tramite la funzione
+\textsf{calCudaCADef2D} e avviata la simulazione tramite la funzione
+\textsf{calCudaRun2D}.
+
+\medskip
+\lstinputlisting[caption={},
+label=lst:main-cuda, style=input]{code/main-sciara-cuda.cu}
+
+
+
+

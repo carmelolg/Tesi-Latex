@@ -96,8 +96,8 @@ file {data/xeon_noopt.txt};
 \end{tikzpicture}
 
 \caption[Confronto tra SCIARA sequenziale e SCIARA parallelo senza
-ottimizzazioni con due crateri]{La versione sequenziale è stata implementata
-con la libreria OpenCAL, quella parallela con OpenCAL-CUDA.}
+ottimizzazioni con l'utilizzo della configurazione con due crateri]{La versione
+sequenziale è stata implementata con la libreria OpenCAL, quella parallela con OpenCAL-CUDA.}
 \label{gr:noopt}
 \end{figure}
 
@@ -122,8 +122,9 @@ file {data/speedup_noopt.txt};
 \end{axis}
 
 \end{tikzpicture}
-\caption[Speedup]{Il calcolo della speedup tra implementazione sequenziale e
-parallela senza ottimizzazioni.}
+\caption[Grafico della speedup, implementazione con l'ottimizzazione delle
+celle attive e due crateri]{Il calcolo della speedup tra
+implementazione sequenziale e parallela senza ottimizzazioni.}
 \label{gr:speedup_noopt}
 \end{figure}
 
@@ -148,7 +149,8 @@ file {data/GT750M_active.txt};
 \end{axis}
 
 \end{tikzpicture}
-\caption[Active cells]{La versione sequenziale è stata implementata
+\caption[Grafico dei tempi, confronto tra versione sequenziale e parallela
+con ottimizzazione delle celle attive e configurazione con due crateri]{La versione sequenziale è stata implementata
 con la libreria OpenCAL, quella parallela con OpenCAL-CUDA, entrambe le
 versioni hanno utilizzato l'ottimizzazione delle celle attive.}
 \label{gr:active_cells}
@@ -192,9 +194,9 @@ file {data/GT750M_active_200.txt};
 \end{axis}
 
 \end{tikzpicture}
-\caption[Active cells]{La versione sequenziale è stata implementata
-con la libreria OpenCAL, quella parallela con OpenCAL-CUDA, entrambe le
-versioni hanno utilizzato l'ottimizzazione delle celle attive. In questo caso
+\caption[Grafico dei tempi, confronto tra versione sequenziale e parallela
+con ottimizzazione delle celle attive e configurazione con duecento crateri]{La
+versione sequenziale è stata implementata con la libreria OpenCAL, quella parallela con OpenCAL-CUDA, entrambe le versioni hanno utilizzato l'ottimizzazione delle celle attive. In questo caso
 sono stati utilizzati 200 crateri nella configurazione iniziale.}
 \label{gr:active_cells_200}
 \end{figure}
@@ -216,9 +218,36 @@ file {data/speedup_activecells_200.txt};
 \end{axis}
 
 \end{tikzpicture}
-\caption[Speedup]{Il calcolo della speedup tra implementazione sequenziale e
-parallela con l'ottimizzazione delle celle attive e una configurazione
-contenente 200 crateri.}
+\caption[Grafico della speedup, implementazione con l'ottimizzazione delle
+celle attive e duecento crateri]{Il calcolo della speedup tra implementazione
+sequenziale e parallela con l'ottimizzazione delle celle attive e una configurazione contenente 200 crateri.}
 \label{gr:speedup_active_200}
 \end{figure}
 
+\section{Risultati grafici}
+\label{par:graphics_result}
+
+Come accennato nel paragrafo precedente, un primo test è stato il confronto
+della simulazione sequenziale con quella parallela. La libreria OpenCAL, così
+come OpenCAL-CUDA, offrono delle funzionalità per salvare l'output su file. Così
+è stato fatto anche per il modello SCIARA. In particolare si è utilizzato il
+software \textbf{Qgis} per la rappresentazione grafica dell'output.
+
+Nelle seguenti figure, si mostrerà una rappresentazione della simulazione di
+SCIARA dopo 10000 passi sia con due crateri che con 200 crateri.
+
+\begin{figure}[H] 
+\centering 
+\includegraphics[width=0.5\columnwidth]{Immagini/2vent_thikness_} 
+\caption[Simulazione con due crateri]{Simulazione mostrata dal software Qgis
+con 2 crateri}
+\label{fig:2vents} 
+\end{figure}
+
+\begin{figure}[H] 
+\centering 
+\includegraphics[width=0.5\columnwidth]{Immagini/200vent_thikness} 
+\caption[Simulazione con duecento crateri]{Simulazione mostrata dal software
+Qgis con 200 crateri}
+\label{fig:200vent} 
+\end{figure}

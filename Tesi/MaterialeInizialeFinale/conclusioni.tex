@@ -8,4 +8,50 @@
 \label{cap:Conclusioni}
 %************************************************
 
-% \lipsum[1-3]
+Già da molto tempo l'approccio sistematico al parallel computing ha comportato
+miglioramenti generali nell'utilizzo dei sistemi informatici. La ricerca basata
+sull'incremento delle performance ha trovato campo fertile in numerosi
+settori dell'informatica tra i quali la modellistica e la simulazione. 
+
+L'obiettivo di questo lavoro di tesi è stata la parallelizzazione della libreria
+per lo sviluppo di modelli basati su automi cellulari OpenCAL.Gli automi
+cellulari si prestano bene ad un approccio parallelo, proprio per questo è stata
+immediata la scelta del parallel computing per migliorare le performance della
+libreria OpenCAL. La versione parallela OpenCAL-CUDA, come si intuisce, è stata
+implementata tramite l'archiettura CUDA sviluppata e rilasciata dalla società
+NVIDIA Corporation. In particolare è stato utilizzato il linguaggio CUDA C,
+estensione del linguaggio C, per l'implementazione del codice parallelo.
+
+NVIDIA dal 2006 ai giorni nostri, ha rilasciato in maniera
+frequente aggiornamenti relativi all'architettura CUDA con numerosi
+miglioramenti relativi alla leggibilità del codice e alle performance. Le API di
+CUDA compatibili con i device NVIDIA hanno consentito la realizzazione
+del progetto.
+
+Gli automi cellulari, come spiegato nel capitolo \ref{cap:Automi Cellulari},
+evolvono basandosi sulla funzione di transizione, in particolare per gli automi
+cellulari complessi (CCA, \ref{par:CCA}) l'evoluzione dipende da più processi
+elementari. Questa funzione di transizione viene eseguita allo stesso modo su
+ogni cella dello spazio cellulare. Dunque questo approccio si presta bene al
+calcolo parallelo.
+
+In OpenCAL-CUDA vengono creati un numero di blocchi e thread in base al numero
+di celle dello spazio cellulare in modo da avere un thread per ogni cella.
+In questo modo, tutti i thread eseguono la stessa operazione nello stesso
+momento su celle diverse incrementando inesorabilmente le performance. 
+Per l'implementazione di un automa cellulare si può utilizzare anche
+l'ottimizzazione delle celle attive. Questo approccio, che utilizza solamente le
+celle attive escludendo le celle in stato quiescente, è supportato dalla
+versione parallela adattando dunque il lavoro dei thread all'utilizzo delle
+celle attive utilizzando la stream compaction (par. \ref{par:streamcompaction}).
+La stream compaction ha il compito di elaborare e comprimere i dati sparsi. 
+
+Con OpenCAL-CUDA è possibile creare applicazioni parallele per modelli basati su
+automi cellulari, in particolare automi cellulari complessi. Tutte le
+caratteristiche appartenenti ad OpenCAL sono state mantenute, tuttavia 
+l'implementazione dei modelli e dei loro processi elementari è leggermente
+cambiata tra le due versioni della libreria. I cambiamenti son dovuti alla
+differente architettura utilizzata, oltre che una filosofia
+implementativa diversa.
+
+Per poter validare..

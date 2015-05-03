@@ -72,14 +72,18 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Confronto tra SCIARA sequenziale e SCIARA parallelo senza ottimizzazioni con due crateri}}{84}{figure.caption.43}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Confronto tra SCIARA sequenziale e SCIARA parallelo senza ottimizzazioni con l'utilizzo della configurazione con due crateri}}{84}{figure.caption.43}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Speedup}}{84}{figure.caption.44}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Grafico della speedup, implementazione con l'ottimizzazione delle celle attive e due crateri}}{84}{figure.caption.44}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Active cells}}{85}{figure.caption.45}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Grafico dei tempi, confronto tra versione sequenziale e parallela con ottimizzazione delle celle attive e configurazione con due crateri}}{85}{figure.caption.45}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Active cells}}{86}{figure.caption.46}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Grafico dei tempi, confronto tra versione sequenziale e parallela con ottimizzazione delle celle attive e configurazione con duecento crateri}}{86}{figure.caption.46}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.5}{\ignorespaces Speedup}}{86}{figure.caption.47}
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Grafico della speedup, implementazione con l'ottimizzazione delle celle attive e duecento crateri}}{86}{figure.caption.47}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Simulazione con due crateri}}{87}{figure.caption.48}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Simulazione con duecento crateri}}{87}{figure.caption.49}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }

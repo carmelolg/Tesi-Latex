@@ -132,6 +132,8 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {6.2}Confronto con i risultati}{83}{section.6.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {7}Conclusioni}{87}{chapter.7}
+\contentsline {section}{\numberline {6.3}Risultati grafici}{87}{section.6.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Riferimenti bibliografici}{91}{chapter*.50}
+\contentsline {chapter}{\numberline {7}Conclusioni}{88}{chapter.7}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Riferimenti bibliografici}{93}{chapter*.52}

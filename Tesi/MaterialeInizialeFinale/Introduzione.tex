@@ -22,14 +22,13 @@ o di un'applicazione per dispositivi mobili possiamo distinguere naturalmente
 anche la velocità di risposta.  
 
 Sin dai primi calcolatori, le migliorie apportate alle macchine furono
-progettate e implementate quasi sempre con lo scopo di incrementare la
-la velocità. Negli ultimi vent'anni in particolar modo l'aumento
-prestazionale è stato e continua ad essere un esigenza. 
-Dal punto di vista hardware c'è stata una vera rivoluzione
-che nel corso degli anni ha portato ad avere le più innovative tecnologie
-apportate ai processori che oggi popolano i nostri calcolatori. La richiesta
-prestazionale ha inciso in maniera dirompente nel mercato dello sviluppo
-del software portando così alla progettazione di tecniche innovative
+progettate e implementate quasi sempre con lo scopo di incrementare la velocità.
+Negli ultimi vent'anni in particolar modo l'aumento prestazionale è stato e
+continua ad essere un esigenza. Dal punto di vista hardware c'è stata una vera
+rivoluzione che nel corso degli anni ha portato ad avere le più innovative
+tecnologie apportate ai processori che oggi popolano i nostri calcolatori. La
+richiesta prestazionale ha inciso in maniera dirompente nel mercato dello
+sviluppo del software portando così alla progettazione di tecniche innovative
 per migliorare sempre di più l'esperienza utente e le performance.
 Proprio i miglioramenti apportati hanno stravolto l'esperienza di utilizzo
 giornaliero integrando sempre di più l'utilizzo dei computer e altri dispositivi
@@ -46,23 +45,20 @@ dato i natali ai processori di ultima generazione dotati di più core
 innovative proprio per poter utilizzare a pieno questa nuova tipologia di
 processori. Il calcolo parallelo oggi ha un grosso impatto in diverse aree
 informatiche, dalla ricerca scientifica fino allo sviluppo di software
-commerciale. Grazie a questa branca	informatica oggi è possibile sfruttare a
-pieno le nuove tecnologie e tutti i vantaggi dei nuovi dispositivi ultraveloci.
-Nel corso degli anni sono stati sviluppati e migliorati anche diverse
-metodologie e modelli paralleli, a partire dal miglioramento delle architetture
-all'arrivo dei nuovi framework. I due modelli di architettura più utilizzati
-oggi si dividono in modelli basati su memoria condivisa e modelli basati sul
-paradigma dello scambio di messaggi.
+commerciale. Nel corso degli anni sono stati sviluppati e migliorati anche
+diverse metodologie e modelli paralleli, a partire dal miglioramento delle
+architetture all'arrivo dei nuovi framework. I due modelli di architettura più
+utilizzati oggi si dividono in modelli basati su memoria condivisa e modelli
+basati sul paradigma dello scambio di messaggi.
 
 La GPU (Graphics Processing Unit), inizialmente utilizzata solamente per il
 rendering grafico delle immagini, negli ultimi anni è stata scoperta come
 potenza di calcolo con velocità teoriche quasi dieci volte superiori alle
-normali CPU. Questo ha rivoluzionato le teorie sul calcolo parallelo che in
-particolare ha tratto vantaggi anche in termini di costi. Dato l'iniziale
-successo delle GPU si è introdotto nel parallel computing il termine GPGPU
-programming, che rappresenta tutti gli utilizzi delle GPU che non comprendano il
-rendering grafico. Oggi la GPGPU programming è utilizzata in decine di campi
-scientifici, dalla bio-informatica all'analisi finanziaria, coprendo anche campi
+normali CPU.
+Dato il successo delle GPU come potenza di calcolo, si è introdotto nel
+parallel computing il termine GPGPU programming, che rappresenta tutti gli
+utilizzi delle GPU che non comprendono il rendering grafico. Oggi la GPGPU
+programming è utilizzata in decine di campi scientifici, dalla bio-informatica all'analisi finanziaria, coprendo anche campi
 come la fluidodinamica computazionale, l'apprendimento automatico e la scienza
 dei dati \cite{CUDA_APP:2015}. 
 
@@ -70,11 +66,12 @@ Nvidia Corporation, società che opera nello sviluppo delle GPU ormai da
 tantissimi anni, ha puntato molto sul calcolo parallelo producendo device sempre
 più adatti per uno scopo computazionale. \textbf{CUDA} è un architettura
 completa (hardware e software) creata proprio da Nvidia che abilita alla GPGPU
-programming sfruttando proprio le schede grafiche Nvidia oramai molto diffuse.
+programming, sfruttando proprio le schede grafiche Nvidia oramai molto diffuse.
 In particolare sin dal 2007, anno del suo lancio, CUDA ha subito numerosi
-aggiornamenti in cui ognuno di loro ha portato diverse features innovative che
-rendono la GPGPU programming sempre più semplice ed estremamente comoda. L'unico
-neo di questa potentissima architettura è la portabilità. Non è infatti
+aggiornamenti che hanno portato diverse features
+innovative rendendo l'implementazione di algoritmi paralleli sempre più semplice
+ed estremamente comoda.
+L'unico neo di questa potentissima architettura è la portabilità. Non è infatti
 possibile eseguire programmi scritti in CUDA su schede video diverse dalla
 Nvidia. Per questo è stato creato nel 2008 OpenCL che risulta però
 leggermente diverso sia nel suo utilizzo che nella sua architettura.
@@ -101,7 +98,7 @@ l'implementazione degli automi cellulari più semplice e immediata. Infatti
 grazie al suo utilizzo, l'utente potrà concentrarsi completamente sulla
 progettazione del modello senza dover dare particolari attenzioni ai dettagli
 implementativi. Nel corso del tempo sono state sviluppate diverse versioni della
-libreria utilizzando il calcolo parallelo, dalla versione in OpenMP alle
+libreria utilizzando il calcolo parallelo, dalla versione OpenMP alle
 versioni OpenCL e CUDA. Grazie alla sua comodità e le sue performance può
 essere considerata una valida alternativa a software per la creazione di
 modelli basati su automi cellulari come Camelot.
@@ -112,7 +109,7 @@ l'architettura CUDA per la progettazione di un ulteriore versione parallela
 della libreria sfruttando la GPGPU programming.
 
 La tesi è suddivisa come segue:
-\ref{cap:O}
+
 \begin{description}
 \item[{\hyperref[cap:Il calcolo parallelo]{Il primo capitolo}}]
 offre una visione generale sul parallel computing. Approfondiremo l'argomento

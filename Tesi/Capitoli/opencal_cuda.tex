@@ -36,15 +36,15 @@ dell'architettura CUDA ha trovato riscontro sui buoni risultati ottenuti da
 passate parallelizzazioni di Automi Cellulari su schede video NVIDIA. Anche la
 semplicità di CUDA C e della sua elasticità (in continuo aggiornamento) ha
 mostrato le potenzialità per un progetto a lungo termine e facilmente
-mantenibile. E' anche vero però, che a volte la scelta della tecnologia dipende
-anche strettamente dal progetto e dall'utilizzo futuro.
+mantenibile. E' anche vero però, che a volte la scelta della tecnologia
+dipende strettamente dal progetto e dall'utilizzo futuro.
 
 Lo studio del linguaggio CUDA C ha occupato circa un mese del tempo totale
 utilizzato per la riuscita del progetto. La parallelizzazione in GPU richiede
-anche tempo di comprensione delle diverse architetture spesso poco
-conosciute. Oggi, fortunatamente, le stesse case produttrici delle schede video
-offrono materiale in abbondanza per studiare approfonditamente architetture e
-linguaggi da utilizzare.
+tempo di comprensione delle diverse architetture spesso poco conosciute. Oggi,
+fortunatamente, le stesse case produttrici delle schede video offrono materiale
+in abbondanza per studiare approfonditamente architetture e linguaggi da
+utilizzare.
 
 Tornando alla fase di progettazione l'evidenziazione delle sezioni
 \textit{critiche} del codice, cioé le parti parallelizzabili, e la ricerca di
@@ -80,15 +80,15 @@ versione parallelizzata in CUDA.
 
 \subsection{\textsf{CALModel2D} e \textsf{CudaCALModel2D}}
 Per poter utilizzare la potenza delle GPU, come descritto nei capitoli
-\ref{cap:CUDA} e \ref{cap:Il calcolo parallelo}, è essenziale trasportare i dati
-del programma sulla memoria del device. Il primo passo è stato appunto capire
+\ref{cap:Il calcolo parallelo} e \ref{cap:CUDA}, è essenziale trasportare i
+dati del programma sulla memoria del device. Il primo passo è stato appunto capire
 come poter trasportare (\ref{par:datatrasfer}) la struct \textsf{CALModel2D} sul device.
 All'inizio poteva sembrare semplice grazie alla funzione \textsf{cudaMemcpy\{
 \ldots \}}, ma come vedremo non è stato possibile utilizzarla in questo caso, o
 meglio, non è stato possibile lasciare l'incarico della copia
 dell'oggetto al motore di CUDA. La presenza infatti di puntatori (e puntatori
 di puntatori) all'interno di \textsf{CALModel2D} è stata la causa di tutto ciò.
-Infatti, come ben sappiamo, la copia di un puntatore non è nient'altro che la
+Come ben sappiamo, la copia di un puntatore non è nient'altro che la
 copia dell'indirizzo di memoria dove è allocato il puntatore, ed un oggetto sul
 device non può avere all'interno puntatori allocati sulla memoria dell'host.
 Dunque il primo passo è stato rendere più dettagliata
@@ -142,12 +142,12 @@ troviamo tre diversi modelli.
 
 Da premettere che, come descritto nel diagramma in fig.
 \ref{fig:opencalcudadiagram} tutta la parte di simulazione avviene lato device.
-Questo comporta dunque la presenza dei dati del modello sul device che
-spiega la presenza dunque di un modello in più (\textsf{device\_ca2D}).
-La presenza di \textsf{h\_device\_ca2D} invece è richiesta per le operazioni di
-trasferimento dati tra l'host e il device. I dettagli implementativi relativi a
-questa scelta progettuale verranno spiegati nel paragrafo successivo
-(\ref{par:datatrasfer}).
+Questo comporta dunque la presenza dei dati del modello sulla memoria del
+device. Proprio per questa motivazione è presente una struttura dati in più 
+(\textsf{device\_ca2D}). La presenza di \textsf{h\_device\_ca2D} invece è
+richiesta per le operazioni di trasferimento dati tra l'host e il device. I
+dettagli implementativi relativi a questa scelta progettuale verranno spiegati
+nel paragrafo successivo (\ref{par:datatrasfer}).
 Naturalmente \textsf{h\_device\_ca2D} non incide assolutamente sull'utilizzo di
 OpenCAL, infatti l'utente non verrà mai a conoscenza della sua presenza poiché è
 utilizzata solo nel core della libreria. Invece \textsf{device\_ca2D} comporta
@@ -248,15 +248,15 @@ codice \ref{lst:copyhd}
 label=lst:copyhd, style=input]{code/copyhd.c}
 
 Si può notare che il processo inverso (da device a host) è del tutto simile e
-applica la seguente procedura al contrario:
+applica la procedura al contrario:
 
 \medskip
 \lstinputlisting[caption={},
 label=lst:copydh, style=input]{code/copydh.c}
 
-L'oggetto \textit{copy\_model} presente nel codice sarebbe il nostro
-ibrid\_model dichiarato nello stesso file. In particolare il metodo
-\textsf{calCudaAllocatorModel} (cod. \ref{lst:copyhd})prende in input il modello
+L'oggetto \textit{copy\_model} presente nel codice è l'oggetto che in questo
+paragrafo abbiamo chiamato ibrid\_model. In
+particolare il metodo \textsf{calCudaAllocatorModel} (cod. \ref{lst:copyhd})prende in input il modello
 e ne copia gli scalari in copy\_model, allocando in seguito tutti i puntatori all'interno sul device in
 modo da avere l'oggetto pronto alla nostra copia tra host e device.
 
@@ -286,10 +286,9 @@ Uno degli stati di una cella potrebbe essere la quantità di lava che deve ancora
 Tutte le celle che contengono lava possono essere definite \textbf{celle
 attive}.
 Le funzioni di transizione spesso possono essere realmente complesse e richiedono
-un elevato tempo computazionale. Grazie a questa tecnica di ottimizzazione
-si può supporre che la funzione di transizione viene eseguita solamente
-dalle celle in cui avviene un'evoluzione al tempo $t$ e nelle loro
-vicine. 
+un elevato tempo computazionale. Grazie a questa tecnica di ottimizzazione la
+funzione di transizione viene eseguita solamente dalle celle in cui avviene
+un'evoluzione al tempo $t$ e nelle loro vicine. 
 
 Pensate bene che nel caso di una colata lavica una morfologia può
 generare una matrice con migliaia di celle tra cui nei primi step della

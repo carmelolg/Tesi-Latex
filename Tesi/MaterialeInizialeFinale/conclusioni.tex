@@ -10,20 +10,28 @@
 
 Già da molto tempo l'approccio sistematico al parallel computing ha comportato
 miglioramenti generali nell'utilizzo dei sistemi informatici. La ricerca basata
-sull'incremento delle performance ha trovato campo fertile in numerosi
-settori dell'informatica tra i quali la modellistica e la simulazione. 
+sull'incremento delle performance dei moderni computer e il calcolo ad alte
+prestazioni ha trovato campo fertile in numerosi settori dell'informatica tra i
+quali la modellistica e la simulazione.
 
 L'obiettivo di questo lavoro di tesi è stata la parallelizzazione della libreria
-per lo sviluppo di modelli basati su automi cellulari OpenCAL.Gli automi
-cellulari si prestano bene ad un approccio parallelo, proprio per questo è stata
-immediata la scelta del parallel computing per migliorare le performance della
-libreria OpenCAL. La versione parallela OpenCAL-CUDA, come si intuisce, è stata
-implementata tramite l'archiettura CUDA sviluppata e rilasciata dalla società
-NVIDIA Corporation. In particolare è stato utilizzato il linguaggio CUDA C,
-estensione del linguaggio C, per l'implementazione del codice parallelo.
+per lo sviluppo di modelli basati su automi cellulari OpenCAL. Gli automi
+cellulari per loro natura si prestano egregiamente ad un approccio parallelo,
+proprio per questo è stata immediata la scelta del parallel computing per
+migliorare le performance della libreria OpenCAL. La versione parallela
+OpenCAL-CUDA, come si intuisce, è stata implementata tramite l'archiettura CUDA
+sviluppata e rilasciata dalla società NVIDIA Corporation. In particolare è stato
+utilizzato il linguaggio CUDA C, estensione del linguaggio C, per
+l'implementazione del codice parallelo.
+
+Tutte le caratteristiche appartenenti ad OpenCAL sono state mantenute, tuttavia 
+l'implementazione dei modelli e dei loro processi elementari sono state
+adattate al tipo di architettura utilizzata. In particolare sono presenti alcuni
+cambiamenti dovuti ad una filosofia implementativa diversa tra l'approccio
+sequenziale e quello parallelo.
 
 NVIDIA dal 2006 ai giorni nostri, ha rilasciato in maniera
-frequente aggiornamenti relativi all'architettura CUDA con numerosi
+frequente aggiornamenti per l'architettura CUDA con numerosi
 miglioramenti relativi alla leggibilità del codice e alle performance. Le API di
 CUDA compatibili con i device NVIDIA hanno consentito la realizzazione
 del progetto.
@@ -32,26 +40,48 @@ Gli automi cellulari, come spiegato nel capitolo \ref{cap:Automi Cellulari},
 evolvono basandosi sulla funzione di transizione, in particolare per gli automi
 cellulari complessi (CCA, \ref{par:CCA}) l'evoluzione dipende da più processi
 elementari. Questa funzione di transizione viene eseguita allo stesso modo su
-ogni cella dello spazio cellulare. Dunque questo approccio si presta bene al
-calcolo parallelo.
+ogni cella dello spazio cellulare. Questo tipo di approccio viaggia in
+perfetta sintonia con la filosofia del parallel computing.
 
 In OpenCAL-CUDA vengono creati un numero di blocchi e thread in base al numero
-di celle dello spazio cellulare in modo da avere un thread per ogni cella.
-In questo modo, tutti i thread eseguono la stessa operazione nello stesso
-momento su celle diverse incrementando inesorabilmente le performance. 
-Per l'implementazione di un automa cellulare si può utilizzare anche
+di celle dello spazio cellulare in modo tale da assegnare un thread per ogni
+cella. In questo modo, tutti i thread eseguono la stessa operazione nello stesso
+momento su celle diverse incrementando le performance e minimizzando i tempi di
+risposta. Per l'implementazione di un automa cellulare si può utilizzare anche
 l'ottimizzazione delle celle attive. Questo approccio, che utilizza solamente le
 celle attive escludendo le celle in stato quiescente, è supportato dalla
-versione parallela adattando dunque il lavoro dei thread all'utilizzo delle
-celle attive utilizzando la stream compaction (par. \ref{par:streamcompaction}).
-La stream compaction ha il compito di elaborare e comprimere i dati sparsi. 
+versione parallela grazie all'utilizzo della stream compaction (par.
+\ref{par:streamcompaction}). La stream compaction ha il compito di elaborare e
+comprimere i dati sparsi. I dati sparsi nel nostro caso sono il numero di celle
+attive ad un determinato tempo $t$. Si istanzieranno dunque un determinato
+numero di thread in base al numero di celle effettivamente attive.
 
-Con OpenCAL-CUDA è possibile creare applicazioni parallele per modelli basati su
-automi cellulari, in particolare automi cellulari complessi. Tutte le
-caratteristiche appartenenti ad OpenCAL sono state mantenute, tuttavia 
-l'implementazione dei modelli e dei loro processi elementari è leggermente
-cambiata tra le due versioni della libreria. I cambiamenti son dovuti alla
-differente architettura utilizzata, oltre che una filosofia
-implementativa diversa.
+Dopo aver terminato la parallelizzazione di OpenCAL sono stati implementati
+diversi modelli con il fine di testare il lavoro di tesi. Tra i vari modelli
+implementati, quello utilizzato per confrontare i tempi di esecuzione e i vari
+miglioramenti di performance è stato SCIARA \cite{SCIARA:2001}
+\cite{SCIARA:2004}.
+I test eseguiti si sono basati sull'implementazione del modello SCIARA sia con
+l'ottimizzazione delle celle attive che senza alcun tipo di ottimizzazione. 
 
-Per poter validare..
+Per raccogliere i dati relativi ai tempi di esecuzione per la versione parallela
+del modello è stata utilizzata la super-macchina ``Stromboli'' situata al centro
+di calcolo ad alte prestazioni dell'Unical, dotata di un processore Quad Xeon da
+2.8GHz. Per quanto riguarda le schede grafiche utilizzate sono state scelte due
+differenti schede: la prima è una Tesla K20c, la seconda una GeForce GT750M
+entrambe di marca NVIDIA.
+
+Con OpenCAL-CUDA per la versione implementata senza ottimizzazioni raggiunge
+una speedup di $\sim N\times$, utilizzando la scheda Tesla K20c. Per quanto
+riguarda i test sulla versione con l'ottimizzazione delle celle attive raggiunge una
+speedup di $\sim10\times$ utilizzando la scheda GeForce GT 750M.
+
+Oggi OpenCAL è un progetto open source avviato. Sono presenti anche diverse
+implementazioni della libreria tra cui due versioni parallelizzate utilizzando
+i linguaggi di programmazione OpenCL e OpenMP. Un ulteriore versione della
+libreria che integra OpenGL per la visualizzazione grafica. 
+
+Un possibile sviluppo futuro di OpenCAL-CUDA potrebbe essere l'implementazione
+della versione 3D oltre che effettuare un confronto delle performance tra le
+varie implementazioni parallelizzate.
+

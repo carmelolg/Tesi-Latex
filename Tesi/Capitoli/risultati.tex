@@ -88,9 +88,9 @@ style={anchor=north,at={(0.25,0.98)}}, width = 13cm,height = 7cm]
 file {data/xeon_noopt.txt};
 \addlegendentry{Quad Xeon da 2.8 GHz}
 
-%\addplot [thick,cyan]
-%file {data/K20_noopt.txt}; %% deve arrivare il file
-%\addlegendentry{Tesla K20c}
+\addplot [thick,cyan]
+file {data/K20_noopt.txt}; %% deve arrivare il file
+\addlegendentry{Tesla K20c}
 
 \end{axis}
 \end{tikzpicture}
@@ -111,7 +111,7 @@ passi.
 \begin{figure}[H] \centering
 \begin{tikzpicture}
 \begin{axis} [xmin=0,xmax=10000,
-ymin=0,ymax=100,grid=major,title={Grafico della Speedup, senza
+ymin=0,ymax=40,grid=major,title={Grafico della Speedup, senza
 alcuna ottimizzazione},xlabel={Numero di step},ylabel={Speedup},legend
 style={anchor=north,at={(0.25,0.98)}}, width = 13cm,height = 7cm]
 

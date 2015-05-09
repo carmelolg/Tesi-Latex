@@ -100,9 +100,9 @@ si è perso un grado di astrazione ma rendendo vantaggioso il trasferimento dei
 dati da device a host e viceversa.
 Come si può notare nei codici \ref{lst:definitionModel2} e
 \ref{lst:definitionModelCuda}, che mostrano le strutture \textsf{CALModel2D} e
-\textsf{CudaCALModel2D}, si notano implementazioni in genere molto diverse ma
-rappresentano un modello nella medesima maniera. Infatti l'utente non si renderà
-mai conto della differenza tra i due tipi di struttura.
+\textsf{CudaCALModel2D}, tra le diverse implementazioni si
+rappresenta il modello in maniera del tutto simile. L'utente non si
+renderà mai conto della differenza tra i due tipi di struttura.
 
 \medskip
 \lstinputlisting[caption={La rappresentazione del modello in OpenCAL.},
@@ -149,11 +149,12 @@ richiesta per le operazioni di trasferimento dati tra l'host e il device. I
 dettagli implementativi relativi a questa scelta progettuale verranno spiegati
 nel paragrafo successivo (\ref{par:datatrasfer}).
 Naturalmente \textsf{h\_device\_ca2D} non incide assolutamente sull'utilizzo di
-OpenCAL, infatti l'utente non verrà mai a conoscenza della sua presenza poiché è
-utilizzata solo nel core della libreria. Invece \textsf{device\_ca2D} comporta
-una piccola modifica di utilizzo di OpenCAL ed è l'utente stesso che deve
-dichiararla nel main principale e lasciare il compito della definizione alla
-libreria aggiungendola come parametro alla funzione \textsf{calCudaRunDef2D}.
+OpenCAL-CUDA, infatti l'utente non verrà mai a conoscenza della sua presenza
+poiché è utilizzata solo nel core della libreria. Questo non accade per
+\textsf{device\_ca2D}. L'utente ha il compito di dichiarare un istanza del
+modello anche per la memoria sul device nel main principale, lasciando il
+compito della sua definizione alla libreria, aggiungendola come parametro alla
+funzione \textsf{calCudaRunDef2D}.
 
 Vediamo insieme ora le due diverse implementazioni della struct dedicata alla
 simulazione:
@@ -196,7 +197,7 @@ compito di fare da intermediario tra l'host e il device. Cioè, è un
 dati (vicinato, sottostati etc.) allocati sul device. Se vogliamo
 copiare un modello di automa cellulare da host a device eseguiamo i seguenti passi:
 \begin{enumerate}
-  \item Allocare e definire (popolare) sull'host un oggetto
+  \item Allocare e definire sull'host un oggetto
   \textsf{CudaCALModel2D} (chiamiamolo \textbf{host\_model})
   \item Allocare su device un oggetto \textsf{CudaCALModel2D} (chiamiamolo
   \textbf{device\_model})
@@ -280,7 +281,7 @@ Una cella si dice attiva quando non si trova in uno stato ``quiescente" cioè ad
 un determinato tempo $t$ la funzione di transizione cambia uno o più stati
 della cella.
 
-Un esempio banale potrebbe essere una colata lavica rappresentata da un automa cellulare. 
+Un esempio potrebbe essere una colata lavica rappresentata da un automa cellulare. 
 Uno degli stati di una cella potrebbe essere la quantità di lava che deve ancora
 \textit{colare}. 
 Tutte le celle che contengono lava possono essere definite \textbf{celle
@@ -295,11 +296,11 @@ generare una matrice con migliaia di celle tra cui nei primi step della
 computazione solo poche celle attive. Avviando la funzione di transizione solo
 per le celle realmente attive si può guadagnare dunque tanto carico di lavoro.
 
-Quello descritto è un approccio intuitivo e se entriamo nei dettagli
-implementativi possiamo notare come questa ottimizzazione comporta l'aggiunta di
-strutture dati a supporto. Una di queste, la più importante, è sicuramente la
-matrice di \textsf{FLAGS}. Quest'ultima possiamo rappresentarla come una
-matrice booleana in cui il valore \textsf{TRUE} nella posizione
+Se entriamo nei dettagli implementativi possiamo notare come questa
+ottimizzazione comporta l'aggiunta di strutture dati a supporto. Una di queste,
+la più importante, è sicuramente la matrice di \textsf{FLAGS}. Quest'ultima
+possiamo rappresentarla come una matrice booleana in cui il valore
+\textsf{TRUE} nella posizione
 \textit{i-esima} sta a significare che la cella è attiva, \textsf{FALSE}
 altrimenti. Per poter accedere in scrittura alla matrice di flags in un
 programma parallelo bisogna considerare l'utilizzo dell'esclusività in quanto

@@ -82,7 +82,7 @@ anch'essa senza l'utilizzo di alcuna ottimizzazione.
 \begin{axis} [xmin=0,xmax=10000,
 ymin=0,ymax=1500,grid=major,title={Grafico dei
 tempi},xlabel={Numero di step},ylabel={Tempo d'esecuzione (in secondi)},legend
-style={anchor=north,at={(0.25,0.98)}}, width = 13cm,height = 7cm]
+style={anchor=north,at={(0.25,0.98)}}, width = 13cm,height = 6.5cm]
 
 \addplot [thick,darkgray]
 file {data/xeon_noopt.txt};
@@ -101,7 +101,6 @@ sequenziale è stata implementata con la libreria OpenCAL, quella parallela con O
 \label{gr:noopt}
 \end{figure}
 
-
 Dal grafico si può notare come grazie all'architettura CUDA
 e la GPGPU programming si possono incrementare le performance drasticamente.
 Possiamo mostrare dunque, tramite il grafico \ref{gr:speedup_noopt}, l'andamento della
@@ -117,7 +116,7 @@ style={anchor=north,at={(0.25,0.98)}}, width = 13cm,height = 7cm]
 
 \addplot [thick,orange]
 file {data/speedup_noopt.txt};
-\addlegendentry{Speedup}
+\addlegendentry{Speedup - Tesla K20c}
 
 \end{axis}
 

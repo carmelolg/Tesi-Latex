@@ -11,14 +11,14 @@
 \section{Liberia per Automi Cellulari}
 Oggigiorno la modellistica è molto utilizzata negli ambienti di ricerca, tra i
 dipartimenti universitari di Geologia, Biologia, Ingegneria e Bioinformatica.
-Per questo motivo negli anni sono state sviluppate diverse metodologie per la
+Per questo motivo, negli anni, sono state sviluppate diverse metodologie per la
 realizzazione di sistemi automatici per la creazione di modelli e della loro
 simulazione come CAMELot \cite{CAMELOT:1996}.
 OpenCAL (Open Cellular Automata Library) è una libreria Open Source, capace di
 definire modelli di simulazione basati su Automi Cellulari complessi (CCA).
 
-OpenCAL nasce dalla necessità di avere una libreria open source e di facile
-utilizzo, che permetta all'utente di concentrarsi su ciò che riguarda la
+OpenCAL nasce dalla necessità di aver a disposizione una libreria open source di
+facile utilizzo, che permetta all'utente di concentrarsi su ciò che riguarda la
 definizione dell'automa cellulare trascurando il più possibile i dettagli
 implementativi. Le funzioni, le strutture e i tipi di dato descritti nei
 prossimi paragrafi permettono di definire un modello di AC con uno spazio
@@ -96,7 +96,6 @@ L'ultima condizione riguarda la possilità di utilizzare un'ottimizzazione ai
 fini di migliorare le performance del programma. Si può scegliere se utilizzare
 le ``celle attive'' (con l'opzione \textsf{CAL\_OPT\_ACTIVE\_CELLS} o meno.
 
-Naturalmente la nostra definizione di modello non può fermarsi a questo punto.
 Come abbiamo visto nel capitolo \ref{cap:Automi Cellulari} un modello è composto
 anche da stati. In particolare nel caso degli automi cellulari
 complessi (CCA) gli stati delle celle possono essere suddivisi in sottostati.
@@ -150,9 +149,10 @@ Per creare un istanza della simulazione dobbiamo utilizzare la struct
 relative alla simulazione, racchiude le funzioni citate in precedenza per
 avviare un ciclo di esecuzione. 
 
-Così come per il modello, anche per la simulazione esiste una funzione per
-definirla: \textsf{calRunDef2D}. Questa funzione prende in input il numero dei
-passi di calcolo da effettuare e la modalità di aggiornamento dei sottostati.
+Così come per il modello, la libreria mette a disposizione una funzione per la
+definizione della simulazione: \textsf{calRunDef2D}.
+Questa funzione prende in input il numero dei passi di calcolo da effettuare e
+la modalità di aggiornamento dei sottostati.
 Dal punto di vista del numero dei passi sostanzialmente troviamo due valori da
 dare in input alla funzione: il passo iniziale e il passo finale. Se il passo
 finale viene impostato al valore predefinito \textsf{CAL\_RUN\_LOOP} la
@@ -172,17 +172,16 @@ label=lst:calrun, style=input]{code/calrun.c}
 Ogni volta che viene eseguita una funzione appartenente al ciclo di esecuzione,
 il contenuto delle matrici \textit{next} di tutti i sottostati viene copiato
 nelle matrici current. Nel secondo caso la gestione dell'aggiornamento dei
-sottostati viene lasciata gestire all'utente. 
-
-L'utente può infatti definire il proprio ciclo di esecuzione e la politica di
-aggiornamento dei sottostati. Per fare ciò è necessario usare la funzione
-\textsf{calRunAddGlobalTransitionFunc2D} che riceve in input un puntatore alla
-funzione che definisce il ciclo di esecuzione dell'utente. 
-Per aggiornare i sottostati si possono usare le funzioni \textsf{calUpdate2D}
-(per aggiornarli tutti) e \textsf{calUpdateSubstate2D(b|i|r)} (per aggiornarne
-uno in particolare). La funzione \textsf{calRun2D} permette infine di eseguire
-una simulazione, mentre la funzione \textsf{calRunCAStep2D} permette di eseguire
-un singolo passo di calcolo.
+sottostati viene lasciata gestire all'utente. L'utente può infatti definire il
+proprio ciclo di esecuzione e la politica di aggiornamento dei sottostati. Per
+fare ciò è necessario usare la funzione \textsf{calRunAddGlobalTransitionFunc2D}
+che riceve in input un puntatore alla funzione che definisce il ciclo di
+esecuzione dell'utente. Per aggiornare i sottostati si possono usare le funzioni
+\textsf{calUpdate2D} (per aggiornarli tutti) e
+\textsf{calUpdateSubstate2D(b|i|r)} (per aggiornarne uno in particolare). La
+funzione \textsf{calRun2D} permette infine di eseguire una simulazione, mentre
+la funzione \textsf{calRunCAStep2D} permette di eseguire un singolo passo di
+calcolo.
 
 \medskip
 \lstinputlisting[caption={La gestione del ciclo di esecuzione di OpenCAL.},
@@ -227,7 +226,7 @@ In seguito verrà mostrato l'esempio in C dell'implementazione del
 \lstinputlisting[caption={Il Game of Life in OpenCAL.},
 label=lst:life2D, style=input]{code/life2D.c}
 
-Nell'esempio \ref{lst:life2D} si implementa in circa 50 righe di codice sia
+Nell'esempio \ref{lst:life2D}, in circa 50 righe di codice, si implementa sia
 il modello che la simulazione del Game of Life. L'estrema semplicità
 dell'implementazione mette in risalto dunque il punto di forza di OpenCAL.
 La libreria ``nasconde'' i dettagli implementativi
@@ -305,8 +304,8 @@ La funzione di transizione di SCIARA è composta da quattro processi elementari:
 \lstinputlisting[caption={Definizione del modello
 SCIARA in OpenCAL},style=input,label = lst:SCIARA]{code/sciara.cpp}
 Il codice \ref{lst:SCIARA} mostra la definizione del modello SCIARA implementato
-usando la libreria OpenCAL. Come specificato dal modello viene creato uno spazio
-cellulare bidimensionale con vicinato di Moore (riga 8). Oltre ai sottostati
+utilizzando la libreria OpenCAL. Come specificato dal modello viene creato uno
+spazio cellulare bidimensionale con vicinato di Moore (riga 8). Oltre ai sottostati
 precedentemente elencati vengono aggiunti alcuni sottostati a singola matrice di
 supporto alla computazione (da riga 11 a 37). Infine, vengono definiti i
 processi elementari e il ciclo di esecuzione (da riga 40 a 50). Il codice

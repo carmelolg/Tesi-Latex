@@ -476,7 +476,8 @@ termina la computazione. Questa può essere considerata come una prima
 valutazione del parallelismo.
 
 L'\textbf{overhead} totale nel parallel computing è il tempo di esecuzione
-impiegato collettivamente da tutti i processori rispetto al tempo richiesto dal più veloce algoritmo sequenziale per risolvere il problema.
+impiegato collettivamente da tutti i processori rispetto al tempo richiesto dal
+più veloce algoritmo sequenziale per risolvere il problema. \cite{ITPC:2003}
 
 \begin{equation}
 T_o = pT_p - T_s
@@ -484,31 +485,31 @@ T_o = pT_p - T_s
 dove $p$ è il numero di unità  di calcolo, $T_p$ è il tempo parallelo e $T_s$ è
 il tempo sequenziale.
 
-Le due misure più importanti tra quelle citate sono la \textit{speedup} e l'\textit{efficienza}. 
-Nel valutare un algoritmo spesso si vuole sapere qual è il guadagno, in
-termini di performance, di un'implementazione parallela rispetto ad
-un'implementazione seriale. Lo \emph{speedup} quantifica i benefici nel
-risolvere un problema in parallelo e può essere definito come il rapporto tra il
-tempo $T_s$ necessario per risolvere il problema su una singola unità  di
-calcolo e il tempo $T_p$ per risolvere lo stesso problema su un calcolatore
-parallelo con $n$ identiche unità  di calcolo. 
+Le due misure più importanti tra quelle citate sono la \textit{speedup} e
+l'\textit{efficienza}. Valutando un algoritmo spesso c'è bisogno di conoscere a
+quanto ammonta il guadagno effettivo, in termini di performance, di
+un'implementazione parallela rispetto ad un'implementazione seriale. Lo
+\emph{speedup} quantifica i benefici nel risolvere un problema in parallelo e
+può essere definito come il rapporto tra il tempo $T_s$ necessario per risolvere
+il problema su una singola unità di calcolo e il tempo $T_p$ per risolvere lo
+stesso problema su un calcolatore parallelo con $n$ identiche unità di calcolo. 
 \begin{equation}
 S = \frac{T_s}{T_p}
 \end{equation}
-In genere $T_s$ è il tempo di esecuzione del più veloce algoritmo sequenziale
+$T_s$ è il tempo di esecuzione del più veloce algoritmo sequenziale
 conosciuto, in grado di risolvere il problema dato. In teoria, lo speedup non
-supera mai il numero di unità  di calcolo $n$. Se $T_s$ rappresenta il tempo del
+supera mai il numero di unità di calcolo $n$. Se $T_s$ rappresenta il tempo del
 miglior algoritmo sequenziale, per ottenere uno speedup pari a $n$, avendo a
 disposizione $n$ unità  di calcolo, nessuna di esse deve impiegare un tempo
 maggiore di $\frac{T_s}{n}$. Uno speedup maggiore di $n$ è possibile solo se
-tutte le unità  di calcolo hanno un tempo di esecuzione minore di
-$\frac{T_s}{n}$. In questo caso una singola unità  di calcolo potrebbe emulare le
-$n$ unità  di calcolo e risolvere il problema con un tempo minore di $T_s$.
+tutte le unità di calcolo hanno un tempo di esecuzione minore di
+$\frac{T_s}{n}$. In questo caso una singola unità di calcolo potrebbe emulare le
+$n$ unità di calcolo e risolvere il problema con un tempo minore di $T_s$.
 Questa è una contraddizione poiché $T_s$ è il tempo di esecuzione del miglior
 algoritmo sequenziale. In pratica, è però possibile avere uno speedup maggiore
 di $n$ (speedup superlineare). Generalmente questo è dovuto a caratteristiche
 dell'hardware che mettono l'implementazione sequenziale in svantaggio rispetto a
-quella parallela. Ad esempio, è possibile che la cache di una singola unità  di
+quella parallela. Ad esempio, è possibile che la cache di una singola unità di
 calcolo non sia abbastanza grande da contenere tutti i dati da elaborare,
 quindi, le sue scarse prestazioni sono dovute all'utilizzo di una memoria con
 un accesso lento rispetto a quello della memoria cache. Nel caso
@@ -521,7 +522,7 @@ L'\emph{efficienza} è una misura di prestazione legata allo speedup. Come
 menzionato precedentemente, la parallelizzazione di un'algoritmo introduce un
 overhead dovuto alla comunicazione tra i processi e ai processi che entrano in
 uno stato di idling. Per questo motivo è molto difficile raggiungere uno speedup
-pari al numero di unità  di calcolo. L'efficienza quantifica la quantità  di
+pari al numero di unità  di calcolo. L'efficienza quantifica la quantità di
 lavoro utile (tralasciando i tempi dovuti a overhead) effettuato dalle $n$ unità 
 di calcolo ed è definita come il rapporto tra lo speedup e $n$.
 
@@ -604,7 +605,15 @@ semplice esempio di parallelizzazione tramite OpenMP di un algoritmo sequenziale
 \lstinputlisting[caption={Esempio di utilizzo di OpenMP.},
 label=lst:openmp, style=input]{code/openmp.c}
 
-%\subsection{MPI}
+\subsection{MPI}
+
+
+
+
+
+
+
+
 
 %**********************************************
 %												-
@@ -625,15 +634,16 @@ anni del nuovo millennio esse superano le CPU nel calcolo di operazioni in
 floating point (FLOPS) e, ad oggi la velocità  di calcolo delle GPU è quasi
 dieci volte superiore quelle delle CPU.
 Prima del 2006, le GPU difficilmente venivano usate per scopi diversi dal
-rendering grafico poiché per accedere a questi dispositivi i programmatori
-avevano a disposizione soltanto API per la grafica (ad esempio OpenGL
-\cite{OpenGL:2004}). GPGPU (general purpose computing on graphic processing
-unit) è il termine che viene usato per indicare l'utilizzo delle GPU in ambiti
-diversi dal rendering grafico. Questa tecnica si diffuse nel 2007 grazie al
-rilascio di CUDA \cite{CUDA:2007} da parte NVIDIA, che permetteva ai
-programmatori di sviluppare applicazioni parallele senza utilizzare le API
-grafiche. Oltre a questo NVIDIA iniziò ad inserire nei propri dispositivi delle
-componenti hardware apposite a supporto della programmazione parallela.
+rendering grafico e per accedere a questi dispositivi i programmatori
+avevano a disposizione soltanto API orientate al rendering grafico
+come OpenGL \cite{OpenGL:2004}. GPGPU (general purpose computing on graphic
+processing unit) è il termine che viene utilizza per indicare l'utilizzo delle
+GPU in ambiti diversi dal rendering grafico. Questa tecnica si diffuse nel 2007
+grazie al rilascio di CUDA \cite{CUDA:2007} da parte NVIDIA, che forniva ai
+programmatori un architettura completa capace di far sviluppare applicazioni
+parallele senza utilizzare le API grafiche.  Oltre a questo NVIDIA iniziò ad
+inserire nei propri dispositivi delle componenti hardware apposite a supporto
+della programmazione parallela.
 
 \begin{figure}[H] 
 \centering 
@@ -642,22 +652,16 @@ componenti hardware apposite a supporto della programmazione parallela.
 \label{fig:arch_kepler} 
 \end{figure}
 
-La figura \ref{fig:arch_kepler} rappresenta l'architettura di una tipica GPU
+La figura \ref{fig:arch_kepler} rappresenta la tipic architettura di una GPU
 CUDA. La struttura è composta da un insieme di \emph{streaming multiprocessor}
-(SM) divisi in blocchi (Nella figura \ref{fig:arch_kepler} ci sono due SM
-per ogni blocco). Ogni SM è composto da un insieme di \emph{streaming
+(SM) divisi in blocchi. Ogni SM è composto da un insieme di \emph{streaming
 processors} che condividono la memoria cache. Ogni GPU ha a disposizione alcuni
-gigabytes di Graphic Double Data Rate DRAM, anche detta memoria globale. Questo
-tipo di memoria è diversa dalla normale memoria DRAM poiché è progettata per
-contenere dati relativi alla grafica. Nel caso di applicazioni grafiche contiene
-informazioni relative ad immagini e texture usate per il rendering 3D. In ambito
-GPGPU viene sfruttata per la sua ampia larghezza di banda al costo
-di una maggiore latenza rispetto alla normale memoria DRAM. Con l'aumentare
-della disponibilità  di memoria delle GPU prodotte, le applicazioni tendono a
-memorizzare i dati nella memoria globale minimizzando le interazioni con la
-memoria del sistema. Le GPU sono particolarmente adatte a risolvere problemi che
-possono essere modellati con un approccio SIMD (vedi paragrafo
-\ref{par:flynn}) e che contengono una gran quantità  di calcoli
-aritmetici \cite{Kartashev}. Generalmente lo stesso programma viene eseguito per
-ogni dato da elaborare e la latenza dovuta agli accessi alla memoria globale
-viene ``nascosta'' dalla grande quantità  di calcoli.
+gigabytes di Graphic Double Data Rate (DRAM), diversamente detta memoria
+globale. Questo tipo di memoria è diversa dalla normale memoria DRAM poiché è
+progettata per contenere dati relativi alla grafica. Nel caso di applicazioni
+grafiche contiene informazioni relative ad immagini e texture usate per il
+rendering 3D. In ambito GPGPU viene sfruttata per la sua ampia larghezza di
+banda al costo di una maggiore latenza rispetto alla normale memoria DRAM. Con
+l'aumentare della disponibilità di memoria delle GPU prodotte, le applicazioni
+tendono a memorizzare i dati nella memoria globale minimizzando così le
+interazioni con la memoria del sistema.

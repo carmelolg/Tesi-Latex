@@ -20,16 +20,16 @@ futuro e le eventuali precauzioni (nei casi di fenomeni più o meno disastrosi).
 
 Nel 1947 da John von Neumann, con lo scopo di ideare un sistema in grado di
 auto-riprodursi, introdusse gli \textbf{Automi Cellulari}. Gli Automi Cellulari
-(AC) sono modelli matematici usati per la simulazione di sistemi complessi. Un AC è
-sostanzialmente uno spazio d-dimensionale suddiviso in celle regolari alle quali
-è associato uno \textbf{stato} facente parte di un insieme finito di stati. Il
-valore dello stato di una cella in un determinato istante è dato da una
-\textbf{funzione di transizione} uguale per tutte le celle. La funzione di
-transizione calcola lo stato di una cella in base allo stato del suo
-\textbf{vicinato}, ossia un insieme di celle legate da una prefissata relazione.
-Tutto ciò avviene in passi discreti e lo stato di tutte le celle è aggiornato in
-modo simultaneo. L'insieme degli stati di tutte le celle in un istante $t$
-determina la configurazione dell' Automa Cellulare in quell' istante.
+(AC) sono un insieme di regole logico-matematiche capaci di simulare
+sistemi complessi. Un AC è uno spazio d-dimensionale suddiviso
+in celle regolari alle quali è associato uno \textbf{stato} facente parte di un
+insieme finito di stati. La \textbf{funzione di transizione} (uguale per tutto
+l'insieme di celle) determina il valore dello stato di una cella in un
+determinato istante $t$. Il \textbf{vicinato}, cioè una relazione
+all'interno di uno spazio cellulare, influisce sullo stato di una cella. Tutto
+ciò avviene in passi discreti e lo stato di tutte le celle è aggiornato in modo
+simultaneo. L'insieme degli stati di tutte le celle in un determinato istante
+$t$ definisce la configurazione dell' Automa Cellulare in quel preciso istante.
 \begin{figure}
 \centering
 \subfloat[][]
@@ -64,13 +64,13 @@ proprietà fondamentali come di seguito:
   limitato di celle.
 \end{itemize}
 
-Nel caso di un automa cellulare bidimensionale, i vicinati più comuni sono
+Nel caso di un automa cellulare bidimensionale, i vicinati più conosciuti sono
 quelli di von Neumann (figura \ref{img:vicinati} a) e quello di Moore (figura
 \ref{img:vicinati} b). Il primo è composto dalla cella presa in esame e dalle
 celle adiacenti a nord, sud, est, e ovest, mentre il secondo comprende anche le
 celle adiacenti a nord-est, sud-est, nord-ovest e sud-ovest. E' possibile
 comunque definire altri tipi di vicinato e non è necessario che le celle che lo
-costituiscono siano prossime tra loro.
+costituiscono siano strettamente vicine tra loro.
 \begin{figure}[h]
 \centering
 \subfloat[][\emph{Vicinato di von Neumann}]
@@ -102,17 +102,17 @@ diverse configurazioni.
 Un Automa Cellulare può essere formalizzato come una quadrupla
 \cite{DiGregorio:1975}
 \begin{center}
-$ < E^d,S,X,\sigma >$
+$ < Z^d,S,X,\sigma >$
 \end{center}
 \begin{itemize}
-  \item $E^d$ è l'insieme delle celle individuate da punti a coordinate intere
+  \item $Z^d$ è l'insieme delle celle individuate da punti a coordinate intere
   nello spazio euclideo reale $d-$dimensionale, nel quale ogni cella è un automa
   elementare;
   \item $S$ è l'insieme finito degli stati della cella, detto \emph{spazio degli
   stati};
   \item $X$ è un insieme finito di vettori $d-$dimensionali, detto indice di
   vicinanza, il quale definisce l'insieme dei vicini $N(X,i)$ di una generica
-  cella \mbox{$i=<i_1,i_2,\ldots,i_d>$} in $E^d$ come segue:\\
+  cella \mbox{$i=<i_1,i_2,\ldots,i_d>$} in $Z^d$ come segue:\\
     sia $X = \{z_1,z_2,\ldots\,z_n\}$ con $n = \#X$ e $z_j =
     <x_{j1},x_{j2},\ldots ,x_{jd}>$ per $i\leq j \leq n$ allora:
     	\begin{equation}
@@ -124,7 +124,7 @@ $ < E^d,S,X,\sigma >$
 
 In particolare, nel caso di un automa cellulare bidimensionale avremo:
 \begin{itemize}
-  \item l'insieme delle celle $E^2=\{(i,j)|i,j\in N,m\geq0,n\geq0\}$ è una
+  \item l'insieme delle celle $Z^2=\{(i,j)|i,j\in N,m\geq0,n\geq0\}$ è una
   matrice \mbox{$n \times m$}, dove $(i,j)$ è la cella posta nella riga
   $i-$esima e nella colonna $j-$esima;
   \item lo stato della cella $(i,j)$ al tempo $t$ sara $s^t(i,j)$, essendo
@@ -232,16 +232,16 @@ strutture più complesse.
 
 \section{Automi Cellulari Complessi (CCA)}
 \label{par:CCA}
-Gli Automi Cellulari Complessi (CCA) sono un'estensione della classica
-definizione di Automa Cellulare. In genere questo modello numerico si adatta
-alla rappresentazione di fenomeni le cui dinamiche possono essere descritte in
-termini di interazioni locali ad un livello macroscopico. Tra le applicazioni
-degli Automi Cellulari Complessi troviamo simulazioni di flussi lavici
-\cite{SCIARA:2004}, flussi di detriti \cite{SCIDDICA:1999}, incendi \cite{FIRE:2004},
-traffico stradale \cite{TRAFFIC:1996}, ecc. Estendendo la classica definizione
-di CA, gli Automi Cellulari Complessi possono facilitare la definizione di
-molti aspetti rilevanti per la modellazione dei sistemi complessi. In
-particolare:
+Gli Automi Cellulari Complessi (CCA) sono un'estensione della definizione di
+Automa Cellulare. Questo modello numerico si adatta perfettamente per la 
+rappresentazione di fenomeni naturali in cui le dinamiche possono essere
+descritte in termini di interazioni locali ad un livello macroscopico. Tra le
+applicazioni degli Automi Cellulari Complessi troviamo simulazioni di flussi
+lavici \cite{SCIARA:2004}, flussi di detriti \cite{SCIDDICA:1999}, incendi
+\cite{FIRE:2004}, traffico stradale \cite{TRAFFIC:1996}, ecc. Estendendo la
+classica definizione di CA, gli Automi Cellulari Complessi possono facilitare la
+definizione di molti aspetti rilevanti per la modellazione dei sistemi
+complessi. In particolare:
 \begin{itemize}
   \item lo stato della cella è costituito da un insieme di sottostati. Il 
   prodotto cartesiano dei valori assunti dai sottostati definisce lo stato della cella;
@@ -255,21 +255,80 @@ particolare:
 \end{itemize}
 Più formalmente un CCA è rappresentato da una 7-tupla:
 \begin{equation*}
-<E^d,X,Q,P,\sigma,G,\gamma>
+<Z^d,X,Q,P,\sigma,G,\gamma>
 \end{equation*}
-Dove $E^d$, $X$ e $\sigma$ hanno lo stesso significato che hanno per gli AC
+Dove $Z^d$, $X$ e $\sigma$ hanno lo stesso significato che hanno per gli AC
 classici (vedo paragrafo \ref{par:ACdef}) e
 \begin{itemize}
   \item $Q = Q_{s1} \times Q_{s2} \times \ldots \times Q_{sn}$ è l'insieme dei
   sottostati della cella;
   \item $P = p_1, p_2, \ldots, p_p$ è l'insieme dei parametri globali usati per
   calibrare il modello;
-  \item $G = G_1 \cup G_2 \cup \ldots \cup G_l \subseteq E^d$ è il sottoinsieme
-  di celle di $E^d$ soggette ad influenza esterna.
+  \item $G = G_1 \cup G_2 \cup \ldots \cup G_l \subseteq Z^d$ è il sottoinsieme
+  di celle di $Z^d$ soggette ad influenza esterna.
   \item $\gamma = \{\gamma_1, \gamma_2,\ldots,\gamma_t\}$ è l'insieme di
   funzioni che definiscono le influenze esterne
 \end{itemize}
 
+\section{SCIARA-fv2}
+\label{par:sciarafv2}
 
+SCIARA è un modello computazionale basato su Automi Cellulari Complessi (CCA,
+\ref{par:CCA}) che simula il fenomeno naturale di una colata lavica. Già da
+qualche anno è utilizzato per numerose simulazioni di casi realmente
+accaduti, tra i più famosi l'eruzione del Monte Etna nell'area di Nicolosi del
+2001 \cite{SCIARA:2004} e nell'area di Valle del Bove nel 1991
+\cite{SCIARA:2001}. 
+Possiamo formalizzare l'automa cellulare complesso che definisce SCIARA nel
+seguente modo:
+
+\begin{equation*}
+SCIARA = <Z^d, S, X, G, P, \tau, \gamma> 
+\end{equation*}
+
+\begin{itemize}
+  \item $Z^d$ è uno spazio bi-dimensionale;
+  \item $S = S_z \times S_h \times S_t \times S^8_f$ è l'insieme finito degli
+  stati che può assumere una cella ottenuto dal prodotto cartesiano dei
+  sottostati. Il loro significato è rispettivamente: quota (altitudine) della
+  cella, spessore della lava, temperatura della lava, flussi uscenti dalla cella centrale verso
+  le celle del vicinato (Nord, Ovest, Est, Sud, Nord-Ovest, Sud-Ovest, Sud-Est,
+  Nord-Est);
+  \item $X$ è la relazione di vicinanza di Moore;
+  \item $P$ è l'insieme dei parametri globali usati per calibrare il modello. In
+  particolare questi parametri non variano nel tempo;
+  \item $\tau : S^9 \to S$ è la funzione di transizione deterministica,
+  probabilistica o mista dell'automa;
+  \item $\gamma : S_h \times  \mathbb{N} \to S_h$ è la funzione che rappresenta
+  le influenze esterne e in particolare l'emissione della lava dalle celle
+  sorgenti.
+\end{itemize}
+La funzione di transizione di SCIARA è composta da quattro processi elementari:
+\begin{itemize}
+  \item {\bfseries calcolo dei flussi uscenti}: determina la fuoriuscita di lava dalla
+  cella centrale verso le celle del vicinato applicando l'algoritmo di minimizzazione
+  delle differenze.
+  \item {\bfseries calcolo della quantità di lava}: determina la quantità di
+  lava considerando i flussi uscenti dalle celle.
+  \item {\bfseries calcolo della temperatura}: determina la temperatura della
+  lava considerando la temperatura dei flussi entranti e la perdita di energia
+  termica dalla superficie.
+  \item {\bfseries solidificazione}: determina la solidificazione della lava
+  quando la temperatura scende al di sotto di un determinato valore. 
+\end{itemize}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.4\textwidth]{immagini/real}
+\label{fig:realevent}
+\caption[Colata lavica del 2006 del Monte Etna]{Evento reale disegnato dal
+software Qgis} 
+\end{figure}
+
+Parte di questo lavoro di tesi è stato parallelizzare questo modello utilizzando
+la libreria OpenCAL-CUDA che verrà descritta nel capitolo \ref{cap:OpenCAL-CUDA}.
+
+Nella figura è mostrata la simulazione della colata lavica datata
+2006.
 
 

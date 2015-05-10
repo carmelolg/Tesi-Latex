@@ -9,12 +9,10 @@
 %************************************************
 
 \section{Liberia per Automi Cellulari}
-Oggigiorno la modellistica è molto utilizzata negli ambienti di ricerca, tra i
-dipartimenti universitari di Geologia, Biologia, Ingegneria e Bioinformatica.
+La modellistica è molto utilizzata negli ambienti di ricerca in diversi settori, dalla Biologia alla Geologia, dall'Ingegneria alla Bioinformatica.
 Per questo motivo, negli anni, sono state sviluppate diverse metodologie per la
-realizzazione di sistemi automatici per la creazione di modelli e della loro
-simulazione come CAMELot \cite{CAMELOT:1996}.
-OpenCAL (Open Cellular Automata Library) è una libreria Open Source, capace di
+realizzazione di sistemi automatici e di supporto alle decisioni per la creazione di modelli e della loro
+simulazione: un esempio è CAMELot \cite{CAMELOT:1996}, un ambiente di sviluppo basato su Automi Cellulari per la simulazione di processi fisici. Al contrario di CAMELot, OpenCAL (Open Cellular Automata Library) è una libreria Open Source, capace di
 definire modelli di simulazione basati su Automi Cellulari complessi (CCA).
 
 OpenCAL nasce dalla necessità di aver a disposizione una libreria open source di
@@ -195,7 +193,7 @@ dinamiche base della vita e capirne la loro evoluzione nel tempo. Il gioco della
 vita in particolare è un automa cellulare ripetitivo, cioè dopo cinque step
 ritorna alla sua configurazione iniziale per poi riprendere la sua evoluzione.
 Lo spazio di celle del Game of Life è bidimensionale con il vicinato definito da
-Moore. Una cella può assumere due diversi stati: viva o morta. \cite{LIFE:1970}
+Moore. Una cella può assumere due diversi stati: viva o morta \cite{LIFE:1970}
 La funzione di transizione è costituita dalle seguenti semplici regole:
 \begin{enumerate}
   \item Una cella viva, rimane viva se ha esattamente due o tre celle vive nel
@@ -256,49 +254,53 @@ tuttavia l'implementazione di modelli computazionalmente più complessi in modo
 da verificare la validità di OpenCAL e successivamente di
 OpenCAL-CUDA. Il modello proposto e implementato è \textbf{SCIARA}.
 
-SCIARA è un modello computazionale basato su Automi Cellulari Complessi (CCA,
-\ref{par:CCA}) che simula il fenomeno naturale di una colata lavica. Già da
-qualche anno è utilizzato per numerose simulazioni di casi realmente
-accaduti, tra i più famosi l'eruzione del Monte Etna nell'area di Nicolosi del
-2001 \cite{SCIARA:2004} e nell'area di Valle del Bove nel 1991
-\cite{SCIARA:2001}. 
-Possiamo formalizzare l'automa cellulare complesso che definisce SCIARA nel
-seguente modo:
+La descrizione formale di SCIARA si trova al paragrafo \ref{par:sciarafv2}, in
+questa sezione si mostrerà l'implementazione tramite la libreria OpenCAL.
 
-\begin{equation*}
-SCIARA = <Z^d, S, X, G, P, \tau, \gamma> 
-\end{equation*}
-
-\begin{itemize}
-  \item $Z^d$ è uno spazio bi-dimensionale;
-  \item $S = S_z \times S_h \times S_t \times S^8_f$ è l'insieme finito degli
-  stati che può assumere una cella ottenuto dal prodotto cartesiano dei
-  sottostati. Il loro significato è rispettivamente: quota (altitudine) della
-  cella, spessore della lava, temperatura della lava, flussi uscenti dalla cella centrale verso
-  le celle del vicinato (Nord, Ovest, Est, Sud, Nord-Ovest, Sud-Ovest, Sud-Est,
-  Nord-Est);
-  \item $X$ è la relazione di vicinanza di Moore;
-  \item $P$ è l'insieme dei parametri globali usati per calibrare il modello. In
-  particolare questi parametri non variano nel tempo;
-  \item $\tau : S^9 \to S$ è la funzione di transizione deterministica,
-  probabilistica o mista dell'automa;
-  \item $\gamma : S_h \times  \mathbb{N} \to S_h$ è la funzione che rappresenta
-  le influenze esterne e in particolare l'emissione della lava dalle celle
-  sorgenti.
-\end{itemize}
-La funzione di transizione di SCIARA è composta da quattro processi elementari:
-\begin{itemize}
-  \item {\bfseries calcolo dei flussi uscenti}: determina la fuoriuscita di lava dalla
-  cella centrale verso le celle del vicinato applicando l'algoritmo di minimizzazione
-  delle differenze.
-  \item {\bfseries calcolo della quantità di lava}: determina la quantità di
-  lava considerando i flussi uscenti dalle celle.
-  \item {\bfseries calcolo della temperatura}: determina la temperatura della
-  lava considerando la temperatura dei flussi entranti e la perdita di energia
-  termica dalla superficie.
-  \item {\bfseries solidificazione}: determina la solidificazione della lava
-  quando la temperatura scende al di sotto di un determinato valore. 
-\end{itemize}
+% 
+% SCIARA è un modello computazionale basato su Automi Cellulari Complessi (CCA,
+% \ref{par:CCA}) che simula il fenomeno naturale di una colata lavica. Già da
+% qualche anno è utilizzato per numerose simulazioni di casi realmente
+% accaduti, tra i più famosi l'eruzione del Monte Etna nell'area di Nicolosi del
+% 2001 \cite{SCIARA:2004} e nell'area di Valle del Bove nel 1991
+% \cite{SCIARA:2001}. 
+% Possiamo formalizzare l'automa cellulare complesso che definisce SCIARA nel
+% seguente modo:
+% 
+% \begin{equation*}
+% SCIARA = <Z^d, S, X, G, P, \tau, \gamma> 
+% \end{equation*}
+% 
+% \begin{itemize}
+%   \item $Z^d$ è uno spazio bi-dimensionale;
+%   \item $S = S_z \times S_h \times S_t \times S^8_f$ è l'insieme finito degli
+%   stati che può assumere una cella ottenuto dal prodotto cartesiano dei
+%   sottostati. Il loro significato è rispettivamente: quota (altitudine) della
+%   cella, spessore della lava, temperatura della lava, flussi uscenti dalla cella centrale verso
+%   le celle del vicinato (Nord, Ovest, Est, Sud, Nord-Ovest, Sud-Ovest, Sud-Est,
+%   Nord-Est);
+%   \item $X$ è la relazione di vicinanza di Moore;
+%   \item $P$ è l'insieme dei parametri globali usati per calibrare il modello. In
+%   particolare questi parametri non variano nel tempo;
+%   \item $\tau : S^9 \to S$ è la funzione di transizione deterministica,
+%   probabilistica o mista dell'automa;
+%   \item $\gamma : S_h \times  \mathbb{N} \to S_h$ è la funzione che rappresenta
+%   le influenze esterne e in particolare l'emissione della lava dalle celle
+%   sorgenti.
+% \end{itemize}
+% La funzione di transizione di SCIARA è composta da quattro processi elementari:
+% \begin{itemize}
+%   \item {\bfseries calcolo dei flussi uscenti}: determina la fuoriuscita di lava dalla
+%   cella centrale verso le celle del vicinato applicando l'algoritmo di minimizzazione
+%   delle differenze.
+%   \item {\bfseries calcolo della quantità di lava}: determina la quantità di
+%   lava considerando i flussi uscenti dalle celle.
+%   \item {\bfseries calcolo della temperatura}: determina la temperatura della
+%   lava considerando la temperatura dei flussi entranti e la perdita di energia
+%   termica dalla superficie.
+%   \item {\bfseries solidificazione}: determina la solidificazione della lava
+%   quando la temperatura scende al di sotto di un determinato valore. 
+% \end{itemize}
 
 \medskip
 \lstinputlisting[caption={Definizione del modello

@@ -1975,9 +1975,9 @@
     <bcf:citekey order="5">SCIARA:2004</bcf:citekey>
     <bcf:citekey order="6">ITPC:2003</bcf:citekey>
     <bcf:citekey order="7">ITPC:2003</bcf:citekey>
-    <bcf:citekey order="8">OpenGL:2004</bcf:citekey>
-    <bcf:citekey order="9">CUDA:2007</bcf:citekey>
-    <bcf:citekey order="10">Kartashev</bcf:citekey>
+    <bcf:citekey order="8">ITPC:2003</bcf:citekey>
+    <bcf:citekey order="9">OpenGL:2004</bcf:citekey>
+    <bcf:citekey order="10">CUDA:2007</bcf:citekey>
     <bcf:citekey order="11">CUDA:2012</bcf:citekey>
     <bcf:citekey order="12">CTD</bcf:citekey>
     <bcf:citekey order="13">CTD</bcf:citekey>
@@ -1988,10 +1988,10 @@
     <bcf:citekey order="18">SCIDDICA:1999</bcf:citekey>
     <bcf:citekey order="19">FIRE:2004</bcf:citekey>
     <bcf:citekey order="20">TRAFFIC:1996</bcf:citekey>
-    <bcf:citekey order="21">CAMELOT:1996</bcf:citekey>
-    <bcf:citekey order="22">LIFE:1970</bcf:citekey>
-    <bcf:citekey order="23">SCIARA:2004</bcf:citekey>
-    <bcf:citekey order="24">SCIARA:2001</bcf:citekey>
+    <bcf:citekey order="21">SCIARA:2004</bcf:citekey>
+    <bcf:citekey order="22">SCIARA:2001</bcf:citekey>
+    <bcf:citekey order="23">CAMELOT:1996</bcf:citekey>
+    <bcf:citekey order="24">LIFE:1970</bcf:citekey>
     <bcf:citekey order="25">STREAM:2009</bcf:citekey>
     <bcf:citekey order="26">STREAM:2009</bcf:citekey>
     <bcf:citekey order="27">CHAG:2009</bcf:citekey>

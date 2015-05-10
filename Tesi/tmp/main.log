@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/W32TeX) (preloaded format=pdflatex 2015.3.11)  9 MAY 2015 16:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/W32TeX) (preloaded format=pdflatex 2015.3.11)  10 MAY 2015 21:50
 entering extended mode
  restricted \write18 enabled.
  Source specials enabled.
@@ -1178,7 +1178,7 @@ Package pgfplots notification 'compat/show suggested version=true': document ha
 s been generated with the most recent feature set (\pgfplotsset{compat=1.12}).
 
 (./Capitoli/frontespizio.tex
-<immagini/logo.png, id=272, 893.3375pt x 605.26125pt>
+<immagini/logo.png, id=280, 893.3375pt x 605.26125pt>
 File: immagini/logo.png Graphic file (type png)
  <use immagini/logo.png>
 Package pdftex.def Info: immagini/logo.png used on input line 6.
@@ -1205,7 +1205,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [5
 
 ]
-LaTeX Font Info:    Try loading font information for T1+cmss on input line 111.
+LaTeX Font Info:    Try loading font information for T1+cmss on input line 115.
 
 
 (c:/texlive/2014/texmf-dist/tex/latex/base/t1cmss.fd
@@ -1237,7 +1237,7 @@ Underfull \vbox (badness 2608) has occurred while \output is active []
 Capitolo 1.
 [16
 
-] <Immagini/flynn.png, id=520, 1240.635pt x 634.37pt>
+] <Immagini/flynn.png, id=532, 1240.635pt x 634.37pt>
 File: Immagini/flynn.png Graphic file (type png)
 
 <use Immagini/flynn.png>
@@ -1252,48 +1252,48 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 124.
- [18 <./Immagini/flynn.png>] <Immagini/uma.png, id=534, 398.48875pt x 283.0575p
+ [18 <./Immagini/flynn.png>] <Immagini/uma.png, id=546, 398.48875pt x 283.0575p
 t>
 File: Immagini/uma.png Graphic file (type png)
  <use Immagini/uma.png>
 Package pdftex.def Info: Immagini/uma.png used on input line 165.
 (pdftex.def)             Requested size: 166.4475pt x 118.23114pt.
 
-<Immagini/numa.png, id=535, 451.6875pt x 195.73125pt>
+<Immagini/numa.png, id=547, 451.6875pt x 195.73125pt>
 File: Immagini/numa.png Graphic file (type png)
  <use Immagini/numa.png>
 Package pdftex.def Info: Immagini/numa.png used on input line 168.
 (pdftex.def)             Requested size: 166.4475pt x 72.12672pt.
 
 [19 <./Immagini/uma.png> <./Immagini/numa.png>]
-<Immagini/hybrid_model.png, id=547, 486.81876pt x 241.90375pt>
+<Immagini/hybrid_model.png, id=559, 486.81876pt x 241.90375pt>
 File: Immagini/hybrid_model.png Graphic file (type png)
 
 <use Immagini/hybrid_model.png>
 Package pdftex.def Info: Immagini/hybrid_model.png used on input line 214.
 (pdftex.def)             Requested size: 184.94292pt x 91.89853pt.
  [20] [21 <./Immagini/hybrid_model.png>]
-<Immagini/matrix_dec.png, id=559, 325.215pt x 211.79124pt>
+<Immagini/matrix_dec.png, id=571, 325.215pt x 211.79124pt>
 File: Immagini/matrix_dec.png Graphic file (type png)
 
 <use Immagini/matrix_dec.png>
 Package pdftex.def Info: Immagini/matrix_dec.png used on input line 287.
 (pdftex.def)             Requested size: 184.94292pt x 120.44434pt.
  [22 <./Immagini/matrix_dec.png>]
-<Immagini/matrix_int.png, id=565, 496.85625pt x 186.6975pt>
+<Immagini/matrix_int.png, id=577, 496.85625pt x 186.6975pt>
 File: Immagini/matrix_int.png Graphic file (type png)
 
 <use Immagini/matrix_int.png>
 Package pdftex.def Info: Immagini/matrix_int.png used on input line 306.
 (pdftex.def)             Requested size: 184.94292pt x 69.4929pt.
 
-<Immagini/dec_ric.png, id=566, 481.8pt x 269.005pt>
+<Immagini/dec_ric.png, id=578, 481.8pt x 269.005pt>
 File: Immagini/dec_ric.png Graphic file (type png)
  <use Immagini/dec_ric.png>
 Package pdftex.def Info: Immagini/dec_ric.png used on input line 316.
 (pdftex.def)             Requested size: 184.94292pt x 103.25734pt.
 
-<Immagini/dec_dat.png, id=567, 341.275pt x 174.6525pt>
+<Immagini/dec_dat.png, id=579, 341.275pt x 174.6525pt>
 File: Immagini/dec_dat.png Graphic file (type png)
 
 <use Immagini/dec_dat.png>
@@ -1301,7 +1301,7 @@ Package pdftex.def Info: Immagini/dec_dat.png used on input line 332.
 (pdftex.def)             Requested size: 184.94292pt x 94.64938pt.
  [23 <./Immagini/matrix_int.png> <./Immagini/dec_ric.png>] [24 <./Immagini/dec_
 dat.png>] [25]
-<Immagini/master-slave.png, id=587, 542.025pt x 198.7425pt>
+<Immagini/master-slave.png, id=599, 542.025pt x 198.7425pt>
 File: Immagini/master-slave.png Graphic file (type png)
 
 <use Immagini/master-slave.png>
@@ -1309,63 +1309,63 @@ Package pdftex.def Info: Immagini/master-slave.png used on input line 443.
 (pdftex.def)             Requested size: 184.94292pt x 67.81111pt.
  [26 <./Immagini/master-slave.png>] [27]
 [28] [29]
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 605.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 606.
 
  (c:/texlive/2014/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 (./code/openmp.c)
-Overfull \hbox (6.96684pt too wide) in paragraph at lines 615--615
+Overfull \hbox (6.96684pt too wide) in paragraph at lines 624--624
 []\T1/cmr/bx/n/17.28 Nuovi ap-proc-ci al cal-co-lo pa-ral-le-lo: GPG-
  []
 
-[30] <Immagini/arch_kepler.jpg, id=640, 658.3797pt x 708.9687pt>
+[30] <Immagini/arch_kepler.jpg, id=653, 658.3797pt x 708.9687pt>
 File: Immagini/arch_kepler.jpg Graphic file (type jpg)
 
 <use Immagini/arch_kepler.jpg>
-Package pdftex.def Info: Immagini/arch_kepler.jpg used on input line 640.
+Package pdftex.def Info: Immagini/arch_kepler.jpg used on input line 650.
 (pdftex.def)             Requested size: 184.94292pt x 199.14813pt.
-) (./Capitoli/cuda.tex [31 <./Immagini/arch_kepler.jpg>] [32]
+) (./Capitoli/cuda.tex [31 <./Immagini/arch_kepler.jpg>]
 Capitolo 2.
-<Immagini/cuda_compiler.jpg, id=657, 401.5pt x 365.365pt>
+<Immagini/cuda_compiler.jpg, id=662, 401.5pt x 365.365pt>
 File: Immagini/cuda_compiler.jpg Graphic file (type jpg)
 
 <use Immagini/cuda_compiler.jpg>
 Package pdftex.def Info: Immagini/cuda_compiler.jpg used on input line 21.
 (pdftex.def)             Requested size: 184.94292pt x 168.30408pt.
- [33
+ [32
 
- <./Immagini/cuda_compiler.jpg>] [34]
-<Immagini/gt750m.png, id=667, 654.445pt x 379.4175pt>
+ <./Immagini/cuda_compiler.jpg>] [33]
+<Immagini/gt750m.png, id=672, 654.445pt x 379.4175pt>
 File: Immagini/gt750m.png Graphic file (type png)
 
 <use Immagini/gt750m.png>
 Package pdftex.def Info: Immagini/gt750m.png used on input line 85.
 (pdftex.def)             Requested size: 184.94292pt x 107.22037pt.
- [35 <./Immagini/gt750m.png>]
-<Immagini/cuda_program.jpg, id=674, 284.262pt x 136.71075pt>
+ [34 <./Immagini/gt750m.png>]
+<Immagini/cuda_program.jpg, id=679, 284.262pt x 136.71075pt>
 File: Immagini/cuda_program.jpg Graphic file (type jpg)
 
 <use Immagini/cuda_program.jpg>
 Package pdftex.def Info: Immagini/cuda_program.jpg used on input line 121.
 (pdftex.def)             Requested size: 184.94292pt x 88.94644pt.
- [36 <./Immagini/cuda_program.jpg>]
-<Immagini/grid_block.png, id=683, 460.72125pt x 570.13pt>
+ [35 <./Immagini/cuda_program.jpg>]
+<Immagini/grid_block.png, id=688, 460.72125pt x 570.13pt>
 File: Immagini/grid_block.png Graphic file (type png)
 
 <use Immagini/grid_block.png>
 Package pdftex.def Info: Immagini/grid_block.png used on input line 155.
 (pdftex.def)             Requested size: 184.94292pt x 228.85701pt.
- [37 <./Immagini/grid_block.png (PNG copy)>]
-<Immagini/cuda_grid.png, id=689, 377.41pt x 284.06125pt>
+ [36 <./Immagini/grid_block.png (PNG copy)>]
+<Immagini/cuda_grid.png, id=693, 377.41pt x 284.06125pt>
 File: Immagini/cuda_grid.png Graphic file (type png)
 
 <use Immagini/cuda_grid.png>
 Package pdftex.def Info: Immagini/cuda_grid.png used on input line 192.
 (pdftex.def)             Requested size: 184.94292pt x 139.19987pt.
- [38 <./Immagini/cuda_grid.png>]
-(./code/esempio_kernel.c) (./code/esempio_mem.c) [39]
-<Immagini/memory_model.jpg, id=713, 1451.4225pt x 982.67125pt>
+ [37 <./Immagini/cuda_grid.png>]
+(./code/esempio_kernel.c) (./code/esempio_mem.c) [38]
+<Immagini/memory_model.jpg, id=718, 1451.4225pt x 982.67125pt>
 File: Immagini/memory_model.jpg Graphic file (type jpg)
 
 <use Immagini/memory_model.jpg>
@@ -1374,27 +1374,27 @@ Package pdftex.def Info: Immagini/memory_model.jpg used on input line 263.
 
 Underfull \vbox (badness 1418) has occurred while \output is active []
 
- [40 <./Immagini/memory_model.jpg>]
-<Immagini/banks.png, id=719, 366.61969pt x 545.03625pt>
+ [39 <./Immagini/memory_model.jpg>]
+<Immagini/banks.png, id=724, 366.61969pt x 545.03625pt>
 File: Immagini/banks.png Graphic file (type png)
 
 <use Immagini/banks.png>
 Package pdftex.def Info: Immagini/banks.png used on input line 307.
 (pdftex.def)             Requested size: 184.94292pt x 274.94589pt.
- [41 <./Immagini/banks.png>]
+ [40 <./Immagini/banks.png>]
 Overfull \hbox (5.79863pt too wide) in paragraph at lines 342--344
 [][]\T1/cmr/m/n/12 gestisce l'e-sclu-si-vi-tà per l'o-pe-ra-zio-ne di \T1/cmr/m
 /it/12 com-pa-re and swap\T1/cmr/m/n/12 . 
  []
 
-[42] <Immagini/dynamic.png, id=733, 538.6524pt x 305.4612pt>
+[41] <Immagini/dynamic.png, id=738, 538.6524pt x 305.4612pt>
 File: Immagini/dynamic.png Graphic file (type png)
 
 <use Immagini/dynamic.png>
 Package pdftex.def Info: Immagini/dynamic.png used on input line 377.
 (pdftex.def)             Requested size: 221.93376pt x 125.85515pt.
- [43 <./Immagini/dynamic.png>] (./code/dynamic.c)
-[44] <Immagini/newprojVS.png, id=769, 1945.2675pt x 1053.9375pt>
+ [42 <./Immagini/dynamic.png>] (./code/dynamic.c)
+[43] <Immagini/newprojVS.png, id=774, 1945.2675pt x 1053.9375pt>
 File: Immagini/newprojVS.png Graphic file (type png)
 
 <use Immagini/newprojVS.png>
@@ -1403,8 +1403,8 @@ Package pdftex.def Info: Immagini/newprojVS.png used on input line 450.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [45]
-<Immagini/profiler.png, id=775, 1156.32pt x 691.98524pt>
+ [44]
+<Immagini/profiler.png, id=780, 1156.32pt x 691.98524pt>
 File: Immagini/profiler.png Graphic file (type png)
 
 <use Immagini/profiler.png>
@@ -1413,32 +1413,32 @@ Package pdftex.def Info: Immagini/profiler.png used on input line 471.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [46 <./Immagini/newprojVS.png>] [47 <./Immagini/profiler.png>]) (./Capitoli/ac
+ [45 <./Immagini/newprojVS.png>] [46 <./Immagini/profiler.png>]) (./Capitoli/ac
 .tex
-[48]
+[47]
 Capitolo 3.
-<immagini/spazioA.jpg, id=790, 422.32782pt x 353.06906pt>
+<immagini/spazioA.jpg, id=795, 422.32782pt x 353.06906pt>
 File: immagini/spazioA.jpg Graphic file (type jpg)
 
 <use immagini/spazioA.jpg>
 Package pdftex.def Info: immagini/spazioA.jpg used on input line 36.
 (pdftex.def)             Requested size: 81.37534pt x 68.02661pt.
 
-<immagini/spazioB.jpg, id=791, 417.05812pt x 353.06906pt>
+<immagini/spazioB.jpg, id=796, 417.05812pt x 353.06906pt>
 File: immagini/spazioB.jpg Graphic file (type jpg)
 
 <use immagini/spazioB.jpg>
 Package pdftex.def Info: immagini/spazioB.jpg used on input line 38.
 (pdftex.def)             Requested size: 81.37534pt x 68.88858pt.
 
-<immagini/spazioC.jpg, id=792, 436.63126pt x 358.33875pt>
+<immagini/spazioC.jpg, id=797, 436.63126pt x 358.33875pt>
 File: immagini/spazioC.jpg Graphic file (type jpg)
 
 <use immagini/spazioC.jpg>
 Package pdftex.def Info: immagini/spazioC.jpg used on input line 40.
 (pdftex.def)             Requested size: 81.37534pt x 66.78372pt.
 
-<immagini/spazioD.jpg, id=793, 398.23781pt x 373.395pt>
+<immagini/spazioD.jpg, id=798, 398.23781pt x 373.395pt>
 File: immagini/spazioD.jpg Graphic file (type jpg)
 
 <use immagini/spazioD.jpg>
@@ -1447,17 +1447,17 @@ Package pdftex.def Info: immagini/spazioD.jpg used on input line 42.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [49
+ [48
 
 ]
-<immagini/vonNeumann.jpg, id=801, 378.66469pt x 372.64218pt>
+<immagini/vonNeumann.jpg, id=805, 378.66469pt x 372.64218pt>
 File: immagini/vonNeumann.jpg Graphic file (type jpg)
 
 <use immagini/vonNeumann.jpg>
 Package pdftex.def Info: immagini/vonNeumann.jpg used on input line 77.
 (pdftex.def)             Requested size: 147.95207pt x 145.5971pt.
 
-<immagini/moore.jpg, id=802, 365.11406pt x 363.60844pt>
+<immagini/moore.jpg, id=806, 365.11406pt x 363.60844pt>
 File: immagini/moore.jpg Graphic file (type jpg)
 
 <use immagini/moore.jpg>
@@ -1467,9 +1467,9 @@ Package pdftex.def Info: immagini/moore.jpg used on input line 79.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[50 <./immagini/spazioA.jpg> <./immagini/spazioB.jpg> <./immagini/spazioC.jpg> 
-<./immagini/spazioD.jpg>] [51 <./immagini/vonNeumann.jpg> <./immagini/moore.jpg
->] <immagini/ACunidim.jpg, id=822, 1223.32031pt x 226.59656pt>
+[49 <./immagini/spazioA.jpg> <./immagini/spazioB.jpg> <./immagini/spazioC.jpg> 
+<./immagini/spazioD.jpg>] [50 <./immagini/vonNeumann.jpg> <./immagini/moore.jpg
+>] <immagini/ACunidim.jpg, id=827, 1223.32031pt x 226.59656pt>
 File: immagini/ACunidim.jpg Graphic file (type jpg)
 
 <use immagini/ACunidim.jpg>
@@ -1479,40 +1479,43 @@ Package pdftex.def Info: immagini/ACunidim.jpg used on input line 157.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[52]
+[51]
 File: immagini/ACunidim.jpg Graphic file (type jpg)
  <use immagini/ACunidim.jpg>
 Package pdftex.def Info: immagini/ACunidim.jpg used on input line 190.
 (pdftex.def)             Requested size: 147.95207pt x 27.40477pt.
- [53 <./immagini/ACunidim.jpg>]
+ [52 <./immagini/ACunidim.jpg>]
 Overfull \hbox (2.5426pt too wide) in paragraph at lines 205--207
 [][]\T1/cmr/m/n/12 L'automa con-ver-ge ver-so una con-fi-gu-ra-zio-ne in cui al
 -cu-ne strut-
  []
 
-[54]) (./Capitoli/opencal.tex [55]
-Capitolo 4.
-[56
+[53] [54] <immagini/real.png, id=864, 445.665pt x 445.665pt>
+File: immagini/real.png Graphic file (type png)
 
-] (./code/defmod.c [57]) (./code/defmod2.c) [58]
-Overfull \hbox (16.97493pt too wide) in paragraph at lines 119--125
+<use immagini/real.png>
+Package pdftex.def Info: immagini/real.png used on input line 322.
+(pdftex.def)             Requested size: 147.95207pt x 147.95393pt.
+) (./Capitoli/opencal.tex [55 <./immagini/real.png>]
+[56]
+Capitolo 4.
+[57
+
+] (./code/defmod.c [58]) (./code/defmod2.c) [59]
+Overfull \hbox (16.97493pt too wide) in paragraph at lines 117--123
 [][]\T1/cmr/m/n/12 Per al-lo-ca-re nuo-vi sot-to-sta-ti si uti-liz-za la fun-zi
 o-ne \T1/cmss/m/n/12 ca-lAdd-Sub-sta-te2D(b|i|r)
  []
 
-(./code/addsubstate.c) [59] (./code/calrun.c) [60] (./code/cicloDiEsecuzione.c)
-
-Underfull \vbox (badness 3078) has occurred while \output is active []
-
- [61]
-<Immagini/glider.jpg, id=984, 632.3625pt x 107.40125pt>
+(./code/addsubstate.c) [60] (./code/calrun.c [61]) (./code/cicloDiEsecuzione.c)
+[62] <Immagini/glider.jpg, id=1004, 632.3625pt x 107.40125pt>
 File: Immagini/glider.jpg Graphic file (type jpg)
 
 <use Immagini/glider.jpg>
-Package pdftex.def Info: Immagini/glider.jpg used on input line 216.
+Package pdftex.def Info: Immagini/glider.jpg used on input line 214.
 (pdftex.def)             Requested size: 258.91896pt x 43.97578pt.
- (./code/life2D.c [62 <./Immagini/glider.jpg>])
-[63] [64] (./code/sciara.cpp [65]) (./code/elementaryProcesses.cpp [66]
+ (./code/life2D.c [63 <./Immagini/glider.jpg>])
+[64] (./code/sciara.cpp [65]) (./code/elementaryProcesses.cpp [66]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [67]))
@@ -1520,7 +1523,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Capitolo 5.
 [69
 
-] <Immagini/opencalcudadiagram.png, id=1231, 605.26125pt x 349.90726pt>
+] <Immagini/opencalcudadiagram.png, id=1243, 605.26125pt x 349.90726pt>
 File: Immagini/opencalcudadiagram.png Graphic file (type png)
 
 <use Immagini/opencalcudadiagram.png>
@@ -1539,7 +1542,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [74] (./code/CALRun2D.c) (./code/CudaCALRun2D.c [75]) [76] [77]
 (./code/host_device.c) (./code/host_h_device.c) (./code/copyhd.c [78])
 (./code/copydh.c [79]) (./code/allocatormodel.c [80]) [81]
-<Immagini/streamc2.png, id=1598, 390.86024pt x 210.18526pt>
+<Immagini/streamc2.png, id=1610, 390.86024pt x 210.18526pt>
 File: Immagini/streamc2.png Graphic file (type png)
 
 <use Immagini/streamc2.png>
@@ -1612,14 +1615,14 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [104]))
 (./Capitoli/risultati.tex [105]
 Capitolo 6.
+[106
 
+]
 Overfull \hbox (32.06348pt too wide) in paragraph at lines 40--61
  [][][] 
  []
 
-[106
 
-]
 Overfull \hbox (7.14844pt too wide) in paragraph at lines 63--72
 [][]\T1/cmr/m/n/12 I te-st so-no sta-ti ef-fet-tua-ti su di-ver-si ti-pi di im-
 ple-men-ta-zio-ni di SCIARA-
@@ -1633,7 +1636,7 @@ Overfull \hbox (16.67427pt too wide) in paragraph at lines 96--97
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 2644) has occurred while \output is active []
 
  [107]
 PGFPlots: reading {data/speedup_noopt.txt}
@@ -1664,7 +1667,7 @@ Overfull \hbox (32.53288pt too wide) in paragraph at lines 219--222
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [110]
-<Immagini/2vent_thikness_.png, id=2657, 346.29375pt x 346.29375pt>
+<Immagini/2vent_thikness_.png, id=2669, 346.29375pt x 346.29375pt>
 File: Immagini/2vent_thikness_.png Graphic file (type png)
 
 <use Immagini/2vent_thikness_.png>
@@ -1674,7 +1677,7 @@ Package pdftex.def Info: Immagini/2vent_thikness_.png used on input line 240.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [111]
-<Immagini/200vent_thikness.png, id=2662, 643.203pt x 495.0495pt>
+<Immagini/200vent_thikness.png, id=2674, 643.203pt x 495.0495pt>
 File: Immagini/200vent_thikness.png Graphic file (type png)
 
 <use Immagini/200vent_thikness.png>
@@ -1703,7 +1706,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 126.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 126.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 126.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 8CCC79B04434CBA25FFAAFFCC32C4CA6;4548.
+(rerunfilecheck)             Checksum: 7E156E07F39B752B00CBA004D2F121ED;4693.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -1713,10 +1716,10 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 38616 strings out of 493109
- 823183 string characters out of 6138587
- 1572325 words of memory out of 5000000
- 39484 multiletter control sequences out of 15000+600000
+ 38627 strings out of 493109
+ 823379 string characters out of 6138587
+ 1582461 words of memory out of 5000000
+ 39492 multiletter control sequences out of 15000+600000
  26645 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,19n,100p,769b,2140s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1747,10 +1750,10 @@ texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfti1440.pfb><c:/texlive/20
 ist/fonts/type1/public/cm-super/sftt0800.pfb><c:/texlive/2014/texmf-dist/fonts/
 type1/public/cm-super/sftt1200.pfb><c:/texlive/2014/texmf-dist/fonts/type1/publ
 ic/cm-super/sfxc2488.pfb>
-Output written on main.pdf (119 pages, 2642183 bytes).
+Output written on main.pdf (119 pages, 2646297 bytes).
 PDF statistics:
- 3181 PDF objects out of 3580 (max. 8388607)
- 2953 compressed objects within 30 object streams
- 1820 named destinations out of 2073 (max. 500000)
- 706 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3194 PDF objects out of 3580 (max. 8388607)
+ 2965 compressed objects within 30 object streams
+ 1823 named destinations out of 2073 (max. 500000)
+ 727 words of extra memory for PDF output out of 10000 (max. 10000000)
 

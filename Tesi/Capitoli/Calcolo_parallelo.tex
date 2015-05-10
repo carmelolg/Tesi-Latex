@@ -551,14 +551,14 @@ OpenMP per la sua semplicitè  è molto usato, e qualche volta riesce a
 raggiungere risultati ottimi con speedup interessanti.
 Il suo utilizzo si basa sulla dichiarazione della seguente direttiva:
 \begin{center}
-\textbf{ \#pragma omp directive [clause list] } 
+\texttt{ \#pragma omp directive [clause list] } 
 \end{center} 
 Il programma si esegue sequenzialmente finché non trova la direttiva
 \textbf{\textit{parallel}}. Questa direttiva è responsabile della creazione di
 un gruppo di \textit{threads} che devono eseguire in parallelo l'algoritmo.
 Il prototipo della direttiva parallel è il seguente:
 \begin{center}
-\textbf{ \#pragma omp parallel [clause list] } 
+\texttt{ \#pragma omp parallel [clause list] } 
 \end{center}
 La lista di clausole è utile per aggiungere gradi di libertà all'utente
 nell'utilizzo della concorrenza.
@@ -566,20 +566,20 @@ Ad esempio nel caso in cui la parallelizzazione e la conseguente creazione di
 più threads in parallelo debba avvenire solo in determinati casi, si può
 utilizzare la clausola:
 \begin{center} 
-\textbf{ if ( \textit{espressione} ) }
+\texttt{ if ( \textit{espressione} ) }
 \end{center}
 In questo caso solo se l'\textit{espressione} è vera si userà la direttiva
 \textit{parallel}.
 Un altra clausola utilizzata è 
 \begin{center} 
-\textbf{num\_threads (int)}
+\texttt{num\_threads (int)}
 \end{center}
 Questa specifica il numero di threads che devono essere creati ed eseguiti in
 parallelo.
 Nel caso in cui si vogliano utilizzare delle variabili private per ogni thread
 si può utilizzare la clausola:
 \begin{center} 
-\textbf{private ( lista delle variabili )}.
+\texttt{private ( lista delle variabili )}.
 \end{center}
 che specifica la lista delle variabili locali per ogni thread, cioà ogni thread
 possiede una copia di ognuna di queste variabili specificate in questa clausola.
@@ -590,7 +590,7 @@ intuire applica una particolare operazione aritmetica ad una variabile.
 Tra le direttive di OpenMP la più interessante è la direttiva \textbf{for}. La
 forma generale di questa direttiva à:
 \begin{center} 
-\textbf{\#pragma omp for [clause list] }. \\
+\texttt{\#pragma omp for [clause list] }. \\
  /* ciclo di for */
 \end{center}
 Questa è utilizzata per dividere lo spazio delle iterazioni parallele attraverso

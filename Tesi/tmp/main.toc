@@ -112,9 +112,9 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {5.2}Scelte progettuali}{70}{section.5.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2.1}\textsf {CALModel2D} e \textsf {CudaCALModel2D}}{70}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.1}\texttt {CALModel2D} e \texttt {CudaCALModel2D}}{70}{subsection.5.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2.2}\textsf {CALRun2D} e \textsf {CudaCALRun2D}}{74}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.2}\texttt {CALRun2D} e \texttt {CudaCALRun2D}}{74}{subsection.5.2.2}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {5.2.3}Trasferimento dei dati tra Host e Device}{76}{subsection.5.2.3}
 \defcounter {refsection}{0}\relax 

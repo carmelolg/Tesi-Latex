@@ -78,29 +78,29 @@ In questo paragrafo si mostreranno le scelte progettuali e le più importanti
 differenze implementative della versione sequenziale della libreria e della
 versione parallelizzata in CUDA.
 
-\subsection{\textsf{CALModel2D} e \textsf{CudaCALModel2D}}
+\subsection{\texttt{CALModel2D} e \texttt{CudaCALModel2D}}
 Per poter utilizzare la potenza delle GPU, come descritto nei capitoli
 \ref{cap:Il calcolo parallelo} e \ref{cap:CUDA}, è essenziale trasportare i
 dati del programma sulla memoria del device. Il primo passo è stato appunto capire
-come poter trasportare (\ref{par:datatrasfer}) la struct \textsf{CALModel2D} sul device.
-All'inizio poteva sembrare semplice grazie alla funzione \textsf{cudaMemcpy\{
+come poter trasportare (\ref{par:datatrasfer}) la struct \texttt{CALModel2D} sul device.
+All'inizio poteva sembrare semplice grazie alla funzione \texttt{cudaMemcpy\{
 \ldots \}}, ma come vedremo non è stato possibile utilizzarla in questo caso, o
 meglio, non è stato possibile lasciare l'incarico della copia
 dell'oggetto al motore di CUDA. La presenza infatti di puntatori (e puntatori
-di puntatori) all'interno di \textsf{CALModel2D} è stata la causa di tutto ciò.
+di puntatori) all'interno di \texttt{CALModel2D} è stata la causa di tutto ciò.
 Come ben sappiamo, la copia di un puntatore non è nient'altro che la
 copia dell'indirizzo di memoria dove è allocato il puntatore, ed un oggetto sul
 device non può avere all'interno puntatori allocati sulla memoria dell'host.
 Dunque il primo passo è stato rendere più dettagliata
-possibile la struct \textsf{CALModel2D}.
+possibile la struct \texttt{CALModel2D}.
 L'opzione adottata è stata scorporare le struct (e i puntatori a struct)
-interne, come \textsf{CALCell2D} e \textsf{CALSubstate2D(b|i|r)}, rendendo il
-loro contenuto parte della struct principale \textsf{CALModel2D}, in questo modo
+interne, come \texttt{CALCell2D} e \texttt{CALSubstate2D(b|i|r)}, rendendo il
+loro contenuto parte della struct principale \texttt{CALModel2D}, in questo modo
 si è perso un grado di astrazione ma rendendo vantaggioso il trasferimento dei
 dati da device a host e viceversa.
 Come si può notare nei codici \ref{lst:definitionModel2} e
-\ref{lst:definitionModelCuda}, che mostrano le strutture \textsf{CALModel2D} e
-\textsf{CudaCALModel2D}, tra le diverse implementazioni si
+\ref{lst:definitionModelCuda}, che mostrano le strutture \texttt{CALModel2D} e
+\texttt{CudaCALModel2D}, tra le diverse implementazioni si
 rappresenta il modello in maniera del tutto simile. L'utente non si
 renderà mai conto della differenza tra i due tipi di struttura.
 
@@ -108,9 +108,9 @@ renderà mai conto della differenza tra i due tipi di struttura.
 \lstinputlisting[caption={La rappresentazione del modello in OpenCAL.},
 label=lst:definitionModel2, style=input]{code/CALModel2D.c}
 
-Un esempio lampante è la rappresentazione dei sottostati.
-\textsf{CALSubstate2D(b|i|r)} mentre in \textsf{CALModel2D} è rappresentato da
-un puntatore a struct, in \textsf{CudaCALModel2D} è rappresentato da una coppia
+Un esempio lampante è la rappresentazione dei sottostati.\\
+\texttt{CALSubstate2D(b|i|r)} mentre in \texttt{CALModel2D} è rappresentato da
+un puntatore a struct, in \texttt{CudaCALModel2D} è rappresentato da una coppia
 di puntatori \textit{next} e \textit{current} per ogni tipo di sottostato.
 
 
@@ -127,34 +127,34 @@ sia in termini di performance che di sviluppo del progetto. Non è l'unico caso i
 cui si è dovuto ricorrere ad un codice adattato per tradurre il codice
 sequenziale in parallelo.
 
-\subsection{\textsf{CALRun2D} e \textsf{CudaCALRun2D}}
+\subsection{\texttt{CALRun2D} e \texttt{CudaCALRun2D}}
 
-Rispetto a \textsf{CALModel2D}, la struct \textsf{CALRun2D} ha subito meno
+Rispetto a \texttt{CALModel2D}, la struct \texttt{CALRun2D} ha subito meno
 cambiamenti nella versione parallela della libreria, sia perché c'erano meno
 punti critici sia perché la maggior parte dei cambiamenti sono dovuti ad
 aggiunte di strutture dati. La loro implementazione è rappresentata dai codici
 \ref{lst:definitionSimulation} e \ref{lst:definitionSimulationCuda}
-rispettivamente per \textsf{CALRun2D} e \textsf{CudaCALRun2D}. 
+rispettivamente per \texttt{CALRun2D} e \texttt{CudaCALRun2D}. 
 
 Naturalmente nella versione parallela il modello è presente all'interno della
-simulazione, così come accade per \textsf{CALRun2D}, e in particolare
+simulazione, così come accade per \texttt{CALRun2D}, e in particolare
 troviamo tre diversi modelli.
 
 Da premettere che, come descritto nel diagramma in fig.
 \ref{fig:opencalcudadiagram} tutta la parte di simulazione avviene lato device.
 Questo comporta dunque la presenza dei dati del modello sulla memoria del
 device. Proprio per questa motivazione è presente una struttura dati in più 
-(\textsf{device\_ca2D}). La presenza di \textsf{h\_device\_ca2D} invece è
+(\texttt{device\_ca2D}). La presenza di \texttt{h\_device\_ca2D} invece è
 richiesta per le operazioni di trasferimento dati tra l'host e il device. I
 dettagli implementativi relativi a questa scelta progettuale verranno spiegati
 nel paragrafo successivo (\ref{par:datatrasfer}).
-Naturalmente \textsf{h\_device\_ca2D} non incide assolutamente sull'utilizzo di
+Naturalmente \texttt{h\_device\_ca2D} non incide assolutamente sull'utilizzo di
 OpenCAL-CUDA, infatti l'utente non verrà mai a conoscenza della sua presenza
 poiché è utilizzata solo nel core della libreria. Questo non accade per
-\textsf{device\_ca2D}. L'utente ha il compito di dichiarare un istanza del
+\texttt{device\_ca2D}. L'utente ha il compito di dichiarare un istanza del
 modello anche per la memoria sul device nel main principale, lasciando il
 compito della sua definizione alla libreria, aggiungendola come parametro alla
-funzione \textsf{calCudaRunDef2D}.
+funzione \texttt{calCudaRunDef2D}.
 
 Vediamo insieme ora le due diverse implementazioni della struct dedicata alla
 simulazione:
@@ -191,25 +191,25 @@ l'indirizzo di un puntatore non era la scelta corretta.
 Per copiare un puntatore da host a device in CUDA bisogna copiare il
 contenuto della struttura dati puntata, all'interno di una nuova struttura dati
 allocata correttamente sul device. Il modello
-\textsf{h\_device\_ca2D} dichiarato all'interno di \textsf{CudaCALRun2D} ha il
+\texttt{h\_device\_ca2D} dichiarato all'interno di \texttt{CudaCALRun2D} ha il
 compito di fare da intermediario tra l'host e il device. Cioè, è un
 \textit{oggetto} allocato sulla CPU ma con i puntatori a strutture
 dati (vicinato, sottostati etc.) allocati sul device. Se vogliamo
 copiare un modello di automa cellulare da host a device eseguiamo i seguenti passi:
 \begin{enumerate}
   \item Allocare e definire sull'host un oggetto
-  \textsf{CudaCALModel2D} (chiamiamolo \textbf{host\_model})
-  \item Allocare su device un oggetto \textsf{CudaCALModel2D} (chiamiamolo
+  \texttt{CudaCALModel2D} (chiamiamolo \textbf{host\_model})
+  \item Allocare su device un oggetto \texttt{CudaCALModel2D} (chiamiamolo
   \textbf{device\_model})
-  \item Allocare su host un oggetto \textsf{CudaCALModel2D} con i puntatori alle
+  \item Allocare su host un oggetto \texttt{CudaCALModel2D} con i puntatori alle
   strutture dati allocati sul device (chiamiamolo \textbf{ibrid\_model})
-  \item Copiare con una semplice \textsf{memcpy} le variabili scalari di
+  \item Copiare con una semplice \texttt{memcpy} le variabili scalari di
   host\_model su ibrid\_model.
-  \item Copiare, utilizzando la funzione fornita dalle API di Cuda
-  \textsf{cudaMemCpy}, il contenuto delle strutture dati (gestite tramite
+  \item Copiare, utilizzando la funzione fornita dalle API di Cuda\\
+  \texttt{cudaMemCpy}, il contenuto delle strutture dati (gestite tramite
   puntatori) di host\_model su ibrid\_model
-  \item Copiare, utilizzando la funzione fornita dalle API di Cuda
-  \textsf{cudaMemCpy}, tutto l'oggetto ibrid\_model su device\_model
+  \item Copiare, utilizzando la funzione fornita dalle API di Cuda\\
+  \texttt{cudaMemCpy}, tutto l'oggetto ibrid\_model su device\_model
 \end{enumerate}
 
 Il processo sembra senza dubbio tortuoso ma in realtà è un passo obbligato se si
@@ -218,7 +218,7 @@ semplice e lo insegnano gli errori di compilazione incontrati durante la fase
 implementativa. 
 
 Ad esempio se provassimo a copiare l'indice $i$ del
-vicinato presente in \textsf{CudaCALModel2D} direttamente da host\_model a
+vicinato presente in \texttt{CudaCALModel2D} direttamente da host\_model a
 device\_model ci si troverebbe davanti il seguente codice:
 
 \medskip
@@ -226,7 +226,7 @@ device\_model ci si troverebbe davanti il seguente codice:
 label=lst:ipointercopy, style=input]{code/host_device.c}
 
 Questo codice tuttavia risulta sbagliato poiché da host stiamo cercando di
-accedere direttamente alla memoria sul device (\textsf{device\_model->i}) poiché
+accedere direttamente alla memoria sul device (\texttt{device\_model->i}) poiché
 device\_model è allocato interamente su device. E' per questo che torna utile l'utilizzo
 di una struttura intermedia accennata in precedenza (ibrid\_model).
 Una copia corretta del codice \ref{lst:ipointercopy} potrebbe essere:
@@ -237,7 +237,7 @@ label=lst:ipointercopy, style=input]{code/host_h_device.c}
 
 In questo modo c'è la certezza che non si tenta di accedere sul device dal
 codice compilato lato host e la copia va a buon fine. In particolare la seconda
-copia va a buon fine poiché quando \textsf{cudaMemcpy} andrà a copiare l'intero
+copia va a buon fine poiché quando \texttt{cudaMemcpy} andrà a copiare l'intero
 oggetto adesso può benissimo copiare l'indirizzo dei puntatori tra le due struct
 poiché entrambi gli indirizzi sono allocati sul device.
 
@@ -257,11 +257,12 @@ label=lst:copydh, style=input]{code/copydh.c}
 
 L'oggetto \textit{copy\_model} presente nel codice è l'oggetto che in questo
 paragrafo abbiamo chiamato ibrid\_model. In
-particolare il metodo \textsf{calCudaAllocatorModel} (cod. \ref{lst:copyhd})prende in input il modello
+particolare il metodo \texttt{calCudaAllocatorModel} (cod. \ref{lst:copyhd})prende in input il modello
 e ne copia gli scalari in copy\_model, allocando in seguito tutti i puntatori all'interno sul device in
 modo da avere l'oggetto pronto alla nostra copia tra host e device.
 
-In seguito si mostra il contenuto della funzione \textsf{calCudaAllocatorModel}:
+In seguito si mostra il contenuto della funzione\\
+\texttt{calCudaAllocatorModel}:
 \medskip
 \lstinputlisting[caption={},
 label=lst:allocatormodel, style=input]{code/allocatormodel.c}
@@ -298,10 +299,10 @@ per le celle realmente attive si può guadagnare dunque tanto carico di lavoro.
 
 Se entriamo nei dettagli implementativi possiamo notare come questa
 ottimizzazione comporta l'aggiunta di strutture dati a supporto. Una di queste,
-la più importante, è sicuramente la matrice di \textsf{FLAGS}. Quest'ultima
+la più importante, è sicuramente la matrice di \texttt{FLAGS}. Quest'ultima
 possiamo rappresentarla come una matrice booleana in cui il valore
-\textsf{TRUE} nella posizione
-\textit{i-esima} sta a significare che la cella è attiva, \textsf{FALSE}
+\texttt{TRUE} nella posizione
+\textit{i-esima} sta a significare che la cella è attiva, \texttt{FALSE}
 altrimenti. Per poter accedere in scrittura alla matrice di flags in un
 programma parallelo bisogna considerare l'utilizzo dell'esclusività in quanto
 bisogna mantenere la lista di celle attive in uno stato coerente. In CUDA
@@ -331,7 +332,7 @@ identifica la posizione in cui andare a lanciare la funzione di transizione al
 passo successivo.
 
 In OpenCAL-CUDA è stata implementata tramite l'utilizzo della libreria
-\textsf{chag} creata appunto dagli autori dell'articolo scientifico
+\texttt{chag} creata appunto dagli autori dell'articolo scientifico
 ``Efficient Stream Compaction" citato in precedenza \cite{STREAM:2009}
 \cite{CHAG:2009}.
 
@@ -353,7 +354,7 @@ aggiornano viene avviato un kernel che ha il compito di aggiornare la lista di
 flags trasformandoli in indici. Questo perché all'algoritmo interessa quali sono
 gli indici (in matrici lineari) delle celle attive in modo da sapere su quali
 celle deve essere lanciata la funzione di transizione allo step successivo. La
-funzione cruciale è \textsf{pp::compact\{\ldots\}} che prende in input:
+funzione cruciale è \texttt{pp::compact\{\ldots\}} che prende in input:
 \begin{enumerate}
   \item Il range di celle dell'array di indici sparsi (aggiornato dal kernel
  descritto in precedenza)
@@ -402,7 +403,7 @@ Come ricordato in precedenza, date alcune limitazioni nel passaggio di memoria
 OpenCAL. Questo ha comportato dei leggeri cambiamenti anche in alcune funzioni
 utilizzate nella libreria. Possiamo portare un esempio:
 
-\textsf{calAddSubstate(b|i|r)} come mostrato nel capitolo \ref{cap:OpenCAL}
+\texttt{calAddSubstate(b|i|r)} come mostrato nel capitolo \ref{cap:OpenCAL}
 si implementava nel seguente modo:
 
 \medskip
@@ -411,7 +412,7 @@ label=lst:addsubstates, style=input]{code/addsubstates.c}
 
 In OpenCAL-CUDA l'implementazione cambia leggermente. Poiché i sottostati sono
 rappresentati da matrici lineari (una per ogni tipo supportato, \textit{byte,
-integer, real\ldots}), \textsf{calCudaAddSubstate} risulta leggermente diverso
+integer, real\ldots}), \texttt{calCudaAddSubstate} risulta leggermente diverso
 rispetto alla sua versione sequenziale. Vediamone un esempio:
 
 \medskip
@@ -433,19 +434,19 @@ rappresentato da un enumerativo che rende il codice abbastanza chiaro e lineare.
 
 Per quanto riguarda invece le operazioni di trasferimento dei dati, sono gestite
 automaticamente dalla libreria grazie a due funzioni:
-\textsf{calInitializeInGPU2D} e \textsf{calSendDataGPUtoCPU}. Queste due
+\texttt{calInitializeInGPU2D} e \texttt{calSendDataGPUtoCPU}. Queste due
 funzioni prendono in input il modello allocato sull'host e il modello allocato
 sul device e rispettivamente trasferiscono i dati da CPU a GPU e viceversa.
 
 Un'altra aggiunta naturalmente riguarda le funzioni relative alla simulazione
 dell'automa cellulare. Mentre la definizione delle funzioni di inizializzazione
 e supporto rimangono sostanzialmente uguali alla versione sequenziale, la
-funzione \textsf{calRun2D} ha subito un leggero cambiamento. Come ben sappiamo
+funzione \texttt{calRun2D} ha subito un leggero cambiamento. Come ben sappiamo
 CUDA utilizza una serie di threads suddivisi in griglie e blocchi. In
 OpenCAL-CUDA lasciamo al libertà all'utente di gestire questa configurazione a
 patto che il core della libreria venga informata della scelta. Per questo due
-valori di tipo \textsf{dim3} devono essere incluse tra gli input della funzione
-\textsf{calCudaRun2D}.
+valori di tipo \texttt{dim3} devono essere incluse tra gli input della funzione
+\texttt{calCudaRun2D}.
 
 Ecco un confronto tra la versione sequenziale e quella parallela:
 
@@ -462,7 +463,7 @@ essere definite come kernel. Questo perché sono le funzioni che verranno avviate
 in parallelo dalla libreria attraverso l'architettura CUDA. 
 
 Questa tipologia di funzioni sono dichiarate in maniera del tutto simile alla
-versione sequenziale ma con l'aggiunta della keyword \textsf{\_\_global\_\_} che
+versione sequenziale ma con l'aggiunta della keyword \texttt{\_\_global\_\_} che
 identifica un kernel. All'interno di queste funzioni l'utente deve progettare
 l'algoritmo parallelo a suo piacimento mettendo in pratica i concetti base di
 CUDA. OpenCAL-CUDA fornisce delle comode funzioni per ricevere delle
@@ -498,16 +499,16 @@ simulazione in OpenCAL-CUDA.
 All'inizio del programma troviamo tutte le informazioni relative alle strutture
 dati, path dei file di configurazione e stampa, librerie incluse etc.
 
-Da notare l'enumerativo \textsf{SUBSTATE\_NAME}, utile per
+Da notare l'enumerativo \texttt{SUBSTATE\_NAME}, utile per
 accedere alla matrice linearizzata dei sottostati (in questo caso di byte).
 Prima della dichiarazione del main troviamo tutti i kernel utili ai fini della
 simulazione. Questi sono implementati come delle normali funzioni con la
 differenza che il codice viene eseguito in parallelo da migliaia di threads.
 Una delle funzioni di supporto descritte nel paragrafo precedente è
-\textsf{calCudaGetOffset} che ha il compito di restituire l'ID univoco per ogni
+\texttt{calCudaGetOffset} che ha il compito di restituire l'ID univoco per ogni
 thread che accede al kernel corrente.
 In questo caso sono state utilizzate altre due funzioni di supporto:
-\textsf{calCudaGetIndexRow} e \textsf{calCudaGetIndexColumn}. Queste vengono
+\texttt{calCudaGetIndexRow} e \texttt{calCudaGetIndexColumn}. Queste vengono
 utilizzate per risalire ai più comuni indici $i$ e $j$ di una matrice a partire
 dalla matrice linearizzata e dall'ID univoco del thread. Sono state implementate
 poiché spesso ci si trova a dover gestire un determinato angolo di celle nella
@@ -559,8 +560,8 @@ dell'automa cellulare. Rispetto alla versione sequenziale mostrata al paragrafo
 \ref{par:SCIARA} si notano molte differenze, così come accade per Game of Life
 (\ref{par:gol-cuda}). 
 
-I sottostati in OpenCAL vengono gestiti tramite la struttura
-\textsf{CALSubstate2D(r|i|b)}, come spiegato nei paragrafi precedenti tutto ciò
+I sottostati in OpenCAL vengono gestiti tramite la struttura\\
+\texttt{CALSubstate2D(r|i|b)}, come spiegato nei paragrafi precedenti tutto ciò
 in OpenCAL-CUDA non accade. Tutti i sottostati, per ogni tipo di dato, sono
 rappresentati da un'unica struttura dati lineare. L'utilizzo di enumerativi,
 che rappresentano dunque l'indice per ogni sottostato nella matrice
@@ -575,8 +576,8 @@ style=input]{code/substate-cuda-sciara.cu}
 
 Infine il \textit{main} in cui vengono definite tutte le configurazioni e le
 proprietà dell'automa cellulare. Viene definito il modello tramite la funzione
-\textsf{calCudaCADef2D} e avviata la simulazione tramite la funzione
-\textsf{calCudaRun2D}.
+\texttt{calCudaCADef2D} e avviata la simulazione tramite la funzione
+\texttt{calCudaRun2D}.
 
 \medskip
 \lstinputlisting[caption={},

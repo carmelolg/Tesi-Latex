@@ -1,0 +1,17 @@
+[0] Config.pm:320> INFO - This is Biber 1.9
+[0] Config.pm:323> INFO - Logfile is 'main.blg'
+[781] biber-MSWIN:274> INFO - === %a %b %e, %Y, %H:%M:%S
+[782] Biber.pm:333> INFO - Reading 'main.bcf'
+[850] Biber.pm:635> INFO - Found 21 citekeys in bib section 0
+[1043] Biber.pm:3051> INFO - Processing section 0
+[1250] Biber.pm:3189> INFO - Looking for bibtex format file 'bibliografia.bib' for section 0
+[1257] bibtex.pm:990> INFO - Decoding LaTeX character macros into UTF-8
+[1263] bibtex.pm:864> INFO - Found BibTeX data source 'bibliografia.bib'
+[1368] Utils.pm:144> WARN - The field 'journaltitle' in entry 'Jarek:2014' cannot be null, deleting it
+[1609] UCollate.pm:66> INFO - Overriding locale 'it-IT' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1609] UCollate.pm:66> INFO - Overriding locale 'it-IT' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1609] Biber.pm:2928> INFO - Sorting list 'nty' of type 'entry' with scheme 'nty' and locale 'it-IT'
+[1610] Biber.pm:2932> INFO - No sort tailoring available for locale 'it-IT'
+[1675] bbl.pm:517> INFO - Writing 'main.bbl' with encoding 'latin1'
+[1685] bbl.pm:606> INFO - Output to main.bbl
+[1685] Biber.pm:106> INFO - WARNINGS: 1

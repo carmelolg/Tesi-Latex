@@ -143,7 +143,7 @@ del modello Single-Program Multiple-Data (Tassonomia di Flynn \ref{par:flynn}).
 Questa tecnica è molto utilizzata nei sistemi paralleli. 
 
 Per poter dichiarare un kernel c'è una specifica keyword di CUDA da utilizzare:
-``\textbf{\_\_global\_\_}''. La chiamata ad un kernel, obbligatoriamente
+``\texttt{\_\_global\_\_}''. La chiamata ad un kernel, obbligatoriamente
 richiamata lato host (a meno che non ci sia un ambiente addatto per potere
 utilizzare il parallelismo dinamico \ref{par:Parallelismo_dinamico}), genererà
 una griglia di threads sul device. CUDA genera threads suddivisi in blocchi, ed
@@ -164,25 +164,25 @@ utilizzo. Si può avere fino a tre dimensioni diverse (x,y,z) sia per
 la griglia che per i blocchi. 
 Ad ogni blocco, come per ogni threads, è assegnato un indice che può essere
 ottenuto tramite altre keywords.   
-Le keywords \textsf{threadIdx.x} e \textsf{threadIdx.y} (e in caso anche
-\textsf{threadIdx.z}) si riferiscono all'indice dei threads all'interno di un
+Le keywords \texttt{threadIdx.x} e \texttt{threadIdx.y} (e in caso anche
+\texttt{threadIdx.z}) si riferiscono all'indice dei threads all'interno di un
 blocco. L'identificazione di un thread è strettamente necessario nel calcolo
 parallelo, per questo c'è bisogno di un meccanismo per distinguere diversi
 threads in modo da poter dare direttive precise e diverse ad ognuno di loro.
 Come per i threads anche i blocchi hanno delle specifiche keywords per risalire
-alle loro coordinate. \textsf{blockIdx.x} e \textsf{blockIdx.y} hanno il compito
+alle loro coordinate. \texttt{blockIdx.x} e \texttt{blockIdx.y} hanno il compito
 di restituire il valore delle coordinate per ogni blocco. Ogni blocco ha
 lo stesso numero di threads.
 
-Spesso i programmatori CUDA utilizzano la \textsf{struct} \textsf{dim3} per
+Spesso i programmatori CUDA utilizzano la \texttt{struct} \texttt{dim3} per
 dichiarare la dimensione di griglie e blocchi. E' una struttura che contiene tre
 diversi interi (le tre dimensioni). Ad esempio se dichiarassimo
-\textsf{dim3 dimGrid(3,2,2)} vogliamo far intendere al compilatore che la
+\texttt{dim3 dimGrid(3,2,2)} vogliamo far intendere al compilatore che la
 dimensione della griglia sarà tridimensionale, dove in particolare la
-\textsf{x} avrà valore 3, la \textsf{y} 2 e la \textsf{z} 2. Nel caso in cui
-invece dichiarassimo \textsf{dim3 dimGrid(3)} il compilatore comprende che
-vogliamo solamente utilizzare una dimensione e imposterà la \textsf{y} e la
-\textsf{z} ad 1 automaticamente.
+\texttt{x} avrà valore 3, la \texttt{y} 2 e la \texttt{z} 2. Nel caso in cui
+invece dichiarassimo \texttt{dim3 dimGrid(3)} il compilatore comprende che
+vogliamo solamente utilizzare una dimensione e imposterà la \texttt{y} e la
+\texttt{z} ad 1 automaticamente.
 
 Non dimentichiamo però che le dimensioni di griglie e blocchi vengono definite
 lato host e non all'interno dei kernels.
@@ -197,14 +197,14 @@ di griglie e blocchi tridimensionale in CUDA.\\}
 
 In ultimo è bene fare la distinzione tra i tre tipi di funzione che possono
 essere dichiarate in un programma CUDA. Il primo tipo sono i kernel accompagnati
-dalla keyword \textsf{``\_\_global\_\_''}, descritti in questo paragrafo, gli
-altri due tipi sono \textsf{``\_\_device\_\_''} e \textsf{``\_\_host\_\_''}.
-Come si può intuire una funzione di tipo \textsf{``\_\_device\_\_''} può essere
+dalla keyword \texttt{``\_\_global\_\_''}, descritti in questo paragrafo, gli
+altri due tipi sono \texttt{``\_\_device\_\_''} e \texttt{``\_\_host\_\_''}.
+Come si può intuire una funzione di tipo \texttt{``\_\_device\_\_''} può essere
 richiamata dai kernels e dunque verrà lanciata lato device, mentre
-\textsf{``\_\_host\_\_''} sarà una funzione che verrà richiamata lato host, in
+\texttt{``\_\_host\_\_''} sarà una funzione che verrà richiamata lato host, in
 cui non avviene nessun parallelismo.
-Nel caso in cui una funzione viene accompagnata da \textsf{``\_\_host\_\_''} e
-\textsf{``\_\_device\_\_''} insieme, il compilatore genera due versioni della
+Nel caso in cui una funzione viene accompagnata da \texttt{``\_\_host\_\_''} e
+\texttt{``\_\_device\_\_''} insieme, il compilatore genera due versioni della
 funzione diverse: una per il device e un'altra per l'host.
 Se una funzione invece non possiede nessuna keyword, implicitamente verrà
 compilata come una funzione host.
@@ -235,11 +235,11 @@ parallelamente dalla memoria sull'host verso la memoria allocata sul device. Il
 sistema CUDA fornisce al programmatore, tramite le sue API, le funzioni per
 gestire le allocazioni e i trasferimenti tra le memorie sull'host e sul device.
 
-Le funzioni C \textsf{malloc( \dots)} e \textsf{memcpy( \dots)} sono riproposte
-da CUDA C con la versione \textsf{cudaMalloc( \dots)} e \textsf{cudaMemcpy(
+Le funzioni C \texttt{malloc( \dots)} e \texttt{memcpy( \dots)} sono riproposte
+da CUDA C con la versione \texttt{cudaMalloc( \dots)} e \texttt{cudaMemcpy(
 \dots)} che eseguono rispettivamente un'allocazione sulla memoria device e una
 trasferimento di dati tra la memoria sull'host e la memoria sul device. In
-particolare \textsf{cudaMemcpy( \dots)} ha bisogno di ricevere in input anche la
+particolare \texttt{cudaMemcpy( \dots)} ha bisogno di ricevere in input anche la
 direzione del trasferimento dei dati (da host a device e viceversa). 
 Ecco alcuni esempi delle due funzioni citate:
 
@@ -316,7 +316,7 @@ un limitato numero di simboli, precisamente 64KB. Si può accedere a questo tipo
 di memoria solo in modalità lettura. In particolare può essere
 utilizzata per aumentare le performance di accesso ai dati che devono essere
 condivisi da tutti i threads. La keyword utilizzata per salvare determinati dati
-sulla memoria costante è: \textsf{``\_\_constant\_\_''}.
+sulla memoria costante è: \texttt{``\_\_constant\_\_''}.
 
 \subsection{Atomicità}
 Come scritto in precedenza, la global memory non gestisce nessun tipo di
@@ -388,7 +388,7 @@ ci sono due punti di esecuzione in cui c'è la sicurezza di avere dei dati
 consistenti: quando un thread invoca una nuova child grid e quando la child grid
 ha completato la sua esecuzione. Comunque sia, la sincronizzazione può avvenire
 in qualsiasi momento tramite due funzioni appartenenti alle API di CUDA:
-\textsf{cudaDeviceSynchronize()} e \textsf{\_\_syncthreads()}.
+\texttt{cudaDeviceSynchronize()} e \texttt{\_\_syncthreads()}.
 
 \medskip
 \lstinputlisting[caption={Esempio di un programma CUDA utilizzando il Dynamic
@@ -500,7 +500,7 @@ funzionalità valide per le analisi ma possono essere attivate in fase di
 profiling. Naturalmente il programmatore potrebbe anche desiderare di analizzare
 solo parte del programma, per questo il profiler prende in considerazione
 solamente il codice racchiuso tra le chiamate a funzione
-\textsf{cudaStartProfiler()} e \textsf{cudaStopProfiler()}. 
+\texttt{cudaStartProfiler()} e \texttt{cudaStopProfiler()}. 
 
 Il Visual Profiler è scaricabile facilemente dal sito di NVIDIA, e può essere
 utilizzato sia in ambienti Linux/Unix e MacOS che su ambienti Windows.

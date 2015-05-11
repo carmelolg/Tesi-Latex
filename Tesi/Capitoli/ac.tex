@@ -9,7 +9,7 @@
 %************************************************
 
 \section{Introduzione}
-Oggigiorno, dopo decadi di sviluppo e ricerca, la scienza ricopre un ruolo
+Dopo decadi di sviluppo e ricerca, la scienza ricopre un ruolo
 importante in ogni settore. Le pubbliche istituzioni e le aziende private
 sentono il bisogno di utilizzare metodi e nuove tecniche ai fini di scoprire e
 interpretare diversi casi di studio, a partire dai fenomeni naturali fino alla
@@ -52,25 +52,27 @@ unidimensionale, (b) e (c) bidimensionale, (d) tridimensionale.}
 Informalmente possiamo dare una definizione di Automa Cellulare e distinguere le
 proprietà fondamentali come di seguito: 
 \begin{itemize}
-  \item lo spazio è formato da un insieme di celle regolari;
+  \item lo spazio è costituito da un insieme di celle regolari;
   \item l'insieme degli stati che possono essere assunti dalla cella è finito;
   \item l'evoluzione dell'automa avviene a passi discreti;
-  \item le celle si evolvono in modo simultaneo in base ad un'unica funzione di
-  transizione;
-  \item lo stato di ogni cella nell'istante $t+1$ dipende dal suo stesso stato e
-  dallo stato delle celle vicine al tempo $t$;
-  \item la relazione di vicinanza è uguale per tutte le celle e non varia
-  durante l'evoluzione dell'Automa Cellulare. Inoltre deve coinvolgere un numero
-  limitato di celle.
+  \item le celle si evolvono in modo simultaneo in base ad un'unica
+  legge chiamata ``funzione di transizione'';
+  \item lo stato di una cella al tempo $t+1$ dipende dal suo stato
+  corrente e dallo stato di tutto il suo vicinato al tempo $t$;
+  \item la relazione di vicinanza è comune per tutto lo spazio cellulare e non
+  cambia durante l'evoluzione dell'Automa Cellulare. Unica particolarità è
+  che deve coinvolgere un numero di celle limitato.
 \end{itemize}
 
-Nel caso di un automa cellulare bidimensionale, i vicinati più conosciuti sono
+I vicinati più utilizzati nel caso di automi cellulari con dimensione 2, sono
 quelli di von Neumann (figura \ref{img:vicinati} a) e quello di Moore (figura
-\ref{img:vicinati} b). Il primo è composto dalla cella presa in esame e dalle
-celle adiacenti a nord, sud, est, e ovest, mentre il secondo comprende anche le
-celle adiacenti a nord-est, sud-est, nord-ovest e sud-ovest. E' possibile
-comunque definire altri tipi di vicinato e non è necessario che le celle che lo
-costituiscono siano strettamente vicine tra loro.
+\ref{img:vicinati} b). Il primo è composto dalla cella centrale (cioè la cella
+corrente) e dalle celle adiacenti a nord, sud, est, e ovest, mentre il secondo
+comprende in più le celle adiacenti a nord-est, sud-est, nord-ovest e
+sud-ovest formando un vero e proprio quadrato.
+E' possibile comunque definire altri tipi di vicinato customizzati e non è
+necessario che le celle che lo costituiscono siano strettamente adiacenti
+tra di loro. 
 \begin{figure}[h]
 \centering
 \subfloat[][\emph{Vicinato di von Neumann}]
@@ -86,15 +88,15 @@ celle del vicinato.
 \sigma:S_n \to S
 \label{fun:transizione}
 \end{equation}
-La funzione \ref{fun:transizione} rappresenta la funzione di transizione di un Automa
-Cellulare, dove $S$ rappresenta l'insieme dei possibili stati che possono essere
-assunti da una cella, mentre $S_n$ rappresenta l'insieme degli stati delle $n$
-celle del vicinato. Se la transizione avviene da uno stato a un unico altro
-stato allora la funzione è deterministica. Se invece la transizione può avvenire
-da uno stato a un insieme di stati allora la funzione è non deterministica. Nel
-primo caso, dato un Automa Cellulare all'istante $t=0$, la sua configurazione
-all'istante successivo è unica, mentre nel secondo caso ci possono essere
-diverse configurazioni.
+La funzione \ref{fun:transizione} rappresenta in modo formale una tipica
+funzione di transizione di un Automa Cellulare, dove $S$ rappresenta l'insieme
+degli stati che possono essere assunti da una cella, mentre $S_n$ rappresenta
+l'insieme degli stati delle $n$ celle del vicinato. Se la transizione avviene da
+uno stato ad un altro allora la funzione si dice deterministica, mentre se
+la transizione avviene da uno stato a un insieme di stati allora la funzione si
+dice non deterministica. Nel primo caso, dato un Automa Cellulare all'istante
+$t=0$, la sua configurazione all'istante successivo è unica, mentre nel secondo
+caso ci possono essere diversi tipi di configurazioni diverse.
 
 
 \subsection{Definizione formale di Automa Cellulare}
@@ -105,24 +107,26 @@ Un Automa Cellulare può essere formalizzato come una quadrupla
 $ < Z^d,S,X,\sigma >$
 \end{center}
 \begin{itemize}
-  \item $Z^d$ è l'insieme delle celle individuate da punti a coordinate intere
-  nello spazio euclideo reale $d-$dimensionale, nel quale ogni cella è un automa
-  elementare;
-  \item $S$ è l'insieme finito degli stati della cella, detto \emph{spazio degli
-  stati};
-  \item $X$ è un insieme finito di vettori $d-$dimensionali, detto indice di
-  vicinanza, il quale definisce l'insieme dei vicini $N(X,i)$ di una generica
-  cella \mbox{$i=<i_1,i_2,\ldots,i_d>$} in $Z^d$ come segue:\\
+  \item $Z^d$ è l'insieme delle celle facenti parte di uno spazio
+  cellulare di dimensione $d$, nel quale ogni cella è un automa
+  elementare. In particolare è uno spazio euclideo che fornisce le coordinate
+  ad ogni cella;
+  \item $S$ è un insieme finito degli stati della cella, detto \emph{spazio
+  degli stati};
+  \item $X$ è un insieme finito di vettori $d-$dimensionali. Esso definisce
+  l'insieme dei vicini $N(X,i)$ di una generica cella
+  \mbox{$i=<i_1,i_2,\ldots,i_d>$} in $Z^d$:\\
     sia $X = \{z_1,z_2,\ldots\,z_n\}$ con $n = \#X$ e $z_j =
     <x_{j1},x_{j2},\ldots ,x_{jd}>$ per $i\leq j \leq n$ allora:
     	\begin{equation}
 	   		 N(X,i) = \{i+z_1,i+z_2,\ldots ,i+z_n\}
     	\end{equation}
-  \item $\sigma:S^n \to S$ è la funzione di transizione elementare, ossia la
+  \item $\sigma:S^n \to S$ è la funzione di transizione elementare, cioè la
   funzione di transizione dell'automa elementare, con $n = \#X$.
 \end{itemize}
 
-In particolare, nel caso di un automa cellulare bidimensionale avremo:
+Dato un automa cellulare bidimensionale una possibile configurazione può essere
+la seguente:
 \begin{itemize}
   \item l'insieme delle celle $Z^2=\{(i,j)|i,j\in N,m\geq0,n\geq0\}$ è una
   matrice \mbox{$n \times m$}, dove $(i,j)$ è la cella posta nella riga
@@ -135,8 +139,8 @@ In particolare, nel caso di un automa cellulare bidimensionale avremo:
   \item $\sigma(N(i,j))$ è la funzione di transizione che dà il nuovo stato
   $s^{t+1}(i,j)$ della cella $(i,j)$ al tempo $t+1$.
 \end{itemize}
-Con questa definizione di AC possiamo definire i vicinati di von Neumann e di
-Moore come segue:
+Data la definizione corrente di AC, definiamo i vicinati di von Neumann
+e di Moore come segue:
 \begin{equation*}
 V_{vN}(i,j)=\{s^t(k,l) \in L | \|k-i\| + \|l-j\|\leq1\}
 \end{equation*}
@@ -145,22 +149,22 @@ V_{M}(i,j)=\{s^t(k,l) \in L | \|k-i\|\leq1, \|l-j\|\leq1\}
 \end{equation*}
 
 \section{Automi cellulari unidimensionali}
-Tra gli Automi Cellulari sono di particolare interesse quelli unidimensionali. Gli AC
-unidimensionali sono costituiti da $n$ celle disposte su una griglia di
+Tra gli Automi Cellulari, quelli che suscitano particolare interesse sono gli
+automi cellulari unidimensionali.
+Gli AC unidimensionali sono costituiti da $n$ celle disposte su una griglia di
 dimensioni $1 \times n$ dove la prima e l'ultima cella sono adiacenti, cioé la
-griglia può essere considerata come un anello. Gli stati che possono essere
-assunti dalla cella sono $k = 2$ (ovvero 0 e 1) e il raggio del vicinato è
-$r=1$. Se prendiamo in considerazione la cella $x$ il suo vicinato è formato
-dalla terna $ < x-r,x,x+r > $.
+griglia può essere considerata come un anello. Abbiamo $k = 2$ (ovvero 0 e 1)
+stati che possono essere assunti dalla cella e il raggio del vicinato è $r=1$.
+Se prendiamo in considerazione la cella $x$ il suo vicinato è formato dalla terna $ < x-r,x,x+r > $.
 \begin{figure}[h]
 \centering
 \includegraphics[width=1\textwidth]{immagini/ACunidim}
 \label{img:ACunidim}
 \caption{Esempio di automa cellulare unidimensionale}
 \end{figure}
-Pertanto nel caso degli AC unidimensionali, poiché ogni cella può assumere
-$k = 2$ stati e poiché ogni vicinato è composto da tre celle ci sono $2^3 = 8$
-possibili combinazioni di vicinato e $2^8 = 256$ possibili configurazioni
+Dunque nel caso degli AC unidimensionali, siccome ogni cella può assumere
+$k = 2$ stati e ogni vicinato è composto da tre celle ci sono $2^3 = 8$
+differenti combinazioni di vicinato e $2^8 = 256$ differenti configurazioni
 dell'automa cellulare. La regola di transizione può essere espressa con una
 tabella elencando in ordine crescente le configurazioni del vicinato e gli stati
 delle celle centrali all'iterazione successiva (Tabella \ref{tab:uniTrans}).
@@ -178,11 +182,12 @@ $t_1$	&0		&0		&0		&0		&0		&1		&0		&1  \\
 \end{tabular}
 \end{table}
 
-A ogni configurazione dell'AC corrisponde una legge di transizione che
-determina lo stato delle celle al passo successivo ed è rappresentata da una stringa di
-8 bit formata dagli stati delle celle stesse. Dato che generalmente le regole sono
-indicate con un numero intero, si converte la stringa di 8 bit in un numero intero.
-Nel caso dell'esempio nella tabella \ref{tab:uniTrans} la regola è identificata
+Ad ogni configurazione dell'AC corrisponde una funzione di transizione che
+determina lo stato corrente delle celle al passo $t+1$ ed è rappresentata
+da una sequenza formata dagli stati delle celle stesse. Generalmente le
+regole si indicano tramite numeri interi, dunque si converte la sequenza di
+caratteri in un numero intero.
+Nel caso dell'esempio nella tabella \ref{tab:uniTrans} la regola è definita
 dalla stringa di bit $s = 00000101$ è quindi dal numero intero $n = 5$.
 
 \begin{figure}
@@ -195,9 +200,8 @@ colore bianco rappresenta le celle che sono nello stato 0 mentre il colore nero 
 sono nello stato 1.}
 \end{figure}
 
-I diversi comportamenti degli AC unidimensionali dovuti alle diverse funzioni di
-transizione possono essere raggruppati secondo Wolfram \cite{Wolfram:1983}
-\cite{Wolfram:2002} in quattro classi:
+Secondo Wolfram \cite{Wolfram:1983} \cite{Wolfram:2002} possiamo raggruppare in
+quattro classi i comportamenti differenti degli automi cellulari:
 \begin{description}
 \item[Classe 1]L'automa converge dopo poche iterazioni verso una
   configurazione uniforme indipendentemente da quale sia la configurazione

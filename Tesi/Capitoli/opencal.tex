@@ -15,15 +15,15 @@ realizzazione di sistemi automatici e di supporto alle decisioni per la creazion
 simulazione: un esempio è CAMELot \cite{CAMELOT:1996}, un ambiente di sviluppo basato su Automi Cellulari per la simulazione di processi fisici. Al contrario di CAMELot, OpenCAL (Open Cellular Automata Library) è una libreria Open Source, capace di
 definire modelli di simulazione basati su Automi Cellulari complessi (CCA).
 
-OpenCAL nasce dalla necessità di aver a disposizione una libreria open source di
-facile utilizzo, che permetta all'utente di concentrarsi su ciò che riguarda la
-definizione dell'automa cellulare trascurando il più possibile i dettagli
-implementativi. Le funzioni, le strutture e i tipi di dato descritti nei
-prossimi paragrafi permettono di definire un modello di AC con uno spazio
-cellulare bidimensionale. Tuttavia OpenCAL supporta anche la definizione di
-modelli tridimensionali e le funzioni, le strutture e i tipi di dato usati per
-la definizione di un modello 2D hanno la loro controparte per la definizione di
-un modello 3D.
+Alla base della nascita di OpenCAL troviamo la necessità di possedere una
+libreria open source, facilmente utilizzabile, che permetta all'utente di
+dare completa attenzione alla definizione dell'automa cellulare trascurando il
+più possibile i dettagli implementativi. Le funzioni, le strutture e i tipi di
+dato all'interno della libreria permettono di definire un modello di automi
+cellulari con uno spazio cellulare bidimensionale. OpenCAL supporta anche la
+definizione di modelli con uno spazio cellulare tridimensionale. Tuttavia le
+funzioni, le strutture e i tipi di dato usati per la definizione di un modello
+2D hanno il loro corrispettivo nella versione 3D della libreria.
 
 
 \section{Utilizzare OpenCAL}
@@ -61,7 +61,7 @@ di parametri:
 \end{itemize}
 Le dimensioni dello spazio cellulare sono semplicemente le righe e le colonne
 della matrice. La relazione di vicinanza delle celle è definita da un
-enumerativo \texttt{CALNeighborhood2D} con cui è possibile scegliere tra i
+enumerativo \texttt{CALNeighborhood2D} tramite cui è possibile scegliere tra i
 vicinati più noti come Von Neumann, Moore ed il vicinato esagonale, questo non preclude la
 possibilità all'utente di definire una relazione di vicinato \textit{custom}
 grazie alla funzione \texttt{calAddNeighbor2D} che riceve in input le coordinate
@@ -92,7 +92,7 @@ permette di scegliere uno spazio toroidale il secondo invece uno spazio non toro
 
 L'ultima condizione riguarda la possilità di utilizzare un'ottimizzazione ai
 fini di migliorare le performance del programma. Si può scegliere se utilizzare
-le ``celle attive'' (con l'opzione \texttt{CAL\_OPT\_ACTIVE\_CELLS} o meno.
+le ``celle attive'' con l'opzione \texttt{CAL\_OPT\_ACTIVE\_CELLS} o meno.
 
 Come abbiamo visto nel capitolo \ref{cap:Automi Cellulari} un modello è composto
 anche da stati. In particolare nel caso degli automi cellulari
@@ -167,19 +167,21 @@ esecuzione di OpenCAL.
 \lstinputlisting[caption={Esempio di definizione di una simulazione.},
 label=lst:calrun, style=input]{code/calrun.c}
 
-Ogni volta che viene eseguita una funzione appartenente al ciclo di esecuzione,
-il contenuto delle matrici \textit{next} di tutti i sottostati viene copiato
-nelle matrici current. Nel secondo caso la gestione dell'aggiornamento dei
-sottostati viene lasciata gestire all'utente. L'utente può infatti definire il
-proprio ciclo di esecuzione e la politica di aggiornamento dei sottostati. Per
-fare ciò è necessario usare la funzione \texttt{calRunAddGlobalTransitionFunc2D}
-che riceve in input un puntatore alla funzione che definisce il ciclo di
-esecuzione dell'utente. Per aggiornare i sottostati si possono usare le funzioni
-\texttt{calUpdate2D} (per aggiornarli tutti) e
-\texttt{calUpdateSubstate2D(b|i|r)} (per aggiornarne uno in particolare). La
-funzione \texttt{calRun2D} permette infine di eseguire una simulazione, mentre
-la funzione \texttt{calRunCAStep2D} permette di eseguire un singolo passo di
-calcolo.
+Quando che viene eseguita un processo elementare o una funzione di
+supporto (init, steering etc\ldots) appartenente al ciclo di esecuzione, il
+contenuto delle matrici \textit{next} dei sottostati viene copiato nelle
+matrici \textit{current}. Nel secondo caso viene gestita direttamente
+dall'utente la gestione dell'aggiornamento dei sottostati. L'utente ha la possibilità di
+definire il proprio ciclo di esecuzione e la modalità di aggiornamento dei
+sottostati. Questo è reso possibile dalla funzione
+\texttt{calRunAddGlobalTransitionFunc2D} che riceve in input un puntatore alla
+funzione che definisce il ciclo di esecuzione dell'utente. Per aggiornare i
+sottostati possiamo utilizzare due diverse funzioni: se si vogliono aggiornare
+tutti i sottostati utilizziamo \texttt{calUpdate2D} se invece si vuole
+aggiornare solo un numero ristretto di sottostati (o uno solo) si utilizza
+\texttt{calUpdateSubstate2D(b|i|r)}. La funzione \texttt{calRun2D} permette
+di eseguire una simulazione, e infine la funzione \texttt{calRunCAStep2D}
+esegue un singolo passo di calcolo della simulazione per volta.
 
 \medskip
 \lstinputlisting[caption={La gestione del ciclo di esecuzione di OpenCAL.},
@@ -227,22 +229,20 @@ label=lst:life2D, style=input]{code/life2D.c}
 Nell'esempio \ref{lst:life2D}, in circa 50 righe di codice, si implementa sia
 il modello che la simulazione del Game of Life. L'estrema semplicità
 dell'implementazione mette in risalto dunque il punto di forza di OpenCAL.
-La libreria ``nasconde'' i dettagli implementativi
-permettendo all'utente di concentrarsi sulla definizione dell'Automa Cellulare.
-L'implementazione del programma è divisa in due fasi. Nella prima fase viene
-definito il modello su cui è basato il Gioco della Vita. Usando la funzione
-\texttt{calCADef2D}, viene creata un'istanza di \texttt{CALModel2D} con spazio
-cellulare bidimensionale toroidale e vicinato di Moore. La definizione
-del modello si conclude con l'aggiunta di un sottostato, che
-rappresenta l'insieme degli stati delle celle e
-l'aggiunta di una funzione di transizione definita con le regole
-precedentemente elencate. La seconda fase prevede la definizione del ciclo di
-esecuzione. In questo caso viene usato il ciclo di esecuzione di
-default implementato in OpenCAL e viene aggiunta una funzione di
-inizializzazione che imposta lo stato iniziale di tutte le celle del sottostato
-aggiunto precedentemente. Infine viene richiamata la funzione \texttt{calRun2D}
-per eseguire una simulazione e i risultati della computazione vengono scritti su
-file dalla funzione \texttt{calSaveSubsate2Di}.
+La libreria permette all'utente di concentrarsi sulla definizione dell'Automa
+Cellulare gestendo completamente tutti i dettagli implementativi.
+L'implementazione è divisa sostanzialmente in due fasi ed in particolare nella
+prima fase viene definito il modello. Usando la funzione
+\texttt{calCADef2D}, si crea un'istanza di \texttt{CALModel2D} con spazio
+cellulare bidimensionale toroidale e vicinato di Moore. Al modello viene
+aggiunto anche un sottostato, rappresentante l'insieme degli stati delle
+celle e la funzione di transizione definita dalle regole
+precedentemente elencate. La seconda fase comprende la definizione del ciclo di
+esecuzione. Al ciclo di esecuzione viene aggiunta una funzione di
+inizializzazione che definisce la configurazione iniziale di tutte le celle.
+Richiamando la funzione \texttt{calRun2D} si avvia la simulazione
+e i risultati della sua esecuzione vengono infine salvati su un file dalla
+funzione \texttt{calSaveSubsate2Di}.
 
 \section{SCIARA-fv2 in OpenCAL}
 \label{par:SCIARA}
@@ -306,12 +306,13 @@ questa sezione si mostrerà l'implementazione tramite la libreria OpenCAL.
 \lstinputlisting[caption={Definizione del modello
 SCIARA in OpenCAL},style=input,label = lst:SCIARA]{code/sciara.cpp}
 Il codice \ref{lst:SCIARA} mostra la definizione del modello SCIARA implementato
-utilizzando la libreria OpenCAL. Come specificato dal modello viene creato uno
-spazio cellulare bidimensionale con vicinato di Moore (riga 8). Oltre ai sottostati
-precedentemente elencati vengono aggiunti alcuni sottostati a singola matrice di
-supporto alla computazione (da riga 11 a 37). Infine, vengono definiti i
-processi elementari e il ciclo di esecuzione (da riga 40 a 50). Il codice
-\ref{lst:SCIARA_PROCESSES} mostra l'implementazione dei processi elementari.
+utilizzando la libreria OpenCAL. Secondo la definizione del modello viene creato
+uno spazio cellulare a due dimensioni con vicinato di Moore. Una volta
+aggiunti tutti i sottostati elencati nella descrizione formale dell'automa
+cellulare vengono aggiunti anche ulteriori sottostati a singola matrice
+utilizzati come supporto alla computazione. Infine, vengono definiti i processi
+elementari e il ciclo di esecuzione. Il codice \ref{lst:SCIARA_PROCESSES} mostra
+l'implementazione dei processi elementari.
 
 \medskip
 \lstinputlisting[caption={Definizione dei processi elementari

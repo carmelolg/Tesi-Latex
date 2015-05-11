@@ -477,7 +477,7 @@ valutazione del parallelismo.
 
 L'\textbf{overhead} totale nel parallel computing è il tempo di esecuzione
 impiegato collettivamente da tutti i processori rispetto al tempo richiesto dal
-più veloce algoritmo sequenziale per risolvere il problema. \cite{ITPC:2003}
+più veloce algoritmo sequenziale per risolvere il problema \cite{ITPC:2003}. 
 
 \begin{equation}
 T_o = pT_p - T_s
@@ -709,15 +709,15 @@ Sebbene le GPU operino a frequenze più basse rispetto alle CPU sin dai primi
 anni del nuovo millennio esse superano le CPU nel calcolo di operazioni in
 floating point (FLOPS) e, ad oggi la velocità  di calcolo delle GPU è quasi
 dieci volte superiore quelle delle CPU.
-Prima del 2006, le GPU difficilmente venivano usate per scopi diversi dal
-rendering grafico e per accedere a questi dispositivi i programmatori
-avevano a disposizione soltanto API orientate al rendering grafico
+Prima del 2006, le GPU non venivano usate per scopi diversi dal
+rendering grafico e per accedere a questa tipologia di device i programmatori
+avevano a disposizione solamente librerie orientate al rendering grafico
 come OpenGL \cite{OpenGL:2004}. GPGPU (general purpose computing on graphic
-processing unit) è il termine che viene utilizza per indicare l'utilizzo delle
-GPU in ambiti diversi dal rendering grafico. Questa tecnica si diffuse nel 2007
-grazie al rilascio di CUDA \cite{CUDA:2007} da parte NVIDIA, che forniva ai
+processing unit) è il termine che viene utilizzato per indicare l'utilizzo delle
+GPU in contesti differenti dal rendering grafico. Questa tecnica si diffuse nel
+2007 grazie al rilascio di CUDA \cite{CUDA:2007} da parte NVIDIA, che forniva ai
 programmatori un architettura completa capace di far sviluppare applicazioni
-parallele senza utilizzare le API grafiche.  Oltre a questo NVIDIA iniziò ad
+parallele senza utilizzare le API grafiche. Oltre a questo NVIDIA iniziò ad
 inserire nei propri dispositivi delle componenti hardware apposite a supporto
 della programmazione parallela.
 
@@ -728,16 +728,17 @@ della programmazione parallela.
 \label{fig:arch_kepler} 
 \end{figure}
 
-La figura \ref{fig:arch_kepler} rappresenta la tipic architettura di una GPU
+La figura \ref{fig:arch_kepler} mostra la tipica architettura di una GPU
 CUDA. La struttura è composta da un insieme di \emph{streaming multiprocessor}
-(SM) divisi in blocchi. Ogni SM è composto da un insieme di \emph{streaming
-processors} che condividono la memoria cache. Ogni GPU ha a disposizione alcuni
-gigabytes di Graphic Double Data Rate (DRAM), diversamente detta memoria
-globale. Questo tipo di memoria è diversa dalla normale memoria DRAM poiché è
-progettata per contenere dati relativi alla grafica. Nel caso di applicazioni
-grafiche contiene informazioni relative ad immagini e texture usate per il
-rendering 3D. In ambito GPGPU viene sfruttata per la sua ampia larghezza di
-banda al costo di una maggiore latenza rispetto alla normale memoria DRAM. Con
-l'aumentare della disponibilità di memoria delle GPU prodotte, le applicazioni
-tendono a memorizzare i dati nella memoria globale minimizzando così le
-interazioni con la memoria del sistema.
+(SM) divisi in blocchi. Ogni SM è composto ulteriormente da un insieme di
+\emph{streaming processors} che condividono la memoria cache. Ogni GPU ha a
+disposizione una determinata quantità di gigabytes di DRAM, diversamente detta
+memoria globale. Questo tipo di memoria è diversa dalla normale memoria DRAM poiché è
+progettata per contenere dati relativi alla grafica. Quando si tratta di di
+applicazioni orientate alla grafica, questo tipo di memoria contiene
+informazioni relative ad immagini e texture usate per il rendering 3D. In ambito
+GPGPU viene sfruttata per la sua larghezza di banda (molto ampia) al costo di
+una latenza più alta rispetto alla normale memoria DRAM. Più è alta la 
+disponibilità di memoria delle GPU prodotte più le applicazioni tendono a
+memorizzare i dati nella memoria globale minimizzando così le interazioni con la
+memoria del sistema.

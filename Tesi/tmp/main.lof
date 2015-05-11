@@ -64,28 +64,28 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Gioco della vita (Glider)}}{67}{figure.caption.40}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Gioco della vita (Glider)}}{66}{figure.caption.40}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Ciclo di vita del software OpenCAL-CUDA}}{75}{figure.caption.41}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Ciclo di vita del software OpenCAL-CUDA}}{74}{figure.caption.41}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Esempio di stream compaction}}{86}{figure.caption.42}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Esempio di stream compaction}}{85}{figure.caption.42}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Confronto tra SCIARA sequenziale e SCIARA parallelo senza ottimizzazioni con l'utilizzo della configurazione con due crateri}}{112}{figure.caption.44}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Confronto tra SCIARA sequenziale e SCIARA parallelo senza ottimizzazioni con l'utilizzo della configurazione con due crateri}}{111}{figure.caption.44}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Grafico della speedup, implementazione con l'ottimizzazione delle celle attive e due crateri}}{112}{figure.caption.45}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Grafico della speedup, implementazione con l'ottimizzazione delle celle attive e due crateri}}{111}{figure.caption.45}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Grafico dei tempi, confronto tra versione sequenziale e parallela con ottimizzazione delle celle attive e configurazione con due crateri}}{113}{figure.caption.46}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Grafico dei tempi, confronto tra versione sequenziale e parallela con ottimizzazione delle celle attive e configurazione con due crateri}}{112}{figure.caption.46}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Grafico dei tempi, confronto tra versione sequenziale e parallela con ottimizzazione delle celle attive e configurazione con duecento crateri}}{114}{figure.caption.47}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Grafico dei tempi, confronto tra versione sequenziale e parallela con ottimizzazione delle celle attive e configurazione con duecento crateri}}{113}{figure.caption.47}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.5}{\ignorespaces Grafico della speedup, implementazione con l'ottimizzazione delle celle attive e duecento crateri}}{115}{figure.caption.48}
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Grafico della speedup, implementazione con l'ottimizzazione delle celle attive e duecento crateri}}{114}{figure.caption.48}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.6}{\ignorespaces Simulazione con due crateri}}{116}{figure.caption.49}
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Simulazione con due crateri}}{115}{figure.caption.49}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.7}{\ignorespaces Simulazione con duecento crateri}}{116}{figure.caption.50}
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Simulazione con duecento crateri}}{115}{figure.caption.50}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }

@@ -606,12 +606,88 @@ semplice esempio di parallelizzazione tramite OpenMP di un algoritmo sequenziale
 label=lst:openmp, style=input]{code/openmp.c}
 
 \subsection{MPI}
+\label{par:mpi}
 
+MPI (Message Passing Interface) è uno standard utilizzato per il
+\textit{message-passing} dagli sviluppatori di codice parallelo. MPI non è una
+vera e propria libreria ma un insieme di specifiche fissate da seguire
+all'interno di una libreria per il message passing. I principali orientamenti
+tale per cui un'interfaccia possa rispettare tali specifiche sono:
 
+\begin{itemize}	
+  \item La praticità
+  \item La portabilità
+  \item L'efficienza
+  \item La flessibilità  
+\end{itemize}
 
+Il più recente dei numeri di revisione di questo standard è MPI-3.
+A livello pratico, MPI, fornisce le più comuni funzionalità per consentire uno
+scambio di messaggi tra unità di calcolo. Rispetto ad OpenMP, ad esempio, MPI
+consente il pieno controllo del parallelismo, in particolare è possibile
+conoscere l'ID univoco dei thread in esecuzione e dare precise direttive ad
+ognuno di loro. Proprio grazie allo scambio di messaggi è possibile implementare
+il modello \texttt{MASTER-SLAVE}.
 
+\medskip
+\lstinputlisting[caption={Esempio di utilizzo di MPI.},
+label=lst:mpi, style=input]{code/mpihello.c}
+Il codice \ref{lst:mpi} mostra un esempio basico dell'utilizzo di MPI. 
 
+\begin{center} 
+\texttt{MPI\_Init(\&argc, \&argv);}
+\end{center}
+e 
+\begin{center} 
+\texttt{MPI\_Finalize();}
+\end{center}
+sono delle direttive obbligatorie per l'utilizzo di MPI, in particolare
+contengono al loro interno la parte di codice da eseguire il parallelo.
 
+\begin{center} 
+\texttt{MPI\_Comm\_size(MPI\_COMM\_WORLD , \&numprocs);}
+\end{center}
+e
+\begin{center} 
+\texttt{MPI\_Comm\_rank(MPI\_COMM\_WORLD , \&myid);}
+\end{center}
+invece sono funzioni utilizzate per prendere le informazioni riguardo il numero
+di processi attualmente in esecuzione e l'id univoco per ogni thread. Grazie a
+queste informazioni è possibile gestire le differenti direttive parallele.
+
+\medskip
+\lstinputlisting[caption={Determinazione di pigreco con il metodo montecarlo
+parallelizzato in MPI.}, label=lst:mmpi, style=input]{code/montecarlompi.c}
+Il codice \ref{lst:mmpi} è un esempio completo di utilizzo di MPI. E'
+l'implementazione parallela del metodo Montecarlo per determinare il valore di
+pigreco.
+
+La due funzioni più interessanti sono le funzioni di invio e ricezione dei
+messaggi:
+
+\begin{center} 
+\texttt{MPI\_Recv(\&local\_count, 1, MPI\_INT, source, tag,
+MPI\_COMM\_WORLD,\&status);} 
+\end{center}
+e
+\begin{center}
+\texttt{MPI\_Send(\&local\_count , 1, MPI\_INT , root, tag,
+MPI\_COMM\_WORLD);}
+\end{center}
+
+In particolare queste funzioni prendono in input:
+
+\begin{itemize}	
+  \item La variabile da trasferire attraverso i thread
+  \item La dimensione della quantità di dati trasportati
+  \item Il tipo di dati
+  \item Chi invia e chi riceve il messaggio (ID dei thread)
+  \item Il tag che indica l'ID del messaggio  
+\end{itemize}
+
+In particolare la funzione adibita alla ricezione dei messaggi prende in input
+un valore in più, \texttt{status}, che consente la gestione dello stato del
+messaggio in modo da gestire eventuali errori e deadlock che possono accadere.
 
 
 

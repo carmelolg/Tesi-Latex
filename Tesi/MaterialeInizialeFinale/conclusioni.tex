@@ -15,8 +15,8 @@ prestazioni ha trovato campo fertile in numerosi settori dell'informatica tra i
 quali la modellistica e la simulazione.
 
 L'obiettivo di questo lavoro di tesi è stata la parallelizzazione della libreria
-per lo sviluppo di modelli basati su automi cellulari OpenCAL. Gli automi
-cellulari per loro natura si prestano egregiamente ad un approccio parallelo,
+per lo sviluppo di modelli basati su Automi Cellulari OpenCAL. Gli Automi
+Cellulari per loro natura si prestano egregiamente ad un approccio parallelo,
 proprio per questo è stata immediata la scelta del parallel computing per
 migliorare le performance della libreria OpenCAL. La versione parallela
 OpenCAL-CUDA, come si intuisce, è stata implementata tramite l'archiettura CUDA
@@ -36,9 +36,9 @@ miglioramenti relativi alla leggibilità del codice e alle performance. Le API di
 CUDA compatibili con i device NVIDIA hanno consentito la realizzazione
 del progetto.
 
-Gli automi cellulari, come spiegato nel capitolo \ref{cap:Automi Cellulari},
-evolvono basandosi sulla funzione di transizione, in particolare per gli automi
-cellulari complessi (CCA, \ref{par:CCA}) l'evoluzione dipende da più processi
+Gli Automi Cellulari, come spiegato nel capitolo \ref{cap:Automi Cellulari},
+evolvono basandosi sulla funzione di transizione, in particolare per gli Automi
+Cellulari Complessi (CCA, \ref{par:CCA}) l'evoluzione dipende da più processi
 elementari. Questa funzione di transizione viene eseguita allo stesso modo su
 ogni cella dello spazio cellulare. Questo tipo di approccio viaggia in
 perfetta sintonia con la filosofia del parallel computing.

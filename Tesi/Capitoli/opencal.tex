@@ -19,8 +19,8 @@ Alla base della nascita di OpenCAL troviamo la necessità di possedere una
 libreria open source, facilmente utilizzabile, che permetta all'utente di
 dare completa attenzione alla definizione dell'automa cellulare trascurando il
 più possibile i dettagli implementativi. Le funzioni, le strutture e i tipi di
-dato all'interno della libreria permettono di definire un modello di automi
-cellulari con uno spazio cellulare bidimensionale. OpenCAL supporta anche la
+dato all'interno della libreria permettono di definire un modello di Automi
+Cellulari con uno spazio cellulare bidimensionale. OpenCAL supporta anche la
 definizione di modelli con uno spazio cellulare tridimensionale. Tuttavia le
 funzioni, le strutture e i tipi di dato usati per la definizione di un modello
 2D hanno il loro corrispettivo nella versione 3D della libreria.
@@ -44,7 +44,7 @@ evoluzione. Si tratta dunque di scrivere in codice le regole già progettate.
 Grazie ad OpenCAL questo può essere svolto in pochi e brevi passi. E' molto
 facile capire quanto possa essere oneroso impiegare del tempo per implementare
 tutte le strutture necessarie ai fini di completare un programma in C/C++ adatto
-per automi cellulari. Curarsi solamente della progettazione del
+per Automi Cellulari. Curarsi solamente della progettazione del
 modello, lasciando ad OpenCAL il compito di gestire il \textit{core} del
 problema, è senza dubbio il punto di forza della libreria.
 
@@ -95,7 +95,7 @@ fini di migliorare le performance del programma. Si può scegliere se utilizzare
 le ``celle attive'' con l'opzione \texttt{CAL\_OPT\_ACTIVE\_CELLS} o meno.
 
 Come abbiamo visto nel capitolo \ref{cap:Automi Cellulari} un modello è composto
-anche da stati. In particolare nel caso degli automi cellulari
+anche da stati. In particolare nel caso degli Automi Cellulari
 complessi (CCA) gli stati delle celle possono essere suddivisi in sottostati.
 Dunque, OpenCAL prevede tre tipi di sottostati:
 \begin{description}
@@ -168,7 +168,7 @@ esecuzione di OpenCAL.
 label=lst:calrun, style=input]{code/calrun.c}
 
 Quando che viene eseguita un processo elementare o una funzione di
-supporto (init, steering etc\ldots) appartenente al ciclo di esecuzione, il
+supporto (init, steering, etc\ldots) appartenente al ciclo di esecuzione, il
 contenuto delle matrici \textit{next} dei sottostati viene copiato nelle
 matrici \textit{current}. Nel secondo caso viene gestita direttamente
 dall'utente la gestione dell'aggiornamento dei sottostati. L'utente ha la possibilità di

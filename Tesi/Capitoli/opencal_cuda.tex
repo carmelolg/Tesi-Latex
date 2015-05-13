@@ -17,8 +17,9 @@ Proprio per questo si è pensato di sfruttare i vantaggi del calcolo parallelo
 (cap. \ref{cap:Il calcolo parallelo}) come ricerca e sviluppo di OpenCAL.
 Attualmente esistono diverse versioni della libreria, a partire da quella
 sequenziale alla versione parallela OpenCAL-OMP (implementazione in OpenMP),
-OpenCAL-CL (implementazione in OpenCL) e OpenCAL-CUDA. Proprio quest'ultima
-verrà introdotta nei dettagli progettuali e implementativi.
+OpenCAL-CL (implementazione in OpenCL). In questa tesi è stata sviluppata una
+versione CUDA della parte 2D di OpenCAL, che prende il nome di OpenCAL-CUDA, di
+seguito descritta nei dettagli progettuali e implementativi.
 
 Progettare una versione parallela della libreria comporta non solo una fase di
 studio approfondito della tecnologia da utilizzare, ma anche una buona analisi
@@ -470,7 +471,7 @@ CUDA. OpenCAL-CUDA fornisce delle comode funzioni per ricevere delle
 informazioni molto utilizzate nei programmi scritti in CUDA C.
 Ad esempio, capita spesso che un programmatore debba ricavarsi le informazioni
 riguardo l'ID univoco dei threads. Questo comporta piccoli calcoli matematici
-che a lungo andare possono diventare annoianti e ripetitivi,
+che a lungo andare possono diventare noiosi e ripetitivi,
 inoltre ci si può imbattere in piccoli errori di calcolo. Per questo la libreria
 OpenCAL-CUDA esegue tutte queste operazioni di routine in automatico tramite
 alcune chiamate a funzione.

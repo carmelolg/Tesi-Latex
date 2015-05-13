@@ -18,7 +18,7 @@ Questi ultimi test sono stati significativi poiché son serviti a validare il
 lavoro di tesi. Si mostreranno nei paragrafi successivi alcuni grafici che
 rappresentano i risultati dei test effettuati.
 
-Di rilevale importanza è stata la scelta dei processori e delle schede video
+Di rilevante importanza è stata la scelta dei processori e delle schede video
 utilizzate nell'esecuzione di questi test. Per quanto riguarda la simulazione
 sequenziale sono stati utilizzati due processori Quad Xeon da 2.8 GHz con a
 disposizione 4 core ciascuno. Questi due processori sono attualmente montati
@@ -71,6 +71,31 @@ ottimizzata tramite la tecnica delle celle attive.
 
 
 \section{Confronto con i risultati}
+
+Le immagini che verranno mostrate rappresentano i risultati delle simulazioni
+eseguite con differenti tipologie di configurazione. Nella prima coppia di
+immagini (\ref{fig:2vents}) si mostra la simulazione di SCIARA dopo
+10000 step con una mappa composta da due crateri. La seconda coppia (\ref{fig:200vent}),
+invece si mostra la simulazione di SCIARA dopo 1000 step con una mappa composta
+da duecento differenti crateri.
+
+\begin{figure}[H]
+\includegraphics[width=0.5\columnwidth]{Immagini/2vent} 
+\includegraphics[width=0.5\columnwidth]{Immagini/10000step2vent} 
+\caption[Simulazione dopo 10000 passi con due crateri]{Simulazione dopo 10000
+passi con due crateri rappresentata tramite il software Qgis}
+\label{fig:2vents} 
+\end{figure} 
+
+\begin{figure}[H] 
+\includegraphics[width=0.5\columnwidth]{Immagini/200vents} 
+\includegraphics[width=0.5\columnwidth]{Immagini/1000step200vents} 
+\caption[Simulazione dopo 1000 passi con duecento crateri]{Simulazione dopo
+1000 passi con duecento crateri rappresentata tramite il software Qgis}
+\label{fig:200vent} 
+\end{figure}
+
+
 Mostriamo ora i grafici relativi ai test effettuati sulle diverse
 implementazioni. Confronteremo la versione sequenziale, implementata senza
 l'ottimizzazione delle celle attive, con la versione parallela, implementata
@@ -199,8 +224,8 @@ sono stati utilizzati 200 crateri nella configurazione iniziale.}
 \label{gr:active_cells_200}
 \end{figure}
 
-Vediamo insieme ora la speedup relativa all'implementazione con una
-configurazione di 200 crateri.
+% Vediamo insieme ora la speedup relativa all'implementazione con una
+% configurazione di 200 crateri.
 
 \begin{figure}[H] \centering
 \begin{tikzpicture}
@@ -220,32 +245,4 @@ file {data/speedup_activecells_200.txt};
 celle attive e duecento crateri]{Il calcolo della speedup tra implementazione
 sequenziale e parallela con l'ottimizzazione delle celle attive e una configurazione contenente 200 crateri.}
 \label{gr:speedup_active_200}
-\end{figure}
-
-\section{Risultati grafici}
-\label{par:graphics_result}
-
-Come accennato nel paragrafo precedente, un primo test è stato il confronto
-della simulazione sequenziale con quella parallela. La libreria OpenCAL, così
-come OpenCAL-CUDA, offrono delle funzionalità per salvare l'output su file. Così
-è stato fatto anche per il modello SCIARA. In particolare si è utilizzato il
-software \textbf{Qgis} per la rappresentazione grafica dell'output.
-
-Nelle seguenti figure, si mostrerà una rappresentazione della simulazione di
-SCIARA dopo 10000 passi sia con due crateri che con 200 crateri.
-
-\begin{figure}[H] 
-\centering 
-\includegraphics[width=0.5\columnwidth]{Immagini/2vent_thikness_} 
-\caption[Simulazione con due crateri]{Simulazione mostrata dal software Qgis
-con 2 crateri}
-\label{fig:2vents} 
-\end{figure}
-
-\begin{figure}[H] 
-\centering 
-\includegraphics[width=0.5\columnwidth]{Immagini/200vent_thikness} 
-\caption[Simulazione con duecento crateri]{Simulazione mostrata dal software
-Qgis con 200 crateri}
-\label{fig:200vent} 
 \end{figure}

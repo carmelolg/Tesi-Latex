@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/W32TeX) (preloaded format=pdflatex 2015.3.11)  13 MAY 2015 13:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/W32TeX) (preloaded format=pdflatex 2015.3.11)  14 MAY 2015 17:39
 entering extended mode
  restricted \write18 enabled.
  Source specials enabled.
@@ -1513,7 +1513,7 @@ alRunAddGlobalTransitionFunc2D
  []
 
 (./code/cicloDiEsecuzione.c) [66]
-<Immagini/glider.jpg, id=1118, 632.3625pt x 107.40125pt>
+<Immagini/glider.jpg, id=1119, 632.3625pt x 107.40125pt>
 File: Immagini/glider.jpg Graphic file (type jpg)
 
 <use Immagini/glider.jpg>
@@ -1528,7 +1528,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Capitolo 5.
 [73
 
-] <Immagini/opencalcudadiagram.png, id=1360, 605.26125pt x 349.90726pt>
+] <Immagini/opencalcudadiagram.png, id=1361, 605.26125pt x 349.90726pt>
 File: Immagini/opencalcudadiagram.png Graphic file (type png)
 
 <use Immagini/opencalcudadiagram.png>
@@ -1548,7 +1548,7 @@ Underfull \vbox (badness 2443) has occurred while \output is active []
 (./code/CudaCALModel2D.c [77]) [78] (./code/CALRun2D.c) (./code/CudaCALRun2D.c
 [79]) [80] [81] (./code/host_device.c) (./code/host_h_device.c)
 (./code/copyhd.c [82]) (./code/copydh.c [83]) (./code/allocatormodel.c [84])
-[85] <Immagini/streamc2.png, id=1727, 390.86024pt x 210.18526pt>
+[85] <Immagini/streamc2.png, id=1728, 390.86024pt x 210.18526pt>
 File: Immagini/streamc2.png Graphic file (type png)
 
 <use Immagini/streamc2.png>
@@ -1608,14 +1608,14 @@ Overfull \hbox (7.14844pt too wide) in paragraph at lines 62--71
 ple-men-ta-zio-ni di SCIARA-
  []
 
-<Immagini/2vent.png, id=2768, 613.0905pt x 447.47176pt>
+<Immagini/2vent.png, id=2769, 613.0905pt x 447.47176pt>
 File: Immagini/2vent.png Graphic file (type png)
 
 <use Immagini/2vent.png>
 Package pdftex.def Info: Immagini/2vent.png used on input line 83.
 (pdftex.def)             Requested size: 184.94292pt x 134.97997pt.
 
-<Immagini/10000step2vent.png, id=2769, 612.48825pt x 448.074pt>
+<Immagini/10000step2vent.png, id=2770, 612.48825pt x 448.074pt>
 File: Immagini/10000step2vent.png Graphic file (type png)
 
 <use Immagini/10000step2vent.png>
@@ -1626,14 +1626,14 @@ Overfull \hbox (2.61047pt too wide) in paragraph at lines 83--86
 [][][] [] 
  []
 
-[111] <Immagini/200vents.png, id=2774, 613.0905pt x 448.074pt>
+[111] <Immagini/200vents.png, id=2775, 613.0905pt x 448.074pt>
 File: Immagini/200vents.png Graphic file (type png)
 
 <use Immagini/200vents.png>
 Package pdftex.def Info: Immagini/200vents.png used on input line 91.
 (pdftex.def)             Requested size: 184.94292pt x 135.16162pt.
 
-<Immagini/1000step200vents.png, id=2775, 614.295pt x 447.47176pt>
+<Immagini/1000step200vents.png, id=2776, 614.295pt x 447.47176pt>
 File: Immagini/1000step200vents.png Graphic file (type png)
 
 <use Immagini/1000step200vents.png>
@@ -1717,7 +1717,7 @@ Package logreq Info: Writing requests to 'main.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
  38801 strings out of 493109
- 825513 string characters out of 6138587
+ 825515 string characters out of 6138587
  1558547 words of memory out of 5000000
  39560 multiletter control sequences out of 15000+600000
  24960 words of font info for 57 fonts, out of 8000000 for 9000
@@ -1749,9 +1749,9 @@ texlive/2014/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb><c:/texlive/20
 14/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb><c:/texlive/2014/texmf-d
 ist/fonts/type1/public/cm-super/sftt1440.pfb><c:/texlive/2014/texmf-dist/fonts/
 type1/public/cm-super/sfxc2488.pfb>
-Output written on main.pdf (121 pages, 2972472 bytes).
+Output written on main.pdf (121 pages, 2973248 bytes).
 PDF statistics:
- 3324 PDF objects out of 3580 (max. 8388607)
+ 3325 PDF objects out of 3580 (max. 8388607)
  3089 compressed objects within 31 object streams
  1925 named destinations out of 2073 (max. 500000)
  729 words of extra memory for PDF output out of 10000 (max. 10000000)

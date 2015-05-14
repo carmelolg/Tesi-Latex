@@ -203,14 +203,14 @@ copiare un modello di automa cellulare da host a device eseguiamo i seguenti pas
   \item Allocare su device un oggetto \texttt{CudaCALModel2D} (chiamiamolo
   \textbf{device\_model})
   \item Allocare su host un oggetto \texttt{CudaCALModel2D} con i puntatori alle
-  strutture dati allocati sul device (chiamiamolo \textbf{ibrid\_model})
+  strutture dati allocati sul device (chiamiamolo \textbf{hybrid\_model})
   \item Copiare con una semplice \texttt{memcpy} le variabili scalari di
-  host\_model su ibrid\_model.
+  host\_model su hybrid\_model.
   \item Copiare, utilizzando la funzione fornita dalle API di Cuda\\
   \texttt{cudaMemCpy}, il contenuto delle strutture dati (gestite tramite
-  puntatori) di host\_model su ibrid\_model
+  puntatori) di host\_model su hybrid\_model
   \item Copiare, utilizzando la funzione fornita dalle API di Cuda\\
-  \texttt{cudaMemCpy}, tutto l'oggetto ibrid\_model su device\_model
+  \texttt{cudaMemCpy}, tutto l'oggetto hybrid\_model su device\_model
 \end{enumerate}
 
 Il processo sembra senza dubbio tortuoso ma in realtà è un passo obbligato se si
@@ -229,7 +229,7 @@ label=lst:ipointercopy, style=input]{code/host_device.c}
 Questo codice tuttavia risulta sbagliato poiché da host stiamo cercando di
 accedere direttamente alla memoria sul device (\texttt{device\_model->i}) poiché
 device\_model è allocato interamente su device. E' per questo che torna utile l'utilizzo
-di una struttura intermedia accennata in precedenza (ibrid\_model).
+di una struttura intermedia accennata in precedenza (hybrid\_model).
 Una copia corretta del codice \ref{lst:ipointercopy} potrebbe essere:
 
 \medskip
@@ -257,7 +257,7 @@ applica la procedura al contrario:
 label=lst:copydh, style=input]{code/copydh.c}
 
 L'oggetto \textit{copy\_model} presente nel codice è l'oggetto che in questo
-paragrafo abbiamo chiamato ibrid\_model. In
+paragrafo abbiamo chiamato hybrid\_model. In
 particolare il metodo \texttt{calCudaAllocatorModel} (cod. \ref{lst:copyhd})prende in input il modello
 e ne copia gli scalari in copy\_model, allocando in seguito tutti i puntatori all'interno sul device in
 modo da avere l'oggetto pronto alla nostra copia tra host e device.

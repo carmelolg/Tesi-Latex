@@ -87,9 +87,9 @@ architettura in cui tante unità di elaborazione eseguono contemporaneamente
 diverse istruzioni operando su più insiemi di dati.
 \end{description}
 
-\begin{figure}[b] 
+\begin{figure}[H] 
 \centering 
-\includegraphics[width=0.5\columnwidth]{Immagini/flynn} 
+\includegraphics[width=0.8\columnwidth]{Immagini/flynn} 
 \caption[Tassonomia di Flynn]{La tassonomia di Flynn}
 \label{fig:flynn} 
 \end{figure}
@@ -158,14 +158,14 @@ POSIX threads, OpenMP) forniscono strutture per la sincronizzazione come
 \textit{lock, barriere, semafori} e così via.
 
 
-\begin{figure}[tb]
+\begin{figure}[H]
 \centering
 \subfloat[UMA.]
 {\label{fig:uma}
-\includegraphics[width=.45\columnwidth]{Immagini/uma}} \quad
+\includegraphics[width=.5\columnwidth]{Immagini/uma}} \quad
 \subfloat[NUMA.]
 {\label{fig:numa}
-\includegraphics[width=.45\columnwidth]{Immagini/numa}} \\
+\includegraphics[width=.5\columnwidth]{Immagini/numa}} \\
 \caption[UMA e NUMA]{UMA e NUMA.}
 \end{figure}
 
@@ -209,9 +209,9 @@ tramite il paradigma del Message Passing agli altri processi che non vi hanno
 accesso. In questo modo entrano in gioco le due diverse architetture sfruttando
 i vantaggi di entrambe.
 
-\begin{figure}[b] 
+\begin{figure}[H] 
 \centering 
-\includegraphics[width=0.5\columnwidth]{Immagini/hybrid_model} 
+\includegraphics[width=0.7\columnwidth]{Immagini/hybrid_model} 
 \caption[Sistema Ibrido]{Esempio di sistema ibrido.\\}
 \label{fig:hybrid_model} 
 \end{figure}
@@ -282,9 +282,9 @@ matrice. Possiamo decomporre la nostra matrice in 4 parti uguali (se è
 possibile), e assegnarne una per ogni processo a disposizione. Ipoteticamente
 l'algoritmo sarà 4 volte più veloce rispetto alla versione sequenziale.
 
-\begin{figure}[tb] 
+\begin{figure}[H] 
 \centering 
-\includegraphics[width=0.5\columnwidth]{Immagini/matrix_dec} 
+\includegraphics[width=0.65\columnwidth]{Immagini/matrix_dec} 
 \caption[Esempio di decomposizione]{Suddivisione di una moltiplicazione tra una
 matrice e un vettore in 4 diversi task.\\}
 \label{fig:matrix_dec} 
@@ -301,23 +301,15 @@ viene rappresentata da un altro grafo: il \textbf{\textit{task-interaction graph
 L'interazione tra task è un fattore che limita molto la speedup di un algoritmo
 parallelo.
 
-\begin{figure}[tb] 
+\begin{figure}[H] 
 \centering 
-\includegraphics[width=0.5\columnwidth]{Immagini/matrix_int} 
+\includegraphics[width=0.65\columnwidth]{Immagini/matrix_int} 
 \caption[Grafo delle iterazioni]{Esempio di un grafo delle interazioni tra i
 task.\\}
 \label{fig:matrix_int} 
 \end{figure}
 
 Vediamo insieme ora le cinque differenti tecniche di decomposizione.
-
-\begin{figure}[b] 
-\centering 
-\includegraphics[width=0.5\columnwidth]{Immagini/dec_ric} 
-\caption[Decomposizione ricorsiva]{Esempio di decomposizione ricorsiva: il quicksort.\\}
-\label{fig:dec_ric} 
-\end{figure}
-
 
 
 \subsubsection{Decomposizione ricorsiva}
@@ -327,11 +319,11 @@ La prima divisione consiste nel dividere il problema principale in sottoproblemi
 indipendenti. Ognuno dei sottoproblemi generati viene risolto ricorsivamente
 applicando la stessa tecnica.
 
-\begin{figure}[b] 
+\begin{figure}[H] 
 \centering 
-\includegraphics[width=0.5\columnwidth]{Immagini/dec_dat} 
-\caption[Decomposizione dei dati]{Esempio di decomposizione dei dati.\\}
-\label{fig:dec_dat} 
+\includegraphics[width=0.65\columnwidth]{Immagini/dec_ric} 
+\caption[Decomposizione ricorsiva]{Esempio di decomposizione ricorsiva: il quicksort.\\}
+\label{fig:dec_ric} 
 \end{figure}
 
 \subsubsection{Decomposizione dei dati}
@@ -351,6 +343,12 @@ diversi approcci.
 	dunque ricombinare i risultati alla fine della computazione.
 \end{itemize}
 
+\begin{figure}[H] 
+\centering 
+\includegraphics[width=0.65\columnwidth]{Immagini/dec_dat} 
+\caption[Decomposizione dei dati]{Esempio di decomposizione dei dati.\\}
+\label{fig:dec_dat} 
+\end{figure}
 
 \subsubsection{Decomposizione esplorativa}
 La decomposizione esplorativa è una tecnica utilizzata per decomporre problemi
@@ -440,7 +438,7 @@ bottiglia che porterebbero ad una bassa performance.
 
 \begin{figure}[tb] 
 \centering 
-\includegraphics[width=0.5\columnwidth]{Immagini/master-slave} 
+\includegraphics[width=0.65\columnwidth]{Immagini/master-slave} 
 \caption[Modello Master-Slave]{Il modello Master-Slave.\\}
 \label{fig:master-slave} 
 \end{figure}

@@ -8,82 +8,82 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {1.1}{\ignorespaces Tassonomia di Flynn}}{18}{figure.caption.8}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {1.2}{\ignorespaces UMA e NUMA}}{19}{figure.caption.9}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces UMA e NUMA}}{20}{figure.caption.9}
 \defcounter {refsection}{0}\relax 
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {UMA.}}}{19}{subfigure.2.1}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {UMA.}}}{20}{subfigure.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {NUMA.}}}{19}{subfigure.2.2}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {NUMA.}}}{20}{subfigure.2.2}
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {1.3}{\ignorespaces Sistema Ibrido}}{21}{figure.caption.10}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {1.4}{\ignorespaces Esempio di decomposizione}}{22}{figure.caption.11}
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Esempio di decomposizione}}{23}{figure.caption.11}
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {1.5}{\ignorespaces Grafo delle iterazioni}}{23}{figure.caption.12}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {1.6}{\ignorespaces Decomposizione ricorsiva}}{23}{figure.caption.13}
+\contentsline {figure}{\numberline {1.6}{\ignorespaces Decomposizione ricorsiva}}{24}{figure.caption.14}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {1.7}{\ignorespaces Decomposizione dei dati}}{24}{figure.caption.15}
+\contentsline {figure}{\numberline {1.7}{\ignorespaces Decomposizione dei dati}}{25}{figure.caption.16}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {1.8}{\ignorespaces Modello Master-Slave}}{26}{figure.caption.19}
+\contentsline {figure}{\numberline {1.8}{\ignorespaces Modello Master-Slave}}{27}{figure.caption.19}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {1.9}{\ignorespaces Architettura Kepler}}{35}{figure.caption.20}
-\defcounter {refsection}{0}\relax 
-\addvspace {10\p@ }
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Compilatore NVCC}}{37}{figure.caption.21}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.2}{\ignorespaces GT 750M}}{39}{figure.caption.22}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Esecuzione di un programma CUDA}}{40}{figure.caption.23}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Griglie e blocchi cuda}}{41}{figure.caption.24}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Griglie e blocchi tridimensionali in CUDA}}{42}{figure.caption.25}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.6}{\ignorespaces CUDA Memory}}{44}{figure.caption.26}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Shared memory}}{45}{figure.caption.29}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Dynamic Parallelism}}{47}{figure.caption.31}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.9}{\ignorespaces CUDA su Visual Project}}{50}{figure.caption.32}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.10}{\ignorespaces Visual Profiler}}{51}{figure.caption.33}
+\contentsline {figure}{\numberline {1.9}{\ignorespaces Architettura Kepler}}{36}{figure.caption.20}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Esempi di spazi cellulari}}{54}{figure.caption.34}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Compilatore NVCC}}{38}{figure.caption.21}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Esempi di relazioni di vicinanza.\relax }}{55}{figure.caption.35}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces GT 750M}}{40}{figure.caption.22}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Esempio di automa cellulare unidimensionale\relax }}{57}{figure.caption.36}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Esecuzione di un programma CUDA}}{41}{figure.caption.23}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Colata lavica del 2006 del Monte Etna}}{60}{figure.caption.38}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Griglie e blocchi cuda}}{42}{figure.caption.24}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Griglie e blocchi tridimensionali in CUDA}}{43}{figure.caption.25}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2.6}{\ignorespaces CUDA Memory}}{45}{figure.caption.26}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Shared memory}}{46}{figure.caption.29}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Dynamic Parallelism}}{48}{figure.caption.31}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2.9}{\ignorespaces CUDA su Visual Project}}{51}{figure.caption.32}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Visual Profiler}}{52}{figure.caption.33}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Gioco della vita (Glider)}}{67}{figure.caption.39}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Esempi di spazi cellulari}}{55}{figure.caption.34}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Esempi di relazioni di vicinanza.\relax }}{56}{figure.caption.35}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Esempio di automa cellulare unidimensionale\relax }}{58}{figure.caption.36}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Colata lavica del 2006 del Monte Etna}}{61}{figure.caption.38}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Ciclo di vita del software OpenCAL-CUDA}}{75}{figure.caption.40}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Esempio di stream compaction}}{86}{figure.caption.41}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Gioco della vita (Glider)}}{68}{figure.caption.39}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Simulazione dopo 10000 passi con due crateri}}{112}{figure.caption.43}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Ciclo di vita del software OpenCAL-CUDA}}{76}{figure.caption.40}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Simulazione dopo 1000 passi con duecento crateri}}{112}{figure.caption.44}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Esempio di stream compaction}}{87}{figure.caption.41}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Confronto tra SCIARA sequenziale e SCIARA parallelo senza ottimizzazioni con l'utilizzo della configurazione con due crateri}}{113}{figure.caption.45}
+\addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Grafico della speedup, implementazione con l'ottimizzazione delle celle attive e due crateri}}{113}{figure.caption.46}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Simulazione dopo 10000 passi con due crateri}}{113}{figure.caption.43}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.5}{\ignorespaces Grafico dei tempi, confronto tra versione sequenziale e parallela con ottimizzazione delle celle attive e configurazione con due crateri}}{114}{figure.caption.47}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Simulazione dopo 1000 passi con duecento crateri}}{113}{figure.caption.44}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.6}{\ignorespaces Grafico dei tempi, confronto tra versione sequenziale e parallela con ottimizzazione delle celle attive e configurazione con duecento crateri}}{115}{figure.caption.48}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Confronto tra SCIARA sequenziale e SCIARA parallelo senza ottimizzazioni con l'utilizzo della configurazione con due crateri}}{114}{figure.caption.45}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.7}{\ignorespaces Grafico della speedup, implementazione con l'ottimizzazione delle celle attive e duecento crateri}}{115}{figure.caption.49}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Grafico della speedup, implementazione con l'ottimizzazione delle celle attive e due crateri}}{114}{figure.caption.46}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Grafico dei tempi, confronto tra versione sequenziale e parallela con ottimizzazione delle celle attive e configurazione con due crateri}}{115}{figure.caption.47}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Grafico dei tempi, confronto tra versione sequenziale e parallela con ottimizzazione delle celle attive e configurazione con duecento crateri}}{116}{figure.caption.48}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Grafico della speedup, implementazione con l'ottimizzazione delle celle attive e duecento crateri}}{116}{figure.caption.49}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
